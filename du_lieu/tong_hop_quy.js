@@ -1,0 +1,2 @@
+// Du lieu gia lap phuc vu dao tao - khong phai du lieu that
+window.DL_QUY = [{"quy":1,"tong":914,"dung_han":722,"truc_tuyen":375,"ty_le_dung_han":79.0,"ty_le_truc_tuyen":41.0},{"quy":2,"tong":713,"dung_han":554,"truc_tuyen":308,"ty_le_dung_han":77.7,"ty_le_truc_tuyen":43.2},{"quy":3,"tong":929,"dung_han":741,"truc_tuyen":473,"ty_le_dung_han":79.8,"ty_le_truc_tuyen":50.9},{"quy":4,"tong":739,"dung_han":566,"truc_tuyen":417,"ty_le_dung_han":76.6,"ty_le_truc_tuyen":56.4}];

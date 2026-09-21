@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thủ tục hành chính — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Danh muc thu tuc hanh chinh mo phong kem thoi han quy dinh. Du lieu hu cau.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Thủ tục hành chính — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="Danh muc thu tuc hanh chinh mo phong kem thoi han quy dinh. Du lieu hu cau.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Thủ tục hành chính — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="Danh muc thu tuc hanh chinh mo phong kem thoi han quy dinh. Du lieu hu cau.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("thu-tuc.html");</script>
+
+<main>
+  <h1>Danh mục thủ tục hành chính (mô phỏng)</h1>
+  <div class="hop hop-vang">
+    <b>Cách dùng trong bài thực hành.</b> Cột “Thời hạn quy định” là thời hạn giả định
+    dùng cho bài tập. Cột “Thời gian xử lý thực tế” được tính từ 3.295 hồ sơ mô phỏng.
+    Khoảng cách giữa hai cột này chính là vấn đề học viên cần phân tích và giải thích.
+  </div>
+
+  <div class="the">
+    <div class="tron">
+      <div><label for="fLV">Lĩnh vực</label><select id="fLV"></select></div>
+      <div><label for="fTim">Tìm theo tên thủ tục</label>
+        <input id="fTim" placeholder="Gõ một phần tên thủ tục" autocomplete="off"></div>
+    </div>
+    <div class="hang-nut">
+      <button onclick="loc()">Lọc</button>
+      <button class="phu" onclick="el('fLV').value='';el('fTim').value='';loc()">Xoá bộ lọc</button>
+      <button class="phu" onclick="taiCSV('thu_tuc.csv',
+        ['linh_vuc','thu_tuc','han','so_ho_so','ngay_tb'], DS)">Tải về máy (CSV)</button>
+    </div>
+    <div id="bang" class="cuon" style="margin-top:12px"></div>
+  </div>
+
+  <h2>Chênh lệch giữa thời hạn quy định và thời gian xử lý thực tế</h2>
+  <div class="the">
+    <p class="nho">Cột dưới đây thể hiện tỷ lệ giữa thời gian xử lý thực tế và
+    thời hạn quy định. Giá trị vượt 100% nghĩa là thủ tục đó trung bình đã vượt hạn.</p>
+    <div id="bieuDo"></div>
+  </div>
+
+  <h2>Thông tin chung áp dụng cho mọi thủ tục trong dữ liệu mô phỏng</h2>
+  <div class="luoi luoi-2">
+    <div class="the">
+      <h3>Cách nộp hồ sơ</h3>
+      <ul>
+        <li><b>Trực tuyến:</b> nộp qua cổng dịch vụ công, không phải đến trụ sở.</li>
+        <li><b>Trực tiếp:</b> nộp tại bộ phận một cửa của đơn vị.</li>
+        <li><b>Bưu chính:</b> gửi hồ sơ và nhận kết quả qua đường bưu điện.</li>
+      </ul>
+    </div>
+    <div class="the">
+      <h3>Các trạng thái hồ sơ trong dữ liệu</h3>
+      <ul>
+        <li><span class="nhan nhan-luc">Đã trả kết quả</span> — hồ sơ đã hoàn tất.</li>
+        <li><span class="nhan nhan-cam">Đang xử lý</span> — đang trong thời hạn giải quyết.</li>
+        <li><span class="nhan nhan-cam">Chờ bổ sung</span> — đã yêu cầu người nộp bổ sung giấy tờ.</li>
+        <li><span class="nhan nhan-do">Đang xử lý quá hạn</span> — đã vượt thời hạn nhưng chưa trả kết quả.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<script src="du_lieu/thu_tuc.js"></script>
+<script>
+var DS = DL_THU_TUC;
+
+function veDS(ds) {
+  DS = ds;
+  veBang(el("bang"), [
+    { ten: "Lĩnh vực", khoa: "linh_vuc" },
+    { ten: "Tên thủ tục", khoa: "thu_tuc" },
+    { ten: "Thời hạn quy định (ngày)", canh: "right", khoa: "han" },
+    { ten: "Số hồ sơ đã tiếp nhận", canh: "right", ve: function (r) { return so(r.so_ho_so); } },
+    { ten: "Thời gian xử lý thực tế (ngày)", canh: "right", ve: function (r) { return so(r.ngay_tb, 1); } },
+    {
+      ten: "Tỷ lệ so với hạn", ve: function (r) {
+        var t = r.ngay_tb / r.han * 100;
+        return nhan(t.toFixed(0) + "%", t > 100 ? "do" : (t > 85 ? "cam" : "luc"));
+      }
+    }
+  ], ds);
+}
+
+function loc() {
+  var lv = el("fLV").value, tim = el("fTim").value.trim().toLowerCase();
+  veDS(DL_THU_TUC.filter(function (r) {
+    return (!lv || r.linh_vuc === lv) &&
+      (!tim || r.thu_tuc.toLowerCase().indexOf(tim) >= 0);
+  }));
+}
+
+doChon(el("fLV"), DL_THU_TUC, "linh_vuc");
+el("fTim").addEventListener("input", loc);
+veDS(DL_THU_TUC);
+
+(function () {
+  var ds = DL_THU_TUC.slice().sort(function (a, b) {
+    return (b.ngay_tb / b.han) - (a.ngay_tb / a.han);
+  }).slice(0, 10);
+  veCot(el("bieuDo"),
+    ds.map(function (r) { return r.thu_tuc.substring(0, 16); }),
+    ds.map(function (r) { return +(r.ngay_tb / r.han * 100).toFixed(1); }),
+    "#C55A11", "Mười thủ tục có tỷ lệ thời gian xử lý so với thời hạn cao nhất (%)");
+})();
+
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

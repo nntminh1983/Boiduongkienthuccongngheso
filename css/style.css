@@ -1,0 +1,157 @@
+/* Cong dich vu cong GIA LAP - phuc vu dao tao */
+:root{
+  --cam:#C55A11; --cam-nhat:#FBE5D6; --xanh:#12404F; --xanh-nhat:#DEEAF6;
+  --luc:#5B8C5A; --luc-nhat:#E6EFE5; --do:#B03A48; --do-nhat:#F6E3E5;
+  --tim:#7030A0; --vang-nhat:#FFF6E8; --xam:#595959; --vien:#D9D9D9;
+  --nen:#F7F7F5;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; font-family:Arial,"Segoe UI",sans-serif; font-size:15px;
+  color:#1a1a1a; background:var(--nen); line-height:1.55;
+}
+a{color:var(--cam); text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ------------------------------------------------ bang canh bao gia lap */
+.canh-bao-gl{
+  background:var(--do); color:#fff; text-align:center; padding:7px 12px;
+  font-size:13px; font-weight:bold; letter-spacing:.3px;
+}
+
+/* ------------------------------------------------ dau trang */
+header.dau{background:var(--xanh); color:#fff; padding:14px 0}
+.bao{max-width:1160px; margin:0 auto; padding:0 18px}
+.dau .bao{display:flex; align-items:center; gap:16px; flex-wrap:wrap}
+.quoc-huy{
+  width:52px; height:52px; border-radius:50%; background:var(--cam);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:bold; font-size:11px; text-align:center; line-height:1.1;
+  border:2px solid #fff; flex:0 0 auto;
+}
+.ten-cq{font-size:13px; opacity:.9; margin:0}
+.ten-cong{font-size:22px; font-weight:bold; margin:2px 0 0}
+
+/* ------------------------------------------------ thanh dieu huong */
+nav.menu{background:var(--cam)}
+nav.menu ul{
+  max-width:1160px; margin:0 auto; padding:0 18px; list-style:none;
+  display:flex; flex-wrap:wrap;
+}
+nav.menu a{
+  display:block; color:#fff; padding:11px 15px; font-size:14px; font-weight:bold;
+}
+nav.menu a:hover,nav.menu a.dang{background:rgba(0,0,0,.18); text-decoration:none}
+
+/* ------------------------------------------------ noi dung */
+main{max-width:1160px; margin:20px auto 40px; padding:0 18px}
+h1{font-size:25px; color:var(--xanh); margin:8px 0 14px}
+h2{font-size:19px; color:var(--xanh); margin:26px 0 10px}
+h3{font-size:16px; color:var(--cam); margin:18px 0 8px}
+.the{
+  background:#fff; border:1px solid var(--vien); border-radius:7px;
+  padding:16px 18px; margin-bottom:16px;
+}
+.luoi{display:grid; gap:16px}
+.luoi-2{grid-template-columns:repeat(auto-fit,minmax(320px,1fr))}
+.luoi-3{grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.luoi-4{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+
+/* ------------------------------------------------ o so lieu */
+.so{background:#fff; border:1px solid var(--vien); border-left:5px solid var(--cam);
+    border-radius:6px; padding:14px 16px}
+.so .nhan{font-size:12.5px; color:var(--xam); text-transform:uppercase;
+          letter-spacing:.4px}
+.so .gia-tri{font-size:31px; font-weight:bold; color:var(--xanh); line-height:1.15;
+             margin:4px 0 2px}
+.so .phu{font-size:12.5px; color:var(--xam)}
+.so.tot{border-left-color:var(--luc)} .so.tot .gia-tri{color:var(--luc)}
+.so.xau{border-left-color:var(--do)} .so.xau .gia-tri{color:var(--do)}
+
+/* ------------------------------------------------ bang */
+table{border-collapse:collapse; width:100%; background:#fff; font-size:14px}
+th{background:var(--cam); color:#fff; padding:9px 10px; text-align:left;
+   font-size:13.5px; position:sticky; top:0}
+td{padding:8px 10px; border-bottom:1px solid #ececec; vertical-align:top}
+tbody tr:nth-child(even){background:#FCF7F3}
+tbody tr:hover{background:var(--cam-nhat)}
+.cuon{max-height:520px; overflow:auto; border:1px solid var(--vien);
+      border-radius:6px}
+
+/* ------------------------------------------------ nhan trang thai */
+.nhan{display:inline-block; padding:2px 9px; border-radius:11px;
+      font-size:12px; font-weight:bold; white-space:nowrap}
+.nhan-luc{background:var(--luc-nhat); color:#2f5a2e; border:1px solid var(--luc)}
+.nhan-do{background:var(--do-nhat); color:#8a2531; border:1px solid var(--do)}
+.nhan-cam{background:var(--cam-nhat); color:#8a3d0b; border:1px solid var(--cam)}
+.nhan-xanh{background:var(--xanh-nhat); color:#0d3341; border:1px solid var(--xanh)}
+.nhan-tim{background:#EFE3F7; color:#54227a; border:1px solid var(--tim)}
+
+/* ------------------------------------------------ bieu mau */
+label{display:block; font-size:13.5px; font-weight:bold; color:var(--xanh);
+      margin:10px 0 4px}
+input,select,textarea{
+  width:100%; padding:8px 10px; border:1px solid #bbb; border-radius:5px;
+  font-family:inherit; font-size:14px; background:#fff;
+}
+textarea{min-height:96px; resize:vertical}
+button,.nut{
+  display:inline-block; background:var(--cam); color:#fff; border:none;
+  padding:9px 20px; border-radius:5px; font-size:14px; font-weight:bold;
+  cursor:pointer; font-family:inherit;
+}
+button:hover,.nut:hover{background:#a84a0d; text-decoration:none}
+button.phu{background:#fff; color:var(--cam); border:1.5px solid var(--cam)}
+button.phu:hover{background:var(--cam-nhat)}
+.hang-nut{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
+
+/* ------------------------------------------------ hop chu thich */
+.hop{border-radius:6px; padding:12px 16px; margin:14px 0; font-size:14px}
+.hop-vang{background:var(--vang-nhat); border:1px solid var(--cam)}
+.hop-luc{background:var(--luc-nhat); border:1px solid var(--luc)}
+.hop-do{background:var(--do-nhat); border:1px solid var(--do)}
+.hop-xanh{background:var(--xanh-nhat); border:1px solid var(--xanh)}
+.hop b{color:var(--xanh)}
+
+/* ------------------------------------------------ bieu do thanh */
+.thanh-nen{background:#EDEDED; border-radius:4px; height:17px; overflow:hidden;
+           min-width:70px}
+.thanh{height:100%; background:var(--cam)}
+.thanh.tot{background:var(--luc)} .thanh.xau{background:var(--do)}
+.o-thanh{display:flex; align-items:center; gap:9px}
+.o-thanh span{font-size:13px; min-width:52px; text-align:right}
+
+/* ------------------------------------------------ chan trang */
+footer{background:var(--xanh); color:#cfe0e6; padding:18px 0; font-size:13px;
+       margin-top:34px}
+footer .bao{display:flex; justify-content:space-between; gap:16px;
+            flex-wrap:wrap}
+footer b{color:#fff}
+
+.nho{font-size:12.5px; color:var(--xam)}
+.giua{text-align:center}
+.phai{text-align:right}
+.tron{display:flex; gap:12px; flex-wrap:wrap; align-items:flex-end}
+.tron>div{flex:1 1 180px}
+hr{border:none; border-top:1px solid var(--vien); margin:20px 0}
+code{background:#F2F2F2; padding:1px 5px; border-radius:3px;
+     font-family:Consolas,monospace; font-size:13px}
+
+/* canhbao-batdau */
+/* ------------------------------------------- lop xac nhan lan dau truy cap */
+.gl-phu{
+  position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999;
+  background:rgba(18,64,79,.88); padding:18px;
+  display:flex; align-items:center; justify-content:center;
+}
+.gl-hop{
+  background:#fff; width:100%; max-width:640px; border-radius:6px;
+  border-top:7px solid var(--do); padding:24px 26px 22px;
+  max-height:92vh; overflow:auto; box-shadow:0 10px 40px rgba(0,0,0,.35);
+}
+.gl-hop h2{margin:0 0 12px; color:var(--do); font-size:21px; line-height:1.3}
+.gl-hop p{margin:0 0 11px}
+.gl-hop ul{margin:0 0 14px; padding-left:20px}
+.gl-hop li{margin-bottom:5px}
+.gl-hop .cuoi{color:var(--xam); font-size:13px; margin:12px 0 0}
+/* canhbao-ketthuc */

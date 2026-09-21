@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giám sát cảm biến — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Giam sat cam bien IoT mo phong. Du lieu hu cau.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Giám sát cảm biến — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="Giam sat cam bien IoT mo phong. Du lieu hu cau.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Giám sát cảm biến — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="Giam sat cam bien IoT mo phong. Du lieu hu cau.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("iot.html");</script>
+
+<main>
+  <h1>Bảng giám sát hệ thống cảm biến</h1>
+  <div class="hop hop-vang">
+    <b>Dữ liệu mô phỏng 15 ngày.</b> Dữ liệu gốc được ghi mỗi 10 phút; trang này hiển thị
+    giá trị trung bình theo từng giờ để dễ quan sát. Trong dữ liệu có chủ ý cài sẵn
+    một số bất thường: thiết bị mất kết nối, pin cạn dần, giá trị vượt ngưỡng.
+    Nhiệm vụ của học viên là phát hiện ra chúng.
+  </div>
+
+  <h2>Tình trạng thiết bị hiện tại</h2>
+  <div class="luoi luoi-4" id="oTB"></div>
+
+  <h2>Danh mục thiết bị</h2>
+  <div class="the">
+    <div id="bangTB" class="cuon"></div>
+    <div class="hang-nut">
+      <button class="phu" onclick="taiCSV('thiet_bi.csv',
+        ['ma_thiet_bi','loai_thiet_bi','giao_thuc','du_lieu_thu_thap','vi_tri_lap_dat',
+         'ngay_lap_dat','chu_ky_bao_tri_thang','nguon_dien','trang_thai'],
+        DL_THIET_BI)">Tải danh mục về máy (CSV)</button>
+    </div>
+  </div>
+
+  <h2>Biểu đồ theo thời gian</h2>
+  <div class="the">
+    <div class="tron">
+      <div><label for="fChiSo">Chỉ số theo dõi</label>
+        <select id="fChiSo">
+          <option value="muc_nuoc_m">Mực nước (m)</option>
+          <option value="pm25_ug_m3">Bụi mịn PM2.5 (µg/m³)</option>
+          <option value="nhiet_do_C">Nhiệt độ (°C)</option>
+          <option value="do_am_pct">Độ ẩm (%)</option>
+          <option value="pin_pct">Mức pin thiết bị (%)</option>
+        </select></div>
+      <div><label for="fViTri">Điểm đo</label><select id="fViTri"></select></div>
+    </div>
+    <div id="bieuDo" style="margin-top:14px"></div>
+  </div>
+
+  <h2>Rà soát bất thường tự động</h2>
+  <div class="the">
+    <p class="nho">Bảng dưới đây áp dụng các quy tắc đơn giản để đánh dấu điểm cần xem xét.
+    Đây là ví dụ cho thấy không cần mô hình phức tạp vẫn phát hiện được phần lớn vấn đề.</p>
+    <div id="bangBT" class="cuon"></div>
+  </div>
+
+  <h2>Số liệu tổng hợp theo điểm đo</h2>
+  <div class="the"><div id="bangTH"></div></div>
+
+  <div class="hop hop-xanh">
+    <b>Câu hỏi thảo luận.</b> Nếu anh/chị là người trực ban, khi nhìn bảng này vào 7 giờ sáng,
+    việc đầu tiên anh/chị làm là gì? Ngưỡng cảnh báo nào cần được đặt để hệ thống
+    tự báo cho anh/chị thay vì anh/chị phải chủ động vào xem?
+  </div>
+</main>
+
+<script src="du_lieu/thiet_bi.js"></script>
+<script src="du_lieu/cam_bien_gio.js"></script>
+<script>
+var MAU = ["#2a78d6", "#eb6834", "#1baf7a", "#7030A0", "#B03A48",
+           "#12404F", "#C55A11", "#5B8C5A"];
+
+function o(a, b, c, l) {
+  return '<div class="so ' + l + '"><div class="nhan">' + a + '</div><div class="gia-tri">' +
+    b + '</div><div class="phu">' + c + "</div></div>";
+}
+
+(function () {
+  // trang thai thiet bi
+  var hd = 0, loi = 0, bd = 0;
+  DL_THIET_BI.forEach(function (r) {
+    if (r.trang_thai === "Hoạt động") hd++;
+    else if (r.trang_thai === "Bảo trì") bd++;
+    else loi++;
+  });
+  // ban ghi cuoi cung cua moi thiet bi
+  var cuoi = {};
+  DL_CAM_BIEN.forEach(function (r) {
+    if (!cuoi[r.ma_thiet_bi] || r.gio > cuoi[r.ma_thiet_bi].gio) cuoi[r.ma_thiet_bi] = r;
+  });
+  var pinThap = 0;
+  Object.keys(cuoi).forEach(function (k) {
+    if (cuoi[k].pin_pct !== null && cuoi[k].pin_pct < 25) pinThap++;
+  });
+  el("oTB").innerHTML =
+    o("Tổng số thiết bị", so(DL_THIET_BI.length), "trong danh mục quản lý", "") +
+    o("Đang hoạt động", so(hd), "trên tổng " + DL_THIET_BI.length + " thiết bị",
+      hd === DL_THIET_BI.length ? "tot" : "") +
+    o("Hỏng hoặc mất kết nối", so(loi), "cần xử lý", loi ? "xau" : "tot") +
+    o("Pin dưới 25%", so(pinThap), "cần lên lịch thay pin", pinThap ? "xau" : "tot");
+
+  veBang(el("bangTB"), [
+    { ten: "Mã", khoa: "ma_thiet_bi" },
+    { ten: "Loại thiết bị", khoa: "loai_thiet_bi" },
+    { ten: "Giao thức", khoa: "giao_thuc" },
+    { ten: "Dữ liệu thu thập", khoa: "du_lieu_thu_thap" },
+    { ten: "Vị trí", khoa: "vi_tri_lap_dat" },
+    { ten: "Lắp đặt", ve: function (r) { return ngay(r.ngay_lap_dat); } },
+    { ten: "Nguồn điện", khoa: "nguon_dien" },
+    {
+      ten: "Trạng thái", ve: function (r) {
+        return nhan(r.trang_thai, r.trang_thai === "Hoạt động" ? "luc"
+          : (r.trang_thai === "Bảo trì" ? "cam" : "do"));
+      }
+    }
+  ], DL_THIET_BI);
+
+  // bat thuong
+  var bt = [];
+  var theoTB = {};
+  DL_CAM_BIEN.forEach(function (r) {
+    (theoTB[r.ma_thiet_bi] = theoTB[r.ma_thiet_bi] || []).push(r);
+  });
+  Object.keys(theoTB).forEach(function (ma) {
+    var ds = theoTB[ma].slice().sort(function (a, b) { return a.gio < b.gio ? -1 : 1; });
+    var vt = ds[0].vi_tri;
+    var trong = ds.filter(function (r) {
+      return r.nhiet_do_C === null && r.do_am_pct === null &&
+        r.pm25_ug_m3 === null && r.muc_nuoc_m === null;
+    }).length;
+    if (trong) bt.push([ma, vt, "Mất dữ liệu", trong + " giờ không có bản ghi nào",
+      "Kiểm tra kết nối và nguồn điện của thiết bị"]);
+    var pin = ds[ds.length - 1].pin_pct;
+    if (pin !== null && pin < 25) bt.push([ma, vt, "Pin yếu",
+      "Mức pin còn " + pin + "%", "Lên lịch thay pin trong vòng 2 tuần"]);
+    var mnMax = Math.max.apply(null, ds.map(function (r) {
+      return r.muc_nuoc_m === null ? -1 : r.muc_nuoc_m;
+    }));
+    if (mnMax > 1.2) bt.push([ma, vt, "Mực nước cao",
+      "Cao nhất ghi nhận " + mnMax.toFixed(2) + " m",
+      "Rà soát tiêu thoát nước, kiểm tra ngưỡng cảnh báo"]);
+    var pmMax = Math.max.apply(null, ds.map(function (r) {
+      return r.pm25_ug_m3 === null ? -1 : r.pm25_ug_m3;
+    }));
+    if (pmMax > 55) bt.push([ma, vt, "Bụi mịn vượt ngưỡng",
+      "Cao nhất ghi nhận " + pmMax.toFixed(1) + " µg/m³",
+      "Đối chiếu với hoạt động thi công, giao thông trong khu vực"]);
+  });
+  veBang(el("bangBT"), [
+    { ten: "Thiết bị", ve: function (r) { return r[0]; } },
+    { ten: "Vị trí", ve: function (r) { return r[1]; } },
+    { ten: "Loại bất thường", ve: function (r) { return nhan(r[2], "do"); } },
+    { ten: "Chi tiết", ve: function (r) { return r[3]; } },
+    { ten: "Hành động đề xuất", ve: function (r) { return r[4]; } }
+  ], bt);
+
+  // tong hop theo vi tri
+  var vt = {};
+  DL_CAM_BIEN.forEach(function (r) {
+    var k = r.vi_tri;
+    vt[k] = vt[k] || { n: 0, nd: 0, nn: 0, pm: 0, pn: 0, mn: -1, pin: 101 };
+    vt[k].n++;
+    if (r.nhiet_do_C !== null) { vt[k].nd += r.nhiet_do_C; vt[k].nn++; }
+    if (r.pm25_ug_m3 !== null) { vt[k].pm += r.pm25_ug_m3; vt[k].pn++; }
+    if (r.muc_nuoc_m !== null && r.muc_nuoc_m > vt[k].mn) vt[k].mn = r.muc_nuoc_m;
+    if (r.pin_pct !== null && r.pin_pct < vt[k].pin) vt[k].pin = r.pin_pct;
+  });
+  var hang = Object.keys(vt).sort().map(function (k) {
+    var v = vt[k];
+    return {
+      vi_tri: k, ban_ghi: v.n,
+      nhiet: v.nn ? (v.nd / v.nn) : null,
+      pm: v.pn ? (v.pm / v.pn) : null,
+      mn: v.mn < 0 ? null : v.mn,
+      pin: v.pin > 100 ? null : v.pin
+    };
+  });
+  veBang(el("bangTH"), [
+    { ten: "Điểm đo", khoa: "vi_tri" },
+    { ten: "Số bản ghi theo giờ", canh: "right", ve: function (r) { return so(r.ban_ghi); } },
+    { ten: "Nhiệt độ TB (°C)", canh: "right", ve: function (r) { return r.nhiet === null ? "–" : so(r.nhiet, 1); } },
+    { ten: "PM2.5 TB (µg/m³)", canh: "right", ve: function (r) { return r.pm === null ? "–" : so(r.pm, 1); } },
+    { ten: "Mực nước cao nhất (m)", canh: "right", ve: function (r) { return r.mn === null ? "–" : so(r.mn, 2); } },
+    {
+      ten: "Pin thấp nhất (%)", ve: function (r) {
+        return r.pin === null ? "–" : thanh(r.pin, 100, r.pin < 25 ? "xau" : "tot");
+      }
+    }
+  ], hang);
+
+  // bieu do
+  doChon(el("fViTri"), DL_CAM_BIEN, "vi_tri", "— Tất cả điểm đo —");
+  el("fChiSo").addEventListener("change", ve);
+  el("fViTri").addEventListener("change", ve);
+  ve();
+
+  function ve() {
+    var cs = el("fChiSo").value, loc = el("fViTri").value;
+    var gio = [];
+    DL_CAM_BIEN.forEach(function (r) { if (gio.indexOf(r.gio) < 0) gio.push(r.gio); });
+    gio.sort();
+    var ds = {};
+    DL_CAM_BIEN.forEach(function (r) {
+      if (loc && r.vi_tri !== loc) return;
+      (ds[r.vi_tri] = ds[r.vi_tri] || {})[r.gio] = r[cs];
+    });
+    var ten = Object.keys(ds).sort();
+    if (!ten.length) {
+      el("bieuDo").innerHTML = '<p class="nho giua">Không có dữ liệu cho lựa chọn này.</p>';
+      return;
+    }
+    var chuoi = ten.map(function (t, i) {
+      return {
+        ten: t, mau: MAU[i % MAU.length],
+        gia_tri: gio.map(function (g) {
+          var v = ds[t][g];
+          return (v === undefined || v === null) ? null : v;
+        })
+      };
+    });
+    var donVi = el("fChiSo").options[el("fChiSo").selectedIndex].text;
+    veDuong(el("bieuDo"), gio.map(function (g) { return g.substring(5, 13); }),
+      chuoi, donVi);
+  }
+})();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

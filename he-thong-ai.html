@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ đăng ký hệ thống AI — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="So dang ky he thong AI mo phong de hoc vien dien thu. Du lieu hu cau.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Sổ đăng ký hệ thống AI — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="So dang ky he thong AI mo phong de hoc vien dien thu. Du lieu hu cau.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Sổ đăng ký hệ thống AI — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="So dang ky he thong AI mo phong de hoc vien dien thu. Du lieu hu cau.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("he-thong-ai.html");</script>
+
+<main>
+  <h1>Sổ đăng ký hệ thống có yếu tố trí tuệ nhân tạo</h1>
+  <div class="hop hop-vang">
+    <b>Bài tập trên trang này.</b> Sổ liệt kê 15 hệ thống mà cơ quan hư cấu đang sử dụng.
+    Ba cột cuối cùng còn để trống — học viên sẽ tự điền mức rủi ro, nghĩa vụ phải thực hiện
+    và biện pháp kiểm soát cho từng hệ thống, sau đó tải kết quả về máy để nộp.
+    Kết quả chỉ lưu trong trình duyệt của học viên và mất khi đóng trang.
+  </div>
+
+  <h2>Khung tham chiếu để phân loại</h2>
+  <div class="luoi luoi-4">
+    <div class="the" style="border-left:5px solid #B03A48">
+      <h3 style="color:#B03A48">Rủi ro không chấp nhận được</h3>
+      <p>Hệ thống bị cấm triển khai vì xâm phạm nghiêm trọng quyền con người
+      hoặc thao túng hành vi.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> không được sử dụng.</p>
+    </div>
+    <div class="the" style="border-left:5px solid #C55A11">
+      <h3 style="color:#C55A11">Rủi ro cao</h3>
+      <p>Hệ thống tác động trực tiếp đến quyền và lợi ích của người dân:
+      quyết định về hồ sơ, chính sách, an toàn.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> đăng ký, đánh giá tác động, con người giám sát,
+      lưu nhật ký, giải thích được kết quả.</p>
+    </div>
+    <div class="the" style="border-left:5px solid #7030A0">
+      <h3 style="color:#7030A0">Rủi ro trung bình</h3>
+      <p>Hệ thống tương tác trực tiếp với người dân hoặc tạo ra nội dung
+      công bố ra bên ngoài.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> thông báo cho người dùng biết đang tương tác với AI,
+      gắn nhãn nội dung do AI tạo.</p>
+    </div>
+    <div class="the" style="border-left:5px solid #5B8C5A">
+      <h3 style="color:#5B8C5A">Rủi ro thấp</h3>
+      <p>Hệ thống hỗ trợ công việc nội bộ, không ra quyết định, không xử lý
+      dữ liệu cá nhân.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> tuân thủ quy chế nội bộ về sử dụng công cụ AI.</p>
+    </div>
+  </div>
+
+  <h2>Sổ đăng ký</h2>
+  <div class="the">
+    <div class="hang-nut" style="margin-bottom:12px">
+      <button onclick="taiKQ()">Tải kết quả đã điền về máy (CSV)</button>
+      <button class="phu" onclick="xoaHet()">Xoá toàn bộ phần đã điền</button>
+      <span class="nho" id="tienDo" style="align-self:center"></span>
+    </div>
+    <div id="bang" class="cuon" style="max-height:none"></div>
+  </div>
+
+  <div class="hop hop-xanh">
+    <b>Gợi ý ba câu hỏi để xác định mức rủi ro của một hệ thống.</b>
+    <ol>
+      <li>Kết quả của hệ thống có ảnh hưởng trực tiếp đến quyền lợi của người dân không?
+      Nếu có thì nghiêng về rủi ro cao.</li>
+      <li>Hệ thống có xử lý dữ liệu cá nhân không? Nếu có thì mức rủi ro tăng lên
+      ít nhất một bậc.</li>
+      <li>Người dân có biết mình đang tương tác với máy không? Nếu không thì
+      tối thiểu phải ở mức rủi ro trung bình và bắt buộc phải thông báo.</li>
+    </ol>
+  </div>
+</main>
+
+<script src="du_lieu/he_thong_ai.js"></script>
+<script>
+var MUC = ["", "Rủi ro thấp", "Rủi ro trung bình", "Rủi ro cao",
+           "Rủi ro không chấp nhận được"];
+var KQ = {};
+
+function mauMuc(m) {
+  if (m === "Rủi ro cao") return "cam";
+  if (m === "Rủi ro không chấp nhận được") return "do";
+  if (m === "Rủi ro trung bình") return "tim";
+  if (m === "Rủi ro thấp") return "luc";
+  return "xanh";
+}
+
+function ve() {
+  var h = "<table><thead><tr>" +
+    "<th style='width:52px'>Mã</th><th>Tên hệ thống</th><th>Lĩnh vực</th>" +
+    "<th>Dữ liệu xử lý</th><th>Có DL cá nhân</th><th>Vai trò của AI</th>" +
+    "<th style='width:170px'>Mức rủi ro (học viên điền)</th>" +
+    "<th style='width:150px'>Phải thông báo?</th>" +
+    "<th style='width:230px'>Biện pháp kiểm soát</th></tr></thead><tbody>";
+  DL_AI.forEach(function (r, i) {
+    var k = r.ma_he_thong;
+    KQ[k] = KQ[k] || { muc: "", tb: "", bp: "" };
+    h += "<tr><td><b>" + k + "</b></td><td>" + r.ten_he_thong + "</td><td>" +
+      r.linh_vuc_nghiep_vu + "</td><td>" + r.loai_du_lieu_xu_ly + "</td><td>" +
+      nhan(r.co_du_lieu_ca_nhan, r.co_du_lieu_ca_nhan === "Có" ? "do" : "luc") +
+      "</td><td>" + r.vai_tro_cua_ai + "</td>" +
+      "<td><select onchange=\"dat('" + k + "','muc',this.value)\">" +
+      MUC.map(function (m) {
+        return "<option" + (KQ[k].muc === m ? " selected" : "") + ">" + m + "</option>";
+      }).join("") + "</select></td>" +
+      "<td><select onchange=\"dat('" + k + "','tb',this.value)\">" +
+      ["", "Có", "Không"].map(function (m) {
+        return "<option" + (KQ[k].tb === m ? " selected" : "") + ">" + m + "</option>";
+      }).join("") + "</select></td>" +
+      "<td><input value=\"" + KQ[k].bp.replace(/"/g, "&quot;") +
+      "\" placeholder=\"Ví dụ: con người phê duyệt trước khi ra quyết định\" " +
+      "onchange=\"dat('" + k + "','bp',this.value)\"></td></tr>";
+  });
+  h += "</tbody></table>";
+  el("bang").innerHTML = h;
+  capNhatTienDo();
+}
+
+function dat(ma, truong, gt) {
+  KQ[ma][truong] = gt;
+  capNhatTienDo();
+}
+
+function capNhatTienDo() {
+  var xong = 0;
+  Object.keys(KQ).forEach(function (k) { if (KQ[k].muc) xong++; });
+  el("tienDo").innerHTML = "Đã phân loại " + xong + " / " + DL_AI.length + " hệ thống.";
+}
+
+function taiKQ() {
+  var hang = DL_AI.map(function (r) {
+    var k = KQ[r.ma_he_thong] || {};
+    return {
+      ma_he_thong: r.ma_he_thong,
+      ten_he_thong: r.ten_he_thong,
+      linh_vuc_nghiep_vu: r.linh_vuc_nghiep_vu,
+      co_du_lieu_ca_nhan: r.co_du_lieu_ca_nhan,
+      vai_tro_cua_ai: r.vai_tro_cua_ai,
+      muc_rui_ro_hoc_vien_danh_gia: k.muc || "",
+      can_thong_bao_phan_loai: k.tb || "",
+      bien_phap_kiem_soat: k.bp || ""
+    };
+  });
+  taiCSV("phan_loai_rui_ro_ai.csv",
+    ["ma_he_thong", "ten_he_thong", "linh_vuc_nghiep_vu", "co_du_lieu_ca_nhan",
+     "vai_tro_cua_ai", "muc_rui_ro_hoc_vien_danh_gia", "can_thong_bao_phan_loai",
+     "bien_phap_kiem_soat"], hang);
+}
+
+function xoaHet() {
+  KQ = {};
+  ve();
+}
+
+ve();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

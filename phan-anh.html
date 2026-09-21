@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phản ánh, kiến nghị — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Phan anh, kien nghi mo phong cua nguoi dan. Du lieu hu cau, khong gui di dau.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Phản ánh, kiến nghị — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="Phan anh, kien nghi mo phong cua nguoi dan. Du lieu hu cau, khong gui di dau.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Phản ánh, kiến nghị — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="Phan anh, kien nghi mo phong cua nguoi dan. Du lieu hu cau, khong gui di dau.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("phan-anh.html");</script>
+
+<main>
+  <h1>Tiếp nhận và xử lý phản ánh, kiến nghị</h1>
+  <div class="hop hop-do">
+    <b>Biểu mẫu bên dưới không gửi dữ liệu đi đâu.</b> Nội dung học viên nhập chỉ hiển thị
+    lại ngay trên trang để phục vụ bài tập và sẽ mất khi tải lại trang.
+    Không nhập thông tin cá nhân thật của bất kỳ ai.
+  </div>
+
+  <h2>Gửi phản ánh mới (mô phỏng)</h2>
+  <div class="the">
+    <div class="tron">
+      <div><label for="gDonVi">Đơn vị tiếp nhận</label><select id="gDonVi"></select></div>
+      <div><label for="gLinhVuc">Lĩnh vực</label><select id="gLinhVuc"></select></div>
+      <div><label for="gKenh">Kênh gửi</label><select id="gKenh"></select></div>
+    </div>
+    <label for="gNoiDung">Nội dung phản ánh</label>
+    <textarea id="gNoiDung" placeholder="Mô tả sự việc: xảy ra ở đâu, từ bao giờ, ảnh hưởng thế nào..."></textarea>
+    <div class="hang-nut">
+      <button onclick="gui()">Gửi phản ánh</button>
+      <button class="phu" onclick="el('gNoiDung').value=''">Xoá nội dung</button>
+    </div>
+    <div id="ketQuaGui"></div>
+  </div>
+
+  <h2>Danh sách phản ánh đã tiếp nhận</h2>
+  <div class="the">
+    <div class="tron">
+      <div><label for="fDV">Đơn vị</label><select id="fDV"></select></div>
+      <div><label for="fLV">Lĩnh vực</label><select id="fLV"></select></div>
+      <div><label for="fSacThai">Sắc thái tham chiếu</label><select id="fSacThai"></select></div>
+      <div><label for="fTT">Trạng thái xử lý</label><select id="fTT"></select></div>
+      <div><label for="fTim">Tìm trong nội dung</label>
+        <input id="fTim" placeholder="Ví dụ: ngập, chiếu sáng, chờ lâu"></div>
+    </div>
+    <div class="hang-nut">
+      <button onclick="loc()">Lọc</button>
+      <button class="phu" onclick="xoaLoc()">Xoá bộ lọc</button>
+      <button class="phu" onclick="taiCSV('phan_anh_da_loc.csv',
+        ['ma_phan_anh','ngay_tiep_nhan','don_vi','kenh_tiep_nhan','linh_vuc',
+         'noi_dung_phan_anh','sac_thai_tham_chieu','trang_thai','so_ngay_xu_ly'],
+        KQ)">Tải kết quả về máy (CSV)</button>
+    </div>
+    <div id="tomTat" style="margin-top:14px"></div>
+    <div id="bang" class="cuon" style="margin-top:10px"></div>
+    <p class="nho" id="ghiChu"></p>
+  </div>
+
+  <h2>Phân bố theo lĩnh vực</h2>
+  <div class="the"><div id="bieuDo"></div></div>
+
+  <div class="hop hop-vang">
+    <b>Gợi ý bài tập.</b> Cột “Sắc thái tham chiếu” trong dữ liệu là nhãn do chương trình
+    sinh dữ liệu gán sẵn. Học viên hãy tự đọc một mẫu 30 phản ánh, tự gán nhãn sắc thái,
+    rồi so sánh với cột tham chiếu để thấy mức độ khó của bài toán phân tích sắc thái
+    và vì sao kết quả của máy cần được người kiểm tra lại.
+  </div>
+</main>
+
+<script src="du_lieu/phan_anh.js"></script>
+<script>
+var KQ = DL_PHAN_ANH, GIOI_HAN = 200, dem = 0;
+
+function sacThai(s) {
+  if (s === "Tiêu cực") return nhan(s, "do");
+  if (s === "Tích cực") return nhan(s, "luc");
+  return nhan(s || "–", "xanh");
+}
+
+function veKQ(ds) {
+  KQ = ds;
+  veBang(el("bang"), [
+    { ten: "Mã", khoa: "ma_phan_anh" },
+    { ten: "Ngày", ve: function (r) { return ngay(r.ngay_tiep_nhan); } },
+    { ten: "Đơn vị", khoa: "don_vi" },
+    { ten: "Lĩnh vực", khoa: "linh_vuc" },
+    { ten: "Nội dung", khoa: "noi_dung_phan_anh" },
+    { ten: "Kênh", khoa: "kenh_tiep_nhan" },
+    { ten: "Sắc thái", ve: function (r) { return sacThai(r.sac_thai_tham_chieu); } },
+    { ten: "Trạng thái", ve: function (r) { return nhanTrangThai(r.trang_thai); } },
+    { ten: "Ngày xử lý", canh: "right", khoa: "so_ngay_xu_ly" }
+  ], ds.slice(0, GIOI_HAN));
+  el("ghiChu").innerHTML = ds.length > GIOI_HAN
+    ? "Hiển thị " + GIOI_HAN + " phản ánh đầu tiên trong tổng số " + so(ds.length) + "."
+    : "Hiển thị toàn bộ " + so(ds.length) + " phản ánh phù hợp.";
+
+  var tc = 0, dx = 0, ng = 0, nn = 0;
+  ds.forEach(function (r) {
+    if (r.sac_thai_tham_chieu === "Tiêu cực") tc++;
+    if (r.trang_thai === "Đã xử lý") dx++;
+    if (r.so_ngay_xu_ly !== null && r.so_ngay_xu_ly !== "") { ng += +r.so_ngay_xu_ly; nn++; }
+  });
+  var n = ds.length || 1;
+  el("tomTat").innerHTML = '<div class="luoi luoi-4">' +
+    o("Số phản ánh", so(ds.length), "phù hợp bộ lọc", "") +
+    o("Tỷ lệ sắc thái tiêu cực", (tc / n * 100).toFixed(1) + "%", so(tc) + " phản ánh",
+      tc / n > 0.5 ? "xau" : "") +
+    o("Tỷ lệ đã xử lý", (dx / n * 100).toFixed(1) + "%", so(dx) + " phản ánh",
+      dx / n >= 0.7 ? "tot" : "xau") +
+    o("Số ngày xử lý TB", nn ? (ng / nn).toFixed(1) : "–", "trên " + so(nn) + " phản ánh đã xong", "") +
+    "</div>";
+}
+
+function o(a, b, c, l) {
+  return '<div class="so ' + l + '"><div class="nhan">' + a + '</div><div class="gia-tri">' +
+    b + '</div><div class="phu">' + c + "</div></div>";
+}
+
+function loc() {
+  var dv = el("fDV").value, lv = el("fLV").value, st = el("fSacThai").value,
+      tt = el("fTT").value, tim = el("fTim").value.trim().toLowerCase();
+  veKQ(DL_PHAN_ANH.filter(function (r) {
+    return (!dv || r.don_vi === dv) && (!lv || r.linh_vuc === lv) &&
+      (!st || r.sac_thai_tham_chieu === st) && (!tt || r.trang_thai === tt) &&
+      (!tim || String(r.noi_dung_phan_anh).toLowerCase().indexOf(tim) >= 0);
+  }));
+}
+
+function xoaLoc() {
+  ["fDV", "fLV", "fSacThai", "fTT"].forEach(function (i) { el(i).value = ""; });
+  el("fTim").value = "";
+  veKQ(DL_PHAN_ANH);
+}
+
+function gui() {
+  var nd = el("gNoiDung").value.trim();
+  if (nd.length < 15) {
+    el("ketQuaGui").innerHTML = '<div class="hop hop-do">Nội dung phản ánh quá ngắn. ' +
+      "Hãy mô tả rõ sự việc để bài tập có dữ liệu phân tích.</div>";
+    return;
+  }
+  dem++;
+  var ma = "PA" + new Date().getFullYear() + String(9000 + dem);
+  el("ketQuaGui").innerHTML = '<div class="hop hop-luc">' +
+    "<b>Đã ghi nhận phản ánh mô phỏng " + ma + "</b><br>" +
+    "Đơn vị tiếp nhận: " + (el("gDonVi").value || "chưa chọn") + " &nbsp;|&nbsp; " +
+    "Lĩnh vực: " + (el("gLinhVuc").value || "chưa chọn") + " &nbsp;|&nbsp; " +
+    "Kênh: " + (el("gKenh").value || "chưa chọn") + "<br>" +
+    "Số ký tự nội dung: " + nd.length + " &nbsp;|&nbsp; Số từ: " +
+    nd.split(/\s+/).length + "<br><br>" +
+    '<span class="nho">Đây chỉ là kết quả mô phỏng hiển thị tại chỗ. ' +
+    "Không có dữ liệu nào được gửi đi hoặc lưu lại.</span></div>";
+}
+
+doChon(el("fDV"), DL_PHAN_ANH, "don_vi");
+doChon(el("fLV"), DL_PHAN_ANH, "linh_vuc");
+doChon(el("fSacThai"), DL_PHAN_ANH, "sac_thai_tham_chieu");
+doChon(el("fTT"), DL_PHAN_ANH, "trang_thai");
+doChon(el("gDonVi"), DL_PHAN_ANH, "don_vi", "— Chọn đơn vị —");
+doChon(el("gLinhVuc"), DL_PHAN_ANH, "linh_vuc", "— Chọn lĩnh vực —");
+doChon(el("gKenh"), DL_PHAN_ANH, "kenh_tiep_nhan", "— Chọn kênh —");
+el("fTim").addEventListener("input", loc);
+veKQ(DL_PHAN_ANH);
+
+(function () {
+  var m = {};
+  DL_PHAN_ANH.forEach(function (r) { m[r.linh_vuc] = (m[r.linh_vuc] || 0) + 1; });
+  var k = Object.keys(m).sort(function (a, b) { return m[b] - m[a]; });
+  veCot(el("bieuDo"), k.map(function (x) { return x.substring(0, 18); }),
+    k.map(function (x) { return m[x]; }), "#B03A48",
+    "Số lượng phản ánh theo lĩnh vực");
+})();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

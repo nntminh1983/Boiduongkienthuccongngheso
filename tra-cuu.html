@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tra cứu hồ sơ — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Tra cuu ho so thu tuc hanh chinh mo phong. Du lieu hu cau, phuc vu bai thuc hanh.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Tra cứu hồ sơ — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="Tra cuu ho so thu tuc hanh chinh mo phong. Du lieu hu cau, phuc vu bai thuc hanh.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Tra cứu hồ sơ — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="Tra cuu ho so thu tuc hanh chinh mo phong. Du lieu hu cau, phuc vu bai thuc hanh.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("tra-cuu.html");</script>
+
+<main>
+  <h1>Tra cứu tình trạng giải quyết hồ sơ</h1>
+  <div class="hop hop-vang">
+    <b>Dữ liệu mô phỏng.</b> Bộ dữ liệu gồm 3.295 hồ sơ của 8 đơn vị hành chính hư cấu
+    trong năm 2026. Thử tra một mã có thật trong dữ liệu, ví dụ
+    <code>HS2026000001</code>, hoặc dùng các bộ lọc bên dưới.
+  </div>
+
+  <div class="the">
+    <h3>Tra cứu theo mã hồ sơ</h3>
+    <div class="tron">
+      <div>
+        <label for="ma">Mã hồ sơ</label>
+        <input id="ma" placeholder="Ví dụ: HS2026000001" autocomplete="off">
+      </div>
+      <div style="flex:0 0 auto">
+        <button onclick="traMa()">Tra cứu</button>
+      </div>
+    </div>
+    <div id="ketQuaMa"></div>
+  </div>
+
+  <h2>Tra cứu theo bộ lọc</h2>
+  <div class="the">
+    <div class="tron">
+      <div><label for="fDonVi">Đơn vị tiếp nhận</label><select id="fDonVi"></select></div>
+      <div><label for="fLinhVuc">Lĩnh vực</label><select id="fLinhVuc"></select></div>
+      <div><label for="fKenh">Kênh nộp</label><select id="fKenh"></select></div>
+      <div><label for="fDungHan">Tình trạng thời hạn</label><select id="fDungHan"></select></div>
+      <div><label for="fQuy">Quý</label><select id="fQuy"></select></div>
+    </div>
+    <div class="hang-nut">
+      <button onclick="loc()">Áp dụng bộ lọc</button>
+      <button class="phu" onclick="xoaLoc()">Xoá bộ lọc</button>
+      <button class="phu" onclick="taiKetQua()">Tải kết quả về máy (CSV)</button>
+    </div>
+    <div id="tomTat" style="margin-top:14px"></div>
+    <div id="bangHoSo" class="cuon" style="margin-top:10px"></div>
+    <p class="nho" id="ghiChuSo"></p>
+  </div>
+</main>
+
+<script src="du_lieu/ho_so.js"></script>
+<script>
+var KQ = [];
+var GIOI_HAN = 300;
+
+function veKQ(ds) {
+  KQ = ds;
+  var hienThi = ds.slice(0, GIOI_HAN);
+  veBang(el("bangHoSo"), [
+    { ten: "Mã hồ sơ", khoa: "ma_ho_so" },
+    { ten: "Ngày tiếp nhận", ve: function (r) { return ngay(r.ngay_tiep_nhan); } },
+    { ten: "Đơn vị", khoa: "don_vi" },
+    { ten: "Thủ tục", khoa: "thu_tuc" },
+    { ten: "Kênh nộp", khoa: "kenh_nop" },
+    { ten: "Hạn (ngày)", canh: "right", khoa: "han_quy_dinh_ngay" },
+    { ten: "Đã xử lý (ngày)", canh: "right", khoa: "so_ngay_xu_ly" },
+    { ten: "Bổ sung", canh: "right", khoa: "so_lan_bo_sung" },
+    { ten: "Trạng thái", ve: function (r) { return nhanTrangThai(r.trang_thai); } },
+    { ten: "Thời hạn", ve: function (r) { return nhanTrangThai(r.dung_han); } }
+  ], hienThi);
+  el("ghiChuSo").innerHTML = ds.length > GIOI_HAN
+    ? "Đang hiển thị " + GIOI_HAN + " hồ sơ đầu tiên trong tổng số " +
+      so(ds.length) + " hồ sơ phù hợp. Bấm nút tải về để lấy đầy đủ."
+    : "Hiển thị toàn bộ " + so(ds.length) + " hồ sơ phù hợp.";
+
+  var dh = 0, tt = 0, ng = 0, bs = 0;
+  ds.forEach(function (r) {
+    if (r.dung_han === "Đúng hạn") dh++;
+    if (r.kenh_nop === "Trực tuyến") tt++;
+    ng += r.so_ngay_xu_ly || 0;
+    bs += r.so_lan_bo_sung || 0;
+  });
+  var n = ds.length || 1;
+  el("tomTat").innerHTML = '<div class="luoi luoi-4">' +
+    oSo("Số hồ sơ", so(ds.length), "phù hợp bộ lọc", "") +
+    oSo("Tỷ lệ đúng hạn", (dh / n * 100).toFixed(1) + "%", so(dh) + " hồ sơ",
+        dh / n >= 0.8 ? "tot" : "xau") +
+    oSo("Tỷ lệ trực tuyến", (tt / n * 100).toFixed(1) + "%", so(tt) + " hồ sơ", "") +
+    oSo("Số ngày xử lý TB", (ng / n).toFixed(2), "trung bình " + (bs / n).toFixed(2) +
+        " lần bổ sung", "") + "</div>";
+}
+
+function oSo(nhanO, giaTri, phu, loai) {
+  return '<div class="so ' + loai + '"><div class="nhan">' + nhanO +
+    '</div><div class="gia-tri">' + giaTri + '</div><div class="phu">' +
+    phu + "</div></div>";
+}
+
+function traMa() {
+  var m = el("ma").value.trim().toUpperCase();
+  if (!m) { el("ketQuaMa").innerHTML = '<p class="nho">Hãy nhập mã hồ sơ.</p>'; return; }
+  var r = null;
+  for (var i = 0; i < DL_HO_SO.length; i++) {
+    if (DL_HO_SO[i].ma_ho_so === m) { r = DL_HO_SO[i]; break; }
+  }
+  if (!r) {
+    el("ketQuaMa").innerHTML = '<div class="hop hop-do">Không tìm thấy hồ sơ có mã <b>' +
+      m + "</b> trong dữ liệu mô phỏng. Hãy kiểm tra lại mã hoặc dùng bộ lọc bên dưới.</div>";
+    return;
+  }
+  el("ketQuaMa").innerHTML = '<div class="hop hop-luc"><b>Đã tìm thấy hồ sơ ' +
+    r.ma_ho_so + "</b></div>" +
+    '<table><tbody>' +
+    d("Đơn vị tiếp nhận", r.don_vi) +
+    d("Lĩnh vực", r.linh_vuc) +
+    d("Thủ tục", r.thu_tuc) +
+    d("Kênh nộp", r.kenh_nop) +
+    d("Ngày tiếp nhận", ngay(r.ngay_tiep_nhan)) +
+    d("Thời hạn quy định", r.han_quy_dinh_ngay + " ngày làm việc") +
+    d("Ngày hẹn trả", ngay(r.ngay_hen_tra)) +
+    d("Ngày trả kết quả", ngay(r.ngay_tra_ket_qua)) +
+    d("Số ngày đã xử lý", r.so_ngay_xu_ly === null ? "đang xử lý" : r.so_ngay_xu_ly) +
+    d("Số lần yêu cầu bổ sung", r.so_lan_bo_sung) +
+    d("Trạng thái", nhanTrangThai(r.trang_thai)) +
+    d("Thời hạn", nhanTrangThai(r.dung_han)) +
+    d("Điểm hài lòng", r.diem_hai_long === null ? "chưa đánh giá" : r.diem_hai_long + " / 5") +
+    "</tbody></table>";
+}
+
+function d(a, b) {
+  return "<tr><td style='width:220px'><b>" + a + "</b></td><td>" + b + "</td></tr>";
+}
+
+function loc() {
+  var dv = el("fDonVi").value, lv = el("fLinhVuc").value, k = el("fKenh").value,
+      dh = el("fDungHan").value, q = el("fQuy").value;
+  veKQ(DL_HO_SO.filter(function (r) {
+    return (!dv || r.don_vi === dv) && (!lv || r.linh_vuc === lv) &&
+      (!k || r.kenh_nop === k) && (!dh || r.dung_han === dh) &&
+      (!q || String(r.quy) === q);
+  }));
+}
+
+function xoaLoc() {
+  ["fDonVi", "fLinhVuc", "fKenh", "fDungHan", "fQuy"].forEach(function (i) {
+    el(i).value = "";
+  });
+  veKQ(DL_HO_SO);
+}
+
+function taiKetQua() {
+  taiCSV("ho_so_da_loc.csv",
+    ["ma_ho_so", "ngay_tiep_nhan", "quy", "don_vi", "linh_vuc", "thu_tuc",
+     "kenh_nop", "han_quy_dinh_ngay", "so_ngay_xu_ly", "ngay_hen_tra",
+     "ngay_tra_ket_qua", "so_lan_bo_sung", "trang_thai", "dung_han",
+     "diem_hai_long"], KQ);
+}
+
+doChon(el("fDonVi"), DL_HO_SO, "don_vi");
+doChon(el("fLinhVuc"), DL_HO_SO, "linh_vuc");
+doChon(el("fKenh"), DL_HO_SO, "kenh_nop");
+doChon(el("fDungHan"), DL_HO_SO, "dung_han");
+el("fQuy").innerHTML = '<option value="">— Tất cả —</option>' +
+  "<option>1</option><option>2</option><option>3</option><option>4</option>";
+el("ma").addEventListener("keydown", function (e) { if (e.key === "Enter") traMa(); });
+veKQ(DL_HO_SO);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

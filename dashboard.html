@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bảng thông tin điều hành — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Bang thong tin dieu hanh mo phong: ho so, hai long, ngan sach, ky nang so. Du lieu hu cau.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Bảng thông tin điều hành — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="Bang thong tin dieu hanh mo phong: ho so, hai long, ngan sach, ky nang so. Du lieu hu cau.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Bảng thông tin điều hành — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="Bang thong tin dieu hanh mo phong: ho so, hai long, ngan sach, ky nang so. Du lieu hu cau.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("dashboard.html");</script>
+
+<main>
+  <h1>Bảng thông tin điều hành</h1>
+  <div class="hop hop-vang">
+    <b>Vai trò của trang này trong khoá học.</b> Đây là bảng thông tin mẫu để học viên
+    tham chiếu khi tự dựng bảng của mình bằng công cụ miễn phí ở bài thực hành
+    Ngày 05 chiều. Hãy quan sát: mỗi khối trả lời đúng một câu hỏi, số liệu quan trọng
+    nhất đặt ở trên cùng, và mọi biểu đồ đều có chú thích cho biết cần làm gì với nó.
+  </div>
+
+  <h2>1. Ba câu hỏi quan trọng nhất — trả lời trong 30 giây</h2>
+  <div class="luoi luoi-4" id="oChinh"></div>
+
+  <h2>2. Đơn vị nào cần được quan tâm trước?</h2>
+  <div class="the">
+    <div id="bangDV"></div>
+    <div class="hop hop-do" id="canhBaoDV"></div>
+  </div>
+
+  <h2>3. Xu hướng theo quý — tình hình đang tốt lên hay xấu đi?</h2>
+  <div class="luoi luoi-2">
+    <div class="the">
+      <h3>Tỷ lệ giải quyết đúng hạn theo quý (%)</h3>
+      <div id="bdDungHan"></div>
+    </div>
+    <div class="the">
+      <h3>Tỷ lệ hồ sơ nộp trực tuyến theo quý (%)</h3>
+      <div id="bdTrucTuyen"></div>
+    </div>
+  </div>
+
+  <h2>4. Lĩnh vực nào đang là điểm nghẽn?</h2>
+  <div class="the">
+    <div id="bangLV"></div>
+    <p class="nho">Cột “Số lần bổ sung trung bình” cho biết hồ sơ thuộc lĩnh vực đó
+    thường phải quay lại bao nhiêu lần. Đây là chỉ số phản ánh trực tiếp mức độ
+    phiền hà đối với người dân.</p>
+  </div>
+
+  <h2>5. Mức độ hài lòng theo nhóm tuổi</h2>
+  <div class="the">
+    <p class="nho">Nhìn số trung bình chung sẽ không thấy vấn đề. Phải tách theo nhóm
+    mới phát hiện được nhóm nào đang bị phục vụ kém hơn.</p>
+    <div id="bangHL"></div>
+  </div>
+
+  <h2>6. Năng lực của đội ngũ — điều kiện để mọi việc trên đây cải thiện được</h2>
+  <div class="the">
+    <div id="bangKN"></div>
+  </div>
+
+  <h2>7. Ngân sách công nghệ thông tin</h2>
+  <div class="the">
+    <div id="bangNS"></div>
+    <p class="nho">Chênh lệch giữa kế hoạch và thực hiện là căn cứ để đánh giá
+    năng lực triển khai, không chỉ là con số kế toán.</p>
+  </div>
+
+  <div class="hop hop-xanh">
+    <b>Câu hỏi thảo luận.</b> Nếu chỉ được chọn ba khối trên trang này để đưa vào
+    cuộc họp giao ban hằng tuần của đơn vị mình, anh/chị chọn ba khối nào và vì sao?
+  </div>
+</main>
+
+<script src="du_lieu/tong_hop_don_vi.js"></script>
+<script src="du_lieu/tong_hop_quy.js"></script>
+<script src="du_lieu/tong_hop_linh_vuc.js"></script>
+<script src="du_lieu/hai_long.js"></script>
+<script src="du_lieu/ky_nang.js"></script>
+<script src="du_lieu/ngan_sach.js"></script>
+<script>
+function o(a, b, c, l) {
+  return '<div class="so ' + l + '"><div class="nhan">' + a + '</div><div class="gia-tri">' +
+    b + '</div><div class="phu">' + c + "</div></div>";
+}
+
+(function () {
+  var tong = 0, dh = 0, tt = 0, hl = 0;
+  DL_DON_VI.forEach(function (r) {
+    tong += r.tong; dh += r.dung_han; tt += r.truc_tuyen; hl += r.hai_long * r.tong;
+  });
+  var kem = DL_DON_VI.slice().sort(function (a, b) {
+    return a.ty_le_dung_han - b.ty_le_dung_han;
+  })[0];
+  el("oChinh").innerHTML =
+    o("Tỷ lệ đúng hạn toàn huyện", (dh / tong * 100).toFixed(1) + "%",
+      so(tong - dh) + " hồ sơ trễ hạn", dh / tong >= 0.8 ? "tot" : "xau") +
+    o("Tỷ lệ nộp trực tuyến", (tt / tong * 100).toFixed(1) + "%",
+      "mục tiêu đặt ra: 60%", tt / tong >= 0.6 ? "tot" : "xau") +
+    o("Điểm hài lòng", (hl / tong).toFixed(2) + " / 5",
+      "theo phiếu của người dân", hl / tong >= 4 ? "tot" : "xau") +
+    o("Đơn vị cần quan tâm nhất", kem.don_vi.replace("Phường ", "P. ").replace("Xã ", "X. "),
+      "chỉ đạt " + kem.ty_le_dung_han + "% đúng hạn", "xau");
+
+  var ds = DL_DON_VI.slice().sort(function (a, b) {
+    return a.ty_le_dung_han - b.ty_le_dung_han;
+  });
+  veBang(el("bangDV"), [
+    { ten: "Đơn vị", khoa: "don_vi" },
+    { ten: "Số hồ sơ", canh: "right", ve: function (r) { return so(r.tong); } },
+    {
+      ten: "Tỷ lệ đúng hạn (%)", ve: function (r) {
+        return thanh(r.ty_le_dung_han, 100, r.ty_le_dung_han >= 80 ? "tot" : "xau");
+      }
+    },
+    {
+      ten: "Tỷ lệ trực tuyến (%)", ve: function (r) {
+        return thanh(r.ty_le_truc_tuyen, 100, r.ty_le_truc_tuyen >= 60 ? "tot" : "");
+      }
+    },
+    { ten: "Ngày xử lý TB", canh: "right", ve: function (r) { return so(r.ngay_tb, 2); } },
+    { ten: "Điểm hài lòng", canh: "right", ve: function (r) { return so(r.hai_long, 2); } },
+    {
+      ten: "Đánh giá", ve: function (r) {
+        if (r.ty_le_dung_han < 70) return nhan("Cần chấn chỉnh ngay", "do");
+        if (r.ty_le_dung_han < 80) return nhan("Cần theo dõi", "cam");
+        return nhan("Đạt yêu cầu", "luc");
+      }
+    }
+  ], ds);
+
+  var can = ds.filter(function (r) { return r.ty_le_dung_han < 80; });
+  el("canhBaoDV").innerHTML = can.length
+    ? "<b>Cần xử lý:</b> " + can.length + " đơn vị có tỷ lệ đúng hạn dưới 80% — " +
+      can.map(function (r) { return r.don_vi + " (" + r.ty_le_dung_han + "%)"; }).join(", ") +
+      ". Bước tiếp theo là tìm nguyên nhân bằng phân tích chẩn đoán, " +
+      "không phải phê bình ngay."
+    : "<b>Tốt:</b> mọi đơn vị đều đạt trên 80% đúng hạn.";
+
+  var q = DL_QUY.slice().sort(function (a, b) { return a.quy - b.quy; });
+  veCot(el("bdDungHan"), q.map(function (r) { return "Quý " + r.quy; }),
+    q.map(function (r) { return r.ty_le_dung_han; }), "#5B8C5A",
+    "Tỷ lệ giải quyết đúng hạn (%)");
+  veCot(el("bdTrucTuyen"), q.map(function (r) { return "Quý " + r.quy; }),
+    q.map(function (r) { return r.ty_le_truc_tuyen; }), "#C55A11",
+    "Tỷ lệ hồ sơ nộp trực tuyến (%)");
+
+  var lv = DL_LINH_VUC.slice().sort(function (a, b) {
+    return a.ty_le_dung_han - b.ty_le_dung_han;
+  });
+  veBang(el("bangLV"), [
+    { ten: "Lĩnh vực", khoa: "linh_vuc" },
+    { ten: "Số hồ sơ", canh: "right", ve: function (r) { return so(r.tong); } },
+    {
+      ten: "Tỷ lệ đúng hạn (%)", ve: function (r) {
+        return thanh(r.ty_le_dung_han, 100, r.ty_le_dung_han >= 80 ? "tot" : "xau");
+      }
+    },
+    { ten: "Ngày xử lý TB", canh: "right", ve: function (r) { return so(r.ngay_tb, 2); } },
+    { ten: "Số lần bổ sung TB", canh: "right", ve: function (r) { return so(r.bo_sung, 2); } }
+  ], lv);
+
+  var nt = {}, dv = {};
+  DL_HAI_LONG.forEach(function (r) {
+    nt[r.nhom_tuoi] = nt[r.nhom_tuoi] || { s: 0, n: 0 };
+    nt[r.nhom_tuoi].s += r.diem * r.so_phieu;
+    nt[r.nhom_tuoi].n += r.so_phieu;
+  });
+  var hang = Object.keys(nt).sort().map(function (k) {
+    return { nhom: k, so_phieu: nt[k].n, diem: nt[k].s / nt[k].n };
+  });
+  veBang(el("bangHL"), [
+    { ten: "Nhóm tuổi", khoa: "nhom" },
+    { ten: "Số phiếu", canh: "right", ve: function (r) { return so(r.so_phieu); } },
+    { ten: "Điểm hài lòng trung bình", ve: function (r) { return thanh(r.diem, 5, r.diem >= 4 ? "tot" : "xau", 2); } },
+    {
+      ten: "Nhận xét", ve: function (r) {
+        return r.diem >= 4 ? nhan("Đạt", "luc")
+          : (r.diem >= 3.5 ? nhan("Cần cải thiện", "cam") : nhan("Cần ưu tiên", "do"));
+      }
+    }
+  ], hang);
+
+  var kn = {};
+  DL_KY_NANG.forEach(function (r) {
+    kn[r.nhom_tuoi] = kn[r.nhom_tuoi] || { s: 0, n: 0 };
+    kn[r.nhom_tuoi].s += r.diem * r.so_can_bo;
+    kn[r.nhom_tuoi].n += r.so_can_bo;
+  });
+  var hk = Object.keys(kn).sort().map(function (k) {
+    return { nhom: k, n: kn[k].n, diem: kn[k].s / kn[k].n };
+  });
+  veBang(el("bangKN"), [
+    { ten: "Nhóm tuổi cán bộ", khoa: "nhom" },
+    { ten: "Số cán bộ", canh: "right", ve: function (r) { return so(r.n); } },
+    { ten: "Điểm kỹ năng số trung bình (thang 5)", ve: function (r) { return thanh(r.diem, 5, r.diem >= 3.5 ? "tot" : "xau", 2); } },
+    {
+      ten: "Ưu tiên bồi dưỡng", ve: function (r) {
+        return r.diem < 3 ? nhan("Ưu tiên cao", "do")
+          : (r.diem < 3.6 ? nhan("Ưu tiên vừa", "cam") : nhan("Duy trì", "luc"));
+      }
+    }
+  ], hk);
+
+  var ns = {};
+  DL_NGAN_SACH.forEach(function (r) {
+    ns[r.nam] = ns[r.nam] || { kh: 0, th: 0 };
+    ns[r.nam].kh += r.ke_hoach_trieu_dong;
+    ns[r.nam].th += r.thuc_hien_trieu_dong;
+  });
+  var hn = Object.keys(ns).sort().map(function (k) {
+    return { nam: k, kh: ns[k].kh, th: ns[k].th };
+  });
+  veBang(el("bangNS"), [
+    { ten: "Năm", khoa: "nam" },
+    { ten: "Kế hoạch (triệu đồng)", canh: "right", ve: function (r) { return so(r.kh); } },
+    { ten: "Thực hiện (triệu đồng)", canh: "right", ve: function (r) { return so(r.th); } },
+    {
+      ten: "Tỷ lệ giải ngân", ve: function (r) {
+        var t = r.th / r.kh * 100;
+        return thanh(t, 100, t >= 85 ? "tot" : "xau");
+      }
+    }
+  ], hn);
+})();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>
