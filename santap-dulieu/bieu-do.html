@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phòng thí nghiệm biểu đồ — Sàn tập Dữ liệu và Quyết định</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Phòng thí nghiệm biểu đồ">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("bieu-do.html");</script>
+
+<main class="bao">
+  <h1>Phòng thí nghiệm biểu đồ</h1>
+
+  <div class="hop">
+    <b>Cách dùng trong lớp.</b> Chiếu trang này lên màn hình, bật tắt từng thủ thuật
+    và hỏi cả lớp: “Bây giờ anh chị kết luận thế nào?”. Cùng một dữ liệu, chỉ đổi
+    cách vẽ, cả lớp sẽ đưa ra hai kết luận trái ngược. Đó là bài học nhanh nhất
+    về biểu đồ đánh lừa.
+  </div>
+
+  <h2>Thí nghiệm 1 — Cắt trục tung</h2>
+  <p>Điểm hài lòng bốn quý của <b id="tenDV1"></b>. Chênh lệch thật giữa quý cao nhất
+  và thấp nhất chỉ khoảng <b id="chenhLech"></b> điểm.</p>
+  <div class="hang-dk">
+    <div>
+      <label for="cbTruc">Trục tung</label>
+      <select id="cbTruc" onchange="ve1()">
+        <option value="1">Bắt đầu từ 0 — trung thực</option>
+        <option value="0">Cắt trục, bắt đầu gần giá trị nhỏ nhất — đánh lừa</option>
+      </select>
+    </div>
+    <div>
+      <label for="cbDV">Đơn vị</label>
+      <select id="cbDV" onchange="ve1()"></select>
+    </div>
+  </div>
+  <div class="bd"><p class="tieu" id="tieu1"></p><div id="bd1"></div></div>
+  <div id="nx1"></div>
+
+  <h2>Thí nghiệm 2 — Chọn sai loại biểu đồ</h2>
+  <p>Cùng một bảng xếp hạng 12 đơn vị theo tỉ lệ đúng hạn, vẽ bằng hai cách.</p>
+  <div class="hang-dk">
+    <div>
+      <label for="cbLoai">Loại biểu đồ</label>
+      <select id="cbLoai" onchange="ve2()">
+        <option value="ngang">Thanh ngang có sắp xếp — đúng</option>
+        <option value="cot">Cột đứng, không sắp xếp — khó đọc</option>
+      </select>
+    </div>
+    <div>
+      <label for="cbMau">Tô màu theo ngưỡng</label>
+      <select id="cbMau" onchange="ve2()">
+        <option value="1">Có — xanh ≥ 90%, cam ≥ 75%, đỏ &lt; 75%</option>
+        <option value="0">Không — một màu duy nhất</option>
+      </select>
+    </div>
+  </div>
+  <div class="bd"><p class="tieu" id="tieu2"></p><div id="bd2"></div></div>
+  <div id="nx2"></div>
+
+  <h2>Thí nghiệm 3 — Tiêu đề nói kết luận hay nói tên biến</h2>
+  <p>Số hồ sơ tiếp nhận theo 12 tháng. Chỉ đổi dòng tiêu đề, không đổi dữ liệu.</p>
+  <div class="hang-dk">
+    <div>
+      <label for="cbTieu">Kiểu tiêu đề</label>
+      <select id="cbTieu" onchange="ve3()">
+        <option value="ket">Nói kết luận — tốt</option>
+        <option value="bien">Nói tên biến — người xem phải tự suy</option>
+      </select>
+    </div>
+  </div>
+  <div class="bd"><p class="tieu" id="tieu3"></p><div id="bd3"></div></div>
+  <div class="hop hop-luc">
+    <b>Quy tắc.</b> Nhìn biểu đồ, tự hỏi “điều gì đáng nói nhất ở đây”, viết câu trả
+    lời ra và đặt làm tiêu đề. Người xem hiểu ngay thay vì phải tự suy.
+  </div>
+
+  <h2>Bảng tra năm kiểu đánh lừa</h2>
+  <div id="oTra"></div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/ho_so.js"></script>
+<script src="du_lieu/hai_long.js"></script>
+<script>
+var SACH = HO_SO.filter(laSach);
+
+/* xếp hạng đơn vị theo tỉ lệ đúng hạn */
+function xepHang() {
+  var m = {};
+  SACH.forEach(function (d) {
+    var k = d.ma_don_vi;
+    if (!m[k]) m[k] = { ten: d.ten_don_vi, xl: 0, dh: 0 };
+    m[k].xl += d.da_xu_ly; m[k].dh += d.dung_han;
+  });
+  return Object.keys(m).map(function (k) {
+    return { ma: k, ten: m[k].ten, ty: m[k].dh / m[k].xl * 100 };
+  }).sort(function (a, b) { return b.ty - a.ty; });
+}
+var XH = xepHang();
+
+/* --------------------------------------------------------- thí nghiệm 1 */
+var sel = document.getElementById("cbDV");
+DON_VI.forEach(function (d) {
+  sel.appendChild(el("option", { value: d.ma_don_vi }, d.ten_don_vi));
+});
+sel.value = "DV01";
+
+function ve1() {
+  var ma = document.getElementById("cbDV").value;
+  var ds = HAI_LONG.filter(function (d) { return d.ma_don_vi === ma; });
+  var nhan = ds.map(function (d) { return d.quy.replace("2026-", ""); });
+  var gt = ds.map(function (d) { return d.diem_hai_long; });
+  var tuKhong = document.getElementById("cbTruc").value === "1";
+  document.getElementById("tenDV1").textContent = ds[0].ten_don_vi;
+  document.getElementById("chenhLech").textContent =
+    sv(Math.max.apply(null, gt) - Math.min.apply(null, gt), 2);
+  document.getElementById("tieu1").textContent = tuKhong
+    ? "Điểm hài lòng bốn quý gần như không đổi"
+    : "Điểm hài lòng “biến động mạnh” qua bốn quý";
+  veCot("bd1", nhan, gt, { tuKhong: tuKhong, le: 2 });
+  document.getElementById("nx1").innerHTML = tuKhong
+    ? '<div class="hop hop-luc"><b>Bản trung thực.</b> Trục bắt đầu từ 0 nên bốn cột ' +
+      "gần bằng nhau — phản ánh đúng thực tế là điểm hài lòng ổn định.</div>"
+    : '<div class="hop hop-do"><b>Bản đánh lừa.</b> Trục bị cắt nên chênh lệch nhỏ ' +
+      "trông như biến động lớn. Cách phát hiện: nhìn con số đầu tiên trên trục tung — " +
+      "nếu không phải 0 thì phải cảnh giác.</div>";
+}
+
+/* --------------------------------------------------------- thí nghiệm 2 */
+function ve2() {
+  var loai = document.getElementById("cbLoai").value;
+  var toMau = document.getElementById("cbMau").value === "1";
+  var ds = loai === "ngang" ? XH : DON_VI.map(function (d) {
+    var x = XH.filter(function (y) { return y.ma === d.ma_don_vi; })[0];
+    return x;
+  });
+  var nhan = ds.map(function (d) { return d.ten.replace("Phường ", "P. ").replace("Xã ", "X. "); });
+  var gt = ds.map(function (d) { return d.ty; });
+  var mau = toMau ? function (v) {
+    return v >= 90 ? "#00843D" : (v >= 75 ? "#C2610F" : "#B3261E");
+  } : null;
+  document.getElementById("tieu2").textContent = loai === "ngang"
+    ? "Bốn đơn vị vùng xa kéo tỉ lệ đúng hạn toàn thị xã xuống dưới 80%"
+    : "Tỉ lệ đúng hạn theo đơn vị (chưa sắp xếp)";
+  if (loai === "ngang") veThanhNgang("bd2", nhan, gt, { donVi: "%", mau: mau });
+  else veCot("bd2", nhan, gt, { donVi: "%", mau: mau });
+  document.getElementById("nx2").innerHTML = loai === "ngang"
+    ? '<div class="hop hop-luc"><b>Đúng.</b> Tên đơn vị dài nên để ngang mới đọc ' +
+      "được; đã sắp xếp nên thấy ngay ai đứng đầu, ai đứng cuối." +
+      (toMau ? " Màu theo ngưỡng cho biết ngay đơn vị nào cần can thiệp." : "") + "</div>"
+    : '<div class="hop hop-cam"><b>Khó đọc.</b> Nhãn bị xoay nghiêng, thứ tự ngẫu ' +
+      "nhiên nên phải dò từng cột mới biết ai cao ai thấp.</div>";
+}
+
+/* --------------------------------------------------------- thí nghiệm 3 */
+function ve3() {
+  var m = {};
+  SACH.forEach(function (d) { m[d.thang] = (m[d.thang] || 0) + d.tiep_nhan; });
+  var thang = Object.keys(m).sort();
+  var gt = thang.map(function (t) { return m[t]; });
+  document.getElementById("tieu3").textContent =
+    document.getElementById("cbTieu").value === "ket"
+      ? "Hồ sơ dồn vào tháng 6 và tháng 12, cần bố trí thêm người hai tháng này"
+      : "Số hồ sơ tiếp nhận theo tháng";
+  veDuong("bd3", thang.map(function (t) { return t.replace("2026-", ""); }), gt);
+}
+
+/* --------------------------------------------------------- bảng tra */
+veBang("oTra",
+  [{ ten: "Kiểu", lay: function (d) { return d[0]; } },
+   { ten: "Nhìn vào đâu để phát hiện", lay: function (d) { return d[1]; } },
+   { ten: "Yêu cầu sửa", lay: function (d) { return d[2]; } }],
+  [["Cắt trục tung", "Số đầu tiên trên trục tung có phải 0 không", "Vẽ lại từ 0"],
+   ["Trục thời gian không đều", "Khoảng cách giữa các mốc năm", "Giãn trục đúng tỉ lệ"],
+   ["Biểu đồ 3D", "Có hiệu ứng nổi khối không", "Vẽ lại dạng phẳng"],
+   ["Tròn quá nhiều phần", "Đếm số phần; cộng các phần trăm", "Chuyển sang thanh ngang"],
+   ["Hai trục tung", "Có hai dãy số ở hai bên hình không", "Tách thành hai biểu đồ"]]);
+
+ve1(); ve2(); ve3();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

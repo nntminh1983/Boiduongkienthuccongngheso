@@ -1,8 +1,9 @@
-# Cổng Dịch vụ công giả lập — phục vụ đào tạo
+# Website giả lập phục vụ đào tạo cán bộ, công chức
 
-> ⚠️ **ĐÂY LÀ WEBSITE GIẢ LẬP, KHÔNG PHẢI CỔNG DỊCH VỤ CÔNG CỦA BẤT KỲ CƠ QUAN NÀO.**
+> ⚠️ **TOÀN BỘ CÁC TRANG TRONG KHO NÀY LÀ WEBSITE GIẢ LẬP, KHÔNG PHẢI HỆ THỐNG
+> CỦA BẤT KỲ CƠ QUAN NHÀ NƯỚC NÀO.**
 >
-> Trang không tiếp nhận hồ sơ, không xử lý thủ tục hành chính và không kết nối
+> Các trang không tiếp nhận hồ sơ, không xử lý thủ tục hành chính và không kết nối
 > với bất kỳ hệ thống nào. Toàn bộ địa danh, họ tên, số giấy tờ và số liệu đều
 > là hư cấu, do chương trình sinh ra.
 >
@@ -11,9 +12,18 @@
 
 ---
 
-**Xem trang tại:** https://nntminh1983.github.io/Boiduongkienthuccongngheso/
+## Hai trang trong kho này
+
+| Trang | Địa chỉ | Dùng cho khoá nào |
+|---|---|---|
+| **Cổng Dịch vụ công giả lập** | https://nntminh1983.github.io/Boiduongkienthuccongngheso/ | Chiến lược xây dựng và phát triển Chính phủ số — bài thực hành Buổi 6 |
+| **Sàn tập Dữ liệu và Quyết định** | https://nntminh1983.github.io/Boiduongkienthuccongngheso/santap-dulieu/ | Ra quyết định dựa trên dữ liệu trong quản lý nhà nước — 10 buổi thực hành |
+
+Chi tiết trang thứ hai: xem [santap-dulieu/README.md](santap-dulieu/README.md).
 
 ---
+
+# Trang 1 — Cổng Dịch vụ công giả lập
 
 ## Đây là gì
 

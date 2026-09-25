@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sàn tập Dữ liệu và Quyết định — Trang chủ</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Sàn tập Dữ liệu và Quyết định">
+<meta property="og:description" content="Website giả lập phục vụ khoá bồi dưỡng ra quyết định dựa trên dữ liệu. Mọi số liệu đều hư cấu.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("index.html");</script>
+
+<main class="bao">
+  <h1>Sàn tập Dữ liệu và Quyết định</h1>
+
+  <div class="hop hop-do">
+    <b>Đọc trước khi sử dụng.</b> Trang này được dựng riêng cho khoá bồi dưỡng
+    “Ra quyết định dựa trên dữ liệu trong quản lý nhà nước”. Địa danh
+    <b>thị xã Mẫu Giang, Tỉnh Mẫu</b> và tên 12 đơn vị đều là hư cấu. Toàn bộ số
+    liệu do chương trình sinh ra. Trang không kết nối với hệ thống nào và không lưu
+    lại thông tin người dùng nhập vào — học viên thao tác thoải mái, không sợ hỏng.
+  </div>
+
+  <h2>Số liệu tổng quan năm 2026</h2>
+  <div class="luoi luoi-4" id="oTongQuan"></div>
+
+  <h2>Năm công cụ dùng trong khoá học</h2>
+  <div class="luoi luoi-2">
+    <div class="the">
+      <h3>1. Bộ dữ liệu</h3>
+      <p>Xem trước và tải về 8 bộ dữ liệu giả lập: hồ sơ thủ tục hành chính, khảo sát
+      hài lòng, ngân sách, phương án đầu tư, KPI, và một bộ cố ý cài sẵn bảy lỗi.</p>
+      <p class="nho">Dùng trong: cả 10 buổi</p>
+      <a class="nut" href="du-lieu.html">Mở bộ dữ liệu</a>
+    </div>
+    <div class="the">
+      <h3>2. Bảng điều khiển</h3>
+      <p>Bảng điều khiển mẫu một trang để học viên tham chiếu khi tự dựng bảng của
+      mình bằng Looker Studio. Có bộ lọc theo đơn vị và theo lĩnh vực.</p>
+      <p class="nho">Dùng trong: Ngày 03 chiều, Ngày 05 sáng</p>
+      <a class="nut" href="bang-dieu-khien.html">Mở bảng điều khiển</a>
+    </div>
+    <div class="the">
+      <h3>3. Phòng thí nghiệm biểu đồ</h3>
+      <p>Bật tắt từng thủ thuật đánh lừa để thấy cùng một số liệu cho ra hai kết luận
+      trái ngược. Đây là cách nhanh nhất để học viên tin vào bài học.</p>
+      <p class="nho">Dùng trong: Ngày 02 sáng</p>
+      <a class="nut" href="bieu-do.html">Mở phòng thí nghiệm</a>
+    </div>
+    <div class="the">
+      <h3>4. Công cụ quyết định đa mục tiêu</h3>
+      <p>Nhập tiêu chí, kéo thanh trọng số và xem thứ hạng phương án đổi ngay trước
+      mắt. Có sẵn phân tích độ nhạy ba kịch bản và xuất kết quả ra CSV.</p>
+      <p class="nho">Dùng trong: Ngày 04 sáng, Ngày 04 chiều, Ngày 05 chiều</p>
+      <a class="nut" href="quyet-dinh.html">Mở công cụ quyết định</a>
+    </div>
+    <div class="the">
+      <h3>5. Sổ KPI</h3>
+      <p>Bộ 8 KPI mẫu có sẵn giá trị thật tính từ dữ liệu. Học viên tự điền năm thành
+      phần cho từng KPI rồi tải kết quả về máy để nộp.</p>
+      <p class="nho">Dùng trong: Ngày 05 sáng</p>
+      <a class="nut" href="kpi.html">Mở sổ KPI</a>
+    </div>
+    <div class="the">
+      <h3>Dành cho giảng viên</h3>
+      <p>Mỗi buổi có một tài liệu hướng dẫn giảng dạy riêng trong thư mục
+      <b>Tailieu</b>: kịch bản thời gian từng phút, hướng dẫn thao tác, cách xử lý học
+      viên tụt lại, đáp án và rubric chấm.</p>
+      <p class="nho">10 tài liệu, 16–18 trang mỗi tài liệu</p>
+    </div>
+  </div>
+
+  <h2>Mười buổi của khoá học</h2>
+  <div id="oBuoi"></div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/ho_so.js"></script>
+<script src="du_lieu/hai_long.js"></script>
+<script>
+(function () {
+  var sach = HO_SO.filter(laSach);
+  var tn = 0, xl = 0, dh = 0, tt = 0, tnTT = 0, tg = 0;
+  sach.forEach(function (d) {
+    tn += d.tiep_nhan; xl += d.da_xu_ly; dh += d.dung_han;
+    tg += d.thoi_gian_tb_ngay;
+    if (d.truc_tuyen !== "") { tt += d.truc_tuyen; tnTT += d.tiep_nhan; }
+  });
+  var sp = 0, dm = 0;
+  HAI_LONG.forEach(function (d) { sp += d.so_phieu; dm += d.diem_hai_long * d.so_phieu; });
+
+  var ds = [
+    ["Hồ sơ tiếp nhận", sn(tn), "cả năm 2026, 12 đơn vị", ""],
+    ["Tỉ lệ đúng hạn", pc(dh / xl * 100), "chỉ tiêu ≥ 95%", mucNguong(dh / xl * 100, 90, 75)],
+    ["Tỉ lệ trực tuyến", pc(tt / tnTT * 100), "chỉ tiêu ≥ 80%", mucNguong(tt / tnTT * 100, 80, 50)],
+    ["Điểm hài lòng", sv(dm / sp, 2) + "/5", "chỉ tiêu ≥ 4,50", mucNguong(dm / sp, 4.5, 4.0)]
+  ];
+  var o = document.getElementById("oTongQuan");
+  ds.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+
+  var buoi = [
+    ["Ngày 01 – Sáng", "Đọc một bảng số liệu và đặt đúng câu hỏi"],
+    ["Ngày 01 – Chiều", "Tổng hợp số liệu từ nhiều đơn vị"],
+    ["Ngày 02 – Sáng", "Biểu đồ: chọn đúng, đọc đúng, không bị đánh lừa"],
+    ["Ngày 02 – Chiều", "Dùng trợ lý AI để tóm tắt và kiểm chứng"],
+    ["Ngày 03 – Sáng", "Dữ liệu bẩn và cách phát hiện trước khi quyết định"],
+    ["Ngày 03 – Chiều", "Bảng điều khiển một trang cho lãnh đạo"],
+    ["Ngày 04 – Sáng", "Ra quyết định đa mục tiêu (1): tiêu chí và trọng số"],
+    ["Ngày 04 – Chiều", "Ra quyết định đa mục tiêu (2): ma trận và độ nhạy"],
+    ["Ngày 05 – Sáng", "Từ số liệu đến KPI và báo cáo điều hành"],
+    ["Ngày 05 – Chiều", "Hồ sơ trình quyết định hoàn chỉnh"]
+  ];
+  veBang("oBuoi",
+    [{ ten: "Buổi", lay: function (d) { return d[0]; } },
+     { ten: "Nội dung thực hành", lay: function (d) { return d[1]; } }],
+    buoi);
+})();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

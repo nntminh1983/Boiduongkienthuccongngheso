@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Công cụ quyết định đa mục tiêu — Sàn tập Dữ liệu và Quyết định</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Công cụ quyết định đa mục tiêu">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("quyet-dinh.html");</script>
+
+<main class="bao">
+  <h1>Công cụ quyết định đa mục tiêu</h1>
+
+  <div class="hop">
+    <b>Tình huống.</b> Thị xã Mẫu Giang phải chọn một trong bốn phương án phần mềm
+    một cửa. Không phương án nào tốt nhất ở cả sáu tiêu chí — đây là bài toán ra
+    quyết định đa mục tiêu điển hình.
+    <br><b>Cách dùng:</b> kéo các thanh trọng số ở Bước 2 và quan sát thứ hạng ở
+    Bước 3 thay đổi ngay. Đó chính là nội dung của phân tích độ nhạy.
+  </div>
+
+  <h2>Bước 1. Số liệu gốc của bốn phương án</h2>
+  <div id="oGoc"></div>
+  <p class="nho">Ba tiêu chí đầu <b>càng nhỏ càng tốt</b>; ba tiêu chí sau
+  <b>càng lớn càng tốt</b>. Vì đơn vị đo khác nhau nên không cộng thẳng được —
+  phải chuẩn hoá về cùng thang 0–100 trước.</p>
+
+  <h2>Bước 2. Đặt trọng số</h2>
+  <p>Tổng trọng số luôn được tự chuẩn về 100%. Giá trị trong ngoặc là trọng số thực
+  tế sau khi chuẩn.</p>
+  <div id="oTrongSo"></div>
+  <div class="hang-nut">
+    <button class="phu" onclick="datKichBan('can_bang')">Kịch bản: Cân bằng</button>
+    <button class="phu" onclick="datKichBan('tiet_kiem')">Kịch bản: Ưu tiên tiết kiệm</button>
+    <button class="phu" onclick="datKichBan('nghiep_vu')">Kịch bản: Ưu tiên nghiệp vụ và an toàn</button>
+  </div>
+
+  <h2>Bước 3. Kết quả chấm điểm</h2>
+  <div class="hang-dk">
+    <div>
+      <label for="loaiTru">Tiêu chí loại trừ: an toàn thông tin tối thiểu</label>
+      <select id="loaiTru" onchange="tinh()">
+        <option value="0">Không áp dụng</option>
+        <option value="70">Từ 70 điểm trở lên</option>
+        <option value="80">Từ 80 điểm trở lên</option>
+        <option value="85">Từ 85 điểm trở lên</option>
+      </select>
+    </div>
+  </div>
+  <div id="oKetQua"></div>
+  <div class="bd" style="margin-top:14px">
+    <p class="tieu">Điểm tổng hợp theo trọng số hiện tại</p>
+    <div id="bdDiem"></div>
+  </div>
+  <div id="oNhanXet"></div>
+
+  <h2>Bước 4. Phân tích độ nhạy — ba kịch bản</h2>
+  <p>Bảng dưới đây tính sẵn với ba bộ trọng số khác nhau. Nếu thứ hạng đổi giữa các
+  kịch bản thì quyết định là <b>mong manh</b>, phải nêu rõ điều kiện kèm theo khi trình.</p>
+  <div id="oDoNhay"></div>
+  <div id="oKetLuan"></div>
+
+  <div class="hang-nut">
+    <button onclick="xuatCSV()">Tải kết quả về máy (CSV)</button>
+    <button class="phu" onclick="datKichBan('can_bang')">Đặt lại về mặc định</button>
+  </div>
+
+  <h2>Bảng chuẩn hoá — để đối chiếu khi tự làm trên bảng tính</h2>
+  <p class="nho">Công thức: tiêu chí càng lớn càng tốt dùng
+  <code>(giá trị − nhỏ nhất) / (lớn nhất − nhỏ nhất)</code>; tiêu chí càng nhỏ càng
+  tốt lấy <code>1 −</code> kết quả đó. Nhân 100 cho dễ đọc.</p>
+  <div id="oChuan"></div>
+</main>
+
+<script src="du_lieu/phuong_an.js"></script>
+<script>
+var TC = [
+  { ten: "Chi phí đầu tư", cot: "chi_phi_dau_tu_trieu", huong: -1, dv: "triệu đồng" },
+  { ten: "Chi phí vận hành/năm", cot: "chi_phi_van_hanh_nam_trieu", huong: -1, dv: "triệu đồng" },
+  { ten: "Thời gian triển khai", cot: "thoi_gian_trien_khai_thang", huong: -1, dv: "tháng" },
+  { ten: "Đáp ứng nghiệp vụ", cot: "muc_do_dap_ung_nghiep_vu_100", huong: 1, dv: "điểm/100" },
+  { ten: "Khả năng tích hợp", cot: "kha_nang_tich_hop_100", huong: 1, dv: "điểm/100" },
+  { ten: "An toàn thông tin", cot: "an_toan_thong_tin_100", huong: 1, dv: "điểm/100" }
+];
+var KICH_BAN = {
+  can_bang:  [20, 15, 10, 25, 15, 15],
+  tiet_kiem: [35, 25, 10, 15, 8, 7],
+  nghiep_vu: [10, 10, 5, 35, 15, 25]
+};
+var TEN_KB = {
+  can_bang: "Cân bằng (mặc định)",
+  tiet_kiem: "Ưu tiên tiết kiệm",
+  nghiep_vu: "Ưu tiên nghiệp vụ và an toàn"
+};
+var W = KICH_BAN.can_bang.slice();
+
+/* ------------------------------------------------------------ chuẩn hoá */
+function chuan() {
+  var r = {};
+  TC.forEach(function (t) {
+    var gt = PHUONG_AN.map(function (p) { return Number(p[t.cot]); });
+    var lo = Math.min.apply(null, gt), hi = Math.max.apply(null, gt);
+    PHUONG_AN.forEach(function (p, i) {
+      var d = hi === lo ? 0.5 : (gt[i] - lo) / (hi - lo);
+      r[p.ma_phuong_an + "|" + t.ten] = (t.huong === 1 ? d : 1 - d) * 100;
+    });
+  });
+  return r;
+}
+var CH = chuan();
+
+function trongSoChuan(w) {
+  var s = w.reduce(function (a, b) { return a + b; }, 0) || 1;
+  return w.map(function (x) { return x / s; });
+}
+
+function chamDiem(w) {
+  var ws = trongSoChuan(w);
+  return PHUONG_AN.map(function (p) {
+    var d = 0;
+    TC.forEach(function (t, i) { d += CH[p.ma_phuong_an + "|" + t.ten] * ws[i]; });
+    return { ma: p.ma_phuong_an, ten: p.ten_phuong_an, diem: d,
+             an_toan: Number(p.an_toan_thong_tin_100) };
+  }).sort(function (a, b) { return b.diem - a.diem; });
+}
+
+/* ------------------------------------------------------------- vẽ trang */
+function veGoc() {
+  var cot = [{ ten: "Phương án", lay: function (p) { return p.ma_phuong_an + " — " + p.ten_phuong_an; } }];
+  TC.forEach(function (t) {
+    cot.push({ ten: t.ten + " (" + (t.huong === 1 ? "↑ tốt" : "↓ tốt") + ")", so: true,
+               lay: function (p) { return sn(p[t.cot]); } });
+  });
+  veBang("oGoc", cot, PHUONG_AN);
+}
+
+function veTrongSo() {
+  var o = document.getElementById("oTrongSo");
+  o.innerHTML = "";
+  var ws = trongSoChuan(W);
+  TC.forEach(function (t, i) {
+    var d = el("div", { "class": "hang-dk", style: "margin-bottom:4px" });
+    d.appendChild(el("div", { style: "min-width:220px", html:
+      "<b>" + t.ten + "</b>" }));
+    var r = el("input", { type: "range", min: "0", max: "50", value: String(W[i]), id: "w" + i });
+    r.oninput = function () { W[i] = Number(this.value); tinh(); };
+    d.appendChild(r);
+    d.appendChild(el("div", { id: "wv" + i, style: "min-width:150px",
+      html: '<span class="nho">thanh ' + W[i] + " → <b>" + pc(ws[i] * 100) + "</b></span>" }));
+    o.appendChild(d);
+  });
+}
+
+function capNhatNhanTrongSo() {
+  var ws = trongSoChuan(W);
+  TC.forEach(function (t, i) {
+    var e = document.getElementById("wv" + i);
+    if (e) e.innerHTML = '<span class="nho">thanh ' + W[i] + " → <b>" + pc(ws[i] * 100) + "</b></span>";
+    var r = document.getElementById("w" + i);
+    if (r) r.value = W[i];
+  });
+}
+
+function datKichBan(k) {
+  W = KICH_BAN[k].slice();
+  capNhatNhanTrongSo();
+  tinh();
+}
+
+function tinh() {
+  capNhatNhanTrongSo();
+  var nguong = Number(document.getElementById("loaiTru").value);
+  var kq = chamDiem(W);
+  var con = kq.filter(function (x) { return x.an_toan >= nguong; });
+  var bi_loai = kq.filter(function (x) { return x.an_toan < nguong; });
+
+  veBang("oKetQua",
+    [{ ten: "Hạng", lay: function (d, i) { return d._h; } },
+     { ten: "Mã", lay: function (d) { return d.ma; } },
+     { ten: "Phương án", lay: function (d) { return d.ten; } },
+     { ten: "Điểm tổng hợp", so: true, lay: function (d) { return sv(d.diem); } },
+     { ten: "So sánh", lay: function (d) {
+         return thanh(d.diem, 100, d._h === 1 ? "xanh" : ""); } },
+     { ten: "Trạng thái", lay: function (d) {
+         return d._loai ? nhanTT("Bị loại", "do")
+                        : (d._h === 1 ? nhanTT("Đứng đầu", "xanh") : nhanTT("Xếp sau", "vang")); } }],
+    con.map(function (d, i) { d._h = i + 1; d._loai = false; return d; })
+      .concat(bi_loai.map(function (d) { d._h = "—"; d._loai = true; return d; })));
+
+  veCot("bdDiem", kq.map(function (d) { return d.ma; }),
+        kq.map(function (d) { return d.diem; }),
+        { mau: function (v, i) {
+            var d = kq[i];
+            return d.an_toan < nguong ? "#B3261E" : (i === 0 ? "#00843D" : "#0070C0");
+          } });
+
+  var nx = document.getElementById("oNhanXet");
+  var t = "";
+  if (con.length === 0) {
+    t = '<div class="hop hop-do"><b>Không phương án nào đạt tiêu chí loại trừ.</b> ' +
+        "Phải hạ ngưỡng hoặc tìm thêm phương án mới.</div>";
+  } else {
+    var cach = con.length > 1 ? con[0].diem - con[1].diem : 0;
+    t = '<div class="hop hop-' + (cach < 5 ? "cam" : "luc") + '">' +
+        "<b>Đứng đầu: " + con[0].ma + " — " + con[0].ten + "</b> với " +
+        sv(con[0].diem) + " điểm. ";
+    if (con.length > 1) {
+      t += "Cách phương án thứ hai " + sv(cach) + " điểm. ";
+      t += cach < 5
+        ? "Khoảng cách này <b>rất nhỏ</b>: chỉ cần đổi nhẹ trọng số là thứ hạng có thể đảo. "
+          + "Khi trình phải nêu rõ điều đó."
+        : "Khoảng cách đủ rõ để kết luận tương đối vững với bộ trọng số hiện tại.";
+    }
+    if (bi_loai.length) {
+      t += "<br><b>Bị loại do không đạt tiêu chí loại trừ:</b> " +
+           bi_loai.map(function (d) { return d.ma + " (an toàn " + d.an_toan + ")"; }).join(", ") + ".";
+    }
+    t += "</div>";
+  }
+  nx.innerHTML = t;
+  veDoNhay();
+  veChuan();
+}
+
+function veDoNhay() {
+  var khoa = ["can_bang", "tiet_kiem", "nghiep_vu"];
+  var dong = khoa.map(function (k) {
+    var kq = chamDiem(KICH_BAN[k]);
+    return { ten: TEN_KB[k], kq: kq };
+  });
+  veBang("oDoNhay",
+    [{ ten: "Kịch bản", lay: function (d) { return d.ten; } },
+     { ten: "Hạng 1", lay: function (d) { return d.kq[0].ma + " (" + sv(d.kq[0].diem) + ")"; } },
+     { ten: "Hạng 2", lay: function (d) { return d.kq[1].ma + " (" + sv(d.kq[1].diem) + ")"; } },
+     { ten: "Hạng 3", lay: function (d) { return d.kq[2].ma + " (" + sv(d.kq[2].diem) + ")"; } },
+     { ten: "Hạng 4", lay: function (d) { return d.kq[3].ma + " (" + sv(d.kq[3].diem) + ")"; } }],
+    dong);
+
+  var dau = dong.map(function (d) { return d.kq[0].ma; });
+  var khac = dau.filter(function (v, i, a) { return a.indexOf(v) === i; });
+  var e = document.getElementById("oKetLuan");
+  if (khac.length === 1) {
+    e.innerHTML = '<div class="hop hop-luc"><b>Quyết định vững.</b> ' + khac[0] +
+      " đứng đầu ở cả ba kịch bản. Có thể trình với mức tin cậy cao.</div>";
+  } else {
+    e.innerHTML = '<div class="hop hop-cam"><b>Quyết định mong manh.</b> ' +
+      "Phương án đứng đầu thay đổi giữa các kịch bản (" + khac.join(" và ") + "). " +
+      "Điều này không phải lỗi tính toán — nó cho biết kết luận phụ thuộc vào việc " +
+      "tập thể lãnh đạo ưu tiên điều gì. Khi trình, phải nêu rõ: " +
+      "<i>“" + dau[0] + " tốt nhất nếu ưu tiên chi phí; " + dau[2] +
+      " tốt nhất nếu ưu tiên nghiệp vụ và an toàn. Đề nghị thống nhất thứ tự ưu tiên trước.”</i></div>";
+  }
+}
+
+function veChuan() {
+  var cot = [{ ten: "Phương án", lay: function (p) { return p.ma_phuong_an; } }];
+  TC.forEach(function (t) {
+    cot.push({ ten: t.ten, so: true,
+               lay: function (p) { return sv(CH[p.ma_phuong_an + "|" + t.ten]); } });
+  });
+  veBang("oChuan", cot, PHUONG_AN,
+    { ghi: "Mỗi cột phải có đúng một giá trị 100,0 và một giá trị 0,0. " +
+           "Nếu bảng tính của anh chị không ra như vậy, kiểm tra lại chiều chuẩn hoá." });
+}
+
+function xuatCSV() {
+  var ws = trongSoChuan(W);
+  var cot = ["ma_phuong_an", "ten_phuong_an"];
+  TC.forEach(function (t) { cot.push("chuan_" + t.cot); });
+  cot.push("diem_tong_hop");
+  var kq = chamDiem(W);
+  var dong = kq.map(function (d) {
+    var r = [d.ma, d.ten];
+    TC.forEach(function (t) { r.push(sv(CH[d.ma + "|" + t.ten], 2)); });
+    r.push(sv(d.diem, 2));
+    return r;
+  });
+  dong.push([]);
+  dong.push(["TRONG SO", ""].concat(ws.map(function (x) { return sv(x, 4); })).concat([""]));
+  taiCSV("ma_tran_quyet_dinh.csv", cot, dong);
+}
+
+veGoc();
+veTrongSo();
+tinh();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

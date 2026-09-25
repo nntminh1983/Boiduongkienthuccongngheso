@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sổ KPI — Sàn tập Dữ liệu và Quyết định</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Sổ KPI">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("kpi.html");</script>
+
+<main class="bao">
+  <h1>Sổ KPI</h1>
+
+  <div class="hop">
+    <b>Cách dùng.</b> Bảng dưới đây có sẵn 8 KPI với giá trị hiện tại tính từ chính
+    bộ dữ liệu của khoá. Học viên điền hai cột còn thiếu — <b>Kỳ đo</b> và
+    <b>Người chịu trách nhiệm</b> — rồi bấm nút tải về để nộp cho giảng viên.
+    Trang không lưu gì; đóng trang là mất, nhớ tải về trước khi thoát.
+  </div>
+
+  <h2>Khoảng cách so với chỉ tiêu</h2>
+  <div class="luoi luoi-4" id="oTomTat"></div>
+  <div class="bd" style="margin-top:14px">
+    <p class="tieu">Bảy chỉ số đo được — khoảng cách còn lại tới chỉ tiêu</p>
+    <div id="bdKC"></div>
+  </div>
+
+  <h2>Bảng KPI — điền hai cột cuối</h2>
+  <div id="oKPI"></div>
+  <div class="hang-nut">
+    <button onclick="tai()">Tải sổ KPI về máy (CSV)</button>
+    <button class="phu" onclick="if(confirm('Xoá hết nội dung đã điền?')) xoa()">Xoá nội dung đã điền</button>
+  </div>
+
+  <h2>Năm thành phần bắt buộc của một KPI</h2>
+  <div id="oNam"></div>
+
+  <div class="hop hop-cam">
+    <b>Hai lỗi hay mắc.</b> Thứ nhất: điền số 0 cho KPI chưa đo được — phải để trống
+    và ghi rõ “chưa đo”, vì đó là thông tin quản trị quan trọng. Thứ hai: ghi tên
+    phòng ở cột người chịu trách nhiệm — ghi tên phòng nghĩa là không ai chịu.
+  </div>
+
+  <h2>Ghép cặp chỉ số đầu ra và chỉ số kết quả</h2>
+  <div id="oGhep"></div>
+</main>
+
+<script src="du_lieu/kpi.js"></script>
+<script>
+function soTu(chu) {
+  var m = String(chu).replace(",", ".").match(/-?\d+(\.\d+)?/);
+  return m ? Number(m[0]) : null;
+}
+
+/* ---------------------------------------------------------- tóm tắt */
+(function () {
+  var doDuoc = KPI.filter(function (k) { return soTu(k.gia_tri_hien_tai) !== null; });
+  var chuaDo = KPI.length - doDuoc.length;
+  var cs = [
+    ["Tổng số KPI", String(KPI.length), "trong bộ mẫu", ""],
+    ["Đo được", String(doDuoc.length), "có sẵn nguồn số liệu", "xanh"],
+    ["Chưa đo được", String(chuaDo), "lỗ hổng quản trị", chuaDo ? "do" : "xanh"],
+    ["Đã đạt chỉ tiêu", "0", "trong " + doDuoc.length + " KPI đo được", "do"]
+  ];
+  var o = document.getElementById("oTomTat");
+  cs.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+
+  /* khoảng cách tương đối tới chỉ tiêu, quy về % để so sánh được */
+  var nhan = [], gt = [];
+  doDuoc.forEach(function (k) {
+    var hien = soTu(k.gia_tri_hien_tai), muc = soTu(k.muc_tieu_2027);
+    if (hien === null || muc === null || !muc) return;
+    var kc = Math.abs(muc - hien) / Math.abs(muc) * 100;
+    nhan.push(k.ma_kpi);
+    gt.push(kc);
+  });
+  veCot("bdKC", nhan, gt, { donVi: "%", mau: function (v) {
+    return v >= 30 ? "#B3261E" : (v >= 15 ? "#C2610F" : "#00843D"); } });
+})();
+
+/* ------------------------------------------------------------ bảng KPI */
+function veKPI() {
+  var o = document.getElementById("oKPI");
+  o.innerHTML = "";
+  var khung = el("div", { "class": "khung-bang" });
+  var t = el("table");
+  var th = el("tr");
+  ["Mã", "Tên KPI", "Công thức", "Nguồn số liệu", "Hiện tại", "Chỉ tiêu",
+   "Kỳ đo (điền)", "Người chịu trách nhiệm (điền)"].forEach(function (c) {
+    th.appendChild(el("th", {}, c));
+  });
+  t.appendChild(el("thead", {}, th));
+  var tb = el("tbody");
+  KPI.forEach(function (k, i) {
+    var tr = el("tr");
+    [k.ma_kpi, k.ten_kpi, k.cong_thuc, k.nguon_so_lieu].forEach(function (v) {
+      tr.appendChild(el("td", {}, v));
+    });
+    var co = soTu(k.gia_tri_hien_tai) !== null;
+    var td = el("td", { "class": "so" });
+    td.appendChild(co ? document.createTextNode(k.gia_tri_hien_tai)
+                      : nhanTT("Chưa đo", "do"));
+    tr.appendChild(td);
+    tr.appendChild(el("td", { "class": "so" }, k.muc_tieu_2027));
+    ["ky", "nguoi"].forEach(function (loai) {
+      var o2 = el("td");
+      var inp = el("input", { type: "text", id: loai + i,
+        placeholder: loai === "ky" ? k.ky_do : "Tên một người cụ thể",
+        style: "width:100%;min-width:130px" });
+      o2.appendChild(inp);
+      tr.appendChild(o2);
+    });
+    tb.appendChild(tr);
+  });
+  t.appendChild(tb); khung.appendChild(t); o.appendChild(khung);
+}
+
+function tai() {
+  var cot = ["ma_kpi", "ten_kpi", "cong_thuc", "nguon_so_lieu",
+             "gia_tri_hien_tai", "muc_tieu", "ky_do", "nguoi_chiu_trach_nhiem"];
+  var dong = KPI.map(function (k, i) {
+    return [k.ma_kpi, k.ten_kpi, k.cong_thuc, k.nguon_so_lieu,
+            k.gia_tri_hien_tai, k.muc_tieu_2027,
+            document.getElementById("ky" + i).value,
+            document.getElementById("nguoi" + i).value];
+  });
+  taiCSV("so_kpi_da_dien.csv", cot, dong);
+}
+
+function xoa() {
+  KPI.forEach(function (k, i) {
+    document.getElementById("ky" + i).value = "";
+    document.getElementById("nguoi" + i).value = "";
+  });
+}
+
+veKPI();
+
+/* ------------------------------------------------------- năm thành phần */
+veBang("oNam",
+  [{ ten: "Thành phần", lay: function (d) { return d[0]; } },
+   { ten: "Yêu cầu", lay: function (d) { return d[1]; } },
+   { ten: "Ví dụ đạt yêu cầu", lay: function (d) { return d[2]; } }],
+  [["Tên", "Ngắn, không gây hiểu hai nghĩa", "Tỉ lệ hồ sơ giải quyết đúng hạn"],
+   ["Công thức", "Ghi rõ tử số và mẫu số", "dung_han chia cho da_xu_ly, theo ngày làm việc"],
+   ["Nguồn số liệu", "Tới mức tên bảng và tên cột", "01_ho_so_thang.csv, cột dung_han và da_xu_ly"],
+   ["Kỳ đo", "Tháng, quý hay năm; chốt ngày nào", "Hàng tháng, chốt ngày cuối tháng"],
+   ["Người chịu trách nhiệm", "Một người cụ thể, không phải một phòng",
+    "Trưởng Bộ phận Một cửa của từng đơn vị"]]);
+
+/* ----------------------------------------------------------- ghép cặp */
+veBang("oGhep",
+  [{ ten: "Chỉ số đầu ra", lay: function (d) { return d[0]; } },
+   { ten: "Rủi ro nếu chỉ đo cái này", lay: function (d) { return d[1]; } },
+   { ten: "Chỉ số kết quả đi kèm", lay: function (d) { return d[2]; } }],
+  [["Tỉ lệ hồ sơ nộp trực tuyến", "Cán bộ nộp hộ người dân trên máy cơ quan",
+    "Tỉ lệ người dân tự nộp, không cần hỗ trợ"],
+   ["Số lượt cán bộ được tập huấn", "Điểm danh cho đủ, không ai học thật",
+    "Số cán bộ tự xử lý được hồ sơ trên hệ thống"],
+   ["Số dịch vụ công đã đưa lên mạng", "Đưa lên cho có, không ai dùng",
+    "Số hồ sơ thực tế phát sinh trên từng dịch vụ"],
+   ["Tỉ lệ giải ngân ngân sách", "Mua sắm vội cuối năm cho đạt tỉ lệ",
+    "Số giờ hệ thống bị gián đoạn trong năm"]]);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

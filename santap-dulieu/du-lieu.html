@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bộ dữ liệu — Sàn tập Dữ liệu và Quyết định</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Bộ dữ liệu giả lập">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("du-lieu.html");</script>
+
+<main class="bao">
+  <h1>Bộ dữ liệu giả lập</h1>
+
+  <div class="hop hop-do">
+    <b>Toàn bộ dữ liệu là hư cấu.</b> Địa danh “thị xã Mẫu Giang, Tỉnh Mẫu” và tên
+    12 đơn vị đều không có thật. Mọi con số do chương trình sinh ra theo phân bố định
+    trước. Không trích dẫn vào bất kỳ văn bản chính thức nào và không so sánh với
+    bất kỳ đơn vị hành chính thật nào.
+  </div>
+
+  <h2>Tám bộ dữ liệu của khoá học</h2>
+  <div id="oDanhMuc"></div>
+
+  <div class="hop hop-cam">
+    <b>Cách mở tệp CSV cho đúng.</b> Mọi tệp dùng mã UTF-8. Bấm đúp mở bằng Excel sẽ
+    ra chữ lỗi kiểu “Hé» tá»‹ch”.
+    <br>Cách đúng với Google Trang tính: <b>Tệp → Nhập → Tải lên</b>, chọn dấu phẩy.
+    <br>Cách đúng với Excel: mở Excel trước, rồi <b>Dữ liệu → Lấy dữ liệu → Từ tệp
+    văn bản</b>, chọn UTF-8 và dấu phẩy.
+  </div>
+
+  <h2>Xem trước dữ liệu</h2>
+  <div class="hang-dk">
+    <div>
+      <label for="cbBang">Chọn bộ dữ liệu</label>
+      <select id="cbBang" onchange="xem()"></select>
+    </div>
+    <div>
+      <label for="cbSoDong">Số dòng hiển thị</label>
+      <select id="cbSoDong" onchange="xem()">
+        <option value="25">25 dòng đầu</option>
+        <option value="100">100 dòng đầu</option>
+        <option value="99999">Toàn bộ</option>
+      </select>
+    </div>
+    <div><button onclick="taiBang()">Tải bộ đang xem về máy (CSV)</button></div>
+  </div>
+  <div id="oXem"></div>
+
+  <h2>Ba bản ghi cố ý cài lỗi trong tệp hồ sơ</h2>
+  <p>Ba dòng này được cài vào tệp <code>01_ho_so_thang.csv</code> để học viên tập
+  phát hiện ở buổi Ngày 01 Sáng. Giảng viên chỉ chiếu bảng này <b>sau khi</b> học
+  viên đã tự tìm.</p>
+  <div id="oLoi"></div>
+
+  <h2>Bảy lỗi trong tệp dữ liệu bẩn</h2>
+  <p>Tệp <code>05_ho_so_ban.csv</code> chứa đủ bảy loại lỗi, dùng cho buổi
+  Ngày 03 Sáng.</p>
+  <div id="oBayLoi"></div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/ho_so.js"></script>
+<script src="du_lieu/hai_long.js"></script>
+<script src="du_lieu/ho_so_ban.js"></script>
+<script src="du_lieu/phuong_an.js"></script>
+<script src="du_lieu/kpi.js"></script>
+<script src="du_lieu/ngan_sach.js"></script>
+<script>
+var BANG = [
+  ["01_ho_so_thang.csv", "HO_SO", "Hồ sơ thủ tục hành chính theo đơn vị × tháng × lĩnh vực",
+   "1, 2, 3, 6, 9"],
+  ["02_don_vi.csv", "DON_VI", "Danh mục 12 đơn vị: dân số, số cán bộ một cửa, khoảng cách, Internet",
+   "1–10"],
+  ["03_hai_long.csv", "HAI_LONG", "Khảo sát hài lòng theo đơn vị và theo quý", "3, 6, 9"],
+  ["04_bao_cao_dai.txt", null, "Báo cáo 8 mục dùng để luyện tóm tắt bằng trợ lý AI", "4"],
+  ["05_ho_so_ban.csv", "HO_SO_BAN", "Bản dữ liệu cố ý cài sẵn bảy loại lỗi", "5"],
+  ["06_phuong_an.csv", "PHUONG_AN", "Bốn phương án phần mềm một cửa × sáu tiêu chí", "7, 8, 10"],
+  ["07_kpi_nguon.csv", "KPI", "Tám KPI kèm công thức, nguồn số liệu và chỉ tiêu", "9"],
+  ["08_ngan_sach.csv", "NGAN_SACH", "Ngân sách công nghệ thông tin theo đơn vị và năm", "6, 7, 10"]
+];
+
+veBang("oDanhMuc",
+  [{ ten: "Tệp", lay: function (d) { return d[0]; } },
+   { ten: "Nội dung", lay: function (d) { return d[2]; } },
+   { ten: "Số dòng", so: true, lay: function (d) {
+       return d[1] ? sn(window[d[1]].length) : "—"; } },
+   { ten: "Dùng ở buổi", lay: function (d) { return d[3]; } },
+   { ten: "Tải về", lay: function (d) {
+       return el("a", { href: "tai_ve/" + d[0], download: d[0] }, "Tải tệp"); } }],
+  BANG);
+
+/* ------------------------------------------------------------- xem trước */
+var sel = document.getElementById("cbBang");
+BANG.filter(function (d) { return d[1]; }).forEach(function (d) {
+  sel.appendChild(el("option", { value: d[1] }, d[0]));
+});
+
+function xem() {
+  var ten = document.getElementById("cbBang").value;
+  var n = Number(document.getElementById("cbSoDong").value);
+  var ds = window[ten];
+  var cot = Object.keys(ds[0]).map(function (k) {
+    return { ten: k, so: typeof ds[0][k] === "number",
+             lay: function (d) {
+               var v = d[k];
+               if (v === "") return "(trống)";
+               return typeof v === "number" ? sv(v, Number.isInteger(v) ? 0 : 1) : v;
+             } };
+  });
+  veBang("oXem", cot, ds.slice(0, n),
+    { ghi: "Đang hiện " + Math.min(n, ds.length) + " trong tổng số " +
+           sn(ds.length) + " dòng." });
+}
+
+function taiBang() {
+  var ten = document.getElementById("cbBang").value;
+  var ds = window[ten];
+  var cot = Object.keys(ds[0]);
+  taiCSV(ten.toLowerCase() + ".csv", cot,
+    ds.map(function (d) { return cot.map(function (k) { return d[k]; }); }));
+}
+
+/* ---------------------------------------------------------- ba bản ghi lỗi */
+veBang("oLoi",
+  [{ ten: "Đơn vị", lay: function (d) { return d[0]; } },
+   { ten: "Tháng", lay: function (d) { return d[1]; } },
+   { ten: "Lĩnh vực", lay: function (d) { return d[2]; } },
+   { ten: "Dấu hiệu", lay: function (d) { return d[3]; } },
+   { ten: "Vì sao chắc chắn là lỗi", lay: function (d) { return d[4]; } }],
+  [["Xã Thanh Sơn", "2026-07", "Đất đai", "Thời gian xử lý 68 ngày",
+    "Gấp hơn 15 lần mức trung bình toàn thị xã"],
+   ["Xã Vĩnh Lộc", "2026-09", "Chứng thực", "Đúng hạn lớn hơn đã xử lý",
+    "Vô lý về logic — không thể đúng hạn nhiều hơn số đã làm"],
+   ["Xã Bình An", "2026-04", "Hộ tịch", "Tiếp nhận gấp khoảng mười lần",
+    "Cùng đơn vị, cùng lĩnh vực, các tháng khác đều thấp"]]);
+
+/* ------------------------------------------------------------ bảy lỗi */
+veBang("oBayLoi",
+  [{ ten: "Lỗi", lay: function (d) { return d[0]; } },
+   { ten: "Cách phát hiện", lay: function (d) { return d[1]; } },
+   { ten: "Có trong tệp", lay: function (d) { return d[2]; } }],
+  [["Trùng bản ghi", "Dữ liệu → Dọn dẹp dữ liệu → Xoá bản sao", "3 cặp"],
+   ["Sai định dạng ngày", "Sắp xếp cột ngày, dòng lạ dồn về một đầu", "4 dòng"],
+   ["Tên viết nhiều kiểu", "Bảng tổng hợp theo cột tên, đếm số dòng", "15 tên cho 12 đơn vị"],
+   ["Ô trống", "Định dạng có điều kiện → Ô trống → tô màu", "5 ô"],
+   ["Giá trị vô lý", "Sắp xếp tăng dần rồi giảm dần, xem hai đầu", "1 ô số âm"],
+   ["Lẫn đơn vị đo", "Sắp xếp giảm dần, tìm giá trị lệch hẳn", "1 ô ghi 96 (giờ thay vì ngày)"],
+   ["Dữ liệu chết", "Sắp xếp cột ngày tăng dần, xem dòng cũ nhất", "2 dòng năm 2019"]]);
+
+xem();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

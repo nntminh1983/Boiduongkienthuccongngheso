@@ -1,0 +1,9 @@
+﻿ma_kpi,ten_kpi,cong_thuc,nguon_so_lieu,ky_do,gia_tri_hien_tai,muc_tieu_2027
+KPI1,Tỉ lệ hồ sơ giải quyết đúng hạn,dung_han / da_xu_ly,01_ho_so_thang.csv,Hàng tháng,"79,4%",≥ 95%
+KPI2,Tỉ lệ hồ sơ nộp trực tuyến,truc_tuyen / tiep_nhan,01_ho_so_thang.csv,Hàng tháng,"50,3%",≥ 80%
+KPI3,Thời gian xử lý trung bình,trung bình thoi_gian_tb_ngay,01_ho_so_thang.csv,Hàng tháng,"4,4 ngày","≤ 3,0 ngày"
+KPI4,Điểm hài lòng của người dân,trung bình diem_hai_long,03_hai_long.csv,Hàng quý,"4,19/5","≥ 4,50/5"
+KPI5,"Tỉ lệ phản ánh, kiến nghị",ty_le_phan_anh,03_hai_long.csv,Hàng quý,"3,7%","≤ 3,0%"
+KPI6,"Tỉ lệ người dân tự nộp được, không cần hỗ trợ",khảo sát tại Bộ phận Một cửa,Phiếu khảo sát tự thu thập,Hàng quý,Chưa đo,≥ 60%
+KPI7,Tỉ lệ giải ngân ngân sách công nghệ thông tin,thuc_hien / du_toan,08_ngan_sach.csv,Hàng quý,"71,4%",≥ 90%
+KPI8,Số đơn vị đạt mức đúng hạn trên 90%,đếm đơn vị có KPI1 ≥ 90%,01_ho_so_thang.csv,Hàng quý,2/12 đơn vị,≥ 9/12 đơn vị

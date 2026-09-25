@@ -1,0 +1,4 @@
+# Website gia lap phuc vu dao tao — khong lap chi muc
+# Simulated training website — do not index
+User-agent: *
+Disallow: /

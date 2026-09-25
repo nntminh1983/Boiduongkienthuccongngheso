@@ -1,0 +1,721 @@
+﻿ma_don_vi,ten_don_vi,thang,linh_vuc,tiep_nhan,da_xu_ly,dung_han,truc_tuyen,thoi_gian_tb_ngay
+DV01,Phường Hoà Thuận,2026-01,Hộ tịch,19,17,15,11,3.7
+DV01,Phường Hoà Thuận,2026-01,Đất đai,13,12,11,7,3.7
+DV01,Phường Hoà Thuận,2026-01,Chứng thực,25,23,22,14,3.2
+DV01,Phường Hoà Thuận,2026-01,Bảo trợ xã hội,7,6,5,3,3.6
+DV01,Phường Hoà Thuận,2026-01,Đăng ký kinh doanh,5,4,3,2,2.7
+DV01,Phường Hoà Thuận,2026-02,Hộ tịch,22,21,19,13,3.7
+DV01,Phường Hoà Thuận,2026-02,Đất đai,8,7,6,4,2.7
+DV01,Phường Hoà Thuận,2026-02,Chứng thực,26,25,23,19,2.9
+DV01,Phường Hoà Thuận,2026-02,Bảo trợ xã hội,6,5,4,3,3.1
+DV01,Phường Hoà Thuận,2026-02,Đăng ký kinh doanh,3,2,1,1,3.5
+DV01,Phường Hoà Thuận,2026-03,Hộ tịch,30,27,24,17,2.8
+DV01,Phường Hoà Thuận,2026-03,Đất đai,17,16,15,9,3.0
+DV01,Phường Hoà Thuận,2026-03,Chứng thực,45,44,39,29,3.7
+DV01,Phường Hoà Thuận,2026-03,Bảo trợ xã hội,8,7,6,5,3.1
+DV01,Phường Hoà Thuận,2026-03,Đăng ký kinh doanh,8,7,6,3,2.9
+DV01,Phường Hoà Thuận,2026-04,Hộ tịch,31,29,28,16,3.3
+DV01,Phường Hoà Thuận,2026-04,Đất đai,17,16,15,12,3.2
+DV01,Phường Hoà Thuận,2026-04,Chứng thực,39,38,36,19,3.4
+DV01,Phường Hoà Thuận,2026-04,Bảo trợ xã hội,7,6,5,4,3.2
+DV01,Phường Hoà Thuận,2026-04,Đăng ký kinh doanh,6,5,4,3,3.5
+DV01,Phường Hoà Thuận,2026-05,Hộ tịch,26,25,22,16,2.5
+DV01,Phường Hoà Thuận,2026-05,Đất đai,19,17,16,11,2.9
+DV01,Phường Hoà Thuận,2026-05,Chứng thực,33,32,28,16,3.5
+DV01,Phường Hoà Thuận,2026-05,Bảo trợ xã hội,10,9,8,6,2.9
+DV01,Phường Hoà Thuận,2026-05,Đăng ký kinh doanh,7,6,5,4,3.0
+DV01,Phường Hoà Thuận,2026-06,Hộ tịch,31,29,25,17,3.2
+DV01,Phường Hoà Thuận,2026-06,Đất đai,22,21,19,13,3.6
+DV01,Phường Hoà Thuận,2026-06,Chứng thực,44,42,38,30,3.6
+DV01,Phường Hoà Thuận,2026-06,Bảo trợ xã hội,12,11,10,5,2.9
+DV01,Phường Hoà Thuận,2026-06,Đăng ký kinh doanh,9,8,7,4,3.3
+DV01,Phường Hoà Thuận,2026-07,Hộ tịch,31,29,28,21,2.5
+DV01,Phường Hoà Thuận,2026-07,Đất đai,15,14,12,9,2.7
+DV01,Phường Hoà Thuận,2026-07,Chứng thực,34,33,32,19,2.6
+DV01,Phường Hoà Thuận,2026-07,Bảo trợ xã hội,9,8,7,4,3.4
+DV01,Phường Hoà Thuận,2026-07,Đăng ký kinh doanh,6,5,4,3,3.6
+DV01,Phường Hoà Thuận,2026-08,Hộ tịch,25,23,21,16,2.6
+DV01,Phường Hoà Thuận,2026-08,Đất đai,16,15,13,9,2.8
+DV01,Phường Hoà Thuận,2026-08,Chứng thực,31,29,27,17,3.4
+DV01,Phường Hoà Thuận,2026-08,Bảo trợ xã hội,9,8,7,4,3.4
+DV01,Phường Hoà Thuận,2026-08,Đăng ký kinh doanh,7,6,5,4,2.4
+DV01,Phường Hoà Thuận,2026-09,Hộ tịch,24,23,21,18,3.5
+DV01,Phường Hoà Thuận,2026-09,Đất đai,13,12,11,8,3.6
+DV01,Phường Hoà Thuận,2026-09,Chứng thực,42,39,37,30,2.4
+DV01,Phường Hoà Thuận,2026-09,Bảo trợ xã hội,10,9,8,4,2.9
+DV01,Phường Hoà Thuận,2026-09,Đăng ký kinh doanh,8,7,6,4,3.6
+DV01,Phường Hoà Thuận,2026-10,Hộ tịch,24,23,21,14,2.9
+DV01,Phường Hoà Thuận,2026-10,Đất đai,13,12,11,9,3.2
+DV01,Phường Hoà Thuận,2026-10,Chứng thực,31,28,24,19,2.9
+DV01,Phường Hoà Thuận,2026-10,Bảo trợ xã hội,9,8,7,4,3.5
+DV01,Phường Hoà Thuận,2026-10,Đăng ký kinh doanh,6,5,4,4,3.0
+DV01,Phường Hoà Thuận,2026-11,Hộ tịch,31,30,26,18,3.6
+DV01,Phường Hoà Thuận,2026-11,Đất đai,16,15,14,8,2.4
+DV01,Phường Hoà Thuận,2026-11,Chứng thực,41,38,36,30,3.4
+DV01,Phường Hoà Thuận,2026-11,Bảo trợ xã hội,9,8,7,4,3.5
+DV01,Phường Hoà Thuận,2026-11,Đăng ký kinh doanh,6,5,4,3,2.7
+DV01,Phường Hoà Thuận,2026-12,Hộ tịch,36,35,32,22,3.1
+DV01,Phường Hoà Thuận,2026-12,Đất đai,18,16,14,13,3.1
+DV01,Phường Hoà Thuận,2026-12,Chứng thực,41,38,36,30,2.4
+DV01,Phường Hoà Thuận,2026-12,Bảo trợ xã hội,11,10,9,5,2.8
+DV01,Phường Hoà Thuận,2026-12,Đăng ký kinh doanh,8,7,6,4,2.7
+DV02,Phường Tân Hoà,2026-01,Hộ tịch,28,27,25,17,2.8
+DV02,Phường Tân Hoà,2026-01,Đất đai,12,11,9,8,3.3
+DV02,Phường Tân Hoà,2026-01,Chứng thực,30,28,27,16,3.8
+DV02,Phường Tân Hoà,2026-01,Bảo trợ xã hội,8,7,6,5,2.7
+DV02,Phường Tân Hoà,2026-01,Đăng ký kinh doanh,6,5,4,3,2.7
+DV02,Phường Tân Hoà,2026-02,Hộ tịch,27,26,25,13,3.7
+DV02,Phường Tân Hoà,2026-02,Đất đai,14,13,11,7,3.9
+DV02,Phường Tân Hoà,2026-02,Chứng thực,27,25,24,15,3.7
+DV02,Phường Tân Hoà,2026-02,Bảo trợ xã hội,7,6,5,4,3.2
+DV02,Phường Tân Hoà,2026-02,Đăng ký kinh doanh,5,4,3,2,3.7
+DV02,Phường Tân Hoà,2026-03,Hộ tịch,31,30,26,20,3.2
+DV02,Phường Tân Hoà,2026-03,Đất đai,19,18,17,10,3.7
+DV02,Phường Tân Hoà,2026-03,Chứng thực,42,40,35,25,3.2
+DV02,Phường Tân Hoà,2026-03,Bảo trợ xã hội,8,7,6,5,3.7
+DV02,Phường Tân Hoà,2026-03,Đăng ký kinh doanh,9,8,7,7,2.8
+DV02,Phường Tân Hoà,2026-04,Hộ tịch,32,29,25,16,3.7
+DV02,Phường Tân Hoà,2026-04,Đất đai,17,16,15,9,3.5
+DV02,Phường Tân Hoà,2026-04,Chứng thực,39,36,32,23,3.2
+DV02,Phường Tân Hoà,2026-04,Bảo trợ xã hội,10,9,8,6,3.0
+DV02,Phường Tân Hoà,2026-04,Đăng ký kinh doanh,9,8,6,5,3.5
+DV02,Phường Tân Hoà,2026-05,Hộ tịch,30,29,26,21,3.0
+DV02,Phường Tân Hoà,2026-05,Đất đai,19,18,15,14,3.8
+DV02,Phường Tân Hoà,2026-05,Chứng thực,54,53,48,35,3.4
+DV02,Phường Tân Hoà,2026-05,Bảo trợ xã hội,10,9,8,7,3.1
+DV02,Phường Tân Hoà,2026-05,Đăng ký kinh doanh,7,6,5,3,3.8
+DV02,Phường Tân Hoà,2026-06,Hộ tịch,44,41,37,28,3.8
+DV02,Phường Tân Hoà,2026-06,Đất đai,23,22,21,16,3.7
+DV02,Phường Tân Hoà,2026-06,Chứng thực,53,50,48,33,2.8
+DV02,Phường Tân Hoà,2026-06,Bảo trợ xã hội,14,13,12,10,3.7
+DV02,Phường Tân Hoà,2026-06,Đăng ký kinh doanh,12,11,9,9,2.6
+DV02,Phường Tân Hoà,2026-07,Hộ tịch,39,38,33,23,2.8
+DV02,Phường Tân Hoà,2026-07,Đất đai,18,17,16,11,3.3
+DV02,Phường Tân Hoà,2026-07,Chứng thực,37,35,33,27,3.2
+DV02,Phường Tân Hoà,2026-07,Bảo trợ xã hội,13,12,10,8,3.4
+DV02,Phường Tân Hoà,2026-07,Đăng ký kinh doanh,8,7,6,5,3.2
+DV02,Phường Tân Hoà,2026-08,Hộ tịch,32,31,28,25,2.8
+DV02,Phường Tân Hoà,2026-08,Đất đai,23,22,19,17,2.6
+DV02,Phường Tân Hoà,2026-08,Chứng thực,45,43,40,34,3.3
+DV02,Phường Tân Hoà,2026-08,Bảo trợ xã hội,11,10,9,7,3.2
+DV02,Phường Tân Hoà,2026-08,Đăng ký kinh doanh,7,6,5,3,3.2
+DV02,Phường Tân Hoà,2026-09,Hộ tịch,38,37,32,18,3.7
+DV02,Phường Tân Hoà,2026-09,Đất đai,17,15,13,11,3.0
+DV02,Phường Tân Hoà,2026-09,Chứng thực,47,45,42,26,2.9
+DV02,Phường Tân Hoà,2026-09,Bảo trợ xã hội,11,10,9,7,3.6
+DV02,Phường Tân Hoà,2026-09,Đăng ký kinh doanh,8,7,6,5,3.9
+DV02,Phường Tân Hoà,2026-10,Hộ tịch,41,40,38,22,3.1
+DV02,Phường Tân Hoà,2026-10,Đất đai,21,20,17,11,2.6
+DV02,Phường Tân Hoà,2026-10,Chứng thực,53,50,48,31,3.3
+DV02,Phường Tân Hoà,2026-10,Bảo trợ xã hội,10,9,8,7,3.1
+DV02,Phường Tân Hoà,2026-10,Đăng ký kinh doanh,8,7,6,4,3.1
+DV02,Phường Tân Hoà,2026-11,Hộ tịch,31,30,29,19,3.6
+DV02,Phường Tân Hoà,2026-11,Đất đai,23,22,19,17,3.6
+DV02,Phường Tân Hoà,2026-11,Chứng thực,39,38,33,29,2.9
+DV02,Phường Tân Hoà,2026-11,Bảo trợ xã hội,9,8,7,6,3.1
+DV02,Phường Tân Hoà,2026-11,Đăng ký kinh doanh,9,8,7,6,3.7
+DV02,Phường Tân Hoà,2026-12,Hộ tịch,44,41,37,25,2.8
+DV02,Phường Tân Hoà,2026-12,Đất đai,25,24,22,14,3.0
+DV02,Phường Tân Hoà,2026-12,Chứng thực,54,53,50,39,3.2
+DV02,Phường Tân Hoà,2026-12,Bảo trợ xã hội,14,13,12,8,3.3
+DV02,Phường Tân Hoà,2026-12,Đăng ký kinh doanh,9,8,6,6,2.7
+DV03,Phường Đông Giang,2026-01,Hộ tịch,18,17,15,8,3.1
+DV03,Phường Đông Giang,2026-01,Đất đai,11,10,8,7,4.0
+DV03,Phường Đông Giang,2026-01,Chứng thực,23,22,18,16,3.0
+DV03,Phường Đông Giang,2026-01,Bảo trợ xã hội,5,4,3,3,3.6
+DV03,Phường Đông Giang,2026-01,Đăng ký kinh doanh,4,3,2,2,3.9
+DV03,Phường Đông Giang,2026-02,Hộ tịch,19,18,16,12,4.2
+DV03,Phường Đông Giang,2026-02,Đất đai,9,8,7,6,3.4
+DV03,Phường Đông Giang,2026-02,Chứng thực,24,23,19,13,3.4
+DV03,Phường Đông Giang,2026-02,Bảo trợ xã hội,4,3,2,2,3.2
+DV03,Phường Đông Giang,2026-02,Đăng ký kinh doanh,3,2,1,1,4.0
+DV03,Phường Đông Giang,2026-03,Hộ tịch,29,27,22,18,3.2
+DV03,Phường Đông Giang,2026-03,Đất đai,12,11,9,5,4.3
+DV03,Phường Đông Giang,2026-03,Chứng thực,32,30,27,17,3.4
+DV03,Phường Đông Giang,2026-03,Bảo trợ xã hội,7,6,5,3,3.6
+DV03,Phường Đông Giang,2026-03,Đăng ký kinh doanh,6,5,4,3,4.0
+DV03,Phường Đông Giang,2026-04,Hộ tịch,29,28,25,16,3.2
+DV03,Phường Đông Giang,2026-04,Đất đai,16,15,13,11,3.0
+DV03,Phường Đông Giang,2026-04,Chứng thực,33,31,27,21,3.1
+DV03,Phường Đông Giang,2026-04,Bảo trợ xã hội,7,6,5,3,3.8
+DV03,Phường Đông Giang,2026-04,Đăng ký kinh doanh,7,6,5,5,4.2
+DV03,Phường Đông Giang,2026-05,Hộ tịch,26,25,22,19,3.5
+DV03,Phường Đông Giang,2026-05,Đất đai,16,15,13,11,3.9
+DV03,Phường Đông Giang,2026-05,Chứng thực,32,30,25,16,4.1
+DV03,Phường Đông Giang,2026-05,Bảo trợ xã hội,7,6,5,4,3.2
+DV03,Phường Đông Giang,2026-05,Đăng ký kinh doanh,5,4,3,3,4.2
+DV03,Phường Đông Giang,2026-06,Hộ tịch,27,25,21,13,2.9
+DV03,Phường Đông Giang,2026-06,Đất đai,19,18,15,11,3.2
+DV03,Phường Đông Giang,2026-06,Chứng thực,36,33,30,17,4.1
+DV03,Phường Đông Giang,2026-06,Bảo trợ xã hội,8,7,5,3,3.6
+DV03,Phường Đông Giang,2026-06,Đăng ký kinh doanh,6,5,4,4,3.2
+DV03,Phường Đông Giang,2026-07,Hộ tịch,27,25,21,17,3.6
+DV03,Phường Đông Giang,2026-07,Đất đai,14,13,10,9,4.1
+DV03,Phường Đông Giang,2026-07,Chứng thực,35,33,27,18,3.1
+DV03,Phường Đông Giang,2026-07,Bảo trợ xã hội,6,5,4,3,3.5
+DV03,Phường Đông Giang,2026-07,Đăng ký kinh doanh,7,6,5,3,4.1
+DV03,Phường Đông Giang,2026-08,Hộ tịch,24,22,18,13,3.5
+DV03,Phường Đông Giang,2026-08,Đất đai,16,15,13,8,4.2
+DV03,Phường Đông Giang,2026-08,Chứng thực,38,36,30,23,3.7
+DV03,Phường Đông Giang,2026-08,Bảo trợ xã hội,7,6,5,3,4.1
+DV03,Phường Đông Giang,2026-08,Đăng ký kinh doanh,5,4,3,2,3.0
+DV03,Phường Đông Giang,2026-09,Hộ tịch,22,20,18,10,4.0
+DV03,Phường Đông Giang,2026-09,Đất đai,14,13,11,7,3.7
+DV03,Phường Đông Giang,2026-09,Chứng thực,32,31,27,20,3.5
+DV03,Phường Đông Giang,2026-09,Bảo trợ xã hội,7,6,5,4,4.0
+DV03,Phường Đông Giang,2026-09,Đăng ký kinh doanh,6,5,4,3,3.6
+DV03,Phường Đông Giang,2026-10,Hộ tịch,28,27,23,13,3.1
+DV03,Phường Đông Giang,2026-10,Đất đai,13,12,10,9,3.5
+DV03,Phường Đông Giang,2026-10,Chứng thực,30,28,26,16,4.1
+DV03,Phường Đông Giang,2026-10,Bảo trợ xã hội,8,7,6,4,3.1
+DV03,Phường Đông Giang,2026-10,Đăng ký kinh doanh,5,4,3,3,3.9
+DV03,Phường Đông Giang,2026-11,Hộ tịch,26,25,22,18,3.2
+DV03,Phường Đông Giang,2026-11,Đất đai,15,14,11,9,3.8
+DV03,Phường Đông Giang,2026-11,Chứng thực,35,33,27,25,3.5
+DV03,Phường Đông Giang,2026-11,Bảo trợ xã hội,6,5,4,2,2.9
+DV03,Phường Đông Giang,2026-11,Đăng ký kinh doanh,5,4,3,3,4.3
+DV03,Phường Đông Giang,2026-12,Hộ tịch,28,26,23,13,4.2
+DV03,Phường Đông Giang,2026-12,Đất đai,19,18,16,8,3.4
+DV03,Phường Đông Giang,2026-12,Chứng thực,34,32,28,19,3.0
+DV03,Phường Đông Giang,2026-12,Bảo trợ xã hội,10,9,8,6,3.5
+DV03,Phường Đông Giang,2026-12,Đăng ký kinh doanh,6,5,4,3,3.3
+DV04,Phường Nam Phong,2026-01,Hộ tịch,21,19,16,14,3.0
+DV04,Phường Nam Phong,2026-01,Đất đai,14,13,11,7,3.2
+DV04,Phường Nam Phong,2026-01,Chứng thực,24,22,20,11,2.9
+DV04,Phường Nam Phong,2026-01,Bảo trợ xã hội,6,5,4,3,4.0
+DV04,Phường Nam Phong,2026-01,Đăng ký kinh doanh,5,4,3,3,3.8
+DV04,Phường Nam Phong,2026-02,Hộ tịch,20,19,17,10,2.8
+DV04,Phường Nam Phong,2026-02,Đất đai,10,9,7,5,3.3
+DV04,Phường Nam Phong,2026-02,Chứng thực,23,22,18,12,3.6
+DV04,Phường Nam Phong,2026-02,Bảo trợ xã hội,7,6,5,4,3.2
+DV04,Phường Nam Phong,2026-02,Đăng ký kinh doanh,5,4,3,3,3.5
+DV04,Phường Nam Phong,2026-03,Hộ tịch,33,30,27,21,3.9
+DV04,Phường Nam Phong,2026-03,Đất đai,17,15,13,9,3.7
+DV04,Phường Nam Phong,2026-03,Chứng thực,35,34,29,25,3.2
+DV04,Phường Nam Phong,2026-03,Bảo trợ xã hội,11,10,8,5,3.0
+DV04,Phường Nam Phong,2026-03,Đăng ký kinh doanh,7,6,5,4,2.9
+DV04,Phường Nam Phong,2026-04,Hộ tịch,37,35,30,20,2.8
+DV04,Phường Nam Phong,2026-04,Đất đai,14,13,11,9,3.9
+DV04,Phường Nam Phong,2026-04,Chứng thực,46,43,39,27,3.8
+DV04,Phường Nam Phong,2026-04,Bảo trợ xã hội,10,9,8,6,3.9
+DV04,Phường Nam Phong,2026-04,Đăng ký kinh doanh,6,5,4,3,3.6
+DV04,Phường Nam Phong,2026-05,Hộ tịch,31,29,26,15,3.4
+DV04,Phường Nam Phong,2026-05,Đất đai,15,14,12,10,2.8
+DV04,Phường Nam Phong,2026-05,Chứng thực,35,33,29,25,3.3
+DV04,Phường Nam Phong,2026-05,Bảo trợ xã hội,11,10,8,5,3.6
+DV04,Phường Nam Phong,2026-05,Đăng ký kinh doanh,8,7,6,5,3.3
+DV04,Phường Nam Phong,2026-06,Hộ tịch,36,34,30,21,3.9
+DV04,Phường Nam Phong,2026-06,Đất đai,17,16,13,8,3.9
+DV04,Phường Nam Phong,2026-06,Chứng thực,57,54,46,29,3.0
+DV04,Phường Nam Phong,2026-06,Bảo trợ xã hội,12,11,10,8,2.8
+DV04,Phường Nam Phong,2026-06,Đăng ký kinh doanh,9,8,7,5,3.6
+DV04,Phường Nam Phong,2026-07,Hộ tịch,30,29,26,19,4.1
+DV04,Phường Nam Phong,2026-07,Đất đai,19,18,15,13,3.9
+DV04,Phường Nam Phong,2026-07,Chứng thực,41,40,35,25,3.6
+DV04,Phường Nam Phong,2026-07,Bảo trợ xã hội,8,7,6,5,3.3
+DV04,Phường Nam Phong,2026-07,Đăng ký kinh doanh,7,6,5,3,4.0
+DV04,Phường Nam Phong,2026-08,Hộ tịch,27,26,23,15,2.8
+DV04,Phường Nam Phong,2026-08,Đất đai,17,15,13,8,2.8
+DV04,Phường Nam Phong,2026-08,Chứng thực,37,36,32,20,3.0
+DV04,Phường Nam Phong,2026-08,Bảo trợ xã hội,8,7,6,5,3.2
+DV04,Phường Nam Phong,2026-08,Đăng ký kinh doanh,8,7,6,4,4.1
+DV04,Phường Nam Phong,2026-09,Hộ tịch,33,32,28,16,3.0
+DV04,Phường Nam Phong,2026-09,Đất đai,18,17,14,11,3.4
+DV04,Phường Nam Phong,2026-09,Chứng thực,38,35,32,27,3.0
+DV04,Phường Nam Phong,2026-09,Bảo trợ xã hội,10,9,8,4,3.0
+DV04,Phường Nam Phong,2026-09,Đăng ký kinh doanh,6,5,4,4,3.2
+DV04,Phường Nam Phong,2026-10,Hộ tịch,37,36,31,20,3.3
+DV04,Phường Nam Phong,2026-10,Đất đai,15,14,11,8,3.5
+DV04,Phường Nam Phong,2026-10,Chứng thực,34,32,29,17,3.6
+DV04,Phường Nam Phong,2026-10,Bảo trợ xã hội,8,7,6,5,2.9
+DV04,Phường Nam Phong,2026-10,Đăng ký kinh doanh,7,6,5,3,3.0
+DV04,Phường Nam Phong,2026-11,Hộ tịch,30,28,23,15,4.1
+DV04,Phường Nam Phong,2026-11,Đất đai,19,18,15,9,3.3
+DV04,Phường Nam Phong,2026-11,Chứng thực,47,46,41,33,2.8
+DV04,Phường Nam Phong,2026-11,Bảo trợ xã hội,9,8,7,5,2.7
+DV04,Phường Nam Phong,2026-11,Đăng ký kinh doanh,6,5,4,3,3.3
+DV04,Phường Nam Phong,2026-12,Hộ tịch,41,39,36,22,2.9
+DV04,Phường Nam Phong,2026-12,Đất đai,20,18,16,9,3.1
+DV04,Phường Nam Phong,2026-12,Chứng thực,43,41,37,30,3.8
+DV04,Phường Nam Phong,2026-12,Bảo trợ xã hội,9,8,7,4,3.8
+DV04,Phường Nam Phong,2026-12,Đăng ký kinh doanh,11,10,9,8,3.7
+DV05,Xã Bình An,2026-01,Hộ tịch,9,8,6,5,4.3
+DV05,Xã Bình An,2026-01,Đất đai,6,5,4,2,3.9
+DV05,Xã Bình An,2026-01,Chứng thực,13,12,9,6,4.2
+DV05,Xã Bình An,2026-01,Bảo trợ xã hội,3,2,1,1,4.6
+DV05,Xã Bình An,2026-01,Đăng ký kinh doanh,3,2,1,1,3.4
+DV05,Xã Bình An,2026-02,Hộ tịch,8,7,5,3,4.0
+DV05,Xã Bình An,2026-02,Đất đai,6,5,4,2,3.9
+DV05,Xã Bình An,2026-02,Chứng thực,12,11,8,5,4.7
+DV05,Xã Bình An,2026-02,Bảo trợ xã hội,3,2,1,1,4.2
+DV05,Xã Bình An,2026-02,Đăng ký kinh doanh,3,2,1,1,3.3
+DV05,Xã Bình An,2026-03,Hộ tịch,15,14,11,8,4.5
+DV05,Xã Bình An,2026-03,Đất đai,9,8,7,5,4.6
+DV05,Xã Bình An,2026-03,Chứng thực,21,20,15,12,4.5
+DV05,Xã Bình An,2026-03,Bảo trợ xã hội,5,4,3,2,3.8
+DV05,Xã Bình An,2026-03,Đăng ký kinh doanh,3,2,1,1,3.9
+DV05,Xã Bình An,2026-04,Hộ tịch,160,15,11,9,4.7
+DV05,Xã Bình An,2026-04,Đất đai,7,6,5,3,4.2
+DV05,Xã Bình An,2026-04,Chứng thực,17,16,13,10,3.4
+DV05,Xã Bình An,2026-04,Bảo trợ xã hội,5,4,3,2,3.4
+DV05,Xã Bình An,2026-04,Đăng ký kinh doanh,4,3,2,2,4.0
+DV05,Xã Bình An,2026-05,Hộ tịch,13,12,9,7,4.4
+DV05,Xã Bình An,2026-05,Đất đai,8,7,5,3,3.6
+DV05,Xã Bình An,2026-05,Chứng thực,21,20,17,12,3.4
+DV05,Xã Bình An,2026-05,Bảo trợ xã hội,4,3,2,1,3.4
+DV05,Xã Bình An,2026-05,Đăng ký kinh doanh,3,2,1,1,3.7
+DV05,Xã Bình An,2026-06,Hộ tịch,14,13,11,8,4.4
+DV05,Xã Bình An,2026-06,Đất đai,9,8,6,5,3.7
+DV05,Xã Bình An,2026-06,Chứng thực,24,23,18,11,3.5
+DV05,Xã Bình An,2026-06,Bảo trợ xã hội,5,4,3,2,4.7
+DV05,Xã Bình An,2026-06,Đăng ký kinh doanh,5,4,3,2,4.2
+DV05,Xã Bình An,2026-07,Hộ tịch,16,15,11,6,3.5
+DV05,Xã Bình An,2026-07,Đất đai,8,7,5,4,4.0
+DV05,Xã Bình An,2026-07,Chứng thực,17,15,12,8,3.8
+DV05,Xã Bình An,2026-07,Bảo trợ xã hội,5,4,3,2,4.3
+DV05,Xã Bình An,2026-07,Đăng ký kinh doanh,3,2,1,1,4.6
+DV05,Xã Bình An,2026-08,Hộ tịch,18,17,13,7,3.6
+DV05,Xã Bình An,2026-08,Đất đai,9,8,6,5,4.2
+DV05,Xã Bình An,2026-08,Chứng thực,23,21,18,10,3.6
+DV05,Xã Bình An,2026-08,Bảo trợ xã hội,5,4,3,2,3.8
+DV05,Xã Bình An,2026-08,Đăng ký kinh doanh,4,3,2,2,4.6
+DV05,Xã Bình An,2026-09,Hộ tịch,17,16,13,9,4.6
+DV05,Xã Bình An,2026-09,Đất đai,7,6,5,4,4.0
+DV05,Xã Bình An,2026-09,Chứng thực,17,16,13,8,3.7
+DV05,Xã Bình An,2026-09,Bảo trợ xã hội,5,4,3,2,4.4
+DV05,Xã Bình An,2026-09,Đăng ký kinh doanh,3,2,1,1,4.3
+DV05,Xã Bình An,2026-10,Hộ tịch,17,16,12,10,4.5
+DV05,Xã Bình An,2026-10,Đất đai,6,5,4,2,3.9
+DV05,Xã Bình An,2026-10,Chứng thực,16,15,12,9,4.6
+DV05,Xã Bình An,2026-10,Bảo trợ xã hội,4,3,2,2,3.7
+DV05,Xã Bình An,2026-10,Đăng ký kinh doanh,4,3,2,2,4.6
+DV05,Xã Bình An,2026-11,Hộ tịch,16,14,11,8,3.4
+DV05,Xã Bình An,2026-11,Đất đai,7,6,4,3,4.2
+DV05,Xã Bình An,2026-11,Chứng thực,18,16,13,7,4.6
+DV05,Xã Bình An,2026-11,Bảo trợ xã hội,5,4,3,2,3.9
+DV05,Xã Bình An,2026-11,Đăng ký kinh doanh,3,2,1,1,4.2
+DV05,Xã Bình An,2026-12,Hộ tịch,19,18,15,11,4.7
+DV05,Xã Bình An,2026-12,Đất đai,12,11,8,4,4.6
+DV05,Xã Bình An,2026-12,Chứng thực,29,28,22,12,3.4
+DV05,Xã Bình An,2026-12,Bảo trợ xã hội,5,4,3,3,3.9
+DV05,Xã Bình An,2026-12,Đăng ký kinh doanh,3,2,1,1,4.7
+DV06,Xã Long Thành,2026-01,Hộ tịch,14,13,10,8,3.7
+DV06,Xã Long Thành,2026-01,Đất đai,6,5,3,3,5.1
+DV06,Xã Long Thành,2026-01,Chứng thực,17,16,12,6,4.5
+DV06,Xã Long Thành,2026-01,Bảo trợ xã hội,3,2,1,1,4.8
+DV06,Xã Long Thành,2026-01,Đăng ký kinh doanh,3,2,1,1,4.0
+DV06,Xã Long Thành,2026-02,Hộ tịch,10,9,6,3,4.0
+DV06,Xã Long Thành,2026-02,Đất đai,5,4,3,1,3.9
+DV06,Xã Long Thành,2026-02,Chứng thực,13,12,9,7,5.1
+DV06,Xã Long Thành,2026-02,Bảo trợ xã hội,4,3,2,1,4.2
+DV06,Xã Long Thành,2026-02,Đăng ký kinh doanh,3,2,1,1,4.3
+DV06,Xã Long Thành,2026-03,Hộ tịch,21,20,15,12,4.8
+DV06,Xã Long Thành,2026-03,Đất đai,9,8,6,4,4.3
+DV06,Xã Long Thành,2026-03,Chứng thực,27,25,18,12,4.8
+DV06,Xã Long Thành,2026-03,Bảo trợ xã hội,4,3,2,1,3.7
+DV06,Xã Long Thành,2026-03,Đăng ký kinh doanh,3,2,1,1,4.0
+DV06,Xã Long Thành,2026-04,Hộ tịch,16,15,11,8,3.7
+DV06,Xã Long Thành,2026-04,Đất đai,9,8,6,3,4.9
+DV06,Xã Long Thành,2026-04,Chứng thực,25,23,18,14,4.7
+DV06,Xã Long Thành,2026-04,Bảo trợ xã hội,5,4,3,2,4.4
+DV06,Xã Long Thành,2026-04,Đăng ký kinh doanh,4,3,2,1,3.7
+DV06,Xã Long Thành,2026-05,Hộ tịch,15,14,10,5,4.2
+DV06,Xã Long Thành,2026-05,Đất đai,11,10,7,4,4.6
+DV06,Xã Long Thành,2026-05,Chứng thực,23,21,15,10,4.2
+DV06,Xã Long Thành,2026-05,Bảo trợ xã hội,6,5,4,3,4.1
+DV06,Xã Long Thành,2026-05,Đăng ký kinh doanh,5,4,3,2,4.1
+DV06,Xã Long Thành,2026-06,Hộ tịch,24,22,16,9,4.7
+DV06,Xã Long Thành,2026-06,Đất đai,9,8,6,5,4.2
+DV06,Xã Long Thành,2026-06,Chứng thực,30,28,21,14,4.7
+DV06,Xã Long Thành,2026-06,Bảo trợ xã hội,5,4,2,1,3.9
+DV06,Xã Long Thành,2026-06,Đăng ký kinh doanh,5,4,3,2,4.6
+DV06,Xã Long Thành,2026-07,Hộ tịch,21,20,15,12,5.0
+DV06,Xã Long Thành,2026-07,Đất đai,10,9,7,5,4.3
+DV06,Xã Long Thành,2026-07,Chứng thực,23,21,17,8,4.2
+DV06,Xã Long Thành,2026-07,Bảo trợ xã hội,6,5,3,3,3.9
+DV06,Xã Long Thành,2026-07,Đăng ký kinh doanh,3,2,1,1,4.3
+DV06,Xã Long Thành,2026-08,Hộ tịch,16,15,12,8,4.0
+DV06,Xã Long Thành,2026-08,Đất đai,11,10,7,5,4.6
+DV06,Xã Long Thành,2026-08,Chứng thực,27,26,21,14,4.0
+DV06,Xã Long Thành,2026-08,Bảo trợ xã hội,5,4,3,2,4.5
+DV06,Xã Long Thành,2026-08,Đăng ký kinh doanh,5,4,2,2,5.0
+DV06,Xã Long Thành,2026-09,Hộ tịch,21,19,15,12,4.0
+DV06,Xã Long Thành,2026-09,Đất đai,11,10,7,6,4.2
+DV06,Xã Long Thành,2026-09,Chứng thực,23,22,17,13,4.4
+DV06,Xã Long Thành,2026-09,Bảo trợ xã hội,6,5,3,2,3.8
+DV06,Xã Long Thành,2026-09,Đăng ký kinh doanh,5,4,3,2,4.5
+DV06,Xã Long Thành,2026-10,Hộ tịch,19,17,13,11,5.0
+DV06,Xã Long Thành,2026-10,Đất đai,8,7,5,4,4.0
+DV06,Xã Long Thành,2026-10,Chứng thực,22,21,17,9,4.9
+DV06,Xã Long Thành,2026-10,Bảo trợ xã hội,5,4,3,2,4.4
+DV06,Xã Long Thành,2026-10,Đăng ký kinh doanh,4,3,2,2,4.4
+DV06,Xã Long Thành,2026-11,Hộ tịch,18,17,12,9,4.7
+DV06,Xã Long Thành,2026-11,Đất đai,8,7,5,4,4.0
+DV06,Xã Long Thành,2026-11,Chứng thực,20,19,15,8,4.0
+DV06,Xã Long Thành,2026-11,Bảo trợ xã hội,6,5,3,2,4.9
+DV06,Xã Long Thành,2026-11,Đăng ký kinh doanh,4,3,2,1,3.8
+DV06,Xã Long Thành,2026-12,Hộ tịch,21,19,14,11,3.8
+DV06,Xã Long Thành,2026-12,Đất đai,14,13,10,5,3.8
+DV06,Xã Long Thành,2026-12,Chứng thực,33,31,23,16,3.9
+DV06,Xã Long Thành,2026-12,Bảo trợ xã hội,6,5,3,2,4.2
+DV06,Xã Long Thành,2026-12,Đăng ký kinh doanh,5,4,3,2,4.7
+DV07,Xã Phú Điền,2026-01,Hộ tịch,6,5,3,3,4.2
+DV07,Xã Phú Điền,2026-01,Đất đai,5,4,3,2,5.4
+DV07,Xã Phú Điền,2026-01,Chứng thực,10,9,6,4,5.4
+DV07,Xã Phú Điền,2026-01,Bảo trợ xã hội,3,2,1,1,4.2
+DV07,Xã Phú Điền,2026-01,Đăng ký kinh doanh,3,2,1,1,4.3
+DV07,Xã Phú Điền,2026-02,Hộ tịch,9,8,5,4,4.7
+DV07,Xã Phú Điền,2026-02,Đất đai,3,2,1,1,4.5
+DV07,Xã Phú Điền,2026-02,Chứng thực,10,9,7,4,4.9
+DV07,Xã Phú Điền,2026-02,Bảo trợ xã hội,3,2,1,1,4.8
+DV07,Xã Phú Điền,2026-02,Đăng ký kinh doanh,3,2,1,1,5.4
+DV07,Xã Phú Điền,2026-03,Hộ tịch,13,12,8,5,5.0
+DV07,Xã Phú Điền,2026-03,Đất đai,6,5,3,,4.3
+DV07,Xã Phú Điền,2026-03,Chứng thực,12,11,7,6,5.0
+DV07,Xã Phú Điền,2026-03,Bảo trợ xã hội,3,2,1,1,5.2
+DV07,Xã Phú Điền,2026-03,Đăng ký kinh doanh,3,2,1,1,4.9
+DV07,Xã Phú Điền,2026-04,Hộ tịch,11,10,7,5,5.0
+DV07,Xã Phú Điền,2026-04,Đất đai,5,4,3,2,5.4
+DV07,Xã Phú Điền,2026-04,Chứng thực,12,11,8,5,4.7
+DV07,Xã Phú Điền,2026-04,Bảo trợ xã hội,3,2,1,1,4.6
+DV07,Xã Phú Điền,2026-04,Đăng ký kinh doanh,3,2,1,1,5.2
+DV07,Xã Phú Điền,2026-05,Hộ tịch,10,9,6,4,4.2
+DV07,Xã Phú Điền,2026-05,Đất đai,6,5,3,2,4.8
+DV07,Xã Phú Điền,2026-05,Chứng thực,16,15,11,8,4.8
+DV07,Xã Phú Điền,2026-05,Bảo trợ xã hội,3,2,1,1,4.9
+DV07,Xã Phú Điền,2026-05,Đăng ký kinh doanh,3,2,1,1,4.3
+DV07,Xã Phú Điền,2026-06,Hộ tịch,12,11,8,5,5.4
+DV07,Xã Phú Điền,2026-06,Đất đai,7,6,4,3,4.7
+DV07,Xã Phú Điền,2026-06,Chứng thực,15,14,9,8,4.2
+DV07,Xã Phú Điền,2026-06,Bảo trợ xã hội,5,4,3,2,4.4
+DV07,Xã Phú Điền,2026-06,Đăng ký kinh doanh,3,2,1,1,4.7
+DV07,Xã Phú Điền,2026-07,Hộ tịch,11,10,7,4,5.3
+DV07,Xã Phú Điền,2026-07,Đất đai,7,6,4,3,4.9
+DV07,Xã Phú Điền,2026-07,Chứng thực,15,14,9,6,4.3
+DV07,Xã Phú Điền,2026-07,Bảo trợ xã hội,3,2,1,1,4.1
+DV07,Xã Phú Điền,2026-07,Đăng ký kinh doanh,3,2,1,1,4.8
+DV07,Xã Phú Điền,2026-08,Hộ tịch,13,12,8,5,5.0
+DV07,Xã Phú Điền,2026-08,Đất đai,7,6,4,2,4.8
+DV07,Xã Phú Điền,2026-08,Chứng thực,12,11,7,4,4.5
+DV07,Xã Phú Điền,2026-08,Bảo trợ xã hội,3,2,1,1,4.9
+DV07,Xã Phú Điền,2026-08,Đăng ký kinh doanh,3,2,1,1,5.2
+DV07,Xã Phú Điền,2026-09,Hộ tịch,12,11,7,5,4.4
+DV07,Xã Phú Điền,2026-09,Đất đai,7,6,4,2,4.6
+DV07,Xã Phú Điền,2026-09,Chứng thực,15,14,10,8,4.5
+DV07,Xã Phú Điền,2026-09,Bảo trợ xã hội,3,2,1,1,5.4
+DV07,Xã Phú Điền,2026-09,Đăng ký kinh doanh,3,2,1,1,4.7
+DV07,Xã Phú Điền,2026-10,Hộ tịch,10,9,6,5,4.5
+DV07,Xã Phú Điền,2026-10,Đất đai,7,6,4,3,4.6
+DV07,Xã Phú Điền,2026-10,Chứng thực,17,15,10,6,4.3
+DV07,Xã Phú Điền,2026-10,Bảo trợ xã hội,3,2,1,1,5.0
+DV07,Xã Phú Điền,2026-10,Đăng ký kinh doanh,3,2,1,1,4.4
+DV07,Xã Phú Điền,2026-11,Hộ tịch,9,8,6,4,5.3
+DV07,Xã Phú Điền,2026-11,Đất đai,7,6,4,2,5.4
+DV07,Xã Phú Điền,2026-11,Chứng thực,13,12,8,6,4.9
+DV07,Xã Phú Điền,2026-11,Bảo trợ xã hội,3,2,1,1,4.8
+DV07,Xã Phú Điền,2026-11,Đăng ký kinh doanh,3,2,1,1,5.4
+DV07,Xã Phú Điền,2026-12,Hộ tịch,12,11,7,4,4.6
+DV07,Xã Phú Điền,2026-12,Đất đai,6,5,3,2,5.1
+DV07,Xã Phú Điền,2026-12,Chứng thực,16,15,10,6,4.5
+DV07,Xã Phú Điền,2026-12,Bảo trợ xã hội,4,3,2,1,4.4
+DV07,Xã Phú Điền,2026-12,Đăng ký kinh doanh,4,3,2,1,4.4
+DV08,Xã Vĩnh Lộc,2026-01,Hộ tịch,8,7,5,3,5.8
+DV08,Xã Vĩnh Lộc,2026-01,Đất đai,4,3,2,1,4.9
+DV08,Xã Vĩnh Lộc,2026-01,Chứng thực,14,13,9,4,5.5
+DV08,Xã Vĩnh Lộc,2026-01,Bảo trợ xã hội,3,2,1,1,5.4
+DV08,Xã Vĩnh Lộc,2026-01,Đăng ký kinh doanh,3,2,1,1,5.4
+DV08,Xã Vĩnh Lộc,2026-02,Hộ tịch,7,6,4,2,5.4
+DV08,Xã Vĩnh Lộc,2026-02,Đất đai,4,3,2,1,4.4
+DV08,Xã Vĩnh Lộc,2026-02,Chứng thực,11,10,7,4,5.3
+DV08,Xã Vĩnh Lộc,2026-02,Bảo trợ xã hội,3,2,1,1,5.7
+DV08,Xã Vĩnh Lộc,2026-02,Đăng ký kinh doanh,3,2,1,1,4.9
+DV08,Xã Vĩnh Lộc,2026-03,Hộ tịch,13,12,8,4,5.0
+DV08,Xã Vĩnh Lộc,2026-03,Đất đai,8,7,4,3,5.6
+DV08,Xã Vĩnh Lộc,2026-03,Chứng thực,21,20,14,10,4.6
+DV08,Xã Vĩnh Lộc,2026-03,Bảo trợ xã hội,4,3,2,1,5.0
+DV08,Xã Vĩnh Lộc,2026-03,Đăng ký kinh doanh,3,2,1,1,5.5
+DV08,Xã Vĩnh Lộc,2026-04,Hộ tịch,14,13,9,4,5.2
+DV08,Xã Vĩnh Lộc,2026-04,Đất đai,6,5,3,1,5.4
+DV08,Xã Vĩnh Lộc,2026-04,Chứng thực,20,19,13,7,5.8
+DV08,Xã Vĩnh Lộc,2026-04,Bảo trợ xã hội,4,3,2,1,5.0
+DV08,Xã Vĩnh Lộc,2026-04,Đăng ký kinh doanh,3,2,1,1,5.4
+DV08,Xã Vĩnh Lộc,2026-05,Hộ tịch,12,11,7,4,5.3
+DV08,Xã Vĩnh Lộc,2026-05,Đất đai,7,6,4,2,5.0
+DV08,Xã Vĩnh Lộc,2026-05,Chứng thực,17,15,10,7,5.2
+DV08,Xã Vĩnh Lộc,2026-05,Bảo trợ xã hội,4,3,2,1,4.6
+DV08,Xã Vĩnh Lộc,2026-05,Đăng ký kinh doanh,3,2,1,0,5.7
+DV08,Xã Vĩnh Lộc,2026-06,Hộ tịch,19,18,12,7,5.1
+DV08,Xã Vĩnh Lộc,2026-06,Đất đai,10,9,6,3,4.6
+DV08,Xã Vĩnh Lộc,2026-06,Chứng thực,21,20,13,9,5.5
+DV08,Xã Vĩnh Lộc,2026-06,Bảo trợ xã hội,4,3,2,1,4.8
+DV08,Xã Vĩnh Lộc,2026-06,Đăng ký kinh doanh,3,2,1,1,4.6
+DV08,Xã Vĩnh Lộc,2026-07,Hộ tịch,14,13,9,5,5.6
+DV08,Xã Vĩnh Lộc,2026-07,Đất đai,6,5,3,3,4.6
+DV08,Xã Vĩnh Lộc,2026-07,Chứng thực,19,17,11,8,5.2
+DV08,Xã Vĩnh Lộc,2026-07,Bảo trợ xã hội,4,3,2,2,4.4
+DV08,Xã Vĩnh Lộc,2026-07,Đăng ký kinh doanh,3,2,1,1,5.3
+DV08,Xã Vĩnh Lộc,2026-08,Hộ tịch,13,12,8,4,5.8
+DV08,Xã Vĩnh Lộc,2026-08,Đất đai,8,7,4,3,5.5
+DV08,Xã Vĩnh Lộc,2026-08,Chứng thực,18,17,12,7,4.9
+DV08,Xã Vĩnh Lộc,2026-08,Bảo trợ xã hội,5,4,2,2,5.7
+DV08,Xã Vĩnh Lộc,2026-08,Đăng ký kinh doanh,3,2,1,1,5.1
+DV08,Xã Vĩnh Lộc,2026-09,Hộ tịch,12,11,7,4,5.6
+DV08,Xã Vĩnh Lộc,2026-09,Đất đai,9,8,5,3,4.9
+DV08,Xã Vĩnh Lộc,2026-09,Chứng thực,21,20,34,8,4.9
+DV08,Xã Vĩnh Lộc,2026-09,Bảo trợ xã hội,3,2,1,0,4.4
+DV08,Xã Vĩnh Lộc,2026-09,Đăng ký kinh doanh,3,2,1,1,4.5
+DV08,Xã Vĩnh Lộc,2026-10,Hộ tịch,15,14,9,5,5.1
+DV08,Xã Vĩnh Lộc,2026-10,Đất đai,8,7,4,3,4.7
+DV08,Xã Vĩnh Lộc,2026-10,Chứng thực,19,18,13,8,5.3
+DV08,Xã Vĩnh Lộc,2026-10,Bảo trợ xã hội,4,3,2,1,4.8
+DV08,Xã Vĩnh Lộc,2026-10,Đăng ký kinh doanh,3,2,1,1,4.5
+DV08,Xã Vĩnh Lộc,2026-11,Hộ tịch,14,13,9,4,4.5
+DV08,Xã Vĩnh Lộc,2026-11,Đất đai,8,7,4,2,5.5
+DV08,Xã Vĩnh Lộc,2026-11,Chứng thực,22,20,15,11,5.8
+DV08,Xã Vĩnh Lộc,2026-11,Bảo trợ xã hội,5,4,2,1,5.7
+DV08,Xã Vĩnh Lộc,2026-11,Đăng ký kinh doanh,4,3,2,1,4.8
+DV08,Xã Vĩnh Lộc,2026-12,Hộ tịch,16,15,10,5,4.9
+DV08,Xã Vĩnh Lộc,2026-12,Đất đai,9,8,5,3,5.5
+DV08,Xã Vĩnh Lộc,2026-12,Chứng thực,19,18,13,7,5.2
+DV08,Xã Vĩnh Lộc,2026-12,Bảo trợ xã hội,4,3,2,1,5.1
+DV08,Xã Vĩnh Lộc,2026-12,Đăng ký kinh doanh,4,3,2,1,4.6
+DV09,Xã An Cư,2026-01,Hộ tịch,7,6,3,3,5.5
+DV09,Xã An Cư,2026-01,Đất đai,3,2,1,1,5.2
+DV09,Xã An Cư,2026-01,Chứng thực,11,10,6,3,5.6
+DV09,Xã An Cư,2026-01,Bảo trợ xã hội,3,2,1,0,5.9
+DV09,Xã An Cư,2026-01,Đăng ký kinh doanh,3,2,1,0,6.4
+DV09,Xã An Cư,2026-02,Hộ tịch,7,6,3,2,5.4
+DV09,Xã An Cư,2026-02,Đất đai,4,3,1,1,5.5
+DV09,Xã An Cư,2026-02,Chứng thực,7,6,3,2,5.3
+DV09,Xã An Cư,2026-02,Bảo trợ xã hội,3,2,1,1,5.6
+DV09,Xã An Cư,2026-02,Đăng ký kinh doanh,3,2,1,1,5.6
+DV09,Xã An Cư,2026-03,Hộ tịch,8,7,4,2,5.9
+DV09,Xã An Cư,2026-03,Đất đai,6,5,3,2,5.8
+DV09,Xã An Cư,2026-03,Chứng thực,12,11,6,4,5.8
+DV09,Xã An Cư,2026-03,Bảo trợ xã hội,3,2,1,1,6.3
+DV09,Xã An Cư,2026-03,Đăng ký kinh doanh,3,2,1,1,6.1
+DV09,Xã An Cư,2026-04,Hộ tịch,11,10,6,3,6.0
+DV09,Xã An Cư,2026-04,Đất đai,6,5,3,2,6.2
+DV09,Xã An Cư,2026-04,Chứng thực,11,10,6,3,5.1
+DV09,Xã An Cư,2026-04,Bảo trợ xã hội,3,2,1,1,5.5
+DV09,Xã An Cư,2026-04,Đăng ký kinh doanh,3,2,1,1,6.1
+DV09,Xã An Cư,2026-05,Hộ tịch,11,10,6,,5.2
+DV09,Xã An Cư,2026-05,Đất đai,4,3,1,1,5.2
+DV09,Xã An Cư,2026-05,Chứng thực,13,12,7,4,5.2
+DV09,Xã An Cư,2026-05,Bảo trợ xã hội,3,2,1,1,5.8
+DV09,Xã An Cư,2026-05,Đăng ký kinh doanh,3,2,1,1,6.3
+DV09,Xã An Cư,2026-06,Hộ tịch,11,10,6,3,5.6
+DV09,Xã An Cư,2026-06,Đất đai,7,6,3,2,5.4
+DV09,Xã An Cư,2026-06,Chứng thực,17,16,10,5,6.1
+DV09,Xã An Cư,2026-06,Bảo trợ xã hội,4,3,1,1,5.5
+DV09,Xã An Cư,2026-06,Đăng ký kinh doanh,3,2,1,0,5.3
+DV09,Xã An Cư,2026-07,Hộ tịch,8,7,4,3,5.9
+DV09,Xã An Cư,2026-07,Đất đai,5,4,2,1,5.5
+DV09,Xã An Cư,2026-07,Chứng thực,14,13,8,4,5.9
+DV09,Xã An Cư,2026-07,Bảo trợ xã hội,3,2,1,1,5.3
+DV09,Xã An Cư,2026-07,Đăng ký kinh doanh,3,2,1,1,6.0
+DV09,Xã An Cư,2026-08,Hộ tịch,10,9,5,4,5.6
+DV09,Xã An Cư,2026-08,Đất đai,6,5,3,2,5.0
+DV09,Xã An Cư,2026-08,Chứng thực,14,13,8,6,6.2
+DV09,Xã An Cư,2026-08,Bảo trợ xã hội,3,2,1,1,5.9
+DV09,Xã An Cư,2026-08,Đăng ký kinh doanh,3,2,1,1,5.9
+DV09,Xã An Cư,2026-09,Hộ tịch,11,10,6,3,5.1
+DV09,Xã An Cư,2026-09,Đất đai,5,4,2,2,5.4
+DV09,Xã An Cư,2026-09,Chứng thực,12,11,7,4,5.5
+DV09,Xã An Cư,2026-09,Bảo trợ xã hội,3,2,1,1,5.1
+DV09,Xã An Cư,2026-09,Đăng ký kinh doanh,3,2,1,1,5.9
+DV09,Xã An Cư,2026-10,Hộ tịch,8,7,4,2,5.6
+DV09,Xã An Cư,2026-10,Đất đai,6,5,3,1,5.6
+DV09,Xã An Cư,2026-10,Chứng thực,12,11,7,4,5.2
+DV09,Xã An Cư,2026-10,Bảo trợ xã hội,3,2,1,1,5.2
+DV09,Xã An Cư,2026-10,Đăng ký kinh doanh,3,2,1,1,5.2
+DV09,Xã An Cư,2026-11,Hộ tịch,9,8,4,3,6.2
+DV09,Xã An Cư,2026-11,Đất đai,5,4,2,2,6.4
+DV09,Xã An Cư,2026-11,Chứng thực,14,13,8,5,5.9
+DV09,Xã An Cư,2026-11,Bảo trợ xã hội,3,2,1,1,5.5
+DV09,Xã An Cư,2026-11,Đăng ký kinh doanh,3,2,1,0,5.1
+DV09,Xã An Cư,2026-12,Hộ tịch,12,11,7,4,6.0
+DV09,Xã An Cư,2026-12,Đất đai,7,6,3,2,5.5
+DV09,Xã An Cư,2026-12,Chứng thực,16,15,9,6,5.2
+DV09,Xã An Cư,2026-12,Bảo trợ xã hội,3,2,1,0,5.4
+DV09,Xã An Cư,2026-12,Đăng ký kinh doanh,3,2,1,0,6.3
+DV10,Xã Thanh Sơn,2026-01,Hộ tịch,5,4,2,1,5.6
+DV10,Xã Thanh Sơn,2026-01,Đất đai,3,2,1,0,5.8
+DV10,Xã Thanh Sơn,2026-01,Chứng thực,10,9,5,2,6.3
+DV10,Xã Thanh Sơn,2026-01,Bảo trợ xã hội,3,2,1,0,6.2
+DV10,Xã Thanh Sơn,2026-01,Đăng ký kinh doanh,3,2,1,1,6.4
+DV10,Xã Thanh Sơn,2026-02,Hộ tịch,5,4,2,1,5.9
+DV10,Xã Thanh Sơn,2026-02,Đất đai,4,3,1,1,6.6
+DV10,Xã Thanh Sơn,2026-02,Chứng thực,8,7,4,2,6.0
+DV10,Xã Thanh Sơn,2026-02,Bảo trợ xã hội,3,2,1,1,5.8
+DV10,Xã Thanh Sơn,2026-02,Đăng ký kinh doanh,3,2,1,1,5.8
+DV10,Xã Thanh Sơn,2026-03,Hộ tịch,9,8,4,2,5.6
+DV10,Xã Thanh Sơn,2026-03,Đất đai,6,5,3,2,6.1
+DV10,Xã Thanh Sơn,2026-03,Chứng thực,12,11,6,3,7.0
+DV10,Xã Thanh Sơn,2026-03,Bảo trợ xã hội,3,2,1,1,6.7
+DV10,Xã Thanh Sơn,2026-03,Đăng ký kinh doanh,3,2,1,1,6.2
+DV10,Xã Thanh Sơn,2026-04,Hộ tịch,8,7,4,3,6.7
+DV10,Xã Thanh Sơn,2026-04,Đất đai,5,4,2,1,7.0
+DV10,Xã Thanh Sơn,2026-04,Chứng thực,14,13,7,4,5.7
+DV10,Xã Thanh Sơn,2026-04,Bảo trợ xã hội,3,2,1,1,5.8
+DV10,Xã Thanh Sơn,2026-04,Đăng ký kinh doanh,3,2,1,0,6.7
+DV10,Xã Thanh Sơn,2026-05,Hộ tịch,10,9,5,3,6.3
+DV10,Xã Thanh Sơn,2026-05,Đất đai,4,3,1,1,6.2
+DV10,Xã Thanh Sơn,2026-05,Chứng thực,13,12,7,4,6.2
+DV10,Xã Thanh Sơn,2026-05,Bảo trợ xã hội,3,2,1,1,5.7
+DV10,Xã Thanh Sơn,2026-05,Đăng ký kinh doanh,3,2,1,1,5.7
+DV10,Xã Thanh Sơn,2026-06,Hộ tịch,12,11,6,4,6.4
+DV10,Xã Thanh Sơn,2026-06,Đất đai,6,5,3,1,7.0
+DV10,Xã Thanh Sơn,2026-06,Chứng thực,17,16,9,5,6.0
+DV10,Xã Thanh Sơn,2026-06,Bảo trợ xã hội,3,2,1,1,6.0
+DV10,Xã Thanh Sơn,2026-06,Đăng ký kinh doanh,3,2,1,1,6.6
+DV10,Xã Thanh Sơn,2026-07,Hộ tịch,8,7,3,2,5.7
+DV10,Xã Thanh Sơn,2026-07,Đất đai,6,5,2,1,68.0
+DV10,Xã Thanh Sơn,2026-07,Chứng thực,14,13,7,4,6.2
+DV10,Xã Thanh Sơn,2026-07,Bảo trợ xã hội,3,2,1,1,5.6
+DV10,Xã Thanh Sơn,2026-07,Đăng ký kinh doanh,3,2,1,1,6.5
+DV10,Xã Thanh Sơn,2026-08,Hộ tịch,11,10,5,4,5.7
+DV10,Xã Thanh Sơn,2026-08,Đất đai,6,5,2,2,6.6
+DV10,Xã Thanh Sơn,2026-08,Chứng thực,10,9,5,,7.0
+DV10,Xã Thanh Sơn,2026-08,Bảo trợ xã hội,3,2,1,0,5.6
+DV10,Xã Thanh Sơn,2026-08,Đăng ký kinh doanh,3,2,1,1,6.3
+DV10,Xã Thanh Sơn,2026-09,Hộ tịch,8,7,3,2,5.6
+DV10,Xã Thanh Sơn,2026-09,Đất đai,5,4,2,1,6.8
+DV10,Xã Thanh Sơn,2026-09,Chứng thực,14,13,7,4,6.7
+DV10,Xã Thanh Sơn,2026-09,Bảo trợ xã hội,3,2,1,1,6.7
+DV10,Xã Thanh Sơn,2026-09,Đăng ký kinh doanh,3,2,1,0,6.1
+DV10,Xã Thanh Sơn,2026-10,Hộ tịch,10,9,5,3,5.9
+DV10,Xã Thanh Sơn,2026-10,Đất đai,4,3,1,1,6.7
+DV10,Xã Thanh Sơn,2026-10,Chứng thực,10,9,4,3,6.3
+DV10,Xã Thanh Sơn,2026-10,Bảo trợ xã hội,3,2,1,1,5.7
+DV10,Xã Thanh Sơn,2026-10,Đăng ký kinh doanh,3,2,1,0,5.8
+DV10,Xã Thanh Sơn,2026-11,Hộ tịch,10,9,5,2,5.8
+DV10,Xã Thanh Sơn,2026-11,Đất đai,4,3,1,1,5.6
+DV10,Xã Thanh Sơn,2026-11,Chứng thực,14,13,7,5,6.6
+DV10,Xã Thanh Sơn,2026-11,Bảo trợ xã hội,3,2,1,0,6.8
+DV10,Xã Thanh Sơn,2026-11,Đăng ký kinh doanh,3,2,1,1,6.2
+DV10,Xã Thanh Sơn,2026-12,Hộ tịch,10,9,5,3,6.6
+DV10,Xã Thanh Sơn,2026-12,Đất đai,7,6,3,2,6.6
+DV10,Xã Thanh Sơn,2026-12,Chứng thực,13,12,6,5,5.8
+DV10,Xã Thanh Sơn,2026-12,Bảo trợ xã hội,3,2,1,1,6.9
+DV10,Xã Thanh Sơn,2026-12,Đăng ký kinh doanh,3,2,1,0,6.8
+DV11,Xã Mỹ Khánh,2026-01,Hộ tịch,12,11,9,6,3.9
+DV11,Xã Mỹ Khánh,2026-01,Đất đai,6,5,4,3,3.7
+DV11,Xã Mỹ Khánh,2026-01,Chứng thực,18,17,15,10,3.3
+DV11,Xã Mỹ Khánh,2026-01,Bảo trợ xã hội,3,2,1,1,3.6
+DV11,Xã Mỹ Khánh,2026-01,Đăng ký kinh doanh,3,2,1,1,3.3
+DV11,Xã Mỹ Khánh,2026-02,Hộ tịch,11,10,8,5,3.9
+DV11,Xã Mỹ Khánh,2026-02,Đất đai,5,4,3,2,3.3
+DV11,Xã Mỹ Khánh,2026-02,Chứng thực,15,14,11,7,3.5
+DV11,Xã Mỹ Khánh,2026-02,Bảo trợ xã hội,3,2,1,1,3.6
+DV11,Xã Mỹ Khánh,2026-02,Đăng ký kinh doanh,3,2,1,1,4.3
+DV11,Xã Mỹ Khánh,2026-03,Hộ tịch,15,14,11,9,3.8
+DV11,Xã Mỹ Khánh,2026-03,Đất đai,9,8,6,5,3.4
+DV11,Xã Mỹ Khánh,2026-03,Chứng thực,19,18,15,10,3.3
+DV11,Xã Mỹ Khánh,2026-03,Bảo trợ xã hội,5,4,3,3,3.2
+DV11,Xã Mỹ Khánh,2026-03,Đăng ký kinh doanh,4,3,2,2,3.7
+DV11,Xã Mỹ Khánh,2026-04,Hộ tịch,17,16,13,7,3.4
+DV11,Xã Mỹ Khánh,2026-04,Đất đai,7,6,4,3,4.5
+DV11,Xã Mỹ Khánh,2026-04,Chứng thực,20,19,16,12,4.3
+DV11,Xã Mỹ Khánh,2026-04,Bảo trợ xã hội,5,4,3,2,3.3
+DV11,Xã Mỹ Khánh,2026-04,Đăng ký kinh doanh,4,3,2,2,3.4
+DV11,Xã Mỹ Khánh,2026-05,Hộ tịch,13,12,10,7,4.4
+DV11,Xã Mỹ Khánh,2026-05,Đất đai,8,7,5,3,3.4
+DV11,Xã Mỹ Khánh,2026-05,Chứng thực,21,19,16,11,3.7
+DV11,Xã Mỹ Khánh,2026-05,Bảo trợ xã hội,5,4,3,2,4.3
+DV11,Xã Mỹ Khánh,2026-05,Đăng ký kinh doanh,3,2,1,1,3.9
+DV11,Xã Mỹ Khánh,2026-06,Hộ tịch,22,21,18,12,3.3
+DV11,Xã Mỹ Khánh,2026-06,Đất đai,12,11,9,7,3.8
+DV11,Xã Mỹ Khánh,2026-06,Chứng thực,29,28,22,16,4.0
+DV11,Xã Mỹ Khánh,2026-06,Bảo trợ xã hội,6,5,4,3,4.0
+DV11,Xã Mỹ Khánh,2026-06,Đăng ký kinh doanh,5,4,3,2,4.2
+DV11,Xã Mỹ Khánh,2026-07,Hộ tịch,16,15,12,6,4.3
+DV11,Xã Mỹ Khánh,2026-07,Đất đai,8,7,5,4,3.3
+DV11,Xã Mỹ Khánh,2026-07,Chứng thực,17,16,14,8,3.2
+DV11,Xã Mỹ Khánh,2026-07,Bảo trợ xã hội,5,4,3,2,4.3
+DV11,Xã Mỹ Khánh,2026-07,Đăng ký kinh doanh,4,3,2,1,3.6
+DV11,Xã Mỹ Khánh,2026-08,Hộ tịch,16,15,12,9,4.3
+DV11,Xã Mỹ Khánh,2026-08,Đất đai,11,10,8,4,4.2
+DV11,Xã Mỹ Khánh,2026-08,Chứng thực,22,21,17,14,3.2
+DV11,Xã Mỹ Khánh,2026-08,Bảo trợ xã hội,4,3,2,2,3.8
+DV11,Xã Mỹ Khánh,2026-08,Đăng ký kinh doanh,4,3,2,2,4.2
+DV11,Xã Mỹ Khánh,2026-09,Hộ tịch,15,13,10,7,3.7
+DV11,Xã Mỹ Khánh,2026-09,Đất đai,9,8,6,5,4.2
+DV11,Xã Mỹ Khánh,2026-09,Chứng thực,25,24,20,14,3.9
+DV11,Xã Mỹ Khánh,2026-09,Bảo trợ xã hội,4,3,2,2,3.3
+DV11,Xã Mỹ Khánh,2026-09,Đăng ký kinh doanh,4,3,2,2,4.3
+DV11,Xã Mỹ Khánh,2026-10,Hộ tịch,18,16,13,8,3.8
+DV11,Xã Mỹ Khánh,2026-10,Đất đai,9,8,7,4,3.2
+DV11,Xã Mỹ Khánh,2026-10,Chứng thực,18,16,14,10,3.3
+DV11,Xã Mỹ Khánh,2026-10,Bảo trợ xã hội,4,3,2,2,4.2
+DV11,Xã Mỹ Khánh,2026-10,Đăng ký kinh doanh,4,3,2,2,4.3
+DV11,Xã Mỹ Khánh,2026-11,Hộ tịch,17,15,12,11,4.3
+DV11,Xã Mỹ Khánh,2026-11,Đất đai,10,9,7,4,4.2
+DV11,Xã Mỹ Khánh,2026-11,Chứng thực,24,22,19,15,4.2
+DV11,Xã Mỹ Khánh,2026-11,Bảo trợ xã hội,4,3,2,2,4.0
+DV11,Xã Mỹ Khánh,2026-11,Đăng ký kinh doanh,3,2,1,1,3.3
+DV11,Xã Mỹ Khánh,2026-12,Hộ tịch,16,15,12,7,4.4
+DV11,Xã Mỹ Khánh,2026-12,Đất đai,12,11,8,6,4.4
+DV11,Xã Mỹ Khánh,2026-12,Chứng thực,27,26,22,14,3.5
+DV11,Xã Mỹ Khánh,2026-12,Bảo trợ xã hội,5,4,3,2,3.2
+DV11,Xã Mỹ Khánh,2026-12,Đăng ký kinh doanh,4,3,2,2,3.3
+DV12,Xã Hương Trà,2026-01,Hộ tịch,8,7,4,3,4.6
+DV12,Xã Hương Trà,2026-01,Đất đai,5,4,2,1,5.4
+DV12,Xã Hương Trà,2026-01,Chứng thực,13,12,7,5,5.5
+DV12,Xã Hương Trà,2026-01,Bảo trợ xã hội,3,2,1,1,5.3
+DV12,Xã Hương Trà,2026-01,Đăng ký kinh doanh,3,2,1,1,5.2
+DV12,Xã Hương Trà,2026-02,Hộ tịch,6,5,3,2,4.7
+DV12,Xã Hương Trà,2026-02,Đất đai,4,3,2,1,4.9
+DV12,Xã Hương Trà,2026-02,Chứng thực,10,9,6,3,4.8
+DV12,Xã Hương Trà,2026-02,Bảo trợ xã hội,3,2,1,1,6.0
+DV12,Xã Hương Trà,2026-02,Đăng ký kinh doanh,3,2,1,1,5.4
+DV12,Xã Hương Trà,2026-03,Hộ tịch,13,12,8,5,5.1
+DV12,Xã Hương Trà,2026-03,Đất đai,7,6,4,3,5.2
+DV12,Xã Hương Trà,2026-03,Chứng thực,13,12,8,5,4.6
+DV12,Xã Hương Trà,2026-03,Bảo trợ xã hội,4,3,1,1,5.6
+DV12,Xã Hương Trà,2026-03,Đăng ký kinh doanh,3,2,1,1,5.6
+DV12,Xã Hương Trà,2026-04,Hộ tịch,11,10,6,4,4.7
+DV12,Xã Hương Trà,2026-04,Đất đai,7,6,4,2,4.7
+DV12,Xã Hương Trà,2026-04,Chứng thực,19,18,13,8,5.9
+DV12,Xã Hương Trà,2026-04,Bảo trợ xã hội,3,2,1,1,5.4
+DV12,Xã Hương Trà,2026-04,Đăng ký kinh doanh,3,2,1,1,5.4
+DV12,Xã Hương Trà,2026-05,Hộ tịch,11,10,7,5,6.0
+DV12,Xã Hương Trà,2026-05,Đất đai,7,6,4,2,5.2
+DV12,Xã Hương Trà,2026-05,Chứng thực,18,17,11,8,4.9
+DV12,Xã Hương Trà,2026-05,Bảo trợ xã hội,4,3,2,1,5.3
+DV12,Xã Hương Trà,2026-05,Đăng ký kinh doanh,3,2,1,1,5.2
+DV12,Xã Hương Trà,2026-06,Hộ tịch,12,11,7,4,4.9
+DV12,Xã Hương Trà,2026-06,Đất đai,8,7,4,3,5.5
+DV12,Xã Hương Trà,2026-06,Chứng thực,18,17,12,8,5.2
+DV12,Xã Hương Trà,2026-06,Bảo trợ xã hội,4,3,2,1,5.6
+DV12,Xã Hương Trà,2026-06,Đăng ký kinh doanh,4,3,2,1,4.8
+DV12,Xã Hương Trà,2026-07,Hộ tịch,10,9,6,3,5.7
+DV12,Xã Hương Trà,2026-07,Đất đai,6,5,3,2,5.5
+DV12,Xã Hương Trà,2026-07,Chứng thực,15,14,10,6,5.9
+DV12,Xã Hương Trà,2026-07,Bảo trợ xã hội,4,3,1,1,5.0
+DV12,Xã Hương Trà,2026-07,Đăng ký kinh doanh,3,2,1,1,5.9
+DV12,Xã Hương Trà,2026-08,Hộ tịch,14,13,8,6,5.4
+DV12,Xã Hương Trà,2026-08,Đất đai,6,5,3,1,5.7
+DV12,Xã Hương Trà,2026-08,Chứng thực,16,15,10,7,4.6
+DV12,Xã Hương Trà,2026-08,Bảo trợ xã hội,4,3,1,1,4.9
+DV12,Xã Hương Trà,2026-08,Đăng ký kinh doanh,3,2,1,1,5.4
+DV12,Xã Hương Trà,2026-09,Hộ tịch,13,12,8,4,5.9
+DV12,Xã Hương Trà,2026-09,Đất đai,6,5,3,2,5.2
+DV12,Xã Hương Trà,2026-09,Chứng thực,14,13,9,6,5.4
+DV12,Xã Hương Trà,2026-09,Bảo trợ xã hội,4,3,2,1,5.0
+DV12,Xã Hương Trà,2026-09,Đăng ký kinh doanh,3,2,1,1,4.8
+DV12,Xã Hương Trà,2026-10,Hộ tịch,12,11,7,4,5.5
+DV12,Xã Hương Trà,2026-10,Đất đai,6,5,3,2,5.2
+DV12,Xã Hương Trà,2026-10,Chứng thực,17,16,10,8,5.2
+DV12,Xã Hương Trà,2026-10,Bảo trợ xã hội,3,2,1,1,4.8
+DV12,Xã Hương Trà,2026-10,Đăng ký kinh doanh,3,2,1,1,5.5
+DV12,Xã Hương Trà,2026-11,Hộ tịch,12,11,7,4,4.9
+DV12,Xã Hương Trà,2026-11,Đất đai,7,6,4,,5.2
+DV12,Xã Hương Trà,2026-11,Chứng thực,18,17,11,6,4.6
+DV12,Xã Hương Trà,2026-11,Bảo trợ xã hội,4,3,2,1,5.0
+DV12,Xã Hương Trà,2026-11,Đăng ký kinh doanh,3,2,1,0,5.3
+DV12,Xã Hương Trà,2026-12,Hộ tịch,12,11,7,5,4.6
+DV12,Xã Hương Trà,2026-12,Đất đai,10,9,6,3,5.3
+DV12,Xã Hương Trà,2026-12,Chứng thực,22,21,14,7,4.7
+DV12,Xã Hương Trà,2026-12,Bảo trợ xã hội,3,2,1,0,5.8
+DV12,Xã Hương Trà,2026-12,Đăng ký kinh doanh,3,2,1,1,5.5

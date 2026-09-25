@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bảng điều khiển — Sàn tập Dữ liệu và Quyết định</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Bảng điều khiển điều hành">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("bang-dieu-khien.html");</script>
+
+<main class="bao">
+  <h1>Bảng điều khiển điều hành</h1>
+
+  <div class="hop">
+    <b>Vai trò trong khoá học.</b> Đây là bảng điều khiển <i>mẫu</i> để học viên
+    tham chiếu khi tự dựng bảng của mình bằng Looker Studio ở buổi Ngày 03 chiều.
+    Hãy quan sát bố cục: bốn chỉ số lớn trên cùng → biểu đồ diễn biến → xếp hạng
+    đơn vị → bảng chi tiết có bộ lọc → dòng việc cần làm ở cuối.
+  </div>
+
+  <div class="hang-dk">
+    <div>
+      <label for="fDV">Đơn vị</label>
+      <select id="fDV" onchange="lam()"><option value="">Tất cả 12 đơn vị</option></select>
+    </div>
+    <div>
+      <label for="fLV">Lĩnh vực</label>
+      <select id="fLV" onchange="lam()"><option value="">Tất cả lĩnh vực</option></select>
+    </div>
+    <div>
+      <label for="fLoi">Ba bản ghi cố ý cài lỗi</label>
+      <select id="fLoi" onchange="lam()">
+        <option value="1">Đã loại ra (số liệu sạch)</option>
+        <option value="0">Giữ nguyên (số thô)</option>
+      </select>
+    </div>
+    <div><button class="phu" onclick="datLai()">Bỏ mọi bộ lọc</button></div>
+  </div>
+
+  <h2>1. Bốn chỉ số lớn</h2>
+  <div class="luoi luoi-4" id="oChiSo"></div>
+
+  <div class="luoi luoi-2">
+    <div class="bd"><p class="tieu">2. Diễn biến hồ sơ tiếp nhận theo tháng</p>
+      <div id="bdThang"></div></div>
+    <div class="bd"><p class="tieu">3. Xếp hạng đơn vị theo tỉ lệ đúng hạn</p>
+      <div id="bdXep"></div></div>
+  </div>
+
+  <h2>4. Bảng chi tiết</h2>
+  <div id="oChiTiet"></div>
+  <div class="hang-nut">
+    <button onclick="xuat()">Tải bảng đang xem về máy (CSV)</button>
+  </div>
+
+  <h2>5. Việc cần làm</h2>
+  <div id="oViec"></div>
+
+  <div class="hop hop-cam">
+    <b>Điều bảng điều khiển không làm được.</b> Nó cho biết tình hình và chỗ cần
+    can thiệp, nhưng không phân tích được nguyên nhân và không thay được hồ sơ lưu
+    có chữ ký. Dòng “việc cần làm” là phần duy nhất không tự sinh ra được — phải do
+    người viết.
+  </div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/ho_so.js"></script>
+<script src="du_lieu/hai_long.js"></script>
+<script src="du_lieu/ngan_sach.js"></script>
+<script>
+(function () {
+  var s1 = document.getElementById("fDV"), s2 = document.getElementById("fLV");
+  DON_VI.forEach(function (d) {
+    s1.appendChild(el("option", { value: d.ma_don_vi }, d.ten_don_vi));
+  });
+  var lv = [];
+  HO_SO.forEach(function (d) { if (lv.indexOf(d.linh_vuc) < 0) lv.push(d.linh_vuc); });
+  lv.forEach(function (x) { s2.appendChild(el("option", { value: x }, x)); });
+})();
+
+function datLai() {
+  document.getElementById("fDV").value = "";
+  document.getElementById("fLV").value = "";
+  document.getElementById("fLoi").value = "1";
+  lam();
+}
+
+function loc() {
+  var dv = document.getElementById("fDV").value;
+  var lv = document.getElementById("fLV").value;
+  var bo = document.getElementById("fLoi").value === "1";
+  return HO_SO.filter(function (d) {
+    if (bo && !laSach(d)) return false;
+    if (dv && d.ma_don_vi !== dv) return false;
+    if (lv && d.linh_vuc !== lv) return false;
+    return true;
+  });
+}
+
+function lam() {
+  var ds = loc();
+  var tn = 0, xl = 0, dh = 0, tt = 0, tnTT = 0, tg = 0;
+  ds.forEach(function (d) {
+    tn += d.tiep_nhan; xl += d.da_xu_ly; dh += d.dung_han; tg += d.thoi_gian_tb_ngay;
+    if (d.truc_tuyen !== "") { tt += d.truc_tuyen; tnTT += d.tiep_nhan; }
+  });
+  var tyDH = xl ? dh / xl * 100 : 0;
+  var tyTT = tnTT ? tt / tnTT * 100 : 0;
+  var tgTB = ds.length ? tg / ds.length : 0;
+
+  var dv = document.getElementById("fDV").value;
+  var hl = HAI_LONG.filter(function (d) { return !dv || d.ma_don_vi === dv; });
+  var sp = 0, dm = 0;
+  hl.forEach(function (d) { sp += d.so_phieu; dm += d.diem_hai_long * d.so_phieu; });
+  var diem = sp ? dm / sp : 0;
+
+  var cs = [
+    ["Hồ sơ tiếp nhận", sn(tn), ds.length + " dòng dữ liệu", ""],
+    ["Tỉ lệ đúng hạn", pc(tyDH), "chỉ tiêu ≥ 95%", mucNguong(tyDH, 90, 75)],
+    ["Tỉ lệ trực tuyến", pc(tyTT), "chỉ tiêu ≥ 80%", mucNguong(tyTT, 80, 50)],
+    ["Thời gian xử lý", sv(tgTB) + " ngày", "chỉ tiêu ≤ 3,0 ngày",
+     tgTB <= 3 ? "xanh" : (tgTB <= 5 ? "vang" : "do")]
+  ];
+  var o = document.getElementById("oChiSo");
+  o.innerHTML = "";
+  cs.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+
+  /* diễn biến theo tháng */
+  var m = {};
+  ds.forEach(function (d) { m[d.thang] = (m[d.thang] || 0) + d.tiep_nhan; });
+  var th = Object.keys(m).sort();
+  veDuong("bdThang", th.map(function (t) { return t.replace("2026-", ""); }),
+          th.map(function (t) { return m[t]; }));
+
+  /* xếp hạng đơn vị */
+  var g = {};
+  ds.forEach(function (d) {
+    if (!g[d.ma_don_vi]) g[d.ma_don_vi] = { ten: d.ten_don_vi, xl: 0, dh: 0, tn: 0 };
+    g[d.ma_don_vi].xl += d.da_xu_ly; g[d.ma_don_vi].dh += d.dung_han;
+    g[d.ma_don_vi].tn += d.tiep_nhan;
+  });
+  var xh = Object.keys(g).map(function (k) {
+    return { ma: k, ten: g[k].ten, tn: g[k].tn, ty: g[k].xl ? g[k].dh / g[k].xl * 100 : 0 };
+  }).sort(function (a, b) { return b.ty - a.ty; });
+  veThanhNgang("bdXep",
+    xh.map(function (d) { return d.ten.replace("Phường ", "P. ").replace("Xã ", "X. "); }),
+    xh.map(function (d) { return d.ty; }),
+    { donVi: "%", mau: function (v) {
+        return v >= 90 ? "#00843D" : (v >= 75 ? "#C2610F" : "#B3261E"); } });
+
+  /* bảng chi tiết */
+  veBang("oChiTiet",
+    [{ ten: "Đơn vị", lay: function (d) { return d.ten; } },
+     { ten: "Hồ sơ", so: true, lay: function (d) { return sn(d.tn); } },
+     { ten: "Đúng hạn", so: true, lay: function (d) { return pc(d.ty); } },
+     { ten: "Mức", lay: function (d) { return thanh(d.ty, 100, mucNguong(d.ty, 90, 75)); } },
+     { ten: "Đánh giá", lay: function (d) {
+         var m = mucNguong(d.ty, 90, 75);
+         return nhanTT(m === "xanh" ? "Đạt" : (m === "vang" ? "Cần theo dõi" : "Cần can thiệp"), m); } }],
+    xh, { ghi: "Ngưỡng: xanh từ 90% trở lên, cam từ 75% đến dưới 90%, đỏ dưới 75%. " +
+               "Ngưỡng được định trước, không định sau khi nhìn số liệu." });
+
+  /* việc cần làm */
+  var kem = xh.filter(function (d) { return d.ty < 75; });
+  var e = document.getElementById("oViec");
+  if (!kem.length) {
+    e.innerHTML = '<div class="hop hop-luc">Với bộ lọc hiện tại, không có đơn vị nào ' +
+      "dưới ngưỡng 75%. Tiếp tục theo dõi theo kỳ.</div>";
+  } else {
+    e.innerHTML = '<div class="hop hop-do"><b>' + kem.length +
+      " đơn vị dưới ngưỡng 75%:</b> " +
+      kem.map(function (d) { return d.ten + " (" + pc(d.ty) + ")"; }).join(", ") +
+      ".<br>Đề nghị: kiểm tra trực tiếp trong tháng tới, rà soát số cán bộ một cửa " +
+      "và tỉ lệ hộ có Internet tại các đơn vị này.</div>";
+  }
+  window._XH = xh;
+}
+
+function xuat() {
+  taiCSV("bang_dieu_khien.csv",
+    ["ma_don_vi", "ten_don_vi", "so_ho_so", "ty_le_dung_han"],
+    (window._XH || []).map(function (d) {
+      return [d.ma, d.ten, d.tn, sv(d.ty, 2)];
+    }));
+}
+
+lam();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>
