@@ -106,7 +106,7 @@ function o(a, b, c, l) {
     return a.ty_le_dung_han - b.ty_le_dung_han;
   })[0];
   el("oChinh").innerHTML =
-    o("Tỷ lệ đúng hạn toàn huyện", (dh / tong * 100).toFixed(1) + "%",
+    o("Tỷ lệ đúng hạn chung 8 đơn vị", (dh / tong * 100).toFixed(1) + "%",
       so(tong - dh) + " hồ sơ trễ hạn", dh / tong >= 0.8 ? "tot" : "xau") +
     o("Tỷ lệ nộp trực tuyến", (tt / tong * 100).toFixed(1) + "%",
       "mục tiêu đặt ra: 60%", tt / tong >= 0.6 ? "tot" : "xau") +

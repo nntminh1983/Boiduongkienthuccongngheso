@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dữ liệu thực hành — Cổng Dịch vụ công giả lập</title>
+<!-- congkhai -->
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="description" content="Tai bo du lieu gia lap va danh sach trang dung trong tung buoi thuc hanh. Du lieu hu cau.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Dữ liệu thực hành — Cổng Dịch vụ công giả lập">
+<meta property="og:description" content="Tai bo du lieu gia lap va danh sach trang dung trong tung buoi thuc hanh. Du lieu hu cau.">
+<meta property="og:locale" content="vi_VN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="[GIẢ LẬP – ĐÀO TẠO] Dữ liệu thực hành — Cổng Dịch vụ công giả lập">
+<meta name="twitter:description" content="Tai bo du lieu gia lap va danh sach trang dung trong tung buoi thuc hanh. Du lieu hu cau.">
+<!-- congkhai -->
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("thuc-hanh.html");</script>
+
+<main>
+  <h1>Dữ liệu thực hành cho học viên</h1>
+
+  <div class="hop hop-do">
+    <b>Toàn bộ dữ liệu trên trang này là hư cấu.</b> Địa danh “tỉnh Minh Khê”, tên tám xã,
+    phường, họ tên, số giấy tờ, số điện thoại đều do chương trình sinh ra. Số giấy tờ bắt đầu
+    bằng 999, số điện thoại bắt đầu bằng 0000, thư điện tử dùng tên miền <code>.invalid</code>
+    nên không trùng với người thật nào. Không trích dẫn số liệu này vào văn bản chính thức và
+    <b>không thay bằng dữ liệu thật của cơ quan</b> khi thực hành.
+  </div>
+
+  <h2>1. Mở trang trên điện thoại hoặc máy tính</h2>
+  <div class="luoi luoi-2">
+    <div class="the giua">
+      <img src="tai_ve/qr_trang_chu.svg" alt="Mã QR mở trang chủ website giả lập"
+           style="width:190px;height:190px">
+      <p><b>Trang chủ website giả lập</b><br>
+      <a href="index.html" id="dcTrangChu">nntminh1983.github.io/Boiduongkienthuccongngheso</a></p>
+    </div>
+    <div class="the giua">
+      <img src="tai_ve/qr_du_lieu_thuc_hanh.svg" alt="Mã QR mở trang dữ liệu thực hành"
+           style="width:190px;height:190px">
+      <p><b>Trang dữ liệu thực hành (trang này)</b><br>
+      <span class="nho">Quét bằng camera điện thoại hoặc ứng dụng Zalo</span></p>
+    </div>
+  </div>
+  <div class="hop hop-vang">
+    <b>Mẹo khi học trên điện thoại.</b> Các bảng rộng có thể vuốt ngang để xem hết cột.
+    Với bài thực hành phân tích bảng tính (Ngày 04 chiều, Ngày 05 chiều) nên dùng máy tính,
+    vì tệp cảm biến có hơn 17.000 dòng. Có thể mở tệp CSV trực tiếp bằng Google Trang tính:
+    tải về máy, rồi vào <i>Google Trang tính → Tệp → Nhập → Tải lên</i>.
+  </div>
+
+  <h2>2. Tải bộ dữ liệu giả lập</h2>
+  <p>Bấm vào tên tệp để tải về. Các tệp CSV mã hoá UTF-8, mở được bằng Excel,
+  Google Trang tính hoặc LibreOffice Calc.</p>
+  <div class="cuon" style="max-height:none">
+    <table>
+      <thead><tr><th>Tệp và nội dung</th><th>Dùng trong buổi</th></tr></thead>
+      <tbody id="bangTep"></tbody>
+    </table>
+  </div>
+  <div class="hop hop-xanh">
+    <b>Excel hiển thị lỗi phông chữ tiếng Việt?</b> Không mở tệp CSV bằng cách bấm đúp.
+    Trong Excel chọn <i>Data → From Text/CSV</i>, chọn tệp, ở ô <i>File Origin</i> chọn
+    <i>65001: Unicode (UTF-8)</i> rồi bấm <i>Load</i>. Hoặc tải tệp
+    <a href="tai_ve/00_Tong_hop_du_lieu_gia_lap.xlsx" download>00_Tong_hop_du_lieu_gia_lap.xlsx</a>
+    chứa sẵn mọi bộ dữ liệu.
+  </div>
+
+  <h2>3. Buổi nào dùng trang nào, tệp nào</h2>
+  <div class="cuon" style="max-height:none">
+    <table>
+      <thead><tr><th>Buổi thực hành</th><th>Trang trên website</th><th>Tệp dữ liệu</th></tr></thead>
+      <tbody id="bangBuoi"></tbody>
+    </table>
+  </div>
+
+  <h2>4. Quy tắc an toàn khi thực hành với công cụ AI trực tuyến</h2>
+  <div class="the">
+    <ul style="margin:0;padding-left:20px">
+      <li>Chỉ tải lên công cụ AI các tệp trên trang này — tuyệt đối không tải tài liệu, dữ liệu
+      thật của cơ quan.</li>
+      <li>Kết quả AI trả về phải được kiểm chứng lại với dữ liệu gốc trước khi dùng.</li>
+      <li>Website không nhận, không lưu thông tin anh/chị nhập vào biểu mẫu; dữ liệu tải về
+      chỉ nằm trên máy của anh/chị.</li>
+    </ul>
+  </div>
+</main>
+
+<script>
+var TEP = [
+  ["00_Tong_hop_du_lieu_gia_lap.xlsx", "Tất cả bộ dữ liệu trong một tệp Excel, mỗi bộ một trang tính", "Dự phòng cho mọi buổi", 1018],
+  ["01_ho_so_dich_vu_cong.csv", "3.295 hồ sơ dịch vụ công của 8 xã, phường năm 2026", "Ngày 01 chiều, 02 sáng, 03 chiều, 05 chiều", 632],
+  ["02_phan_anh_kien_nghi.csv", "460 phản ánh, kiến nghị của người dân", "Ngày 01 chiều, 02 chiều", 97],
+  ["03_danh_muc_thiet_bi_iot.csv", "Danh mục 28 thiết bị IoT: loại, vị trí, năm lắp, tình trạng", "Ngày 04 chiều, 05 sáng", 4],
+  ["04_du_lieu_cam_bien_iot.csv", "Số đo cảm biến 10 phút một lần trong 15 ngày (hơn 17.000 dòng)", "Ngày 04 chiều", 1156],
+  ["05_khao_sat_hai_long.csv", "Phiếu khảo sát mức độ hài lòng của người dân", "Ngày 01 chiều, 05 chiều", 78],
+  ["06_thong_tin_ca_nhan_de_an_danh_hoa.csv", "30 bản ghi thông tin cá nhân HƯ CẤU để thực hành ẩn danh hoá", "Ngày 02 sáng", 7],
+  ["07_ngan_sach_cntt.csv", "Ngân sách công nghệ thông tin theo năm và hạng mục", "Ngày 05 sáng", 1],
+  ["08_so_dang_ky_he_thong_ai.csv", "Sổ đăng ký 15 hệ thống có yếu tố AI", "Ngày 02 sáng", 3],
+  ["09_ky_nang_so_can_bo.csv", "Kết quả đánh giá kỹ năng số của cán bộ", "Ngày 05 chiều", 16],
+  ["DOC_TRUOC_Canh_bao_du_lieu_gia_lap.txt", "Cảnh báo bắt buộc đọc trước khi dùng dữ liệu", "Đọc trước buổi đầu tiên", 5]
+];
+var TRANG = {
+  "index.html": "Trang chủ", "tra-cuu.html": "Tra cứu hồ sơ", "thu-tuc.html": "Thủ tục hành chính",
+  "phan-anh.html": "Phản ánh, kiến nghị", "dashboard.html": "Bảng thông tin điều hành",
+  "iot.html": "Giám sát cảm biến", "he-thong-ai.html": "Sổ hệ thống AI"
+};
+var BUOI = [
+  ["Ngày 01 sáng", ["thu-tuc.html", "he-thong-ai.html"], []],
+  ["Ngày 01 chiều", ["index.html", "tra-cuu.html", "phan-anh.html"], ["01", "02", "05"]],
+  ["Ngày 02 sáng", ["he-thong-ai.html"], ["01", "06", "08"]],
+  ["Ngày 02 chiều", ["phan-anh.html", "index.html"], ["02"]],
+  ["Ngày 03 sáng", ["index.html", "dashboard.html", "thu-tuc.html", "tra-cuu.html"], []],
+  ["Ngày 03 chiều", [], ["01"]],
+  ["Ngày 04 sáng", [], []],
+  ["Ngày 04 chiều", ["iot.html"], ["03", "04"]],
+  ["Ngày 05 sáng", ["iot.html"], ["03", "07"]],
+  ["Ngày 05 chiều", ["dashboard.html"], ["01", "05", "09"]]
+];
+function lienKetTep(ma) {
+  for (var i = 0; i < TEP.length; i++) {
+    if (TEP[i][0].indexOf(ma + "_") === 0)
+      return '<a href="tai_ve/' + TEP[i][0] + '" download>' + TEP[i][0] + "</a>";
+  }
+  return ma;
+}
+el("bangTep").innerHTML = TEP.map(function (t) {
+  return '<tr><td style="word-break:break-word"><a href="tai_ve/' + t[0] + '" download><b>' +
+    t[0] + "</b></a><br>" + t[1] + "</td><td>" + t[2] + '<br><span class="nho">' +
+    (t[3] >= 1000 ? so(t[3] / 1024, 1) + " MB" : t[3] + " KB") + "</span></td></tr>";
+}).join("");
+el("bangBuoi").innerHTML = BUOI.map(function (b) {
+  var tr = b[1].length ? b[1].map(function (p) {
+    return '<a href="' + p + '">' + TRANG[p] + "</a>";
+  }).join("<br>") : '<span class="nho">Không dùng website</span>';
+  var tp = b[2].length ? b[2].map(lienKetTep).join("<br>") :
+    '<span class="nho">Không cần tải tệp</span>';
+  return "<tr><td><b>" + b[0] + "</b></td><td>" + tr + "</td><td>" + tp + "</td></tr>";
+}).join("");
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

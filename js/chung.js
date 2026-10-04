@@ -186,13 +186,14 @@ function khungTrang(dangO) {
     ["phan-anh.html", "Phản ánh, kiến nghị"],
     ["dashboard.html", "Bảng thông tin điều hành"],
     ["iot.html", "Giám sát cảm biến"],
-    ["he-thong-ai.html", "Sổ hệ thống AI"]
+    ["he-thong-ai.html", "Sổ hệ thống AI"],
+    ["thuc-hanh.html", "Dữ liệu thực hành"]
   ];
   var h = '<div class="canh-bao-gl">WEBSITE GIẢ LẬP — DÙNG CHO ĐÀO TẠO. ' +
     'Không phải cổng thông tin của bất kỳ cơ quan nào. Mọi dữ liệu đều hư cấu.</div>' +
     '<header class="dau"><div class="bao">' +
     '<div class="quoc-huy">GIẢ<br>LẬP</div>' +
-    '<div><p class="ten-cq">ỦY BAN NHÂN DÂN HUYỆN MINH KHÊ (địa danh hư cấu)</p>' +
+    '<div><p class="ten-cq">TỈNH MINH KHÊ — TÁM XÃ, PHƯỜNG (địa danh hư cấu)</p>' +
     '<p class="ten-cong">Cổng Dịch vụ công giả lập</p></div>' +
     '</div></header><nav class="menu"><ul>';
   muc.forEach(function (m) {
@@ -228,7 +229,7 @@ function _glLopXacNhan() {
     "<p>Trang này <b>không phải</b> cổng dịch vụ công của bất kỳ cơ quan nhà nước nào. " +
     "Trang được dựng riêng cho khoá bồi dưỡng kiến thức nền tảng về ứng dụng công nghệ mới.</p>" +
     "<ul>" +
-    "<li>Địa danh <b>“huyện Minh Khê”</b> và tên tám xã, phường trên trang đều là hư cấu.</li>" +
+    "<li>Địa danh <b>“tỉnh Minh Khê”</b> và tên tám xã, phường trên trang đều là hư cấu.</li>" +
     "<li>Mọi họ tên, số giấy tờ, số điện thoại, hồ sơ, số liệu đều do chương trình sinh ra.</li>" +
     "<li>Trang không kết nối với hệ thống nào, không nhận và không lưu thông tin bạn nhập.</li>" +
     "<li>Không trích dẫn số liệu trên trang vào bất kỳ văn bản chính thức nào.</li>" +

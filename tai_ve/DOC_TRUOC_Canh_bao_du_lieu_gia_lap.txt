@@ -1,0 +1,102 @@
+=============================================================================
+  ĐỌC TRƯỚC KHI SỬ DỤNG THƯ MỤC NÀY
+=============================================================================
+
+TOÀN BỘ DỮ LIỆU TRONG THƯ MỤC NÀY LÀ DỮ LIỆU HƯ CẤU.
+
+Dữ liệu do chương trình sinh ra để phục vụ khoá bồi dưỡng kiến thức nền tảng
+về ứng dụng công nghệ mới. Không lấy từ bất kỳ hệ thống thật nào.
+
+
+1. NHỮNG ĐIỀU CẦN BIẾT
+
+  - Địa danh "tỉnh Minh Khê" và tên tám xã, phường trong dữ liệu đều KHÔNG
+    CÓ THẬT: An Thịnh, Bình Minh, Hoà Lạc, Kim Sơn, Long Phú, Mỹ Trạch,
+    Nam Hải, Tân Phước.
+
+  - Mọi họ tên, số giấy tờ, số điện thoại, địa chỉ trong tệp 06 đều hư cấu.
+    Số điện thoại bắt đầu bằng 0000 – dải số không cấp cho thuê bao nào.
+    Số giấy tờ bắt đầu bằng 999 để không trùng dải số thật.
+    Địa chỉ thư điện tử dùng tên miền .invalid nên không gửi thư tới được.
+
+  - Mọi con số về hồ sơ, thời hạn, điểm hài lòng, ngân sách đều do chương
+    trình sinh ngẫu nhiên theo phân bố định trước.
+
+
+2. NHỮNG ĐIỀU TUYỆT ĐỐI KHÔNG LÀM
+
+  KHÔNG trích dẫn số liệu trong thư mục này vào bất kỳ văn bản chính thức
+  nào của cơ quan.
+
+  KHÔNG dùng dữ liệu này để so sánh, đánh giá bất kỳ đơn vị hành chính
+  thật nào.
+
+  KHÔNG đưa dữ liệu này ra ngoài phạm vi lớp học theo cách khiến người nhận
+  hiểu nhầm đó là số liệu thật.
+
+  KHÔNG thay dữ liệu giả lập bằng dữ liệu thật của cơ quan trong buổi thực
+  hành. Các bài thực hành có bước tải dữ liệu lên công cụ trực tuyến.
+
+
+3. VÌ SAO DỮ LIỆU CÓ VẤN ĐỀ
+
+  Dữ liệu được cố ý thiết kế để chứa các vấn đề điển hình mà cán bộ gặp
+  trong thực tế:
+
+  - Ô trống: có loại có nghĩa (hồ sơ chưa xong) và loại do sai sót
+  - Giá trị bất thường: ngoài dải hợp lý, mâu thuẫn logic
+  - Chênh lệch lớn giữa các đơn vị
+  - Thiết bị IoT mất kết nối, pin yếu, giá trị cảm biến bị kẹt
+
+  Đây là điều kiện để bài thực hành có ý nghĩa. Dữ liệu "sạch hoàn hảo"
+  sẽ không dạy được gì.
+
+
+4. DANH MỤC TỆP
+
+  00_Tong_hop_du_lieu_gia_lap.xlsx  Gộp cả 9 bộ dữ liệu thành các trang tính
+  01_ho_so_dich_vu_cong.csv         3.295 hồ sơ thủ tục hành chính năm 2026
+  02_phan_anh_kien_nghi.csv         460 phản ánh của người dân
+  03_danh_muc_thiet_bi_iot.csv      28 thiết bị IoT
+  04_du_lieu_cam_bien_iot.csv       17.280 bản ghi cảm biến, 15 ngày
+  05_khao_sat_hai_long.csv          1.000 phiếu khảo sát hài lòng
+  06_thong_tin_ca_nhan_...csv       30 bản ghi dữ liệu cá nhân HƯ CẤU
+  07_ngan_sach_cntt.csv             24 dòng ngân sách CNTT
+  08_so_dang_ky_he_thong_ai.csv     15 hệ thống AI, 3 cột để học viên điền
+  09_ky_nang_so_can_bo.csv          180 cán bộ, kết quả khảo sát kỹ năng số
+
+  Mô tả chi tiết từng cột: xem tệp
+  05_TaiLieu_Chung/03_Mo_ta_bo_du_lieu_gia_lap.docx
+
+
+5. CÁCH MỞ TỆP CSV ĐÚNG CÁCH
+
+  Mọi tệp CSV dùng mã hoá UTF-8. Nếu bấm đúp mở bằng Excel, tiếng Việt sẽ
+  bị lỗi ký tự.
+
+  Cách đúng với Google Trang tính (khuyến nghị):
+      Tệp > Nhập > Tải lên > chọn dấu phẩy, mã hoá UTF-8
+
+  Cách đúng với Microsoft Excel:
+      Mở Excel trước > Dữ liệu > Lấy dữ liệu > Từ tệp văn bản
+      > chọn UTF-8 và dấu phẩy
+
+  Tệp .xlsx bấm đúp mở trực tiếp, không có vấn đề mã hoá.
+
+
+6. SINH LẠI DỮ LIỆU
+
+  Dữ liệu sinh bằng chương trình với hạt giống ngẫu nhiên cố định, nên chạy
+  lại cho kết quả giống hệt.
+
+      py -3 -X utf8 _build/sinh_dulieu.py
+      py -3 -X utf8 _build/web_dulieu.py
+
+  LƯU Ý: nếu sinh lại với hạt giống khác, mọi con số nêu trong slide và bản
+  hướng dẫn sẽ không còn khớp. Chỉ sinh lại khi thực sự cần.
+
+
+=============================================================================
+  Khoá bồi dưỡng kiến thức nền tảng về ứng dụng công nghệ mới
+  Giảng viên: TS. Nguyễn Ngọc Trường Minh — iPMAC
+=============================================================================

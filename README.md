@@ -27,7 +27,7 @@ Chi tiết trang thứ hai: xem [santap-dulieu/README.md](santap-dulieu/README.m
 
 ## Đây là gì
 
-Một trang web tĩnh mô phỏng cổng dịch vụ công cấp huyện, xây dựng riêng cho
+Một trang web tĩnh mô phỏng cổng dịch vụ công của tám xã, phường, xây dựng riêng cho
 **Khoá bồi dưỡng kiến thức nền tảng về ứng dụng công nghệ mới** (chương trình
 5 ngày). Trang dùng để học viên thao tác thật trong các bài thực hành về trí
 tuệ nhân tạo, Internet vạn vật và khoa học dữ liệu, thay vì chỉ nghe giảng lý
@@ -44,7 +44,7 @@ thông tin cá nhân hay số liệu thật nào.
 
 Cụ thể:
 
-- Địa danh **"huyện Minh Khê"** và tên tám xã, phường trên trang đều không có
+- Địa danh **"tỉnh Minh Khê"** và tên tám xã, phường trên trang đều không có
   thật: An Thịnh, Bình Minh, Hoà Lạc, Kim Sơn, Long Phú, Mỹ Trạch, Nam Hải,
   Tân Phước.
 - Mọi họ tên, số giấy tờ, số điện thoại, địa chỉ đều hư cấu. Số giấy tờ bắt
@@ -67,6 +67,7 @@ Cụ thể:
 | `dashboard.html` | Bảng thông tin điều hành mẫu |
 | `iot.html` | Giám sát 28 thiết bị và dữ liệu cảm biến 15 ngày |
 | `he-thong-ai.html` | Sổ đăng ký 15 hệ thống AI, học viên tự phân loại rủi ro |
+| `thuc-hanh.html` | Dữ liệu thực hành: mã QR, tải bộ CSV giả lập (thư mục `tai_ve/`), bảng buổi nào dùng trang/tệp nào |
 
 ## Về kỹ thuật
 

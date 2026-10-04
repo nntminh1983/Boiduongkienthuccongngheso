@@ -155,3 +155,20 @@ code{background:#F2F2F2; padding:1px 5px; border-radius:3px;
 .gl-hop li{margin-bottom:5px}
 .gl-hop .cuoi{color:var(--xam); font-size:13px; margin:12px 0 0}
 /* canhbao-ketthuc */
+
+/* ------------------------------------------------ man hinh dien thoai */
+@media (max-width:700px){
+  body{font-size:14.5px}
+  .ten-cong{font-size:18px} .ten-cq{font-size:11.5px}
+  .quoc-huy{width:42px;height:42px;font-size:10px}
+  nav.menu ul{flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; padding:0 6px}
+  nav.menu a{white-space:nowrap; padding:10px 11px; font-size:13.5px}
+  main{padding:0 12px; margin-top:14px}
+  h1{font-size:21px} h2{font-size:17px}
+  .luoi-2,.luoi-3,.luoi-4{grid-template-columns:1fr}
+  .so .gia-tri{font-size:26px}
+  table{font-size:13px} th{font-size:12.5px} td,th{padding:7px 7px}
+  .cuon{overflow-x:auto}
+  main table{display:block; overflow-x:auto; max-width:100%}
+  .gl-hop{padding:18px 16px} .gl-hop h2{font-size:18px}
+}

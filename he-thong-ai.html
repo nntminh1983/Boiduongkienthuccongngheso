@@ -32,33 +32,35 @@
   </div>
 
   <h2>Khung tham chiếu để phân loại</h2>
-  <div class="luoi luoi-4">
+  <p class="nho">Theo Nghị định 142/2026/NĐ-CP (hiệu lực 01/5/2026): hệ thống AI được phân loại theo
+  <b>ba mức rủi ro</b>. Danh mục hệ thống rủi ro cao ban hành kèm Quyết định 33/2026/QĐ-TTg.</p>
+  <div class="luoi luoi-3">
     <div class="the" style="border-left:5px solid #B03A48">
-      <h3 style="color:#B03A48">Rủi ro không chấp nhận được</h3>
-      <p>Hệ thống bị cấm triển khai vì xâm phạm nghiêm trọng quyền con người
-      hoặc thao túng hành vi.</p>
-      <p class="nho"><b>Nghĩa vụ:</b> không được sử dụng.</p>
+      <h3 style="color:#B03A48">Rủi ro cao</h3>
+      <p>Có thể gây tổn hại đáng kể đến tính mạng, sức khoẻ, quyền và lợi ích hợp pháp của
+      tổ chức, cá nhân; hoặc thuộc Danh mục kèm Quyết định 33/2026/QĐ-TTg.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> thông báo kết quả phân loại trước khi đưa vào sử dụng;
+      con người giám sát chặt chẽ, lưu nhật ký, giải thích được kết quả.</p>
     </div>
     <div class="the" style="border-left:5px solid #C55A11">
-      <h3 style="color:#C55A11">Rủi ro cao</h3>
-      <p>Hệ thống tác động trực tiếp đến quyền và lợi ích của người dân:
-      quyết định về hồ sơ, chính sách, an toàn.</p>
-      <p class="nho"><b>Nghĩa vụ:</b> đăng ký, đánh giá tác động, con người giám sát,
-      lưu nhật ký, giải thích được kết quả.</p>
-    </div>
-    <div class="the" style="border-left:5px solid #7030A0">
-      <h3 style="color:#7030A0">Rủi ro trung bình</h3>
-      <p>Hệ thống tương tác trực tiếp với người dân hoặc tạo ra nội dung
-      công bố ra bên ngoài.</p>
-      <p class="nho"><b>Nghĩa vụ:</b> thông báo cho người dùng biết đang tương tác với AI,
-      gắn nhãn nội dung do AI tạo.</p>
+      <h3 style="color:#C55A11">Rủi ro trung bình</h3>
+      <p>Mức tác động vừa phải đến quyền và lợi ích của tổ chức, cá nhân — ví dụ hệ thống
+      tương tác trực tiếp với người dân hoặc tạo nội dung công bố ra bên ngoài.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> thông báo kết quả phân loại trước khi đưa vào sử dụng;
+      cho người dùng biết đang tương tác với AI, gắn nhãn nội dung do AI tạo.</p>
     </div>
     <div class="the" style="border-left:5px solid #5B8C5A">
       <h3 style="color:#5B8C5A">Rủi ro thấp</h3>
-      <p>Hệ thống hỗ trợ công việc nội bộ, không ra quyết định, không xử lý
-      dữ liệu cá nhân.</p>
-      <p class="nho"><b>Nghĩa vụ:</b> tuân thủ quy chế nội bộ về sử dụng công cụ AI.</p>
+      <p>Mức tác động không đáng kể — hệ thống hỗ trợ công việc nội bộ, không ra quyết định,
+      không xử lý dữ liệu cá nhân.</p>
+      <p class="nho"><b>Nghĩa vụ:</b> không thuộc diện phải thông báo; vẫn tuân thủ nguyên tắc
+      chung của Luật Trí tuệ nhân tạo và quy chế nội bộ.</p>
     </div>
+  </div>
+  <div class="hop hop-do">
+    <b>Lưu ý:</b> các hành vi bị nghiêm cấm do Luật Trí tuệ nhân tạo 134/2025/QH15 quy định
+    trực tiếp — đây <b>không phải là một mức rủi ro</b>. Nếu thấy một hệ thống rơi vào hành vi
+    bị cấm, chọn “Thuộc hành vi bị nghiêm cấm” ở cột mức rủi ro.
   </div>
 
   <h2>Sổ đăng ký</h2>
@@ -79,7 +81,7 @@
       <li>Hệ thống có xử lý dữ liệu cá nhân không? Nếu có thì mức rủi ro tăng lên
       ít nhất một bậc.</li>
       <li>Người dân có biết mình đang tương tác với máy không? Nếu không thì
-      tối thiểu phải ở mức rủi ro trung bình và bắt buộc phải thông báo.</li>
+      tối thiểu phải ở mức rủi ro trung bình và bắt buộc phải thông báo cho người dùng.</li>
     </ol>
   </div>
 </main>
@@ -87,13 +89,13 @@
 <script src="du_lieu/he_thong_ai.js"></script>
 <script>
 var MUC = ["", "Rủi ro thấp", "Rủi ro trung bình", "Rủi ro cao",
-           "Rủi ro không chấp nhận được"];
+           "Thuộc hành vi bị nghiêm cấm"];
 var KQ = {};
 
 function mauMuc(m) {
-  if (m === "Rủi ro cao") return "cam";
-  if (m === "Rủi ro không chấp nhận được") return "do";
-  if (m === "Rủi ro trung bình") return "tim";
+  if (m === "Rủi ro cao") return "do";
+  if (m === "Thuộc hành vi bị nghiêm cấm") return "do";
+  if (m === "Rủi ro trung bình") return "cam";
   if (m === "Rủi ro thấp") return "luc";
   return "xanh";
 }

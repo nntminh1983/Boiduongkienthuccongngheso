@@ -1,0 +1,29 @@
+﻿ma_thiet_bi,loai_thiet_bi,giao_thuc,du_lieu_thu_thap,vi_tri_lap_dat,ngay_lap_dat,chu_ky_bao_tri_thang,nguon_dien,trang_thai
+TB001,Cảm biến mực nước,NB-IoT,"Mực nước, điện áp pin",Xã Nam Hải,2025-06-14,12,Điện lưới,Hoạt động
+TB002,Đồng hồ nước thông minh,NB-IoT,Lưu lượng nước,Xã Tân Phước,2024-09-27,6,Điện lưới,Hoạt động
+TB003,Cảm biến ngập lụt hầm chui,LoRaWAN,"Mực nước, cảnh báo",Xã Mỹ Trạch,2024-06-13,3,Pin,Hoạt động
+TB004,Cảm biến đèn chiếu sáng,Zigbee,"Trạng thái bật/tắt, công suất",Xã Tân Phước,2025-03-13,6,Điện lưới,Mất kết nối
+TB005,Cảm biến mực nước,NB-IoT,"Mực nước, điện áp pin",Xã Mỹ Trạch,2024-08-20,6,Pin + Pin mặt trời,Hoạt động
+TB006,Cảm biến chất lượng không khí,LoRaWAN,"PM2.5, nhiệt độ, độ ẩm",Phường Kim Sơn,2025-03-08,12,Pin,Hoạt động
+TB007,Cảm biến ngập lụt hầm chui,LoRaWAN,"Mực nước, cảnh báo",Xã Mỹ Trạch,2025-10-20,6,Điện lưới,Hoạt động
+TB008,Đồng hồ nước thông minh,NB-IoT,Lưu lượng nước,Xã Tân Phước,2026-05-05,3,Điện lưới,Hoạt động
+TB009,Đồng hồ nước thông minh,NB-IoT,Lưu lượng nước,Phường Hoà Lạc,2026-06-08,6,Điện lưới,Hoạt động
+TB010,Cảm biến mực nước,NB-IoT,"Mực nước, điện áp pin",Phường Kim Sơn,2025-11-11,6,Pin,Hoạt động
+TB011,Cảm biến ngập lụt hầm chui,LoRaWAN,"Mực nước, cảnh báo",Phường An Thịnh,2025-09-25,6,Điện lưới,Hoạt động
+TB012,Đồng hồ nước thông minh,NB-IoT,Lưu lượng nước,Phường Hoà Lạc,2026-05-11,3,Pin + Pin mặt trời,Hoạt động
+TB013,Cảm biến mực nước,NB-IoT,"Mực nước, điện áp pin",Xã Tân Phước,2025-07-03,6,Điện lưới,Hoạt động
+TB014,Cảm biến chất lượng không khí,LoRaWAN,"PM2.5, nhiệt độ, độ ẩm",Xã Tân Phước,2026-06-29,6,Pin,Hoạt động
+TB015,Cảm biến đèn chiếu sáng,Zigbee,"Trạng thái bật/tắt, công suất",Phường Long Phú,2025-02-27,6,Pin + Pin mặt trời,Hoạt động
+TB016,Cảm biến ngập lụt hầm chui,LoRaWAN,"Mực nước, cảnh báo",Xã Mỹ Trạch,2025-05-29,12,Pin,Hoạt động
+TB017,Cảm biến chất lượng không khí,LoRaWAN,"PM2.5, nhiệt độ, độ ẩm",Xã Tân Phước,2026-05-31,6,Điện lưới,Hoạt động
+TB018,Camera đếm phương tiện,Wi-Fi/4G,Lưu lượng xe,Xã Nam Hải,2025-10-01,12,Điện lưới,Hoạt động
+TB019,Cảm biến đèn chiếu sáng,Zigbee,"Trạng thái bật/tắt, công suất",Phường Kim Sơn,2024-08-14,6,Pin + Pin mặt trời,Mất kết nối
+TB020,Camera đếm phương tiện,Wi-Fi/4G,Lưu lượng xe,Phường An Thịnh,2025-06-20,3,Điện lưới,Hoạt động
+TB021,Cảm biến chất lượng không khí,LoRaWAN,"PM2.5, nhiệt độ, độ ẩm",Phường Bình Minh,2025-05-03,6,Điện lưới,Hoạt động
+TB022,Cảm biến ngập lụt hầm chui,LoRaWAN,"Mực nước, cảnh báo",Phường Bình Minh,2024-11-21,3,Pin,Hoạt động
+TB023,Camera đếm phương tiện,Wi-Fi/4G,Lưu lượng xe,Phường Hoà Lạc,2025-11-07,6,Pin,Mất kết nối
+TB024,Cảm biến ngập lụt hầm chui,LoRaWAN,"Mực nước, cảnh báo",Phường An Thịnh,2026-06-05,6,Pin,Hoạt động
+TB025,Cảm biến đèn chiếu sáng,Zigbee,"Trạng thái bật/tắt, công suất",Phường Bình Minh,2026-05-19,6,Pin,Hoạt động
+TB026,Cảm biến chất lượng không khí,LoRaWAN,"PM2.5, nhiệt độ, độ ẩm",Xã Tân Phước,2026-03-11,6,Pin + Pin mặt trời,Hoạt động
+TB027,Cảm biến đèn chiếu sáng,Zigbee,"Trạng thái bật/tắt, công suất",Xã Nam Hải,2025-01-13,3,Pin,Hoạt động
+TB028,Đồng hồ nước thông minh,NB-IoT,Lưu lượng nước,Phường An Thịnh,2025-04-09,12,Pin + Pin mặt trời,Hoạt động

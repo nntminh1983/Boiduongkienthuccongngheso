@@ -1,0 +1,181 @@
+﻿ma_can_bo,don_vi,bo_phan,nhom_tuoi,da_hoc_binh_dan_hoc_vu_so,su_dung_thiet_bi,dich_vu_cong_truc_tuyen,bang_tinh_bao_cao,an_toan_thong_tin,su_dung_cong_cu_ai,diem_ky_nang_so_tb
+CB001,Xã Tân Phước,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,4,4,4,4,3,3.8
+CB002,Phường Bình Minh,Tư pháp - Hộ tịch,50 trở lên,Chưa học,3,3,3,3,3,3.0
+CB003,Phường Bình Minh,Tài chính - Kế toán,40-49,Chưa học,3,3,2,3,4,3.0
+CB004,Phường Hoà Lạc,Văn phòng,40-49,Đã hoàn thành,4,3,3,4,3,3.4
+CB005,Phường An Thịnh,Văn phòng,40-49,Chưa học,4,3,3,3,3,3.2
+CB006,Phường Long Phú,Tài chính - Kế toán,30-39,Đang học,5,4,2,3,4,3.6
+CB007,Phường Long Phú,Tư pháp - Hộ tịch,40-49,Chưa học,3,3,3,3,4,3.2
+CB008,Phường An Thịnh,Văn hoá - Xã hội,30-39,Đã hoàn thành,4,4,3,3,3,3.4
+CB009,Phường Hoà Lạc,Tư pháp - Hộ tịch,40-49,Đang học,3,3,4,2,3,3.0
+CB010,Phường Kim Sơn,Trung tâm phục vụ hành chính công,50 trở lên,Chưa học,4,3,2,2,1,2.4
+CB011,Xã Tân Phước,Trung tâm phục vụ hành chính công,Dưới 30,Đã hoàn thành,5,4,3,4,4,4.0
+CB012,Phường Long Phú,Tài chính - Kế toán,40-49,Đã hoàn thành,2,3,3,2,3,2.6
+CB013,Phường An Thịnh,Tài chính - Kế toán,50 trở lên,Đã hoàn thành,3,2,3,3,2,2.6
+CB014,Phường Long Phú,Tài chính - Kế toán,Dưới 30,Đang học,4,3,4,4,4,3.8
+CB015,Xã Nam Hải,Văn phòng,30-39,Đã hoàn thành,3,3,4,3,4,3.4
+CB016,Phường An Thịnh,Trung tâm phục vụ hành chính công,40-49,Đang học,5,2,4,4,3,3.6
+CB017,Phường Long Phú,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,5,4,3,3,3,3.6
+CB018,Phường Long Phú,Tư pháp - Hộ tịch,40-49,Đang học,4,3,4,3,3,3.4
+CB019,Phường An Thịnh,Văn hoá - Xã hội,30-39,Chưa học,4,4,3,4,3,3.6
+CB020,Phường An Thịnh,Văn phòng,Dưới 30,Đã hoàn thành,5,4,4,4,4,4.2
+CB021,Phường Hoà Lạc,Tư pháp - Hộ tịch,40-49,Đang học,3,3,3,3,2,2.8
+CB022,Phường Kim Sơn,Trung tâm phục vụ hành chính công,30-39,Đang học,3,4,4,3,3,3.4
+CB023,Phường Kim Sơn,Tài chính - Kế toán,30-39,Chưa học,4,4,3,2,3,3.2
+CB024,Xã Tân Phước,Văn phòng,Dưới 30,Chưa học,3,4,5,4,4,4.0
+CB025,Xã Tân Phước,Tư pháp - Hộ tịch,40-49,Đã hoàn thành,2,2,3,4,2,2.6
+CB026,Phường Bình Minh,Tài chính - Kế toán,30-39,Đang học,5,3,4,5,4,4.2
+CB027,Xã Tân Phước,Trung tâm phục vụ hành chính công,Dưới 30,Đã hoàn thành,4,4,4,4,3,3.8
+CB028,Xã Mỹ Trạch,Tài chính - Kế toán,30-39,Đang học,4,3,3,3,3,3.2
+CB029,Phường Long Phú,Văn phòng,30-39,Đã hoàn thành,4,3,4,4,3,3.6
+CB030,Xã Mỹ Trạch,Địa chính - Xây dựng,30-39,Đang học,4,3,3,3,3,3.2
+CB031,Phường An Thịnh,Văn hoá - Xã hội,40-49,Đã hoàn thành,3,3,3,3,3,3.0
+CB032,Phường Hoà Lạc,Tư pháp - Hộ tịch,40-49,Đã hoàn thành,3,3,2,2,3,2.6
+CB033,Phường Kim Sơn,Tài chính - Kế toán,Dưới 30,Đã hoàn thành,4,4,4,3,3,3.6
+CB034,Phường An Thịnh,Địa chính - Xây dựng,50 trở lên,Đã hoàn thành,3,3,2,3,2,2.6
+CB035,Phường Bình Minh,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,2,4,3,3,3,3.0
+CB036,Phường Long Phú,Tài chính - Kế toán,30-39,Chưa học,4,3,3,3,4,3.4
+CB037,Xã Mỹ Trạch,Trung tâm phục vụ hành chính công,Dưới 30,Chưa học,4,4,2,4,3,3.4
+CB038,Phường Hoà Lạc,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,4,4,3,3,3,3.4
+CB039,Xã Nam Hải,Văn phòng,Dưới 30,Đang học,4,4,3,3,3,3.4
+CB040,Xã Nam Hải,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,4,3,3,4,3,3.4
+CB041,Xã Mỹ Trạch,Tài chính - Kế toán,30-39,Đang học,3,4,4,3,3,3.4
+CB042,Xã Mỹ Trạch,Văn hoá - Xã hội,40-49,Đã hoàn thành,3,3,3,3,2,2.8
+CB043,Phường Hoà Lạc,Trung tâm phục vụ hành chính công,40-49,Đã hoàn thành,2,3,3,3,4,3.0
+CB044,Xã Tân Phước,Văn phòng,30-39,Đang học,4,3,3,3,4,3.4
+CB045,Xã Mỹ Trạch,Văn phòng,30-39,Đang học,4,4,3,3,4,3.6
+CB046,Xã Mỹ Trạch,Địa chính - Xây dựng,Dưới 30,Đã hoàn thành,4,4,4,3,4,3.8
+CB047,Phường Long Phú,Tài chính - Kế toán,30-39,Chưa học,3,5,3,4,3,3.6
+CB048,Phường Long Phú,Địa chính - Xây dựng,40-49,Đang học,3,3,3,3,4,3.2
+CB049,Xã Mỹ Trạch,Văn hoá - Xã hội,30-39,Đã hoàn thành,5,3,3,3,3,3.4
+CB050,Phường An Thịnh,Địa chính - Xây dựng,Dưới 30,Đã hoàn thành,4,5,4,3,4,4.0
+CB051,Phường Hoà Lạc,Văn hoá - Xã hội,50 trở lên,Đã hoàn thành,3,3,2,4,2,2.8
+CB052,Phường Kim Sơn,Tài chính - Kế toán,Dưới 30,Đã hoàn thành,5,4,4,4,3,4.0
+CB053,Xã Tân Phước,Địa chính - Xây dựng,Dưới 30,Đã hoàn thành,4,4,4,4,3,3.8
+CB054,Phường Kim Sơn,Địa chính - Xây dựng,40-49,Đang học,4,3,3,3,2,3.0
+CB055,Phường Bình Minh,Tư pháp - Hộ tịch,30-39,Đã hoàn thành,4,5,4,3,2,3.6
+CB056,Phường An Thịnh,Địa chính - Xây dựng,Dưới 30,Chưa học,4,4,4,2,3,3.4
+CB057,Phường Long Phú,Tư pháp - Hộ tịch,Dưới 30,Chưa học,4,4,5,4,3,4.0
+CB058,Phường Hoà Lạc,Văn phòng,Dưới 30,Chưa học,5,3,3,4,3,3.6
+CB059,Xã Mỹ Trạch,Tài chính - Kế toán,50 trở lên,Chưa học,3,2,3,3,2,2.6
+CB060,Xã Nam Hải,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,5,4,3,3,3,3.6
+CB061,Phường Kim Sơn,Văn phòng,40-49,Chưa học,3,3,2,2,2,2.4
+CB062,Phường An Thịnh,Văn phòng,50 trở lên,Đang học,2,3,3,3,3,2.8
+CB063,Xã Mỹ Trạch,Tài chính - Kế toán,40-49,Đang học,3,3,3,2,3,2.8
+CB064,Phường Kim Sơn,Trung tâm phục vụ hành chính công,50 trở lên,Đã hoàn thành,3,3,3,3,1,2.6
+CB065,Xã Mỹ Trạch,Văn hoá - Xã hội,40-49,Đã hoàn thành,4,3,3,3,1,2.8
+CB066,Xã Mỹ Trạch,Văn phòng,30-39,Đã hoàn thành,4,4,3,3,4,3.6
+CB067,Xã Tân Phước,Văn hoá - Xã hội,30-39,Đã hoàn thành,4,5,4,3,3,3.8
+CB068,Phường Hoà Lạc,Tư pháp - Hộ tịch,30-39,Chưa học,4,3,3,4,3,3.4
+CB069,Xã Tân Phước,Văn phòng,30-39,Đang học,5,4,3,4,3,3.8
+CB070,Xã Tân Phước,Trung tâm phục vụ hành chính công,50 trở lên,Đã hoàn thành,3,3,2,3,1,2.4
+CB071,Phường Hoà Lạc,Văn hoá - Xã hội,Dưới 30,Đang học,4,5,5,3,4,4.2
+CB072,Xã Tân Phước,Văn phòng,40-49,Chưa học,4,3,3,4,2,3.2
+CB073,Phường Long Phú,Tài chính - Kế toán,40-49,Đang học,3,2,3,3,2,2.6
+CB074,Phường Long Phú,Tài chính - Kế toán,30-39,Đang học,5,4,4,3,3,3.8
+CB075,Xã Tân Phước,Địa chính - Xây dựng,40-49,Chưa học,3,3,2,4,1,2.6
+CB076,Phường Kim Sơn,Văn hoá - Xã hội,40-49,Đang học,3,3,3,2,2,2.6
+CB077,Phường Long Phú,Văn phòng,Dưới 30,Đang học,5,4,4,3,5,4.2
+CB078,Phường Long Phú,Tài chính - Kế toán,30-39,Đang học,4,3,2,3,3,3.0
+CB079,Phường An Thịnh,Địa chính - Xây dựng,40-49,Đã hoàn thành,4,3,2,3,2,2.8
+CB080,Xã Nam Hải,Tài chính - Kế toán,40-49,Chưa học,3,2,3,3,3,2.8
+CB081,Xã Tân Phước,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,4,4,4,4,3,3.8
+CB082,Phường Long Phú,Tư pháp - Hộ tịch,40-49,Đang học,3,2,3,3,3,2.8
+CB083,Phường Long Phú,Tư pháp - Hộ tịch,30-39,Đã hoàn thành,4,3,2,4,3,3.2
+CB084,Phường Hoà Lạc,Tư pháp - Hộ tịch,50 trở lên,Đã hoàn thành,3,3,2,2,2,2.4
+CB085,Xã Nam Hải,Văn phòng,Dưới 30,Chưa học,4,4,4,3,3,3.6
+CB086,Phường Hoà Lạc,Tư pháp - Hộ tịch,40-49,Đang học,3,3,2,2,3,2.6
+CB087,Phường Kim Sơn,Tư pháp - Hộ tịch,50 trở lên,Đã hoàn thành,3,3,3,3,1,2.6
+CB088,Xã Nam Hải,Tài chính - Kế toán,30-39,Đã hoàn thành,4,4,5,4,3,4.0
+CB089,Phường An Thịnh,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,5,4,4,4,3,4.0
+CB090,Phường An Thịnh,Tài chính - Kế toán,30-39,Đã hoàn thành,5,4,3,3,3,3.6
+CB091,Phường Long Phú,Trung tâm phục vụ hành chính công,Dưới 30,Đang học,4,3,3,4,3,3.4
+CB092,Xã Tân Phước,Tư pháp - Hộ tịch,40-49,Đã hoàn thành,4,4,2,1,2,2.6
+CB093,Phường Kim Sơn,Địa chính - Xây dựng,30-39,Chưa học,3,4,4,3,3,3.4
+CB094,Phường Kim Sơn,Văn phòng,40-49,Chưa học,4,4,2,2,2,2.8
+CB095,Phường Long Phú,Trung tâm phục vụ hành chính công,50 trở lên,Đang học,3,2,1,1,1,1.6
+CB096,Xã Mỹ Trạch,Tài chính - Kế toán,40-49,Đã hoàn thành,3,3,2,4,3,3.0
+CB097,Xã Mỹ Trạch,Văn phòng,40-49,Chưa học,4,4,3,3,1,3.0
+CB098,Xã Nam Hải,Trung tâm phục vụ hành chính công,50 trở lên,Đã hoàn thành,3,2,2,3,2,2.4
+CB099,Phường Bình Minh,Địa chính - Xây dựng,40-49,Đã hoàn thành,4,2,3,2,2,2.6
+CB100,Phường Bình Minh,Trung tâm phục vụ hành chính công,50 trở lên,Đã hoàn thành,2,2,2,3,2,2.2
+CB101,Phường Hoà Lạc,Văn phòng,30-39,Chưa học,4,3,4,2,4,3.4
+CB102,Xã Mỹ Trạch,Trung tâm phục vụ hành chính công,Dưới 30,Đã hoàn thành,5,4,4,3,4,4.0
+CB103,Xã Mỹ Trạch,Văn hoá - Xã hội,40-49,Đã hoàn thành,4,3,3,3,3,3.2
+CB104,Phường Hoà Lạc,Tài chính - Kế toán,50 trở lên,Đã hoàn thành,3,2,2,2,2,2.2
+CB105,Xã Mỹ Trạch,Văn phòng,40-49,Đã hoàn thành,4,4,3,3,3,3.4
+CB106,Phường Kim Sơn,Tài chính - Kế toán,30-39,Đã hoàn thành,5,4,3,3,3,3.6
+CB107,Phường Hoà Lạc,Văn phòng,40-49,Đã hoàn thành,4,3,2,3,2,2.8
+CB108,Phường Kim Sơn,Trung tâm phục vụ hành chính công,40-49,Đang học,4,3,2,3,2,2.8
+CB109,Phường Long Phú,Văn phòng,40-49,Đã hoàn thành,5,3,3,3,3,3.4
+CB110,Phường An Thịnh,Tư pháp - Hộ tịch,30-39,Đang học,5,4,3,3,3,3.6
+CB111,Phường Long Phú,Tư pháp - Hộ tịch,30-39,Chưa học,5,4,3,4,3,3.8
+CB112,Phường An Thịnh,Văn phòng,40-49,Chưa học,4,3,3,3,2,3.0
+CB113,Xã Nam Hải,Văn hoá - Xã hội,40-49,Đang học,3,4,2,3,3,3.0
+CB114,Xã Nam Hải,Tài chính - Kế toán,30-39,Đã hoàn thành,4,4,3,4,3,3.6
+CB115,Phường Kim Sơn,Tài chính - Kế toán,Dưới 30,Đã hoàn thành,4,4,4,3,3,3.6
+CB116,Phường Kim Sơn,Tài chính - Kế toán,30-39,Chưa học,5,3,3,3,2,3.2
+CB117,Xã Tân Phước,Tài chính - Kế toán,40-49,Đã hoàn thành,3,4,4,3,1,3.0
+CB118,Phường An Thịnh,Trung tâm phục vụ hành chính công,40-49,Đang học,3,3,3,3,2,2.8
+CB119,Phường Hoà Lạc,Địa chính - Xây dựng,Dưới 30,Đã hoàn thành,3,5,3,3,3,3.4
+CB120,Phường Hoà Lạc,Trung tâm phục vụ hành chính công,50 trở lên,Đã hoàn thành,3,2,2,1,2,2.0
+CB121,Phường Long Phú,Văn hoá - Xã hội,Dưới 30,Đã hoàn thành,5,4,4,3,3,3.8
+CB122,Xã Tân Phước,Tư pháp - Hộ tịch,Dưới 30,Đã hoàn thành,4,4,4,3,3,3.6
+CB123,Xã Mỹ Trạch,Tư pháp - Hộ tịch,30-39,Chưa học,4,3,3,3,4,3.4
+CB124,Phường Long Phú,Văn hoá - Xã hội,50 trở lên,Chưa học,3,2,3,2,2,2.4
+CB125,Xã Tân Phước,Văn hoá - Xã hội,30-39,Chưa học,4,3,3,4,3,3.4
+CB126,Phường Bình Minh,Văn hoá - Xã hội,40-49,Đã hoàn thành,3,3,3,3,3,3.0
+CB127,Phường Bình Minh,Văn phòng,40-49,Chưa học,4,3,3,3,2,3.0
+CB128,Xã Nam Hải,Văn hoá - Xã hội,40-49,Đã hoàn thành,3,3,3,4,3,3.2
+CB129,Phường Hoà Lạc,Văn hoá - Xã hội,Dưới 30,Đã hoàn thành,4,4,4,3,3,3.6
+CB130,Xã Tân Phước,Tư pháp - Hộ tịch,30-39,Đã hoàn thành,4,4,4,3,3,3.6
+CB131,Phường Kim Sơn,Văn hoá - Xã hội,40-49,Đã hoàn thành,4,3,3,3,2,3.0
+CB132,Phường Kim Sơn,Trung tâm phục vụ hành chính công,30-39,Đang học,5,3,3,3,2,3.2
+CB133,Xã Nam Hải,Văn hoá - Xã hội,30-39,Đã hoàn thành,4,3,3,4,3,3.4
+CB134,Phường Kim Sơn,Tài chính - Kế toán,30-39,Đang học,4,5,4,4,3,4.0
+CB135,Phường An Thịnh,Tư pháp - Hộ tịch,30-39,Đang học,4,3,4,3,3,3.4
+CB136,Phường Hoà Lạc,Văn phòng,40-49,Đã hoàn thành,5,3,3,3,2,3.2
+CB137,Phường An Thịnh,Tư pháp - Hộ tịch,30-39,Đã hoàn thành,3,4,4,4,3,3.6
+CB138,Phường Long Phú,Tài chính - Kế toán,Dưới 30,Đã hoàn thành,4,4,4,4,2,3.6
+CB139,Phường Hoà Lạc,Trung tâm phục vụ hành chính công,50 trở lên,Đang học,3,3,4,2,1,2.6
+CB140,Phường Hoà Lạc,Tư pháp - Hộ tịch,Dưới 30,Đã hoàn thành,5,4,5,3,4,4.2
+CB141,Xã Tân Phước,Tư pháp - Hộ tịch,40-49,Chưa học,3,3,2,3,2,2.6
+CB142,Phường An Thịnh,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,4,4,3,2,3,3.2
+CB143,Phường An Thịnh,Địa chính - Xây dựng,30-39,Đã hoàn thành,3,5,4,4,2,3.6
+CB144,Phường Hoà Lạc,Trung tâm phục vụ hành chính công,Dưới 30,Đã hoàn thành,5,4,4,3,3,3.8
+CB145,Xã Mỹ Trạch,Trung tâm phục vụ hành chính công,Dưới 30,Chưa học,5,4,5,2,4,4.0
+CB146,Xã Mỹ Trạch,Văn phòng,30-39,Đã hoàn thành,4,3,4,3,3,3.4
+CB147,Phường An Thịnh,Văn hoá - Xã hội,50 trở lên,Đã hoàn thành,2,3,2,3,1,2.2
+CB148,Phường Bình Minh,Văn hoá - Xã hội,30-39,Đã hoàn thành,4,3,3,2,2,2.8
+CB149,Phường An Thịnh,Tư pháp - Hộ tịch,40-49,Chưa học,2,3,3,3,3,2.8
+CB150,Phường Long Phú,Văn hoá - Xã hội,Dưới 30,Chưa học,5,4,3,3,3,3.6
+CB151,Xã Mỹ Trạch,Văn phòng,40-49,Đã hoàn thành,3,3,2,2,3,2.6
+CB152,Phường Bình Minh,Tư pháp - Hộ tịch,50 trở lên,Đã hoàn thành,4,3,2,2,2,2.6
+CB153,Xã Tân Phước,Văn phòng,Dưới 30,Chưa học,4,4,4,3,4,3.8
+CB154,Phường Kim Sơn,Địa chính - Xây dựng,Dưới 30,Đang học,4,4,3,3,3,3.4
+CB155,Xã Nam Hải,Tài chính - Kế toán,30-39,Đã hoàn thành,4,4,3,4,3,3.6
+CB156,Phường An Thịnh,Tài chính - Kế toán,40-49,Đã hoàn thành,4,4,3,2,3,3.2
+CB157,Xã Nam Hải,Trung tâm phục vụ hành chính công,30-39,Đang học,3,2,3,3,3,2.8
+CB158,Xã Tân Phước,Văn hoá - Xã hội,40-49,Đã hoàn thành,4,4,4,2,2,3.2
+CB159,Xã Nam Hải,Văn hoá - Xã hội,50 trở lên,Đã hoàn thành,2,3,2,2,2,2.2
+CB160,Xã Mỹ Trạch,Tài chính - Kế toán,50 trở lên,Đã hoàn thành,3,3,2,3,2,2.6
+CB161,Xã Mỹ Trạch,Văn hoá - Xã hội,30-39,Đang học,4,4,4,3,2,3.4
+CB162,Phường Kim Sơn,Văn phòng,40-49,Chưa học,4,3,3,3,2,3.0
+CB163,Phường Bình Minh,Tư pháp - Hộ tịch,40-49,Đã hoàn thành,3,2,3,5,2,3.0
+CB164,Phường Long Phú,Văn phòng,40-49,Chưa học,4,2,2,2,3,2.6
+CB165,Phường Hoà Lạc,Tài chính - Kế toán,Dưới 30,Chưa học,4,4,4,4,4,4.0
+CB166,Phường Long Phú,Trung tâm phục vụ hành chính công,50 trở lên,Đang học,3,2,3,3,2,2.6
+CB167,Phường Kim Sơn,Văn phòng,50 trở lên,Đang học,3,2,1,2,2,2.0
+CB168,Xã Nam Hải,Văn phòng,40-49,Chưa học,4,3,2,3,2,2.8
+CB169,Xã Mỹ Trạch,Trung tâm phục vụ hành chính công,40-49,Đang học,4,3,2,3,2,2.8
+CB170,Phường Hoà Lạc,Địa chính - Xây dựng,30-39,Đã hoàn thành,4,3,4,2,3,3.2
+CB171,Phường Bình Minh,Địa chính - Xây dựng,30-39,Đã hoàn thành,4,5,4,3,3,3.8
+CB172,Xã Nam Hải,Văn phòng,50 trở lên,Đang học,3,3,3,2,2,2.6
+CB173,Phường Bình Minh,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,3,4,3,4,4,3.6
+CB174,Xã Nam Hải,Tư pháp - Hộ tịch,30-39,Chưa học,3,5,3,3,3,3.4
+CB175,Phường Kim Sơn,Tài chính - Kế toán,30-39,Đã hoàn thành,4,4,3,3,3,3.4
+CB176,Xã Mỹ Trạch,Địa chính - Xây dựng,30-39,Đã hoàn thành,4,4,4,3,3,3.6
+CB177,Xã Nam Hải,Tài chính - Kế toán,Dưới 30,Đang học,5,5,4,3,2,3.8
+CB178,Xã Tân Phước,Văn phòng,50 trở lên,Đã hoàn thành,3,2,2,2,2,2.2
+CB179,Phường An Thịnh,Văn hoá - Xã hội,40-49,Chưa học,3,3,4,3,2,3.0
+CB180,Phường Kim Sơn,Trung tâm phục vụ hành chính công,30-39,Đã hoàn thành,4,3,2,3,3,3.0
