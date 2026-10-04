@@ -72,7 +72,64 @@
     chứa sẵn mọi bộ dữ liệu.
   </div>
 
-  <h2>3. Buổi nào dùng trang nào, tệp nào</h2>
+  <h2>3. Văn bản mẫu cho Tác vụ 1 – Tóm tắt văn bản dài (Ngày 01 sáng)</h2>
+  <p>Văn bản giả lập dài khoảng 2 trang, có nhiều con số, thời hạn và việc giao cho từng đơn vị — dùng để kiểm tra AI có làm sai lệch số liệu khi tóm tắt hay không. Bấm nút để sao chép cả câu lệnh lẫn văn bản, rồi dán vào trợ lý AI. Hoặc tải về: <a href="tai_ve/10_van_ban_mau_tom_tat.docx" download>bản Word</a> · <a href="tai_ve/10_van_ban_mau_tom_tat.txt" download>bản văn bản thuần</a>.</p>
+  <div class="hang-nut" style="margin-bottom:10px">
+    <button type="button" onclick="saoChep(true)">Sao chép câu lệnh + văn bản</button>
+    <button type="button" class="phu" onclick="saoChep(false)">Chỉ sao chép văn bản</button>
+    <span class="nho" id="daChep" style="align-self:center"></span>
+  </div>
+  <details class="the"><summary><b>Xem toàn văn văn bản mẫu</b></summary>
+    <pre id="vbMau" style="white-space:pre-wrap;font-family:inherit;font-size:14px;margin:12px 0 0">TÀI LIỆU GIẢ LẬP – CHỈ DÙNG CHO THỰC HÀNH. Địa danh, số liệu đều hư cấu.
+
+ỦY BAN NHÂN DÂN PHƯỜNG AN THỊNH
+Số: 87/KH-UBND
+An Thịnh, ngày 06 tháng 10 năm 2026
+KẾ HOẠCH
+Thí điểm trợ lý ảo hỗ trợ giải đáp thủ tục hành chính tại Trung tâm Phục vụ hành chính công phường năm 2026–2027
+I. MỤC ĐÍCH, YÊU CẦU
+1. Giảm tải cho bộ phận tiếp nhận của Trung tâm Phục vụ hành chính công phường. Từ khi chuyển sang mô hình chính quyền địa phương hai cấp, số cuộc gọi hỏi đáp về thủ tục tăng từ khoảng 280 lên 450 cuộc mỗi tháng, trong khi số công chức tiếp nhận vẫn giữ nguyên 6 người.
+2. Giúp người dân tra cứu thành phần hồ sơ, lệ phí, thời hạn giải quyết thủ tục mọi lúc, kể cả ngoài giờ hành chính.
+3. Trợ lý ảo chỉ trả lời dựa trên bộ tài liệu thủ tục đã được phường kiểm duyệt; không tiếp nhận hồ sơ, không yêu cầu và không lưu thông tin cá nhân của người dân.
+4. Mọi nội dung trả lời phải ghi rõ “Thông tin do trợ lý ảo cung cấp, mang tính tham khảo”.
+II. CHỈ TIÊU
+1. Bộ tài liệu hỏi đáp bao phủ 120 thủ tục hành chính có số hồ sơ phát sinh nhiều nhất tại phường.
+2. Tỷ lệ câu trả lời đúng đạt từ 90% trở lên, đo trên 300 câu hỏi kiểm thử.
+3. Số cuộc gọi hỏi đáp đến Trung tâm giảm ít nhất 30% sau 3 tháng vận hành chính thức, tức còn khoảng 315 cuộc mỗi tháng.
+4. Điểm hài lòng của người dân với kênh trợ lý ảo đạt từ 4,0/5 trở lên.
+III. NỘI DUNG VÀ TIẾN ĐỘ
+1. Giai đoạn 1 – Chuẩn bị (từ 15/10/2026 đến 30/11/2026):
+– Rà soát, chuẩn hoá nội dung 120 thủ tục theo bộ thủ tục đã công bố; hoàn thành trước ngày 10/11/2026.
+– Xây dựng 300 câu hỏi kiểm thử từ các câu hỏi người dân thường gặp tại quầy; hoàn thành trước ngày 20/11/2026.
+– Ban hành quy chế vận hành trợ lý ảo, trong đó quy định rõ người chịu trách nhiệm duyệt nội dung; hoàn thành trước ngày 30/11/2026.
+2. Giai đoạn 2 – Thử nghiệm nội bộ (từ 01/12/2026 đến 31/01/2027):
+– Cán bộ, công chức của phường đóng vai người dân đặt câu hỏi; ghi nhận mọi câu trả lời sai hoặc thiếu.
+– Nếu sau 2 vòng kiểm thử, tỷ lệ trả lời đúng vẫn dưới 90% thì dừng mở rộng và báo cáo Chủ tịch UBND phường xem xét.
+3. Giai đoạn 3 – Vận hành chính thức (từ 01/3/2027):
+– Công khai trợ lý ảo trên trang thông tin điện tử của phường và mã QR tại quầy tiếp nhận.
+– Duy trì đường dây nóng và quầy hướng dẫn trực tiếp cho người cao tuổi, người không sử dụng điện thoại thông minh.
+IV. KINH PHÍ
+Tổng kinh phí dự kiến 185 triệu đồng, gồm: thuê dịch vụ nền tảng trợ lý ảo trong 12 tháng 120 triệu đồng; chuẩn hoá dữ liệu và kiểm thử 40 triệu đồng; truyền thông, in mã QR, tập huấn 25 triệu đồng. Nguồn kinh phí: ngân sách phường năm 2026 và năm 2027, bố trí theo tiến độ thực hiện.
+V. TỔ CHỨC THỰC HIỆN
+1. Văn phòng HĐND và UBND phường: chủ trì, tham mưu UBND phường tổ chức thực hiện Kế hoạch; dự thảo quy chế vận hành, trình ban hành trước ngày 30/11/2026; tổng hợp kết quả, báo cáo Chủ tịch UBND phường trước ngày 25 hằng tháng; báo cáo đánh giá giai đoạn thử nghiệm trước ngày 15/02/2027.
+2. Trung tâm Phục vụ hành chính công phường: chuẩn hoá nội dung 120 thủ tục, xây dựng 300 câu hỏi kiểm thử; cử 2 công chức theo dõi, cập nhật nội dung trợ lý ảo hằng tuần.
+3. Phòng Kinh tế, Hạ tầng và Đô thị: thẩm định phương án thuê dịch vụ và dự toán kinh phí, hoàn thành trước ngày 31/10/2026.
+4. Phòng Văn hoá – Xã hội: xây dựng nội dung truyền thông, hướng dẫn người dân sử dụng; phối hợp với các tổ dân phố phổ biến mã QR.
+Trong quá trình thực hiện, nếu có vướng mắc, các đơn vị báo cáo UBND phường (qua Văn phòng HĐND và UBND phường) để xem xét, giải quyết.
+KT. CHỦ TỊCH
+PHÓ CHỦ TỊCH
+(đã ký – giả lập)</pre>
+  </details>
+  <pre id="lenhMau" hidden>Hãy tóm tắt văn bản dưới đây thành 5 ý chính.
+Mỗi ý một dòng, bắt đầu bằng động từ.
+Nếu văn bản có nêu thời hạn hoặc con số cụ thể thì phải giữ nguyên.
+Cuối phần tóm tắt, liệt kê riêng những việc cần làm và ai làm.
+
+VĂN BẢN:
+</pre>
+  <div class="hop hop-vang"><b>Khi kiểm tra kết quả</b>, đối chiếu từng con số và từng ngày tháng trong bản tóm tắt với văn bản gốc; chú ý ai được giao việc gì. Không dùng văn bản thật của cơ quan cho bài này.</div>
+
+  <h2>4. Buổi nào dùng trang nào, tệp nào</h2>
   <div class="cuon" style="max-height:none">
     <table>
       <thead><tr><th>Buổi thực hành</th><th>Trang trên website</th><th>Tệp dữ liệu</th></tr></thead>
@@ -80,7 +137,7 @@
     </table>
   </div>
 
-  <h2>4. Quy tắc an toàn khi thực hành với công cụ AI trực tuyến</h2>
+  <h2>5. Quy tắc an toàn khi thực hành với công cụ AI trực tuyến</h2>
   <div class="the">
     <ul style="margin:0;padding-left:20px">
       <li>Chỉ tải lên công cụ AI các tệp trên trang này — tuyệt đối không tải tài liệu, dữ liệu
@@ -104,6 +161,7 @@ var TEP = [
   ["07_ngan_sach_cntt.csv", "Ngân sách công nghệ thông tin theo năm và hạng mục", "Ngày 05 sáng", 1],
   ["08_so_dang_ky_he_thong_ai.csv", "Sổ đăng ký 15 hệ thống có yếu tố AI", "Ngày 02 sáng", 3],
   ["09_ky_nang_so_can_bo.csv", "Kết quả đánh giá kỹ năng số của cán bộ", "Ngày 05 chiều", 16],
+  ["10_van_ban_mau_tom_tat.docx", "Văn bản mẫu giả lập (kế hoạch 2 trang) cho Tác vụ 1 – Tóm tắt văn bản dài; có thêm bản .txt ở mục 3", "Ngày 01 sáng", 38],
   ["DOC_TRUOC_Canh_bao_du_lieu_gia_lap.txt", "Cảnh báo bắt buộc đọc trước khi dùng dữ liệu", "Đọc trước buổi đầu tiên", 5]
 ];
 var TRANG = {
@@ -112,7 +170,7 @@ var TRANG = {
   "iot.html": "Giám sát cảm biến", "he-thong-ai.html": "Sổ hệ thống AI"
 };
 var BUOI = [
-  ["Ngày 01 sáng", ["thu-tuc.html", "he-thong-ai.html"], []],
+  ["Ngày 01 sáng", ["thu-tuc.html", "he-thong-ai.html"], ["10"]],
   ["Ngày 01 chiều", ["index.html", "tra-cuu.html", "phan-anh.html"], ["01", "02", "05"]],
   ["Ngày 02 sáng", ["he-thong-ai.html"], ["01", "06", "08"]],
   ["Ngày 02 chiều", ["phan-anh.html", "index.html"], ["02"]],
@@ -123,6 +181,21 @@ var BUOI = [
   ["Ngày 05 sáng", ["iot.html"], ["03", "07"]],
   ["Ngày 05 chiều", ["dashboard.html"], ["01", "05", "09"]]
 ];
+function saoChep(kemLenh) {
+  var t = (kemLenh ? el("lenhMau").textContent : "") + el("vbMau").textContent;
+  function bao(ok) {
+    el("daChep").textContent = ok ? "Đã sao chép — dán vào trợ lý AI." :
+      "Trình duyệt chặn sao chép — mở mục “Xem toàn văn” rồi chọn và sao chép thủ công.";
+  }
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(t).then(function () { bao(true); }, function () { bao(false); });
+  } else {
+    var a = document.createElement("textarea");
+    a.value = t; document.body.appendChild(a); a.select();
+    var ok = false; try { ok = document.execCommand("copy"); } catch (e) {}
+    document.body.removeChild(a); bao(ok);
+  }
+}
 function lienKetTep(ma) {
   for (var i = 0; i < TEP.length; i++) {
     if (TEP[i][0].indexOf(ma + "_") === 0)
