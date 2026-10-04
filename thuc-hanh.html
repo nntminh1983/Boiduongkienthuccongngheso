@@ -210,7 +210,25 @@ GHI CHÚ GIAO VIỆC:
 </pre>
   <div class="hop hop-vang"><b>Tự kiểm tra bản dự thảo của máy:</b><ul style="margin:6px 0 0;padding-left:20px"><li>Số hiệu văn bản để trống (ví dụ “Số: …/GM-…”), không có con số tự đặt.</li><li>Ngày ban hành và ngày họp để trống; không tự đặt “thứ Ba, ngày …”.</li><li>Không có tên người cụ thể (chủ trì, người ký, đầu mối); không bịa số điện thoại, thư điện tử.</li><li>Thành phần đúng: 8 xã, phường, mỗi đơn vị 01 lãnh đạo + 01 công chức phụ trách CNTT (16 đại biểu), thêm Trưởng phòng Chuyển đổi số.</li><li>Giữ đúng giờ: 8 giờ 30 – khoảng 11 giờ 00; địa điểm hội trường tầng 2 (ghi chú cần xác nhận).</li><li>Đủ 3 nội dung họp và yêu cầu báo cáo tối đa 02 trang, gửi trước 02 ngày làm việc.</li><li>Có phần “Nơi nhận” và cuối bản có danh sách những chỗ phải tự điền.</li></ul>Nếu máy vẫn tự bịa số hiệu, hãy hỏi lại: “Số hiệu này lấy từ đâu?”</div>
 
-  <h2>6. Buổi nào dùng trang nào, tệp nào</h2>
+  <h2>6. Tác vụ 4 – Giải thích và trả lời câu hỏi (Ngày 01 sáng)</h2>
+  <p>Đây là tác vụ <b>rủi ro cao nhất</b>: thông tin sai sẽ đến thẳng người dân. Làm theo ba bước:</p>
+  <p><b>Bước 1 – hỏi máy bằng câu lệnh trên slide.</b></p>
+  <div class="hang-nut" style="margin-bottom:10px">
+    <button type="button" onclick="saoChepId(['lenhMau4'], 'daChep4')">Sao chép câu lệnh</button>
+    <span class="nho" id="daChep4" style="align-self:center"></span>
+  </div>
+  <pre id="lenhMau4" class="the" style="white-space:pre-wrap;font-family:Consolas,monospace;font-size:13.5px">Một người dân hỏi: &quot;Tôi muốn đăng ký hộ kinh doanh thì cần chuẩn bị gì?&quot;
+Hãy soạn câu trả lời cho cán bộ một cửa đọc lại cho người dân nghe.
+Yêu cầu:
+- Nói rõ những thông tin nào cần tra cứu lại trên Cổng Dịch vụ công quốc gia trước khi trả lời chính thức
+- Không khẳng định chắc chắn về lệ phí và thời hạn nếu không chắc
+- Ngôn ngữ thân thiện, dễ hiểu với người lớn tuổi</pre>
+  <p><b>Bước 2 – hỏi tiếp từng câu dưới đây</b> trong cùng cuộc trò chuyện (đây là những câu người dân hay hỏi, cũng là chỗ máy dễ trả lời quá chắc chắn):</p>
+  <div class="the"><ol style="margin:0;padding-left:22px"><li style="margin-bottom:6px">Lệ phí đăng ký hộ kinh doanh là bao nhiêu tiền? <button type="button" class="phu" style="padding:2px 10px;font-size:12.5px" onclick="saoChepId(['hoi4_0'], 'daChep4')">Sao chép</button><span id="hoi4_0" hidden>Lệ phí đăng ký hộ kinh doanh là bao nhiêu tiền?</span></li><li style="margin-bottom:6px">Tôi 72 tuổi, bán tạp hoá nhỏ ngay tại nhà, mỗi tháng lãi vài triệu đồng – tôi có bắt buộc phải đăng ký không? <button type="button" class="phu" style="padding:2px 10px;font-size:12.5px" onclick="saoChepId(['hoi4_1'], 'daChep4')">Sao chép</button><span id="hoi4_1" hidden>Tôi 72 tuổi, bán tạp hoá nhỏ ngay tại nhà, mỗi tháng lãi vài triệu đồng – tôi có bắt buộc phải đăng ký không?</span></li><li style="margin-bottom:6px">Tôi bán hàng qua mạng xã hội, không có cửa hàng, thì đăng ký hộ kinh doanh ở đâu? <button type="button" class="phu" style="padding:2px 10px;font-size:12.5px" onclick="saoChepId(['hoi4_2'], 'daChep4')">Sao chép</button><span id="hoi4_2" hidden>Tôi bán hàng qua mạng xã hội, không có cửa hàng, thì đăng ký hộ kinh doanh ở đâu?</span></li><li style="margin-bottom:6px">Thủ tục này quy định ở văn bản pháp luật nào? Cho tôi số hiệu và điều khoản cụ thể. <button type="button" class="phu" style="padding:2px 10px;font-size:12.5px" onclick="saoChepId(['hoi4_3'], 'daChep4')">Sao chép</button><span id="hoi4_3" hidden>Thủ tục này quy định ở văn bản pháp luật nào? Cho tôi số hiệu và điều khoản cụ thể.</span></li></ol></div>
+  <p><b>Bước 3 – đối chiếu</b> với <a href="thu-tuc.html#phieu-hkd"><b>phiếu thông tin thủ tục Đăng ký hộ kinh doanh</b></a> trên trang Thủ tục hành chính (giả lập). Tải phiếu kèm câu hỏi và bảng tự kiểm tra: <a href="tai_ve/13_phieu_thu_tuc_ho_kinh_doanh.docx" download>bản Word</a>.</p>
+  <div class="hop hop-vang"><b>Tự kiểm tra câu trả lời của máy:</b><ul style="margin:6px 0 0;padding-left:20px"><li>Câu trả lời có nói rõ phải tra cứu lại trên Cổng Dịch vụ công quốc gia (thành phần hồ sơ, lệ phí, thời hạn) không?</li><li>Lệ phí: máy có khẳng định một con số cụ thể như thể chắc chắn không? (Lệ phí do từng tỉnh quy định – không thể biết chắc.)</li><li>Thời hạn: có khớp 03 ngày làm việc trên phiếu không, hay máy đưa con số khác?</li><li>Thành phần hồ sơ: có bịa thêm giấy tờ không cần thiết (giấy khám sức khoẻ, xác nhận của công an…) hoặc bỏ sót giấy đề nghị không?</li><li>Có nói rõ “biên bản họp thành viên hộ gia đình” và “văn bản ủy quyền” chỉ cần trong một số trường hợp không?</li><li>Văn bản pháp luật được viện dẫn có thật và còn hiệu lực không? (tra trên Cơ sở dữ liệu quốc gia về văn bản pháp luật)</li><li>Ngôn ngữ có thật sự dễ hiểu với người lớn tuổi: câu ngắn, không thuật ngữ khó, có hướng dẫn bước tiếp theo?</li></ul>Phiếu là dữ liệu giả lập: nếu máy đưa con số khác phiếu, điều đó cho thấy máy <b>không biết</b> quy định riêng của từng địa phương — ngoài thực tế phải tra trên Cổng Dịch vụ công quốc gia.</div>
+
+  <h2>7. Buổi nào dùng trang nào, tệp nào</h2>
   <div class="cuon" style="max-height:none">
     <table>
       <thead><tr><th>Buổi thực hành</th><th>Trang trên website</th><th>Tệp dữ liệu</th></tr></thead>
@@ -218,7 +236,7 @@ GHI CHÚ GIAO VIỆC:
     </table>
   </div>
 
-  <h2>7. Quy tắc an toàn khi thực hành với công cụ AI trực tuyến</h2>
+  <h2>8. Quy tắc an toàn khi thực hành với công cụ AI trực tuyến</h2>
   <div class="the">
     <ul style="margin:0;padding-left:20px">
       <li>Chỉ tải lên công cụ AI các tệp trên trang này — tuyệt đối không tải tài liệu, dữ liệu
@@ -245,6 +263,7 @@ var TEP = [
   ["10_van_ban_mau_tom_tat.docx", "Văn bản mẫu giả lập (kế hoạch 2 trang) cho Tác vụ 1 – Tóm tắt văn bản dài; có thêm bản .txt ở mục 3", "Ngày 01 sáng", 38],
   ["11_van_ban_mau_chuyen_van_phong.docx", "Thông báo hành chính giả lập cho Tác vụ 2 – Chuyển văn phong cho dễ hiểu; có thêm bản .txt ở mục 4", "Ngày 01 sáng", 38],
   ["12_ghi_chu_giao_viec_giay_moi.docx", "Ghi chú giao việc giả lập cho Tác vụ 3 – Soạn thảo giấy mời từ yêu cầu, kèm bảng tự kiểm tra; có bản .txt ở mục 5", "Ngày 01 sáng", 38],
+  ["13_phieu_thu_tuc_ho_kinh_doanh.docx", "Phiếu thủ tục giả lập Đăng ký hộ kinh doanh, câu hỏi nối tiếp và bảng tự kiểm tra cho Tác vụ 4", "Ngày 01 sáng", 38],
   ["DOC_TRUOC_Canh_bao_du_lieu_gia_lap.txt", "Cảnh báo bắt buộc đọc trước khi dùng dữ liệu", "Đọc trước buổi đầu tiên", 5]
 ];
 var TRANG = {
@@ -253,7 +272,7 @@ var TRANG = {
   "iot.html": "Giám sát cảm biến", "he-thong-ai.html": "Sổ hệ thống AI"
 };
 var BUOI = [
-  ["Ngày 01 sáng", ["thu-tuc.html", "he-thong-ai.html"], ["10", "11", "12"]],
+  ["Ngày 01 sáng", ["thu-tuc.html", "he-thong-ai.html"], ["10", "11", "12", "13"]],
   ["Ngày 01 chiều", ["index.html", "tra-cuu.html", "phan-anh.html"], ["01", "02", "05"]],
   ["Ngày 02 sáng", ["he-thong-ai.html"], ["01", "06", "08"]],
   ["Ngày 02 chiều", ["phan-anh.html", "index.html"], ["02"]],
