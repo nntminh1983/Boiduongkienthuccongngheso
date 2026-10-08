@@ -4,7 +4,7 @@
 > Địa danh “thị xã Mẫu Giang, Tỉnh Mẫu”, trường học, nút giao, trạm quan trắc, trạm y tế,
 > công trình, nhà trọ và mọi số liệu đều hư cấu, do chương trình sinh ra.
 
-Địa chỉ: https://nntminh1983.github.io/Boiduongkienthuccongngheso/chuyende-ai-iot/
+Địa chỉ: https://nntminh1983.github.io/boiduongkienthuccongngheso/chuyende-ai-iot/
 
 | Trang | Nội dung |
 |---|---|

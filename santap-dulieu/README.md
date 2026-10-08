@@ -6,7 +6,7 @@
 > Mọi số liệu do chương trình sinh ra. Trang không kết nối với hệ thống nào, không
 > nhận và không lưu bất kỳ thông tin nào người dùng nhập vào.
 
-**Xem trang tại:** https://nntminh1983.github.io/Boiduongkienthuccongngheso/santap-dulieu/
+**Xem trang tại:** https://nntminh1983.github.io/boiduongkienthuccongngheso/santap-dulieu/
 
 ---
 

@@ -16,9 +16,9 @@
 
 | Trang | Địa chỉ | Dùng cho khoá nào |
 |---|---|---|
-| **Cổng Dịch vụ công giả lập** | https://nntminh1983.github.io/Boiduongkienthuccongngheso/ | Chiến lược xây dựng và phát triển Chính phủ số — bài thực hành Buổi 6 |
-| **Sàn tập Dữ liệu và Quyết định** | https://nntminh1983.github.io/Boiduongkienthuccongngheso/santap-dulieu/ | Ra quyết định dựa trên dữ liệu trong quản lý nhà nước — 10 buổi thực hành |
-| **Sàn tập Tình huống AI và IoT** | https://nntminh1983.github.io/Boiduongkienthuccongngheso/chuyende-ai-iot/ | Năm chuyên đề thực hành AI và IoT cho lãnh đạo, mở rộng 6 lĩnh vực: giám sát IoT và gợi ý quyết định |
+| **Cổng Dịch vụ công giả lập** | https://nntminh1983.github.io/boiduongkienthuccongngheso/ | Chiến lược xây dựng và phát triển Chính phủ số — bài thực hành Buổi 6 |
+| **Sàn tập Dữ liệu và Quyết định** | https://nntminh1983.github.io/boiduongkienthuccongngheso/santap-dulieu/ | Ra quyết định dựa trên dữ liệu trong quản lý nhà nước — 10 buổi thực hành |
+| **Sàn tập Tình huống AI và IoT** | https://nntminh1983.github.io/boiduongkienthuccongngheso/chuyende-ai-iot/ | Năm chuyên đề thực hành AI và IoT cho lãnh đạo, mở rộng 6 lĩnh vực: giám sát IoT và gợi ý quyết định |
 
 Chi tiết trang thứ hai: xem [santap-dulieu/README.md](santap-dulieu/README.md).
 
