@@ -1,0 +1,25 @@
+﻿chuyen_de,ma_phuong_an,ten_phuong_an,ma_tieu_chi,ten_tieu_chi,don_vi_do,huong_tot,gia_tri
+6,PA1,Giữ nguyên: kiểm tra định kỳ và tiếp nhận phản ánh,TC1,Số công trình vi phạm phát hiện sớm mỗi năm,công trình,1,12.0
+6,PA1,Giữ nguyên: kiểm tra định kỳ và tiếp nhận phản ánh,TC2,Số người được giảm rủi ro cháy nổ,người,1,0.0
+6,PA1,Giữ nguyên: kiểm tra định kỳ và tiếp nhận phản ánh,TC3,Chi phí năm đầu,triệu đồng,-1,150.0
+6,PA1,Giữ nguyên: kiểm tra định kỳ và tiếp nhận phản ánh,TC4,Thời gian xử lý vi phạm bình quân,ngày,-1,95.0
+6,PA1,Giữ nguyên: kiểm tra định kỳ và tiếp nhận phản ánh,TC5,"Rủi ro khiếu nại, sai sót khi xử lý",điểm 1–5,-1,2.0
+6,PA1,Giữ nguyên: kiểm tra định kỳ và tiếp nhận phản ánh,TC6,"Mức độ cán bộ phường, xã vận hành được",điểm 1–5,1,5.0
+6,PA2,Camera AI và flycam phát hiện công trình sai phép,TC1,Số công trình vi phạm phát hiện sớm mỗi năm,công trình,1,46.0
+6,PA2,Camera AI và flycam phát hiện công trình sai phép,TC2,Số người được giảm rủi ro cháy nổ,người,1,300.0
+6,PA2,Camera AI và flycam phát hiện công trình sai phép,TC3,Chi phí năm đầu,triệu đồng,-1,1650.0
+6,PA2,Camera AI và flycam phát hiện công trình sai phép,TC4,Thời gian xử lý vi phạm bình quân,ngày,-1,30.0
+6,PA2,Camera AI và flycam phát hiện công trình sai phép,TC5,"Rủi ro khiếu nại, sai sót khi xử lý",điểm 1–5,-1,4.0
+6,PA2,Camera AI và flycam phát hiện công trình sai phép,TC6,"Mức độ cán bộ phường, xã vận hành được",điểm 1–5,1,3.0
+6,PA3,"Cảm biến khói, cửa thoát hiểm cho 16 nhà trọ cao tầng",TC1,Số công trình vi phạm phát hiện sớm mỗi năm,công trình,1,14.0
+6,PA3,"Cảm biến khói, cửa thoát hiểm cho 16 nhà trọ cao tầng",TC2,Số người được giảm rủi ro cháy nổ,người,1,1250.0
+6,PA3,"Cảm biến khói, cửa thoát hiểm cho 16 nhà trọ cao tầng",TC3,Chi phí năm đầu,triệu đồng,-1,980.0
+6,PA3,"Cảm biến khói, cửa thoát hiểm cho 16 nhà trọ cao tầng",TC4,Thời gian xử lý vi phạm bình quân,ngày,-1,70.0
+6,PA3,"Cảm biến khói, cửa thoát hiểm cho 16 nhà trọ cao tầng",TC5,"Rủi ro khiếu nại, sai sót khi xử lý",điểm 1–5,-1,2.0
+6,PA3,"Cảm biến khói, cửa thoát hiểm cho 16 nhà trọ cao tầng",TC6,"Mức độ cán bộ phường, xã vận hành được",điểm 1–5,1,4.0
+6,PA4,"Bản đồ số giấy phép công khai, người dân cùng giám sát",TC1,Số công trình vi phạm phát hiện sớm mỗi năm,công trình,1,30.0
+6,PA4,"Bản đồ số giấy phép công khai, người dân cùng giám sát",TC2,Số người được giảm rủi ro cháy nổ,người,1,200.0
+6,PA4,"Bản đồ số giấy phép công khai, người dân cùng giám sát",TC3,Chi phí năm đầu,triệu đồng,-1,420.0
+6,PA4,"Bản đồ số giấy phép công khai, người dân cùng giám sát",TC4,Thời gian xử lý vi phạm bình quân,ngày,-1,45.0
+6,PA4,"Bản đồ số giấy phép công khai, người dân cùng giám sát",TC5,"Rủi ro khiếu nại, sai sót khi xử lý",điểm 1–5,-1,3.0
+6,PA4,"Bản đồ số giấy phép công khai, người dân cùng giám sát",TC6,"Mức độ cán bộ phường, xã vận hành được",điểm 1–5,1,4.0

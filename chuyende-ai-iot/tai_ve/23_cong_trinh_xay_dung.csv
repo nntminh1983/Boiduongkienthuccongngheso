@@ -1,0 +1,41 @@
+﻿ma_cong_trinh,ma_don_vi,ten_don_vi,loai_cong_trinh,tinh_trang_phep,so_tang_cap_phep,so_tang_thuc_te,thay_doi_cong_nang,pm10_hang_rao_tb_ugm3,so_ngay_vuot_bui,nguon_phat_hien,ngay_phat_hien,trang_thai_xu_ly,so_ngay_ton_dong
+CT01,DV01,Phường Hoà Thuận,Nhà trọ cho thuê,Có phép,4,4,Không,81.7,1,Flycam định kỳ,2026-08-04,Không vi phạm,0
+CT02,DV02,Phường Tân Hoà,Công trình thương mại,Sai phép,3,6,Không,82.8,2,Phản ánh của người dân,2026-08-22,Chưa xử lý,39
+CT03,DV02,Phường Tân Hoà,Nhà ở riêng lẻ,Không phép,0,3,Không,92.5,6,Kiểm tra định kỳ,2026-07-02,Chưa xử lý,90
+CT04,DV03,Phường Đông Giang,Nhà trọ cho thuê,Sai phép,5,7,Không,108.1,6,Kiểm tra định kỳ,2026-09-18,Chưa xử lý,12
+CT05,DV05,Xã Bình An,Nhà trọ cho thuê,Không phép,0,7,Không,106.4,7,Kiểm tra định kỳ,2026-08-15,Đang xử lý,46
+CT06,DV04,Phường Nam Phong,Nhà trọ cho thuê,Có phép,4,4,Không,30,0,Phản ánh của người dân,2026-07-12,Không vi phạm,0
+CT07,DV01,Phường Hoà Thuận,Nhà ở riêng lẻ,Có phép,3,3,Không,84.0,1,Flycam định kỳ,2026-06-10,Không vi phạm,0
+CT08,DV04,Phường Nam Phong,Nhà ở riêng lẻ,Có phép,4,4,Nhà ở → phòng trọ cho thuê,114.5,9,Phản ánh của người dân,2026-08-18,Chưa xử lý,43
+CT09,DV02,Phường Tân Hoà,Nhà ở riêng lẻ,Có phép,2,2,Không,109.1,7,Flycam định kỳ,2026-06-16,Không vi phạm,0
+CT10,DV01,Phường Hoà Thuận,Nhà ở riêng lẻ,Có phép,3,3,Không,66.4,2,Phản ánh của người dân,2026-07-21,Không vi phạm,0
+CT11,DV02,Phường Tân Hoà,Nhà trọ cho thuê,Có phép,6,6,Không,47.8,0,Camera AI,2026-07-05,Không vi phạm,0
+CT12,DV02,Phường Tân Hoà,Nhà ở riêng lẻ,Không phép,0,6,Không,78.1,3,Camera AI,2026-07-17,Chưa xử lý,75
+CT13,DV01,Phường Hoà Thuận,Nhà trọ cho thuê,Sai phép,4,5,Không,102.3,4,Camera AI,2026-06-11,Chưa xử lý,111
+CT14,DV04,Phường Nam Phong,Chung cư mini,Sai phép,4,5,Không,101.8,4,Camera AI,2026-09-16,Đang xử lý,14
+CT15,DV03,Phường Đông Giang,Chung cư mini,Có phép,4,4,Không,107.5,5,Phản ánh của người dân,2026-08-08,Không vi phạm,0
+CT16,DV02,Phường Tân Hoà,Nhà ở riêng lẻ,Sai phép,3,5,Nhà ở → phòng trọ cho thuê,74.1,5,Camera AI,2026-06-10,Chưa xử lý,112
+CT17,DV01,Phường Hoà Thuận,Nhà ở riêng lẻ,Có phép,3,3,Không,52.9,0,Phản ánh của người dân,2026-06-23,Không vi phạm,0
+CT18,DV04,Phường Nam Phong,Nhà ở riêng lẻ,Có phép,2,2,Không,82.2,3,Phản ánh của người dân,2026-09-02,Không vi phạm,0
+CT19,DV04,Phường Nam Phong,Chung cư mini,Sai phép,5,6,Nhà ở → phòng trọ cho thuê,92.6,5,Flycam định kỳ,2026-09-13,Đã xử lý,0
+CT20,DV01,Phường Hoà Thuận,Công trình thương mại,Sai phép,5,6,Không,100.3,3,Phản ánh của người dân,2026-07-02,Đang xử lý,90
+CT21,DV03,Phường Đông Giang,Nhà trọ cho thuê,Có phép,4,4,Không,84.6,4,Kiểm tra định kỳ,2026-08-05,Không vi phạm,0
+CT22,DV02,Phường Tân Hoà,Nhà ở riêng lẻ,Có phép,3,3,Không,57.5,0,Camera AI,2026-06-23,Không vi phạm,0
+CT23,DV05,Xã Bình An,Nhà ở riêng lẻ,Có phép,4,4,Không,76.8,1,Camera AI,2026-06-25,Không vi phạm,0
+CT24,DV03,Phường Đông Giang,Nhà ở riêng lẻ,Sai phép,4,6,Không,63.2,0,Camera AI,2026-08-11,Đang xử lý,50
+CT25,DV04,Phường Nam Phong,Nhà ở riêng lẻ,Sai phép,4,7,Nhà ở → phòng trọ cho thuê,106.5,10,Flycam định kỳ,2026-08-15,Đang xử lý,46
+CT26,DV02,Phường Tân Hoà,Nhà ở riêng lẻ,Có phép,2,2,Không,36.3,0,Kiểm tra định kỳ,2026-07-23,Không vi phạm,0
+CT27,DV06,Xã Long Thành,Nhà trọ cho thuê,Có phép,6,6,Không,72.9,1,Camera AI,2026-06-30,Không vi phạm,0
+CT28,DV04,Phường Nam Phong,Nhà ở riêng lẻ,Có phép,4,4,Không,72.9,1,Kiểm tra định kỳ,2026-09-08,Không vi phạm,0
+CT29,DV03,Phường Đông Giang,Nhà ở riêng lẻ,Có phép,3,3,Nhà ở → phòng trọ cho thuê,43.9,0,Camera AI,2026-06-22,Chưa xử lý,100
+CT30,DV03,Phường Đông Giang,Chung cư mini,Có phép,4,4,Nhà ở → phòng trọ cho thuê,98.9,4,Phản ánh của người dân,2026-07-10,Đã xử lý,0
+CT31,DV02,Phường Tân Hoà,Công trình thương mại,Có phép,3,3,Không,53.4,0,Camera AI,2026-06-28,Không vi phạm,0
+CT32,DV01,Phường Hoà Thuận,Nhà ở riêng lẻ,Sai phép,3,4,Không,146.7,14,Phản ánh của người dân,2026-09-02,Chưa xử lý,28
+CT33,DV04,Phường Nam Phong,Nhà trọ cho thuê,Có phép,4,4,Không,60.9,0,Flycam định kỳ,2026-07-19,Không vi phạm,0
+CT34,DV01,Phường Hoà Thuận,Công trình thương mại,Có phép,5,5,Không,61.8,1,Camera AI,2026-08-03,Không vi phạm,0
+CT35,DV01,Phường Hoà Thuận,Nhà ở riêng lẻ,Có phép,3,3,Nhà ở → phòng trọ cho thuê,82.5,4,Flycam định kỳ,2026-08-21,Đang xử lý,40
+CT36,DV04,Phường Nam Phong,Nhà ở riêng lẻ,Sai phép,2,3,Không,118.5,8,Phản ánh của người dân,2026-08-06,Chưa xử lý,55
+CT37,DV03,Phường Đông Giang,Chung cư mini,Không phép,0,5,Nhà ở → phòng trọ cho thuê,89.5,3,Phản ánh của người dân,2026-06-05,Đã xử lý,0
+CT38,DV03,Phường Đông Giang,Nhà trọ cho thuê,Không phép,0,5,Không,116.3,9,Phản ánh của người dân,2026-06-09,Chưa xử lý,113
+CT39,DV02,Phường Tân Hoà,Nhà trọ cho thuê,Sai phép,6,9,Không,94.4,3,Flycam định kỳ,2026-08-27,Đang xử lý,34
+CT40,DV01,Phường Hoà Thuận,Công trình thương mại,Có phép,5,5,Không,64.8,0,Flycam định kỳ,2026-09-17,Không vi phạm,0

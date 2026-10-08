@@ -1,0 +1,19 @@
+﻿ma_truong,ten_truong,cap_hoc,ma_don_vi,so_lop,so_phong_hoc,si_so_tb,si_so_toi_da_quy_dinh,hoc_hai_ca,phong_chuc_nang_can,phong_chuc_nang_co,gv_tin_hoc_can,gv_tin_hoc_co,gv_tieng_anh_can,gv_tieng_anh_co,gv_nghe_thuat_can,gv_nghe_thuat_co
+TH01,Tiểu học Hoà Thuận,Tiểu học,DV01,26,24,38.2,35,1,4,3,2,2,4,4,3,3
+TH02,Tiểu học Tân Hoà,Tiểu học,DV02,32,26,42.9,35,1,4,1,3,2,4,4,4,3
+TH03,Tiểu học Đông Giang,Tiểu học,DV03,20,20,33.5,35,0,4,1,2,2,3,3,3,2
+TH04,Tiểu học Nam Phong,Tiểu học,DV04,22,22,35.6,35,0,4,2,2,1,3,3,3,3
+TH05,Tiểu học Bình An,Tiểu học,DV05,12,14,29.2,35,0,4,0,1,0,2,1,2,0
+TH06,Tiểu học Long Thành,Tiểu học,DV06,12,15,27.3,35,0,4,1,1,0,2,1,2,1
+TH07,Tiểu học Phú Điền,Tiểu học,DV07,8,10,23.9,35,0,4,1,1,0,1,1,1,0
+TH08,Tiểu học An Cư,Tiểu học,DV09,7,9,22.0,35,0,4,2,1,0,1,0,1,0
+TH09,Tiểu học Thanh Sơn,Tiểu học,DV10,6,8,19.2,35,0,4,1,1,0,1,0,1,0
+TH10,Tiểu học Mỹ Khánh,Tiểu học,DV11,13,14,31.2,35,0,4,1,1,0,2,1,2,0
+TC01,THCS Hoà Thuận,THCS,DV01,21,20,48.0,45,1,6,4,3,3,3,3,3,2
+TC02,THCS Tân Hoà,THCS,DV02,24,22,45.5,45,1,6,5,3,3,4,4,3,2
+TC03,THCS Đông Giang,THCS,DV03,18,18,42.8,45,0,6,3,2,1,3,3,2,1
+TC04,THCS Nam Phong,THCS,DV04,18,18,43.8,45,0,6,4,2,2,3,3,2,2
+TC05,THCS Bình An,THCS,DV05,11,12,38.5,45,0,6,3,2,1,2,2,2,0
+TC06,THCS Vĩnh Lộc,THCS,DV08,9,10,33.3,45,0,6,3,1,0,2,1,1,0
+TC07,THCS Thanh Sơn,THCS,DV10,6,8,25.8,45,0,6,4,1,0,1,0,1,0
+TC08,THCS Hương Trà,THCS,DV12,8,10,30.5,45,0,6,3,1,0,2,2,1,0

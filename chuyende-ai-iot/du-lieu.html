@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bộ dữ liệu — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Bộ dữ liệu giả lập">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("du-lieu.html");</script>
+
+<main class="bao">
+  <h1>Bộ dữ liệu giả lập</h1>
+
+  <div class="hop hop-do">
+    <b>Toàn bộ dữ liệu là hư cấu.</b> Địa danh “thị xã Mẫu Giang, Tỉnh Mẫu”,
+    tên 12 đơn vị, 18 trường học, 8 nút giao, 6 trạm quan trắc và 14 tủ bảo
+    quản vắc-xin đều không có thật. Mọi con số do chương trình sinh ra theo
+    phân bố định trước. Không trích dẫn vào văn bản chính thức và không so
+    sánh với bất kỳ đơn vị hành chính thật nào.
+  </div>
+
+  <h2>Hai mươi tám bộ dữ liệu</h2>
+  <div id="oDanhMuc"></div>
+
+  <div class="hop hop-cam">
+    <b>Cách mở tệp CSV cho đúng.</b> Mọi tệp dùng mã UTF-8. Bấm đúp mở bằng
+    Excel sẽ ra chữ lỗi kiểu “Hé» tá»‹ch”.
+    <br>Cách đúng với Google Trang tính: <b>Tệp → Nhập → Tải lên</b>, chọn dấu phẩy.
+    <br>Cách đúng với Excel: mở Excel trước, rồi <b>Dữ liệu → Lấy dữ liệu → Từ
+    tệp văn bản</b>, chọn UTF-8 và dấu phẩy.
+  </div>
+
+  <h2>Xem trước dữ liệu</h2>
+  <div class="hang-dk">
+    <div>
+      <label for="cbBang">Chọn bộ dữ liệu</label>
+      <select id="cbBang" onchange="xem()"></select>
+    </div>
+    <div>
+      <label for="cbSoDong">Số dòng hiển thị</label>
+      <select id="cbSoDong" onchange="xem()">
+        <option value="25">25 dòng đầu</option>
+        <option value="100">100 dòng đầu</option>
+        <option value="99999">Toàn bộ</option>
+      </select>
+    </div>
+    <div><button onclick="taiBang()">Tải bộ đang xem về máy (CSV)</button></div>
+  </div>
+  <div id="oXem"></div>
+
+  <h2>Những chỗ cố ý cài lỗi</h2>
+  <p>Các lỗi dưới đây được cài sẵn để học viên tập phát hiện. Giảng viên chỉ
+  chiếu bảng này <b>sau khi</b> học viên đã tự tìm.</p>
+  <div id="oLoi"></div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/phan_anh.js"></script>
+<script src="du_lieu/ai_pl.js"></script>
+<script src="du_lieu/truong.js"></script>
+<script src="du_lieu/tre.js"></script>
+<script src="du_lieu/tuyen_sinh.js"></script>
+<script src="du_lieu/nut.js"></script>
+<script src="du_lieu/luu_luong.js"></script>
+<script src="du_lieu/su_co.js"></script>
+<script src="du_lieu/kk_ngay.js"></script>
+<script src="du_lieu/ngap.js"></script>
+<script src="du_lieu/tu_lanh.js"></script>
+<script src="du_lieu/tro_cap.js"></script>
+<script src="du_lieu/phuong_an.js"></script>
+<script src="du_lieu/mc_hang_cho.js"></script>
+<script src="du_lieu/hs_xin_y_kien.js"></script>
+<script src="du_lieu/lop_cam_bien.js"></script>
+<script src="du_lieu/truong_dk.js"></script>
+<script src="du_lieu/xe_buyt.js"></script>
+<script src="du_lieu/vi_pham.js"></script>
+<script src="du_lieu/thung_rac.js"></script>
+<script src="du_lieu/nuoc_thai.js"></script>
+<script src="du_lieu/tram_yt.js"></script>
+<script src="du_lieu/cong_trinh.js"></script>
+<script src="du_lieu/nha_tro.js"></script>
+<script src="du_lieu/quy_hoach.js"></script>
+<script src="du_lieu/nha_o_xh.js"></script>
+<script src="du_lieu/pa_xay_dung.js"></script>
+<script>
+var BANG = [
+  ["00_don_vi.csv", "DON_VI", "Danh mục 12 đơn vị: dân số, khoảng cách, tỉ lệ hộ có Internet", "cả năm"],
+  ["01_phan_anh.csv", "PHAN_ANH", "Phản ánh, kiến nghị của người dân qua 5 kênh, kèm nội dung", "01"],
+  ["02_ai_phan_loai.csv", "AI_PL", "420 phản ánh đã được người kiểm chứng lại nhãn của trợ lý AI", "01"],
+  ["03_truong_hoc.csv", "TRUONG", "18 trường: phòng học, lớp, học sinh, giáo viên", "02"],
+  ["04_tre_theo_tuoi.csv", "TRE", "Số trẻ theo đơn vị và năm sinh — dùng dự báo nhóm tuổi", "02"],
+  ["05_tuyen_sinh_lop1.csv", "TUYEN_SINH", "Lịch sử tuyển sinh lớp 1 năm năm qua", "02"],
+  ["06_nut_giao.csv", "NUT", "8 nút giao: số nhánh, loại cảm biến, va chạm, chi phí nâng cấp", "03"],
+  ["07_luu_luong_gio.csv", "LUU_LUONG", "Đếm xe theo giờ, 8 nút × 7 ngày × 24 giờ", "03"],
+  ["08_su_co_cam_bien.csv", "SU_CO", "Nhật ký sự cố thiết bị của các nút giao", "03"],
+  ["09_quan_trac_khong_khi.csv", "KK_NGAY", "Quan trắc PM2.5, 6 trạm × 30 ngày × 24 giờ (trang này hiện bản gộp theo ngày)", "04"],
+  ["10_canh_bao_ngap.csv", "NGAP", "Mực nước đo được kèm thực tế có ngập hay không", "04"],
+  ["11_day_chuyen_lanh.csv", "TU_LANH", "Nhiệt độ 14 tủ bảo quản vắc-xin trong 30 ngày", "05"],
+  ["12_ho_so_tro_cap.csv", "TRO_CAP", "Hồ sơ trợ cấp kèm điểm nghi vấn của trợ lý AI", "05"],
+  ["13_phuong_an.csv", "PHUONG_AN", "Bốn phương án × sáu tiêu chí cho từng chuyên đề", "01–05"],
+  ["14_mot_cua_hang_cho.csv", "MC_HANG_CHO", "IoT – camera đếm người, máy lấy số tại 12 điểm một cửa, theo giờ", "Hành chính"],
+  ["15_ho_so_xin_y_kien.csv", "HS_XIN_Y_KIEN", "Hồ sơ phải xin ý kiến, trễ hạn, yêu cầu giấy tờ ngoài quy định", "Hành chính"],
+  ["16_lop_hoc_cam_bien.csv", "LOP_CAM_BIEN", "IoT – CO₂, nhiệt độ, độ ồn trong lớp học 18 trường", "Giáo dục"],
+  ["17_truong_dieu_kien.csv", "TRUONG_DK", "Sĩ số, phòng chức năng, giáo viên Tin học – Tiếng Anh – Nghệ thuật", "Giáo dục"],
+  ["18_xe_buyt_gps.csv", "XE_BUYT", "IoT – GPS và đếm khách xe buýt, 6 tuyến, giờ cao điểm", "Giao thông"],
+  ["19_camera_vi_pham.csv", "VI_PHAM", "Camera AI ghi nhận vi phạm tại nút giao", "Giao thông"],
+  ["20_thung_rac_thong_minh.csv", "THUNG_RAC", "IoT – mức đầy thùng rác, tỷ lệ phân loại đúng", "Môi trường"],
+  ["21_nuoc_thai_quan_trac.csv", "NUOC_THAI", "IoT – quan trắc nước thải tại 5 cống xả", "Môi trường"],
+  ["22_tram_y_te_iot.csv", "TRAM_YT", "Lượt khám, chuyển tuyến, bác sĩ có mặt, tủ thuốc thông minh", "Y tế"],
+  ["23_cong_trinh_xay_dung.csv", "CONG_TRINH", "Công trình đang thi công: giấy phép, số tầng, bụi, xử lý vi phạm", "Xây dựng"],
+  ["24_nha_tro_pccc.csv", "NHA_TRO", "IoT – đầu báo khói, cửa thoát hiểm, nhiệt tủ điện ở 16 nhà trọ cao tầng", "Xây dựng"],
+  ["25_quy_hoach_ha_tang.csv", "QUY_HOACH", "Khu quy hoạch: số năm chờ, tỷ lệ triển khai, thoát nước, ngập", "Xây dựng"],
+  ["26_nha_o_xa_hoi.csv", "NHA_O_XH", "Nhu cầu và nguồn cung nhà ở xã hội theo đơn vị", "Xây dựng"],
+  ["27_phuong_an_xay_dung.csv", "PA_XAY_DUNG", "Bốn phương án × sáu tiêu chí cho tình huống 06 – Xây dựng", "06"]
+];
+
+veBang("oDanhMuc",
+  [{ ten: "Tệp", lay: function (d) { return d[0]; } },
+   { ten: "Nội dung", lay: function (d) { return d[2]; } },
+   { ten: "Số dòng xem được", so: true, lay: function (d) {
+       return sn(window[d[1]].length); } },
+   { ten: "Chuyên đề", lay: function (d) { return d[3]; } },
+   { ten: "Tải bản đầy đủ", lay: function (d) {
+       return el("a", { href: "tai_ve/" + d[0], download: d[0] }, "Tải tệp"); } }],
+  BANG,
+  { ghi: "Hai tệp lớn nhất (phản ánh và quan trắc không khí) chỉ nhúng một phần " +
+         "vào trang cho nhẹ. Bản đầy đủ luôn tải về được ở cột cuối." });
+
+/* ------------------------------------------------------------- xem trước */
+var sel = document.getElementById("cbBang");
+BANG.forEach(function (d) {
+  sel.appendChild(el("option", { value: d[1] }, d[0]));
+});
+
+function xem() {
+  var ten = document.getElementById("cbBang").value;
+  var n = Number(document.getElementById("cbSoDong").value);
+  var ds = window[ten];
+  var cot = Object.keys(ds[0]).map(function (k) {
+    return { ten: k, so: typeof ds[0][k] === "number",
+             lay: function (d) {
+               var v = d[k];
+               if (v === "") return "(trống)";
+               return typeof v === "number"
+                 ? sv(v, Number.isInteger(v) ? 0 : 2) : v;
+             } };
+  });
+  veBang("oXem", cot, ds.slice(0, n),
+    { ghi: "Đang hiện " + Math.min(n, ds.length) + " trong tổng số " +
+           sn(ds.length) + " dòng xem được trên trang." });
+}
+
+function taiBang() {
+  var ten = document.getElementById("cbBang").value;
+  var ds = window[ten];
+  var cot = Object.keys(ds[0]);
+  taiCSV(ten.toLowerCase() + ".csv", cot,
+    ds.map(function (d) { return cot.map(function (k) { return d[k]; }); }));
+}
+
+/* ---------------------------------------------------------- lỗi cài sẵn */
+veBang("oLoi",
+  [{ ten: "Chuyên đề", lay: function (d) { return d[0]; } },
+   { ten: "Tệp", lay: function (d) { return d[1]; } },
+   { ten: "Lỗi cài sẵn", lay: function (d) { return d[2]; } },
+   { ten: "Cách phát hiện", lay: function (d) { return d[3]; } }],
+  [["03", "07_luu_luong_gio.csv",
+    "Mất tín hiệu 14 giờ liên tục ở nút N06 ngày 09/9",
+    "Lọc cột trang_thai_cam_bien, chọn “Mất tín hiệu”. Chú ý: ô TRỐNG, không phải số 0"],
+   ["03", "07_luu_luong_gio.csv",
+    "Trôi hiệu chuẩn ở nút N03 từ ngày 10/9",
+    "Vẽ biểu đồ đường trung bình theo ngày, tìm đường tụt hẳn trong khi các đường khác đi ngang"],
+   ["03", "07_luu_luong_gio.csv",
+    "Một số giá trị nhiễu vọt lên bất thường",
+    "Cột trang_thai_cam_bien ghi “Nghi ngờ”; hoặc sắp xếp giảm dần và xem vài dòng đầu"],
+   ["04", "09_quan_trac_khong_khi.csv",
+    "Trạm Cầu Mẫu đặt cách công trường 40 m nên đọc cao bất thường",
+    "So PM2.5 trung bình của trạm này với 5 trạm còn lại"],
+   ["04", "09_quan_trac_khong_khi.csv",
+    "Trạm Xã Bình An hết pin nên thiếu số liệu ở cuối đợt",
+    "Đếm số giờ thiếu theo từng trạm; xem cột pin_cam_bien_phan_tram"],
+   ["05", "11_day_chuyen_lanh.csv",
+    "Vài tủ có pin cảm biến dưới 20%, sắp ngừng gửi số liệu",
+    "Bảng tổng hợp: nhỏ nhất của pin_cam_bien_phan_tram theo từng tủ"],
+   ["01", "02_ai_phan_loai.csv",
+    "Nhãn của trợ lý AI sai ở một phần mẫu, sai nhiều hơn khi độ tin cậy thấp",
+    "Bảng tổng hợp theo khoảng do_tin_cay, tính trung bình cột ai_dung"],
+   ["Hành chính", "14_mot_cua_hang_cho.csv", "Thiết bị đếm người ở Xã An Cư mất kết nối cả ngày 17/9",
+    "Lọc trang_thai_thiet_bi khác “Hoạt động”; ô trống không phải 0 người chờ"],
+   ["Giáo dục", "16_lop_hoc_cam_bien.csv", "Cảm biến CO₂ ở Tiểu học Phú Điền bị kẹt ngày 22/9 (640 ppm cả ngày)",
+    "Tìm chuỗi giá trị lặp lại y hệt; cột trang_thai ghi “Nghi ngờ”"],
+   ["Môi trường", "21_nuoc_thai_quan_trac.csv", "Trạm cống Nam Phong mất kết nối từ 24/9",
+    "Đếm số lần đo trống theo cống"]]);
+
+xem();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

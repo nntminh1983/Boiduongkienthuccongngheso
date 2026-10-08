@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Giám sát IoT — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Trung tâm giám sát IoT">
+<meta property="og:description" content="Website giả lập phục vụ đào tạo. Mọi địa danh và số liệu đều hư cấu.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("iot.html");</script>
+
+<main class="bao">
+  <h1>Trung tâm giám sát IoT (giả lập)</h1>
+  <div class="hop">
+    Trang mô phỏng màn hình của một <b>trung tâm điều hành</b>: số liệu từ các thiết bị IoT
+    – cảm biến, camera AI, thiết bị định vị, tủ thuốc thông minh… – được gom về một chỗ, tô màu theo
+    ngưỡng và sinh cảnh báo. Bấm <b>“▶ Phát lại”</b> để xem dữ liệu chảy về theo thời gian như đang thu
+    thập trực tiếp, hoặc kéo thanh thời điểm. Bấm vào một thẻ thiết bị để xem diễn biến của thiết bị đó.
+  </div>
+  <div class="tab" id="tabLV" role="tablist"></div>
+  <div class="hang-dk" id="oLuong"></div>
+  <div id="oGiamSat"></div>
+
+  <div class="hop hop-cam">
+    <b>Ba câu hỏi lãnh đạo nên hỏi trước mọi màn hình giám sát.</b>
+    (1) Thiết bị nào đang <b>không gửi</b> số liệu – và màn hình có lặng lẽ bỏ qua nó không?
+    (2) Ngưỡng tô màu đỏ do ai đặt, căn cứ vào đâu?
+    (3) Khi có cảnh báo đỏ, <b>ai</b> nhận, xử lý trong bao lâu, và ai kiểm tra việc xử lý?
+    <br>Xem gợi ý quyết định cho từng lĩnh vực ở trang <a href="goi-y.html">Gợi ý quyết định</a>.
+  </div>
+</main>
+
+<script src="du_lieu/mc_hang_cho.js"></script>
+<script src="du_lieu/lop_cam_bien.js"></script>
+<script src="du_lieu/luu_luong.js"></script>
+<script src="du_lieu/xe_buyt.js"></script>
+<script src="du_lieu/kk_ngay.js"></script>
+<script src="du_lieu/nuoc_thai.js"></script>
+<script src="du_lieu/thung_rac.js"></script>
+<script src="du_lieu/tu_lanh.js"></script>
+<script src="du_lieu/tram_yt.js"></script>
+<script src="du_lieu/nha_tro.js"></script>
+<script src="js/iot.js"></script>
+<script>
+var gioTG = function (d) { return d.ngay + " " + d.gio; };
+var hienGio = function (t) { var p = t.split(" "); return ngayVN(p[0]) + (p[1] ? " " + p[1] : ""); };
+var nhanGio = function (d) { return ngayVN(d.ngay) + " " + d.gio.slice(0, 2) + "h"; };
+var nhanNgay = function (d) { return ngayVN(d.ngay); };
+
+var LV = [
+ { ma: "hc", ten: "Hành chính công", luong: [{
+   tenLuong: "Hàng chờ tại Trung tâm phục vụ hành chính công",
+   du_lieu: function () { return MC_HANG_CHO; }, khoa: "ma_don_vi", ten: function (d) { return d.ten_don_vi; },
+   donViTb: "điểm một cửa", lucDo: gioTG, hienTG: hienGio, nhanTruc: nhanGio,
+   moTa: "Camera đếm người và máy lấy số thứ tự tại 12 điểm một cửa, gửi số liệu mỗi giờ (14–25/9/2026).",
+   chi: [{ k: "thoi_gian_cho_tb_phut", ten: "Thời gian chờ", dv: "phút", vang: 20, do: 40 },
+         { k: "so_nguoi_dang_cho", ten: "Người đang chờ", le: 0, vang: 15, do: 30 },
+         { k: "so_quay_mo", ten: "Quầy đang mở", le: 0, huong: -1, vang: 0, do: -1 }],
+   trangThai: function (d) { return d.trang_thai_thiet_bi !== "Hoạt động" ? d.trang_thai_thiet_bi : ""; },
+   ghiChu: "Ngưỡng 20/40 phút là ngưỡng giả định để thực hành; mỗi địa phương tự đặt theo cam kết phục vụ của mình." }] },
+
+ { ma: "gd", ten: "Giáo dục", luong: [{
+   tenLuong: "Không khí trong lớp học (CO₂, nhiệt độ, độ ồn)",
+   du_lieu: function () { return LOP_CAM_BIEN; }, khoa: "ma_truong", ten: function (d) { return d.ten_truong; },
+   donViTb: "trường", lucDo: gioTG, hienTG: hienGio, nhanTruc: nhanGio,
+   moTa: "Mỗi trường gắn một cảm biến trong một lớp điển hình; 8 lần đo mỗi ngày học. Nồng độ CO₂ cao là dấu hiệu lớp quá đông, thiếu thông gió.",
+   chi: [{ k: "co2_ppm", ten: "CO₂", dv: "ppm", le: 0, vang: 1000, do: 1500 },
+         { k: "nhiet_do_c", ten: "Nhiệt độ", dv: "°C", vang: 32, do: 34 },
+         { k: "si_so_lop_do", ten: "Sĩ số lớp đo", le: 0, vang: 999, do: 9999 }],
+   trangThai: function (d) { return d.trang_thai !== "OK" ? "Số liệu " + d.trang_thai.toLowerCase() : ""; },
+   ghiChu: "Ngưỡng CO₂ 1.000 ppm là mức khuyến nghị thông dụng cho phòng học; 1.500 ppm là ngưỡng đỏ giả định để thực hành. Chú ý: một cảm biến bị “kẹt” ngày 22/9 – số liệu đứng yên cả ngày." }] },
+
+ { ma: "gt", ten: "Giao thông", luong: [{
+   tenLuong: "Cảm biến đếm xe tại 8 nút giao",
+   du_lieu: function () { return LUU_LUONG; }, khoa: "ma_nut", ten: function (d) { return d.ten_nut; },
+   donViTb: "nút giao", lucDo: gioTG, hienTG: hienGio, nhanTruc: nhanGio,
+   moTa: "Camera AI và vòng từ đếm xe theo giờ tại 8 nút (7–13/9/2026) – cùng bộ dữ liệu với chuyên đề 03.",
+   chi: [{ k: "do_dai_hang_cho_m", ten: "Hàng chờ", dv: "m", le: 0, vang: 60, do: 120 },
+         { k: "toc_do_tb_kmh", ten: "Tốc độ TB", dv: "km/h", huong: -1, vang: 25, do: 18, tuKhong: false },
+         { k: "luu_luong_xe_quy_doi", ten: "Lưu lượng", dv: "xe/giờ", le: 0, vang: 99999, do: 999999 }],
+   trangThai: function (d) { return d.trang_thai_cam_bien !== "OK" ? d.trang_thai_cam_bien : ""; } },
+  { tenLuong: "Xe buýt – thiết bị định vị và đếm khách",
+   du_lieu: function () { return XE_BUYT; }, khoa: "ma_tuyen", ten: function (d) { return d.ma_tuyen + " " + d.ten_tuyen; },
+   donViTb: "tuyến", lucDo: function (d) { return d.ngay + " " + (d.khung_gio.charAt(0) === "S" ? "06:00" : "16:00"); },
+   hienTG: hienGio, nhanTruc: function (d) { return ngayVN(d.ngay) + (d.khung_gio.charAt(0) === "S" ? " S" : " C"); },
+   moTa: "Thiết bị GPS và cảm biến đếm khách trên xe buýt, hai khung cao điểm mỗi ngày (14–27/9/2026).",
+   chi: [{ k: "ty_le_lap_day", ten: "Tỷ lệ lấp đầy", phanTram: true, vang: 0.85, do: 0.95 },
+         { k: "ty_le_dung_gio", ten: "Đúng giờ", phanTram: true, huong: -1, vang: 0.8, do: 0.7 },
+         { k: "luot_khach", ten: "Lượt khách", le: 0, vang: 99999, do: 999999 }] }] },
+
+ { ma: "mt", ten: "Môi trường", luong: [{
+   tenLuong: "Quan trắc bụi mịn PM2.5 (6 trạm)",
+   du_lieu: function () { return KK_NGAY; }, khoa: "ma_tram", ten: function (d) { return d.ten_tram; },
+   donViTb: "trạm", lucDo: function (d) { return d.ngay; }, hienTG: function (t) { return ngayVN(t); }, nhanTruc: nhanNgay,
+   moTa: "Trung bình ngày của 6 trạm quan trắc tự động (8/2026) – cùng bộ dữ liệu với chuyên đề 04.",
+   chi: [{ k: "pm25_trung_binh", ten: "PM2.5 TB ngày", dv: "µg/m³", vang: 37.5, do: 50 },
+         { k: "pm25_cao_nhat", ten: "PM2.5 cao nhất giờ", dv: "µg/m³", vang: 999, do: 9999 },
+         { k: "so_gio_thieu", ten: "Số giờ thiếu số liệu", le: 0, vang: 4, do: 12 }],
+   trangThai: function (d) { return d.so_gio_do_duoc === 0 ? "Mất số liệu cả ngày" : ""; },
+   ghiChu: "Ngưỡng đỏ 50 µg/m³ là giới hạn trung bình 24 giờ của PM2.5 theo QCVN 05:2023/BTNMT (giới hạn trung bình năm 25 µg/m³)." },
+  { tenLuong: "Nước thải tại 5 cống xả ra kênh",
+   du_lieu: function () { return NUOC_THAI; }, khoa: "ma_cong", ten: function (d) { return d.ten_cong; },
+   donViTb: "cống xả", lucDo: gioTG, hienTG: hienGio, nhanTruc: nhanGio,
+   moTa: "Trạm quan trắc tự động tại cống xả, 4 lần đo mỗi ngày kể cả ban đêm (14–27/9/2026).",
+   chi: [{ k: "cod_mgl", ten: "COD", dv: "mg/l", le: 0, vang: 120, do: 150 },
+         { k: "tss_mgl", ten: "TSS", dv: "mg/l", le: 0, vang: 80, do: 100 },
+         { k: "ph", ten: "pH", le: 1, huong: -1, vang: 6, do: 5.5, tuKhong: false }],
+   trangThai: function (d) { return d.trang_thai !== "OK" ? d.trang_thai : ""; },
+   ghiChu: "Ngưỡng COD 150 mg/l, TSS 100 mg/l là ngưỡng tham chiếu do khoá học đặt để thực hành – khi áp dụng thật phải đối chiếu quy chuẩn kỹ thuật về nước thải hiện hành." },
+  { tenLuong: "Thùng rác thông minh (mức đầy lúc 19 giờ)",
+   du_lieu: function () { return THUNG_RAC; }, khoa: "ma_diem", ten: function (d) { return d.ten_diem; },
+   donViTb: "điểm thu gom", lucDo: function (d) { return d.ngay; }, hienTG: function (t) { return ngayVN(t); }, nhanTruc: nhanNgay,
+   moTa: "Cảm biến siêu âm đo mức đầy thùng và camera AI nhận diện rác phân loại sai tại điểm tập kết (14–27/9/2026).",
+   chi: [{ k: "muc_day_19h_pct", ten: "Mức đầy 19h", dv: "%", le: 0, vang: 85, do: 98 },
+         { k: "ty_le_phan_loai_dung_pct", ten: "Phân loại đúng", dv: "%", le: 0, huong: -1, vang: 50, do: 35 },
+         { k: "khoi_luong_kg", ten: "Khối lượng", dv: "kg", le: 0, vang: 99999, do: 999999 }] }] },
+
+ { ma: "yt", ten: "Y tế", luong: [{
+   tenLuong: "Trạm y tế – lượt khám, bác sĩ, tủ thuốc thông minh",
+   du_lieu: function () { return TRAM_YT; }, khoa: "ma_tram", ten: function (d) { return d.ten_tram; },
+   donViTb: "trạm y tế", lucDo: function (d) { return d.ngay; }, hienTG: function (t) { return ngayVN(t); }, nhanTruc: nhanNgay,
+   moTa: "Hệ thống điểm danh, máy lấy số và tủ thuốc thông minh tại 12 trạm y tế (9/2026).",
+   chi: [{ k: "so_mat_hang_duoi_muc_toi_thieu", ten: "Thuốc dưới mức tối thiểu", dv: "mặt hàng", le: 0, vang: 3, do: 6 },
+         { k: "luot_chuyen_tuyen", ten: "Chuyển tuyến", le: 0, vang: 4, do: 6 },
+         { k: "luot_kham", ten: "Lượt khám", le: 0, vang: 99999, do: 999999 }],
+   quyTacThem: function (d) { return d.bac_si_co_mat === 0 ? ["Không có bác sĩ trong ngày"] : []; } },
+  { tenLuong: "Tủ bảo quản vắc-xin (14 tủ)",
+   du_lieu: function () { return TU_LANH; }, khoa: "ma_tu", ten: function (d) { return d.ten_diem; },
+   donViTb: "tủ", lucDo: function (d) { return d.ngay; }, hienTG: function (t) { return ngayVN(t); }, nhanTruc: nhanNgay,
+   moTa: "Cảm biến nhiệt độ trong tủ vắc-xin – cùng bộ dữ liệu với chuyên đề 05. Vắc-xin thông thường bảo quản trong khoảng 2–8 °C.",
+   chi: [{ k: "so_phut_ngoai_nguong", ten: "Phút ngoài 2–8 °C", le: 0, vang: 1, do: 60 },
+         { k: "nhiet_do_max_c", ten: "Nhiệt độ cao nhất", dv: "°C", vang: 999, do: 9999 },
+         { k: "pin_cam_bien_phan_tram", ten: "Pin cảm biến", dv: "%", le: 0, huong: -1, vang: 30, do: 20 }] }] },
+
+ { ma: "xd", ten: "Xây dựng", luong: [{
+   tenLuong: "Nhà trọ cao tầng, chung cư mini – an toàn cháy",
+   du_lieu: function () { return NHA_TRO; }, khoa: "ma_nha", ten: function (d) { return d.ten_nha; },
+   donViTb: "nhà trọ", lucDo: function (d) { return d.ngay; }, hienTG: function (t) { return ngayVN(t); }, nhanTruc: nhanNgay,
+   moTa: "Đầu báo khói kết nối, cảm biến cửa thoát hiểm và cảm biến nhiệt tủ điện tại 16 nhà trọ cao tầng, chung cư mini (14–27/9/2026).",
+   chi: [{ k: "nhiet_do_tu_dien_max_c", ten: "Nhiệt độ tủ điện", dv: "°C", le: 0, vang: 55, do: 65 },
+         { k: "so_gio_cua_thoat_hiem_bi_khoa", ten: "Giờ cửa thoát hiểm bị khoá", le: 0, vang: 1, do: 4 },
+         { k: "ty_le_dau_bao_khoi_online_pct", ten: "Đầu báo khói hoạt động", dv: "%", le: 0, huong: -1, vang: 90, do: 80 }],
+   quyTacThem: function (d) { return d.so_canh_bao_khoi > 0 ? ["Đầu báo khói phát cảnh báo"] : []; },
+   ghiChu: "Ngưỡng nhiệt tủ điện là ngưỡng giả định để thực hành. Công trình sai phép, quy hoạch treo và nhà ở xã hội xem ở trang Gợi ý quyết định." }] }
+];
+
+var LV_HIEN = 0, BAN_HIEN = null;
+var tab = document.getElementById("tabLV");
+LV.forEach(function (lv, i) {
+  var b = el("button", { type: "button", role: "tab", "class": "phu" }, lv.ten);
+  b.onclick = function () { chonLV(i); };
+  tab.appendChild(b);
+});
+function chonLV(i, j) {
+  LV_HIEN = i;
+  Array.prototype.forEach.call(tab.children, function (b, k) { b.className = k === i ? "" : "phu"; });
+  var o = document.getElementById("oLuong"); o.innerHTML = "";
+  var lv = LV[i];
+  if (lv.luong.length > 1) {
+    var s = el("select", { "aria-label": "Luồng dữ liệu" });
+    lv.luong.forEach(function (l, k) { s.appendChild(el("option", { value: String(k) }, l.tenLuong)); });
+    s.value = String(j || 0);
+    s.onchange = function () { chonLuong(Number(this.value)); };
+    o.appendChild(el("div", {}, [el("label", {}, "Luồng dữ liệu"), s]));
+  }
+  o.appendChild(el("div", {}, [el("label", {}, "Gợi ý cho lĩnh vực này"),
+    el("a", { "class": "nut", href: "goi-y.html#" + lv.ma }, "Xem gợi ý quyết định →")]));
+  chonLuong(j || 0);
+  try { history.replaceState(null, "", "#" + lv.ma); } catch (e) {}
+}
+function chonLuong(j) {
+  if (BAN_HIEN && BAN_HIEN.hen) clearInterval(BAN_HIEN.hen);
+  BAN_HIEN = new GiamSat(document.getElementById("oGiamSat"), LV[LV_HIEN].luong[j]);
+}
+var dau = 0;
+LV.forEach(function (lv, i) { if (location.hash === "#" + lv.ma) dau = i; });
+chonLV(dau);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

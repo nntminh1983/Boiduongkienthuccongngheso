@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tuyển sinh đầu cấp — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Dự báo tuyển sinh và bố trí chỗ học">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("truong-hoc.html");</script>
+
+<main class="bao">
+  <h1>Chuyên đề 02 — Dự báo tuyển sinh và bố trí chỗ học</h1>
+
+  <div class="hop">
+    <b>Vai trò của bạn:</b> Phó Chủ tịch UBND phụ trách văn xã.
+    <b>Quyết định phải đưa ra:</b> bố trí chỗ học năm tới — xây thêm phòng,
+    phân tuyến lại, hay mở lớp tạm.
+  </div>
+
+  <h2>Bức tranh giáo dục của thị xã</h2>
+  <div class="luoi luoi-4" id="oTomTat"></div>
+
+  <h2>Dự báo số trẻ vào lớp 1 bằng phương pháp nhóm tuổi</h2>
+  <div class="hop hop-cam">
+    <b>Điểm mấu chốt.</b> Trẻ vào lớp 1 năm 2031 chính là trẻ sinh năm 2025 —
+    đã có trong sổ hộ tịch, đếm được chứ không phải phỏng đoán. Vạch màu cam
+    đánh dấu mốc từ đó trở đi.
+  </div>
+  <div class="bd">
+    <p class="tieu">Số trẻ vào lớp 1 theo từng năm học, toàn thị xã</p>
+    <div id="bdCohort"></div>
+  </div>
+
+  <div class="hang-dk">
+    <div style="flex:1;min-width:260px">
+      <label for="thTuyen">Tỉ lệ nhập học đúng tuyến: <b id="nhanTuyen"></b></label>
+      <input type="range" id="thTuyen" min="70" max="100" value="94"
+             oninput="veDuBao()" style="width:100%">
+    </div>
+    <div>
+      <label for="cbNam">Năm vào lớp 1</label>
+      <select id="cbNam" onchange="veDuBao()"></select>
+    </div>
+    <div><button onclick="taiDuBao()">Tải bảng dự báo (CSV)</button></div>
+  </div>
+  <div id="oDuBao"></div>
+
+  <h2>Trường nào quá tải, trường nào còn chỗ</h2>
+  <div class="hang-dk">
+    <div>
+      <label for="cbCap">Cấp học</label>
+      <select id="cbCap" onchange="veTruong()">
+        <option value="">Cả hai cấp</option>
+        <option value="Tiểu học">Tiểu học</option>
+        <option value="THCS">THCS</option>
+      </select>
+    </div>
+    <div>
+      <label for="cbCa">Số ca học mỗi phòng</label>
+      <select id="cbCa" onchange="veTruong()">
+        <option value="1">1 ca</option>
+        <option value="2">2 ca</option>
+      </select>
+    </div>
+    <div><button onclick="taiTruong()">Tải bảng chỗ học (CSV)</button></div>
+  </div>
+  <div class="bd">
+    <p class="tieu">Sĩ số mỗi lớp so với chuẩn của cấp học — đỏ là vượt chuẩn, xám là dưới ba phần tư chuẩn</p>
+    <div id="bdSiSo"></div>
+  </div>
+  <div id="oTruong"></div>
+
+  <h2>Bốn tình trạng trường học</h2>
+  <div id="oBonO"></div>
+
+  <h2>Ràng buộc cứng và mong muốn</h2>
+  <div id="oRangBuoc"></div>
+</main>
+
+<script src="du_lieu/thong_so.js"></script>
+<script src="du_lieu/truong.js"></script>
+<script src="du_lieu/tre.js"></script>
+<script src="du_lieu/tuyen_sinh.js"></script>
+<script>
+/* ---------------------------------------------------------------- tóm tắt */
+(function () {
+  var quaTai = TRUONG.filter(function (t) {
+    return t.so_hoc_sinh_moi_lop > TS.CHUAN_SI_SO[t.cap_hoc]; }).length;
+  var thuaCho = TRUONG.filter(function (t) {
+    return t.so_hoc_sinh_moi_lop < TS.CHUAN_SI_SO[t.cap_hoc] * 0.75; }).length;
+  var vuotPhong = TRUONG.filter(function (t) {
+    return t.so_lop > t.so_phong_hoc; }).length;
+  var cs = [
+    ["Trường học", sn(TRUONG.length), sn(TS.TONG_HOC_SINH) + " học sinh", ""],
+    ["Vượt chuẩn sĩ số", sn(quaTai), "trường", quaTai ? "do" : "xanh"],
+    ["Còn nhiều chỗ trống", sn(thuaCho), "trường", thuaCho ? "vang" : "xanh"],
+    ["Số lớp nhiều hơn số phòng", sn(vuotPhong), "phải học 2 ca hoặc mượn phòng",
+     vuotPhong ? "do" : "xanh"]
+  ];
+  var o = document.getElementById("oTomTat");
+  cs.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+})();
+
+/* ---------------------------------------------------------------- cohort */
+var THEO_NAM = {};
+TRE.forEach(function (t) {
+  THEO_NAM[t.nam_vao_lop_1] = (THEO_NAM[t.nam_vao_lop_1] || 0) + t.so_tre;
+});
+var NAM = Object.keys(THEO_NAM).map(Number).sort(function (a, b) { return a - b; });
+
+(function () {
+  var moc = NAM.indexOf(2027);
+  veDuongNhieu("bdCohort", NAM.map(String),
+    [{ ten: "Số trẻ vào lớp 1 (toàn thị xã)",
+       gt: NAM.map(function (n) { return THEO_NAM[n]; }) }],
+    { tuKhong: false, vach: moc >= 0 ? moc : null,
+      nhanVach: "Từ đây là trẻ ĐÃ SINH RỒI" });
+
+  var s = document.getElementById("cbNam");
+  NAM.forEach(function (n) {
+    s.appendChild(el("option", { value: String(n),
+      selected: n === 2027 ? "selected" : null }, "Năm học " + n + "–" + (n + 1)));
+  });
+})();
+
+function bangDuBao() {
+  var nam = Number(document.getElementById("cbNam").value);
+  var ty = Number(document.getElementById("thTuyen").value) / 100;
+  return TRE.filter(function (t) { return t.nam_vao_lop_1 === nam; })
+            .map(function (t) {
+    return [t.ten_don_vi, t.nam_sinh, t.so_tre, Math.round(t.so_tre * ty)];
+  }).sort(function (a, b) { return b[2] - a[2]; });
+}
+
+function veDuBao() {
+  var ty = Number(document.getElementById("thTuyen").value);
+  document.getElementById("nhanTuyen").textContent = pc(ty, 0);
+  var b = bangDuBao();
+  var tong = b.reduce(function (a, d) { return a + d[3]; }, 0);
+  veBang("oDuBao",
+    [{ ten: "Đơn vị", lay: function (d) { return d[0]; } },
+     { ten: "Năm sinh", lay: function (d) { return d[1]; } },
+     { ten: "Số trẻ đã sinh", so: true, lay: function (d) { return sn(d[2]); } },
+     { ten: "Dự kiến vào lớp 1 đúng tuyến", so: true,
+       lay: function (d) { return sn(d[3]); } }],
+    b,
+    { ghi: "Tổng dự kiến toàn thị xã: " + sn(tong) + " trẻ. Tỉ lệ đúng tuyến " +
+           "bình quân năm năm qua là " + pc(TS.TY_DUNG_TUYEN) +
+           " — kéo thanh trượt để xem kết quả thay đổi thế nào." });
+}
+
+function taiDuBao() {
+  taiCSV("du_bao_nhom_tuoi.csv",
+    ["ten_don_vi", "nam_sinh", "so_tre_da_sinh", "du_kien_vao_lop_1"],
+    bangDuBao());
+}
+
+/* -------------------------------------------------------------- trường học */
+function locTruong() {
+  var cap = document.getElementById("cbCap").value;
+  return cap ? TRUONG.filter(function (t) { return t.cap_hoc === cap; }) : TRUONG;
+}
+
+function bangTruong() {
+  var ca = Number(document.getElementById("cbCa").value);
+  return locTruong().map(function (t) {
+    var chuan = TS.CHUAN_SI_SO[t.cap_hoc];
+    var cho = t.so_phong_hoc * ca * chuan;
+    return {
+      ten: t.ten_truong, cap: t.cap_hoc, phong: t.so_phong_hoc, lop: t.so_lop,
+      hs: t.so_hoc_sinh, siSo: t.so_hoc_sinh_moi_lop, chuan: chuan,
+      cho: cho, thieu: t.so_hoc_sinh - cho,
+      kc: t.khoang_cach_trung_tam_km,
+      gvLop: t.so_giao_vien_moi_lop,
+      thieuGV: Math.max(0, TS.CHUAN_GV_LOP[t.cap_hoc] * t.so_lop - t.so_giao_vien)
+    };
+  }).sort(function (a, b) { return b.thieu - a.thieu; });
+}
+
+function veTruong() {
+  var b = bangTruong();
+  var sx = b.slice().sort(function (x, y) { return y.siSo - x.siSo; });
+  veCot("bdSiSo",
+    sx.map(function (t) {
+      return t.ten.replace("Tiểu học ", "TH ").replace("THCS ", "THCS "); }),
+    sx.map(function (t) { return t.siSo; }),
+    { mau: function (v, i) {
+        var t = sx[i];
+        return v > t.chuan ? "#B3261E"
+             : (v < t.chuan * 0.75 ? "#8A8F98" : "#00843D"); } });
+
+  veBang("oTruong",
+    [{ ten: "Trường", lay: function (d) { return d.ten; } },
+     { ten: "Cấp", lay: function (d) { return d.cap; } },
+     { ten: "Phòng", so: true, lay: function (d) { return sn(d.phong); } },
+     { ten: "Lớp", so: true, lay: function (d) { return sn(d.lop); } },
+     { ten: "Học sinh", so: true, lay: function (d) { return sn(d.hs); } },
+     { ten: "Sĩ số/lớp", so: true, lay: function (d) { return sv(d.siSo); } },
+     { ten: "Chỗ có được", so: true, lay: function (d) { return sn(d.cho); } },
+     { ten: "Thiếu (+) / Dư (−)", so: true, lay: function (d) {
+         return nhanTT((d.thieu > 0 ? "+" : "") + sn(d.thieu),
+                       d.thieu > 0 ? "do" : "xanh"); } },
+     { ten: "Thiếu giáo viên", so: true, lay: function (d) {
+         return d.thieuGV > 0 ? sv(d.thieuGV) : "—"; } },
+     { ten: "Cách trung tâm", so: true, lay: function (d) {
+         return sv(d.kc) + " km"; } }],
+    b,
+    { ghi: "Cột “Chỗ có được” = số phòng × số ca × sĩ số chuẩn của cấp học " +
+           "(tiểu học " + TS.CHUAN_SI_SO["Tiểu học"] + ", THCS " +
+           TS.CHUAN_SI_SO["THCS"] + " học sinh mỗi lớp). Đổi số ca ở trên để " +
+           "xem tác động của việc học hai ca." });
+}
+
+function taiTruong() {
+  var b = bangTruong();
+  taiCSV("cho_hoc_tung_truong.csv",
+    ["ten_truong", "cap_hoc", "so_phong", "so_lop", "so_hoc_sinh",
+     "si_so_moi_lop", "cho_co_duoc", "thieu_cho", "thieu_giao_vien",
+     "cach_trung_tam_km"],
+    b.map(function (d) {
+      return [d.ten, d.cap, d.phong, d.lop, d.hs, sv(d.siSo), d.cho, d.thieu,
+              sv(d.thieuGV), sv(d.kc)];
+    }));
+}
+
+/* ------------------------------------------------------------ bốn tình trạng */
+veBang("oBonO",
+  [{ ten: "Tình trạng", lay: function (d) { return d[0]; } },
+   { ten: "Dấu hiệu trong bảng trên", lay: function (d) { return d[1]; } },
+   { ten: "Hướng xử lý", lay: function (d) { return d[2]; } }],
+  [["Hết chỗ, nhiều trẻ", "Cột thiếu chỗ dương và đơn vị có số trẻ tăng",
+    "Cấp bách — phải quyết trong năm nay, không lùi được"],
+   ["Hết chỗ, ít trẻ", "Cột thiếu chỗ dương nhưng số trẻ đang giảm",
+    "Xem lại: có phòng học nào đang dùng sai mục đích không"],
+   ["Còn chỗ, nhiều trẻ", "Cột thiếu chỗ âm và số trẻ đang tăng",
+    "Tốt nhất — nhận thêm học sinh phân tuyến lại từ trường quá tải"],
+   ["Còn chỗ, ít trẻ", "Cột thiếu chỗ âm nhiều và số trẻ đang giảm",
+    "Cân nhắc sáp nhập điểm trường, điều chuyển giáo viên đi nơi khác"]]);
+
+veBang("oRangBuoc",
+  [{ ten: "Ràng buộc cứng — vi phạm là không được", lay: function (d) { return d[0]; } },
+   { ten: "Mong muốn — đánh đổi được", lay: function (d) { return d[1]; } }],
+  [["Số lớp không vượt số phòng học trong một ca", "Sĩ số đẹp, khoảng 30 em mỗi lớp"],
+   ["Định mức giáo viên trên lớp theo quy định của ngành", "Đủ phòng chức năng"],
+   ["Bán kính đi học hợp lý với học sinh tiểu học", "Trường gần nhà học sinh"],
+   ["Năm học bắt đầu đúng thời điểm quy định", "Giữ nguyên giáo viên chủ nhiệm"]],
+  { ghi: "Lỗi hay gặp: đưa mong muốn vào cùng hàng với ràng buộc cứng, làm bài " +
+         "toán trở thành không có lời giải." });
+
+veDuBao();
+veTruong();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

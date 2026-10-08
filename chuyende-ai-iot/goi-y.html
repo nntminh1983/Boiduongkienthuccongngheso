@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gợi ý quyết định — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Gợi ý quyết định dựa trên số liệu">
+<meta property="og:description" content="Website giả lập phục vụ đào tạo. Mọi địa danh và số liệu đều hư cấu.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("goi-y.html");</script>
+
+<main class="bao">
+  <h1>Gợi ý quyết định dựa trên số liệu</h1>
+  <div class="hop hop-do">
+    <b>Đọc trước.</b> Các gợi ý dưới đây được sinh <b>tự động bằng quy tắc đơn giản, công khai</b>
+    (ghi rõ ở từng gợi ý) từ dữ liệu giả lập của địa bàn “thị xã Mẫu Giang”. Đây là
+    <b>gợi ý để thảo luận</b>, không phải kết luận: người có thẩm quyền quyết định sau khi kiểm chứng,
+    nghe ý kiến cơ quan chuyên môn và đối chiếu quy định hiện hành. Phần “Thực trạng ở Việt Nam” là
+    mô tả khái quát để liên hệ, không phải số liệu thống kê.
+  </div>
+
+  <div class="tab" id="tabLV"></div>
+  <div class="hang-nut">
+    <button type="button" class="phu" onclick="taiGoiY()">Tải toàn bộ gợi ý về máy (CSV)</button>
+    <a class="nut" href="iot.html">Xem dữ liệu IoT trực tiếp →</a>
+  </div>
+  <div id="oNoiDung"></div>
+
+  <h2>Cách dùng trang này trong buổi học</h2>
+  <div class="the">
+    <ol style="margin:0;padding-left:20px">
+      <li>Nhóm học viên đọc phần <b>Thực trạng</b> của lĩnh vực mình, chọn một vấn đề.</li>
+      <li>Mở trang <a href="iot.html">Giám sát IoT</a> hoặc tải dữ liệu ở trang <a href="du-lieu.html">Bộ dữ liệu</a>,
+      tự tính lại ít nhất <b>một con số</b> trong phần “Dữ liệu cho thấy”.</li>
+      <li>Đánh giá từng gợi ý: đồng ý, sửa, hay bác bỏ – và vì sao. Gợi ý nào <b>thiếu dữ liệu</b> để kết luận?</li>
+      <li>Với quyết định có nhiều phương án, dùng <a href="quyet-dinh.html">Công cụ quyết định</a> để so sánh và
+      thử đổi trọng số.</li>
+    </ol>
+  </div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/nut.js"></script>
+<script src="du_lieu/mc_hang_cho.js"></script>
+<script src="du_lieu/hs_xin_y_kien.js"></script>
+<script src="du_lieu/lop_cam_bien.js"></script>
+<script src="du_lieu/truong_dk.js"></script>
+<script src="du_lieu/xe_buyt.js"></script>
+<script src="du_lieu/vi_pham.js"></script>
+<script src="du_lieu/kk_ngay.js"></script>
+<script src="du_lieu/thung_rac.js"></script>
+<script src="du_lieu/nuoc_thai.js"></script>
+<script src="du_lieu/tram_yt.js"></script>
+<script src="du_lieu/tu_lanh.js"></script>
+<script src="du_lieu/cong_trinh.js"></script>
+<script src="du_lieu/nha_tro.js"></script>
+<script src="du_lieu/quy_hoach.js"></script>
+<script src="du_lieu/nha_o_xh.js"></script>
+<script>
+/* ------------------------------------------------------------ tiện ích */
+function ngayVN(s) { var p = String(s).split("-"); return p.length === 3 ? p[2] + "/" + p[1] : s; }
+function tb(a) { a = a.filter(function (x) { return x !== "" && x !== null && !isNaN(x); });
+  return a.length ? a.reduce(function (s, x) { return s + x; }, 0) / a.length : NaN; }
+function nhom(ds, k) { var r = {}; ds.forEach(function (d) { (r[d[k]] = r[d[k]] || []).push(d); }); return r; }
+function tuongQuan(x, y) { var mx = tb(x), my = tb(y), a = 0, b = 0, c = 0;
+  x.forEach(function (v, i) { a += (v - mx) * (y[i] - my); b += (v - mx) * (v - mx); c += (y[i] - my) * (y[i] - my); });
+  return a / Math.sqrt(b * c); }
+function pt(x, n) { return sv(x * 100, n === undefined ? 0 : n) + "%"; }
+function ds_(a) { return a.length ? a.join(", ") : "không có"; }
+var TEN_DV = {}; DON_VI.forEach(function (d) { TEN_DV[d.ma_don_vi] = d.ten_don_vi; });
+var TAT_CA = [];
+
+function the(o, lv) {
+  TAT_CA.push([lv, { cao: "Ưu tiên cao", tb: "Ưu tiên trung bình", td: "Theo dõi / cần thêm dữ liệu" }[o.muc],
+               o.tieu, o.canCu.replace(/<br>/g, "; ").replace(/<[^>]+>/g, ""), o.kiemChung.replace(/<[^>]+>/g, ""), o.thamQuyen || "", (o.chinhSach || "").replace(/<[^>]+>/g, "")]);
+  var dl = "<dt>Căn cứ số liệu</dt><dd>" + o.canCu + "</dd>" +
+    "<dt>Kiểm chứng trước khi quyết</dt><dd>" + o.kiemChung + "</dd>" +
+    (o.thamQuyen ? "<dt>Thẩm quyền, phối hợp</dt><dd>" + o.thamQuyen + "</dd>" : "") +
+    (o.chinhSach ? "<dt>Căn cứ chính sách</dt><dd>" + o.chinhSach + "</dd>" : "") +
+    (o.quyTac ? "<dt>Quy tắc sinh gợi ý</dt><dd class='nho'>" + o.quyTac + "</dd>" : "") +
+    (o.lienKet ? "<dt>Công cụ liên quan</dt><dd>" + o.lienKet.map(function (l) {
+      return '<a href="' + l[0] + '">' + l[1] + "</a>"; }).join(" · ") + "</dd>" : "");
+  return '<div class="goi-y uu-' + o.muc + '"><h4><span class="muc">' +
+    { cao: "Ưu tiên cao", tb: "Ưu tiên trung bình", td: "Theo dõi" }[o.muc] + "</span>" + o.tieu + "</h4><dl>" + dl + "</dl></div>";
+}
+
+function khung(lv, tieu, thucTrang, phatHien, dieuKhien, goiY, gioiHan) {
+  return '<section class="lv" id="' + lv + '"><h2>' + tieu + "</h2>" +
+    '<div class="thuc-trang"><b>Thực trạng thường gặp ở Việt Nam</b><ul>' +
+    thucTrang.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul></div>" +
+    "<h3>Dữ liệu IoT và hệ thống của địa bàn cho thấy</h3><ul class='phat-hien'>" +
+    phatHien.map(function (x) { return "<li>" + x + "</li>"; }).join("") + "</ul>" +
+    (dieuKhien || "") + "<h3>Gợi ý quyết định</h3>" + goiY.map(function (g) { return the(g, tieu); }).join("") +
+    '<div class="hop hop-cam"><b>Giới hạn của dữ liệu.</b> ' + gioiHan + "</div></section>";
+}
+
+/* ========================================================= 1. HÀNH CHÍNH */
+var NG_CHO = 30;
+function lvHanhChinh() {
+  var dinh = MC_HANG_CHO.filter(function (d) { return ["08:00", "09:00", "10:00"].indexOf(d.gio) >= 0 && d.thoi_gian_cho_tb_phut !== ""; });
+  var theoDV = nhom(dinh, "ma_don_vi"), bang = [];
+  Object.keys(theoDV).forEach(function (k) {
+    var a = theoDV[k];
+    var quayMax = Math.max.apply(null, MC_HANG_CHO.filter(function (d) { return d.ma_don_vi === k && d.so_quay_mo !== ""; }).map(function (d) { return d.so_quay_mo; }));
+    bang.push({ ma: k, ten: TEN_DV[k], cho: tb(a.map(function (d) { return d.thoi_gian_cho_tb_phut; })),
+      choMax: Math.max.apply(null, a.map(function (d) { return d.thoi_gian_cho_tb_phut; })),
+      luot: tb(a.map(function (d) { return d.so_luot_lay_so; })), quay: tb(a.map(function (d) { return d.so_quay_mo; })), quayMax: quayMax });
+  });
+  bang.sort(function (a, b) { return b.cho - a.cho; });
+  var vuot = bang.filter(function (x) { return x.cho >= NG_CHO || x.choMax >= NG_CHO * 2; });
+  var thu2 = tb(MC_HANG_CHO.filter(function (d) { return d.thu === "Thứ hai"; }).map(function (d) { return d.thoi_gian_cho_tb_phut; }));
+  var khac = tb(MC_HANG_CHO.filter(function (d) { return d.thu !== "Thứ hai"; }).map(function (d) { return d.thoi_gian_cho_tb_phut; }));
+  var mat = nhom(MC_HANG_CHO.filter(function (d) { return d.trang_thai_thiet_bi !== "Hoạt động"; }), "ma_don_vi");
+  var hs = HS_XIN_Y_KIEN, r = tuongQuan(hs.map(function (d) { return d.so_lan_xin_y_kien_tb; }), hs.map(function (d) { return d.ty_le_tre_han; }));
+  var theoLV = nhom(hs, "linh_vuc"), lvB = Object.keys(theoLV).map(function (k) {
+    var a = theoLV[k]; return { lv: k, xyk: tb(a.map(function (d) { return d.so_lan_xin_y_kien_tb; })),
+      tre: tb(a.map(function (d) { return d.ty_le_tre_han; })), tt: tb(a.map(function (d) { return d.ty_le_nop_truc_tuyen; })) }; });
+  lvB.sort(function (a, b) { return b.xyk - a.xyk; });
+  var dvX = Object.keys(nhom(hs, "ma_don_vi")).map(function (k) { var a = hs.filter(function (d) { return d.ma_don_vi === k; });
+    return { ten: TEN_DV[k], x: tb(a.map(function (d) { return d.so_lan_xin_y_kien_tb; })),
+      pa: a.reduce(function (s, d) { return s + d.so_phan_anh_yeu_cau_giay_to_ngoai_quy_dinh; }, 0) }; });
+  var dvXs = dvX.slice().sort(function (a, b) { return b.x - a.x; });
+  var dvPa = dvX.slice().sort(function (a, b) { return b.pa - a.pa; });
+  var thap = lvB.filter(function (x) { return x.tt < 0.35; });
+
+  var ph = [
+    "Thời gian chờ bình quân giờ cao điểm (8–10 giờ) cao nhất ở <b>" + bang[0].ten + "</b>: " + sv(bang[0].cho) +
+      " phút (có lúc " + sv(bang[0].choMax, 0) + " phút); thấp nhất ở " + bang[bang.length - 1].ten + ": " + sv(bang[bang.length - 1].cho) + " phút.",
+    "Thứ hai chờ lâu hơn hẳn: bình quân " + sv(thu2) + " phút so với " + sv(khac) + " phút các ngày khác.",
+    "Số lần hồ sơ phải chuyển <b>xin ý kiến</b> và tỷ lệ <b>trễ hạn</b> đi cùng nhau rất chặt (hệ số tương quan r = " + sv(r, 2) +
+      "). Lĩnh vực " + lvB[0].lv + " và " + lvB[1].lv + " xin ý kiến bình quân " + sv(lvB[0].xyk) + " và " + sv(lvB[1].xyk) +
+      " lần/hồ sơ, trễ hạn " + pt(lvB[0].tre) + " và " + pt(lvB[1].tre) + ".",
+    "Đơn vị xin ý kiến nhiều nhất: " + dvXs.slice(0, 2).map(function (x) { return x.ten + " (" + sv(x.x, 2) + " lần/hồ sơ)"; }).join(", ") + ".",
+    "Phản ánh về việc bị yêu cầu giấy tờ ngoài quy định nhiều nhất ở " + dvPa.slice(0, 2).map(function (x) { return x.ten + " (" + x.pa + " phản ánh)"; }).join(", ") + ".",
+    "Thiết bị đếm người mất kết nối: " + ds_(Object.keys(mat).map(function (k) { return TEN_DV[k] + " (" + mat[k].length + " giờ)"; })) + "."
+  ];
+  var dk = '<div class="hang-dk"><div><label>Thời gian chờ chấp nhận được giờ cao điểm: <b id="nhanCho">' + NG_CHO +
+    ' phút</b></label><input type="range" min="10" max="60" step="5" value="' + NG_CHO +
+    '" oninput="NG_CHO=Number(this.value);veLai(\'hc\')" aria-label="Ngưỡng thời gian chờ"></div></div>';
+  var gy = [];
+  if (vuot.length) gy.push({ muc: "cao", tieu: "Bổ sung quầy giờ cao điểm và hẹn lịch trực tuyến tại " + vuot.length + " điểm một cửa",
+    canCu: vuot.map(function (x) { var can = Math.ceil(x.luot / 4);
+      return "<b>" + x.ten + "</b>: chờ " + sv(x.cho) + " phút, " + sv(x.luot, 0) + " lượt/giờ, đang mở " + sv(x.quay, 1) +
+        " quầy → cần khoảng " + can + " quầy" + (x.quayMax > x.quay + 0.4 ? " (đơn vị có " + x.quayMax + " quầy nhưng giờ cao điểm chỉ mở " + sv(x.quay, 1) + ")" : ""); }).join("<br>"),
+    kiemChung: "Xem vì sao có quầy để trống giờ cao điểm (lịch trực, nghỉ phép, bố trí sai giờ); đối chiếu thêm số liệu tháng khác trước khi điều động người.",
+    thamQuyen: "Chủ tịch UBND xã, phường; Giám đốc Trung tâm phục vụ hành chính công.",
+    quyTac: "Đơn vị có thời gian chờ bình quân 8–10 giờ ≥ ngưỡng đang chọn, hoặc có lúc ≥ 2 lần ngưỡng. Số quầy cần = lượt lấy số mỗi giờ ÷ 4 (giả định 15 phút/hồ sơ).",
+    lienKet: [["iot.html#hc", "Giám sát hàng chờ"]] });
+  gy.push({ muc: "cao", tieu: "Ấn định thời hạn trả lời xin ý kiến nội bộ, tăng phân cấp – uỷ quyền cho lĩnh vực " + lvB[0].lv + ", " + lvB[1].lv,
+    canCu: "r = " + sv(r, 2) + " giữa số lần xin ý kiến và tỷ lệ trễ hạn; " + lvB[0].lv + " " + sv(lvB[0].xyk) + " lần/hồ sơ, trễ hạn " + pt(lvB[0].tre) +
+      "; đơn vị xin ý kiến nhiều nhất: " + dvXs.slice(0, 2).map(function (x) { return x.ten; }).join(", ") + ".",
+    kiemChung: "Tương quan chưa phải nhân quả: đọc mẫu 20 hồ sơ trễ hạn để tách xin ý kiến <b>bắt buộc theo luật</b> với xin ý kiến <b>để chia sẻ trách nhiệm</b>; hỏi cán bộ vì sao chưa dám quyết.",
+    thamQuyen: "Chủ tịch UBND xã, phường ban hành quy chế phối hợp nội bộ; phối hợp cơ quan chuyên môn cấp tỉnh.",
+    chinhSach: "Kết luận 14-KL/TW ngày 22/9/2021 của Bộ Chính trị và Nghị định 73/2023/NĐ-CP ngày 29/9/2023 về khuyến khích, bảo vệ cán bộ năng động, sáng tạo, dám nghĩ, dám làm vì lợi ích chung.",
+    quyTac: "Hai lĩnh vực có số lần xin ý kiến bình quân cao nhất; báo cáo hệ số tương quan trên 60 cặp đơn vị × lĩnh vực." });
+  gy.push({ muc: "tb", tieu: "Rà soát việc yêu cầu giấy tờ ngoài quy định tại " + dvPa.slice(0, 2).map(function (x) { return x.ten; }).join(", "),
+    canCu: dvPa.slice(0, 3).map(function (x) { return x.ten + ": " + x.pa + " phản ánh"; }).join("; ") + " (6 tháng).",
+    kiemChung: "Đối chiếu thành phần hồ sơ đơn vị đang yêu cầu với thành phần đã công bố trên Cổng Dịch vụ công quốc gia; gọi lại một số người phản ánh.",
+    thamQuyen: "Chủ tịch UBND xã, phường; bộ phận kiểm soát thủ tục hành chính.",
+    quyTac: "Hai đơn vị có tổng số phản ánh “yêu cầu giấy tờ ngoài quy định” cao nhất." });
+  if (thap.length) gy.push({ muc: "tb", tieu: "Đơn giản hoá biểu mẫu trực tuyến lĩnh vực " + thap.map(function (x) { return x.lv; }).join(", "),
+    canCu: thap.map(function (x) { return x.lv + ": nộp trực tuyến " + pt(x.tt); }).join("; ") + " – thấp hơn hẳn các lĩnh vực khác.",
+    kiemChung: "Thử tự nộp một hồ sơ trực tuyến từ đầu đến cuối, đếm số bước, số tệp phải tải lên; hỏi người dân vì sao bỏ dở.",
+    thamQuyen: "Trung tâm phục vụ hành chính công phối hợp đơn vị quản lý cổng dịch vụ công của tỉnh.",
+    quyTac: "Lĩnh vực có tỷ lệ nộp trực tuyến bình quân dưới 35%." });
+  if (Object.keys(mat).length) gy.push({ muc: "td", tieu: "Khắc phục thiết bị đếm người mất kết nối",
+    canCu: Object.keys(mat).map(function (k) { return TEN_DV[k] + ": " + mat[k].length + " giờ không có số liệu"; }).join("; "),
+    kiemChung: "Không coi giờ mất số liệu là “không có người chờ” – loại các giờ đó khỏi phép tính bình quân.",
+    quyTac: "Bất kỳ giờ nào trạng thái thiết bị khác “Hoạt động”." });
+  return khung("hc", "1. Hành chính công", [
+    "Thủ tục rườm rà: dù đẩy mạnh chuyển đổi số, vẫn có tình trạng “trên nóng dưới lạnh”; một số nơi còn yêu cầu giấy tờ truyền thống, quy trình trực tuyến phức tạp.",
+    "Tâm lý sợ sai, đùn đẩy: một bộ phận cán bộ né tránh trách nhiệm, không dám quyết định việc thuộc thẩm quyền, làm chậm phê duyệt dự án và giải quyết hồ sơ."],
+    ph, dk, gy,
+    "Cảm biến đếm được người chờ nhưng không đo được <b>vì sao</b> hồ sơ bị chuyển xin ý kiến. Muốn biết có “sợ sai” hay không phải đọc hồ sơ và trao đổi với cán bộ.");
+}
+
+/* ========================================================== 2. GIÁO DỤC */
+function lvGiaoDuc() {
+  var dk_ = TRUONG_DK, qua = dk_.filter(function (t) { return t.si_so_tb > t.si_so_toi_da_quy_dinh; });
+  var haiCa = dk_.filter(function (t) { return t.hoc_hai_ca === 1; });
+  var theoT = nhom(LOP_CAM_BIEN.filter(function (d) { return d.trang_thai === "OK"; }), "ma_truong");
+  var co2 = dk_.map(function (t) { var a = theoT[t.ma_truong] || [];
+    return { ten: t.ten_truong, ss: t.si_so_tb, tb: tb(a.map(function (d) { return d.co2_ppm; })),
+      vuot: a.filter(function (d) { return d.co2_ppm >= 1500; }).length / (a.length || 1) }; });
+  var r = tuongQuan(co2.map(function (x) { return x.ss; }), co2.map(function (x) { return x.tb; }));
+  var co2Cao = co2.filter(function (x) { return x.vuot >= 0.2; }).sort(function (a, b) { return b.vuot - a.vuot; });
+  var nghi = LOP_CAM_BIEN.filter(function (d) { return d.trang_thai !== "OK"; });
+  var thieu = function (a, b) { return dk_.reduce(function (s, t) { return s + Math.max(0, t[a] - t[b]); }, 0); };
+  var gvTin = thieu("gv_tin_hoc_can", "gv_tin_hoc_co"), gvAnh = thieu("gv_tieng_anh_can", "gv_tieng_anh_co"),
+      gvNT = thieu("gv_nghe_thuat_can", "gv_nghe_thuat_co"), pcn = thieu("phong_chuc_nang_can", "phong_chuc_nang_co");
+  var khongTin = dk_.filter(function (t) { return t.gv_tin_hoc_co === 0; }).map(function (t) { return t.ten_truong; });
+  var ph = [
+    qua.length + "/" + dk_.length + " trường có sĩ số bình quân vượt mức tối đa: " + qua.map(function (t) {
+      return t.ten_truong + " (" + sv(t.si_so_tb) + "/" + t.si_so_toi_da_quy_dinh + ")"; }).join(", ") + ".",
+    haiCa.length + " trường có số lớp nhiều hơn số phòng học (phải học hai ca): " + ds_(haiCa.map(function (t) { return t.ten_truong; })) + ".",
+    "Sĩ số và nồng độ CO₂ trong lớp đi cùng nhau (r = " + sv(r, 2) + "). Lớp có ≥ 20% số lần đo vượt 1.500 ppm: " +
+      ds_(co2Cao.map(function (x) { return x.ten + " (" + pt(x.vuot) + ")"; })) + ".",
+    "Thiếu theo định mức giả định: " + gvTin + " giáo viên Tin học, " + gvAnh + " Tiếng Anh, " + gvNT + " Nghệ thuật; thiếu " + pcn + " phòng học bộ môn, chức năng.",
+    khongTin.length + " trường chưa có giáo viên Tin học: " + ds_(khongTin) + ".",
+    "Một cảm biến bị “kẹt” (" + nghi.length + " lần đo đánh dấu nghi ngờ) – đã loại khỏi phép tính."
+  ];
+  var gy = [
+    { muc: "cao", tieu: "Giảm quá tải sĩ số tại " + qua.length + " trường vượt mức tối đa",
+      canCu: qua.map(function (t) { return t.ten_truong + ": " + sv(t.si_so_tb) + " học sinh/lớp" + (t.hoc_hai_ca ? ", học hai ca" : ""); }).join("; "),
+      kiemChung: "Dự báo số trẻ vào lớp 1 và lớp 6 ba năm tới trước khi chọn xây mới hay phân tuyến lại; kiểm tra dân số cơ học từ các khu nhà mới.",
+      thamQuyen: "UBND xã, phường; cơ quan quản lý giáo dục cấp tỉnh.",
+      chinhSach: "Điều lệ trường tiểu học (Thông tư 28/2020/TT-BGDĐT): mỗi lớp không quá 35 học sinh; Điều lệ trường trung học (Thông tư 32/2020/TT-BGDĐT): không quá 45 học sinh.",
+      quyTac: "Sĩ số bình quân của trường > mức tối đa theo cấp học.",
+      lienKet: [["truong-hoc.html", "Dự báo tuyển sinh (CĐ02)"], ["quyet-dinh.html?cd=2", "So sánh phương án CĐ02"]] },
+    { muc: "tb", tieu: "Cải thiện thông gió, điều chỉnh lịch học ở các lớp CO₂ cao",
+      canCu: ds_(co2Cao.map(function (x) { return x.ten + ": CO₂ trung bình " + sv(x.tb, 0) + " ppm"; })),
+      kiemChung: "Kiểm tra vị trí đặt cảm biến (gần cửa hay góc lớp); đo thử bằng thiết bị cầm tay vài ngày.",
+      thamQuyen: "Hiệu trưởng; UBND xã, phường hỗ trợ kinh phí sửa chữa nhỏ.",
+      quyTac: "Trường có ≥ 20% số lần đo CO₂ vượt 1.500 ppm (ngưỡng giả định để thực hành).", lienKet: [["iot.html#gd", "Giám sát lớp học"]] },
+    { muc: "cao", tieu: "Bố trí giáo viên Tin học, Tiếng Anh, Nghệ thuật dạy liên trường cho trường thiếu",
+      canCu: "Thiếu " + gvTin + " Tin học, " + gvAnh + " Tiếng Anh, " + gvNT + " Nghệ thuật; " + khongTin.length + " trường chưa có giáo viên Tin học, chủ yếu ở xã.",
+      kiemChung: "Đối chiếu định mức giáo viên hiện hành và số tiết thực tế; hỏi giáo viên có sẵn sàng dạy liên trường không, phụ cấp đi lại thế nào.",
+      thamQuyen: "Cơ quan quản lý giáo dục, nội vụ cấp tỉnh; UBND xã, phường.",
+      quyTac: "Tổng số giáo viên còn thiếu so với nhu cầu tính theo số lớp (định mức giả định)." },
+    { muc: "tb", tieu: "Ưu tiên đầu tư phòng học bộ môn, chức năng cho Chương trình GDPT 2018",
+      canCu: "Thiếu " + pcn + " phòng trên toàn địa bàn.",
+      kiemChung: "Dùng chung phòng giữa các trường gần nhau trước khi xây mới.", quyTac: "Tổng số phòng cần trừ số phòng có." },
+    { muc: "td", tieu: "Đo áp lực thi cử, bệnh thành tích – cần khảo sát, không đo được bằng cảm biến",
+      canCu: "Bộ dữ liệu IoT không có chỉ số nào phản ánh áp lực học tập.",
+      kiemChung: "Thiết kế khảo sát ẩn danh học sinh, phụ huynh, giáo viên; theo dõi số giờ học thêm, tỷ lệ học sinh mất ngủ.",
+      quyTac: "Vấn đề thực trạng không có dữ liệu tương ứng." }
+  ];
+  return khung("gd", "2. Giáo dục", [
+    "Quá tải trường lớp đô thị: tốc độ xây trường không kịp tăng dân số cơ học, sĩ số vượt quy định.",
+    "Triển khai Chương trình giáo dục phổ thông 2018 còn thiếu phòng chức năng, thiết bị và giáo viên các môn đặc thù (Nghệ thuật, Tin học, Tiếng Anh).",
+    "Bệnh thành tích: áp lực điểm số, kỳ thi chuyển cấp còn nặng với học sinh và phụ huynh."],
+    ph, "", gy, "Cảm biến cho biết lớp <b>đông và ngột ngạt</b>, không cho biết chất lượng dạy học hay áp lực thi cử. Định mức giáo viên trong dữ liệu là giả định để thực hành.");
+}
+
+/* ========================================================= 3. GIAO THÔNG */
+var NG_DAY = 0.9;
+function lvGiaoThong() {
+  var ngayThuong = XE_BUYT.filter(function (d) { return ["Thứ bảy", "Chủ nhật"].indexOf(d.thu) < 0; });
+  var theoT = nhom(ngayThuong, "ma_tuyen"), tuyen = Object.keys(theoT).map(function (k) {
+    var a = theoT[k]; return { ma: k, ten: a[0].ten_tuyen, lap: tb(a.map(function (d) { return d.ty_le_lap_day; })),
+      dung: tb(a.map(function (d) { return d.ty_le_dung_gio; })),
+      quaTai: a.filter(function (d) { return d.ty_le_lap_day >= 0.95; }).length, n: a.length }; });
+  var cuoiT6 = tb(XE_BUYT.filter(function (d) { return d.ma_tuyen === "T6" && ["Thứ bảy", "Chủ nhật"].indexOf(d.thu) >= 0; }).map(function (d) { return d.ty_le_lap_day; }));
+  var day = tuyen.filter(function (x) { return x.lap >= NG_DAY; }), voi = tuyen.filter(function (x) { return x.lap < 0.3; }),
+      tre = tuyen.filter(function (x) { return x.dung < 0.75; });
+  var gan = {}; NUT.forEach(function (n) { gan[n.ma_nut] = n; });
+  var vp = nhom(VI_PHAM.filter(function (d) { return d.vuot_den_do !== ""; }), "ma_nut"), nut = Object.keys(vp).map(function (k) {
+    var a = vp[k]; return { ten: a[0].ten_nut, truong: gan[k].gan_truong_hoc, den: tb(a.map(function (d) { return d.vuot_den_do; })),
+      lan: tb(a.map(function (d) { return d.sai_lan; })), vc: a.reduce(function (s, d) { return s + d.va_cham_ghi_nhan; }, 0) }; });
+  nut.sort(function (a, b) { return (b.den + b.lan) - (a.den + a.lan); });
+  var khongCam = NUT.filter(function (n) { return n.loai_cam_bien.indexOf("Camera") !== 0; }).map(function (n) { return n.ten_nut; });
+  var ph = [
+    "Tỷ lệ lấp đầy xe buýt giờ cao điểm ngày thường: " + tuyen.map(function (x) { return x.ma + " " + pt(x.lap); }).join(", ") + ".",
+    "Tuyến đúng giờ thấp: " + ds_(tre.map(function (x) { return x.ma + " " + x.ten + " (" + pt(x.dung) + ")"; })) + ".",
+    "Tuyến T6 (vòng trường học) cuối tuần chỉ lấp đầy " + pt(cuoiT6) + ".",
+    "Vi phạm ghi nhận qua camera AI cao nhất ở " + nut.slice(0, 2).map(function (x) { return x.ten + " (" + sv(x.den, 0) + " lượt vượt đèn đỏ/ngày" + (x.truong ? ", gần trường học" : "") + ")"; }).join("; ") + ".",
+    "Nút chưa có camera AI: " + ds_(khongCam) + "."
+  ];
+  var dk = '<div class="hang-dk"><div><label>Ngưỡng coi là quá tải (tỷ lệ lấp đầy): <b>' + pt(NG_DAY) + '</b></label>' +
+    '<input type="range" min="0.7" max="1" step="0.05" value="' + NG_DAY + '" oninput="NG_DAY=Number(this.value);veLai(\'gt\')" aria-label="Ngưỡng lấp đầy"></div></div>';
+  var gy = [];
+  if (day.length) gy.push({ muc: "cao", tieu: "Tăng chuyến giờ cao điểm cho tuyến " + day.map(function (x) { return x.ma; }).join(", "),
+    canCu: day.map(function (x) { return x.ma + " " + x.ten + ": lấp đầy " + pt(x.lap) + ", " + x.quaTai + "/" + x.n + " lượt cao điểm ≥ 95%"; }).join("; "),
+    kiemChung: "Xem số khách bị bỏ lại ở trạm (nếu có camera trạm); hỏi doanh nghiệp vận tải khả năng bổ sung xe.",
+    thamQuyen: "Cơ quan quản lý vận tải cấp tỉnh; UBND xã, phường kiến nghị.",
+    quyTac: "Tuyến có tỷ lệ lấp đầy bình quân giờ cao điểm ngày thường ≥ ngưỡng đang chọn.", lienKet: [["iot.html#gt", "Giám sát xe buýt"]] });
+  if (voi.length) gy.push({ muc: "tb", tieu: "Điều chỉnh tuyến vắng khách " + voi.map(function (x) { return x.ma; }).join(", ") + " (giảm tần suất, xe nhỏ hơn hoặc nối tuyến)",
+    canCu: voi.map(function (x) { return x.ma + " " + x.ten + ": lấp đầy " + pt(x.lap); }).join("; ") + ". Tuyến T6 cuối tuần lấp đầy " + pt(cuoiT6) + ".",
+    kiemChung: "Tuyến vắng có thể là tuyến duy nhất của xã xa – cân nhắc mục tiêu an sinh, không chỉ hiệu quả kinh tế.",
+    quyTac: "Tuyến lấp đầy bình quân < 30%." });
+  if (tre.length) gy.push({ muc: "tb", tieu: "Ưu tiên xe buýt tại nút giao trên tuyến " + tre.map(function (x) { return x.ma; }).join(", ") + " (làn ưu tiên, ưu tiên đèn)",
+    canCu: tre.map(function (x) { return x.ma + ": đúng giờ " + pt(x.dung); }).join("; "),
+    kiemChung: "Ghép dữ liệu GPS với dữ liệu cảm biến nút giao để xem xe trễ ở đoạn nào.", lienKet: [["giao-thong.html", "Cảm biến giao thông (CĐ03)"]],
+    quyTac: "Tuyến đúng giờ bình quân < 75%." });
+  gy.push({ muc: "cao", tieu: "Tổ chức lại giao thông giờ tan học, xử phạt qua hình ảnh tại nút vi phạm cao",
+    canCu: nut.slice(0, 3).map(function (x) { return x.ten + ": " + sv(x.den, 0) + " vượt đèn đỏ, " + sv(x.lan, 0) + " sai làn/ngày, " + x.vc + " va chạm/14 ngày" + (x.truong ? " – gần trường" : ""); }).join("; "),
+    kiemChung: "Kiểm tra độ chính xác nhận dạng của camera trước khi dùng làm căn cứ xử phạt; công khai vị trí camera.",
+    thamQuyen: "Công an; UBND xã, phường; nhà trường phối hợp.", quyTac: "Ba nút có tổng vượt đèn đỏ + sai làn bình quân ngày cao nhất." });
+  gy.push({ muc: "td", tieu: "Chọn nút ưu tiên nâng cấp khi ngân sách có hạn – dùng công cụ đa tiêu chí",
+    canCu: "Dữ liệu IoT chỉ cho thấy nơi ùn tắc, vi phạm; dự án lớn (đường vành đai, giao thông công cộng) còn phụ thuộc giải phóng mặt bằng và vốn – không có trong dữ liệu.",
+    kiemChung: "Bổ sung tiến độ giải phóng mặt bằng, nguồn vốn trước khi xếp ưu tiên.", lienKet: [["quyet-dinh.html?cd=3", "So sánh phương án CĐ03"]],
+    quyTac: "Vấn đề thực trạng không có dữ liệu tương ứng." });
+  return khung("gt", "3. Giao thông", [
+    "Ùn tắc kinh niên: phương tiện cá nhân tăng nhanh, giao thông công cộng (xe buýt, đường sắt đô thị) phát triển chậm.",
+    "Nhiều dự án trọng điểm, tuyến metro, đường vành đai lùi tiến độ do vướng giải phóng mặt bằng, thiếu vốn.",
+    "Vi phạm luật giao thông còn phổ biến; số vụ tai nạn nghiêm trọng vẫn đáng lo ngại."],
+    ph, dk, gy, "Dữ liệu chỉ phủ 8 nút và 6 tuyến trong 2 tuần; camera có thể nhận dạng sai. Không có dữ liệu về tiến độ dự án, giải phóng mặt bằng.");
+}
+
+/* ========================================================= 4. MÔI TRƯỜNG */
+function lvMoiTruong() {
+  var kk = nhom(KK_NGAY, "ma_tram"), tram = Object.keys(kk).map(function (k) { var a = kk[k];
+    return { ten: a[0].ten_tram, vuot: a.filter(function (d) { return d.pm25_trung_binh !== "" && d.pm25_trung_binh > 50; }).length,
+      tb: tb(a.map(function (d) { return d.pm25_trung_binh; })), n: a.length,
+      thieu: a.reduce(function (s, d) { return s + d.so_gio_thieu; }, 0) }; }).sort(function (a, b) { return b.vuot - a.vuot; });
+  var nt = NUOC_THAI.filter(function (d) { return d.cod_mgl !== ""; });
+  var vuotNT = nhom(nt.filter(function (d) { return d.cod_mgl > 150 || d.tss_mgl > 100; }), "ma_cong");
+  var dem = {}; Object.keys(vuotNT).forEach(function (k) { dem[k] = vuotNT[k].filter(function (d) { return d.gio === "00:00"; }).length; });
+  var matNT = nhom(NUOC_THAI.filter(function (d) { return d.trang_thai !== "OK"; }), "ma_cong");
+  var tr = nhom(THUNG_RAC, "ma_diem"), diem = Object.keys(tr).map(function (k) { var a = tr[k];
+    return { ten: a[0].ten_diem, tran: a.filter(function (d) { return d.tran_rac === 1; }).length,
+      day: tb(a.map(function (d) { return d.muc_day_19h_pct; })), pl: tb(a.map(function (d) { return d.ty_le_phan_loai_dung_pct; })) }; });
+  var tran = diem.filter(function (x) { return x.tran >= 5; }), voi = diem.filter(function (x) { return x.day < 40; });
+  var plTB = tb(THUNG_RAC.map(function (d) { return d.ty_le_phan_loai_dung_pct; }));
+  var ngap = QUY_HOACH.filter(function (q) { return q.thoat_nuoc_dap_ung_pct < 40 && q.so_lan_ngap_mua_2026 >= 4; });
+  var ph = [
+    "Số ngày PM2.5 trung bình vượt 50 µg/m³ (giới hạn 24 giờ của QCVN 05:2023/BTNMT) trong " + tram[0].n + " ngày: " +
+      tram.map(function (x) { return x.ten + " " + x.vuot; }).join(", ") + ".",
+    "Nước thải vượt ngưỡng tham chiếu: " + ds_(Object.keys(vuotNT).map(function (k) { return vuotNT[k][0].ten_cong + " " + vuotNT[k].length + " lần (" + dem[k] + " lần lúc 0 giờ)"; })) + ".",
+    "Trạm nước thải mất kết nối: " + ds_(Object.keys(matNT).map(function (k) { return matNT[k][0].ten_cong + " (từ " + ngayVN(matNT[k][0].ngay) + ")"; })) + ".",
+    "Thùng rác tràn ≥ 5/14 ngày: " + ds_(tran.map(function (x) { return x.ten + " (" + x.tran + " ngày)"; })) + "; " + voi.length + " điểm luôn đầy dưới 40%.",
+    "Tỷ lệ rác phân loại đúng tại điểm tập kết (camera AI) bình quân chỉ " + sv(plTB, 0) + "%.",
+    "Khu quy hoạch có hạ tầng thoát nước đáp ứng dưới 40% và ngập ≥ 4 lần mùa mưa 2026: " + ds_(ngap.map(function (q) { return q.ten_khu + " (" + q.so_lan_ngap_mua_2026 + " lần)"; })) + "."
+  ];
+  var gy = [
+    { muc: "cao", tieu: "Khoanh vùng nguồn bụi quanh " + tram.slice(0, 2).map(function (x) { return x.ten; }).join(" và ") + "; kiểm soát bụi công trường",
+      canCu: tram.slice(0, 2).map(function (x) { return x.ten + ": " + x.vuot + "/" + x.n + " ngày vượt, trung bình " + sv(x.tb) + " µg/m³"; }).join("; ") +
+        ". Có " + CONG_TRINH.filter(function (c) { return c.so_ngay_vuot_bui >= 5; }).length + " công trình có cảm biến bụi hàng rào vượt ngưỡng ≥ 5 ngày.",
+      kiemChung: "Kiểm tra vị trí đặt trạm (một trạm đặt cách công trường 40 m – xem chuyên đề 04); đo đối chứng bằng trạm di động trước khi kết luận nguồn thải.",
+      thamQuyen: "UBND xã, phường; cơ quan chuyên môn về môi trường, xây dựng cấp tỉnh.",
+      chinhSach: "QCVN 05:2023/BTNMT: giới hạn PM2.5 trung bình 24 giờ 50 µg/m³, trung bình năm 25 µg/m³.",
+      quyTac: "Hai trạm có số ngày PM2.5 trung bình > 50 µg/m³ nhiều nhất.", lienKet: [["canh-bao.html", "Ngưỡng cảnh báo (CĐ04)"], ["iot.html#mt", "Giám sát không khí"]] }
+  ];
+  Object.keys(vuotNT).filter(function (k) { return vuotNT[k].length >= 3; }).forEach(function (k) {
+    gy.push({ muc: "cao", tieu: "Kiểm tra đột xuất ban đêm tại " + vuotNT[k][0].ten_cong,
+      canCu: vuotNT[k].length + " lần vượt ngưỡng, trong đó " + dem[k] + " lần lúc 0 giờ – dấu hiệu xả thải ban đêm.",
+      kiemChung: "Lấy mẫu đối chứng do đơn vị độc lập phân tích; kiểm tra thiết bị đo trước khi lập biên bản.",
+      thamQuyen: "UBND xã, phường phối hợp cơ quan chuyên môn môi trường cấp tỉnh.",
+      quyTac: "Cống có ≥ 3 lần COD > 150 mg/l hoặc TSS > 100 mg/l (ngưỡng tham chiếu do khoá học đặt)." }); });
+  gy.push({ muc: "tb", tieu: "Điều chỉnh tần suất thu gom theo mức đầy thực tế",
+    canCu: "Tăng chuyến buổi tối ở " + ds_(tran.map(function (x) { return x.ten; })) + "; giảm tần suất ở " + voi.length + " điểm luôn đầy dưới 40% để bù xe.",
+    kiemChung: "Đi thực địa giờ cao điểm đổ rác; kiểm tra cảm biến có bị che, lệch không.", quyTac: "Tràn ≥ 5/14 ngày; mức đầy 19 giờ bình quân < 40%.",
+    lienKet: [["iot.html#mt", "Giám sát thùng rác"]] });
+  gy.push({ muc: "tb", tieu: "Truyền thông phân loại rác tại nguồn, chuẩn bị thu giá dịch vụ theo khối lượng đã phân loại",
+    canCu: "Tỷ lệ phân loại đúng bình quân " + sv(plTB, 0) + "% – phân loại còn hình thức.",
+    kiemChung: "Camera AI có thể nhận dạng sai; đối chiếu bằng kiểm tra trực tiếp một số túi rác.",
+    chinhSach: "Luật Bảo vệ môi trường 2020: chất thải rắn sinh hoạt phân loại thành 3 nhóm (Điều 75); chi phí thu gom, xử lý tính dựa trên khối lượng hoặc thể tích chất thải đã phân loại, UBND cấp tỉnh quy định cụ thể.",
+    quyTac: "Tỷ lệ phân loại đúng bình quân < 50%." });
+  if (Object.keys(matNT).length) gy.push({ muc: "td", tieu: "Khôi phục trạm quan trắc mất kết nối",
+    canCu: Object.keys(matNT).map(function (k) { return matNT[k][0].ten_cong + ": " + matNT[k].length + " lần đo không có số liệu"; }).join("; "),
+    kiemChung: "Không kết luận “nước thải đạt” trong khoảng không có số liệu.", quyTac: "Bất kỳ lần đo nào trạng thái khác OK." });
+  return khung("mt", "4. Môi trường", [
+    "Ô nhiễm không khí và nguồn nước: chỉ số chất lượng không khí ở các đô thị lớn thường ở mức báo động do bụi từ giao thông, xây dựng, công nghiệp; nước thải chưa xử lý xả thẳng ra kênh rạch còn phổ biến.",
+    "Quản lý rác yếu: xử lý chủ yếu bằng chôn lấp; phân loại rác tại nguồn còn hình thức.",
+    "Biến đổi khí hậu: ngập do triều cường, mưa lớn ở đô thị và xâm nhập mặn ở Đồng bằng sông Cửu Long ngày càng nghiêm trọng."],
+    ph, "", gy, "Trạm quan trắc giá rẻ có sai số, phải hiệu chuẩn định kỳ. Ngưỡng nước thải trên trang là ngưỡng tham chiếu để thực hành. Không có dữ liệu xâm nhập mặn.");
+}
+
+/* =============================================================== 5. Y TẾ */
+function lvYTe() {
+  var t = nhom(TRAM_YT, "ma_tram"), tram = Object.keys(t).map(function (k) { var a = t[k];
+    var kham = a.reduce(function (s, d) { return s + d.luot_kham; }, 0), ct = a.reduce(function (s, d) { return s + d.luot_chuyen_tuyen; }, 0);
+    var dv = DON_VI.filter(function (d) { return d.ma_don_vi === a[0].ma_don_vi; })[0];
+    return { ten: a[0].ten_tram, vang: a.filter(function (d) { return d.bac_si_co_mat === 0; }).length, n: a.length,
+      ct: ct / kham, kham1000: kham / a.length / (dv.dan_so / 1000), pho: dv.loai === "Phường",
+      thuoc: Math.max.apply(null, a.map(function (d) { return d.so_mat_hang_duoi_muc_toi_thieu; })),
+      thuocDau: (a.filter(function (d) { return d.so_mat_hang_duoi_muc_toi_thieu >= 3; })[0] || {}).ngay }; });
+  var thieuBS = tram.filter(function (x) { return x.vang >= 8; }).sort(function (a, b) { return b.vang - a.vang; });
+  var thieuThuoc = tram.filter(function (x) { return x.thuoc >= 5; });
+  var phuong = tb(tram.filter(function (x) { return x.pho; }).map(function (x) { return x.kham1000; })),
+      xa = tb(tram.filter(function (x) { return !x.pho; }).map(function (x) { return x.kham1000; }));
+  var tu = nhom(TU_LANH, "ma_tu"), tuCB = Object.keys(tu).map(function (k) { var a = tu[k];
+    return { ten: a[0].ten_diem, ngay: a.filter(function (d) { return d.so_phut_ngoai_nguong >= 60; }).length,
+      pin: Math.min.apply(null, a.map(function (d) { return d.pin_cam_bien_phan_tram; })) }; })
+    .filter(function (x) { return x.ngay > 0 || x.pin < 20; });
+  var ph = [
+    "Trạm vắng bác sĩ nhiều ngày: " + ds_(thieuBS.map(function (x) { return x.ten + " " + x.vang + "/" + x.n + " ngày, chuyển tuyến " + pt(x.ct); })) +
+      " (các trạm có bác sĩ thường xuyên chuyển tuyến khoảng 7%).",
+    "Tủ thuốc thông minh báo nhiều mặt hàng dưới mức tối thiểu: " + ds_(thieuThuoc.map(function (x) { return x.ten + " (tới " + x.thuoc + "/40 mặt hàng, bắt đầu từ " + ngayVN(x.thuocDau) + ")"; })) + ".",
+    "Lượt khám bình quân mỗi ngày trên 1.000 dân: trạm ở phường " + sv(phuong, 2) + ", trạm ở xã " + sv(xa, 2) + " – dân phường ít dùng trạm y tế, có thể đi thẳng tuyến trên.",
+    "Tủ vắc-xin có sự cố nhiệt độ ≥ 60 phút hoặc pin cảm biến dưới 20%: " + ds_(tuCB.map(function (x) { return x.ten + (x.ngay ? " (" + x.ngay + " ngày sự cố)" : "") + (x.pin < 20 ? " (pin " + x.pin + "%)" : ""); })) + "."
+  ];
+  var gy = [];
+  if (thieuBS.length) gy.push({ muc: "cao", tieu: "Luân phiên bác sĩ và khám từ xa cho " + thieuBS.map(function (x) { return x.ten; }).join(", "),
+    canCu: thieuBS.map(function (x) { return x.ten + ": vắng bác sĩ " + x.vang + " ngày, tỷ lệ chuyển tuyến " + pt(x.ct); }).join("; "),
+    kiemChung: "Phân biệt chuyển tuyến do thiếu bác sĩ với chuyển tuyến đúng chuyên môn; hỏi lý do bác sĩ vắng (thiếu biên chế, đi học, nghỉ việc).",
+    thamQuyen: "Cơ quan quản lý y tế cấp tỉnh; UBND xã.", quyTac: "Trạm vắng bác sĩ ≥ 8 ngày trong tháng.", lienKet: [["iot.html#yt", "Giám sát trạm y tế"]] });
+  if (thieuThuoc.length) gy.push({ muc: "cao", tieu: "Điều chuyển thuốc giữa các trạm, xử lý vướng mắc mua sắm tại " + thieuThuoc.map(function (x) { return x.ten; }).join(", "),
+    canCu: thieuThuoc.map(function (x) { return x.ten + ": " + x.thuoc + "/40 mặt hàng dưới mức tối thiểu, kéo dài từ " + ngayVN(x.thuocDau); }).join("; "),
+    kiemChung: "Tìm nguyên nhân: kế hoạch dự trù, gói thầu chậm hay e ngại sai phạm khi mua sắm; đối chiếu văn bản hướng dẫn đấu thầu thuốc hiện hành trước khi chỉ đạo.",
+    thamQuyen: "Cơ quan quản lý y tế cấp tỉnh; Trung tâm y tế khu vực.", quyTac: "Trạm có lúc ≥ 5 mặt hàng dưới mức tối thiểu." });
+  gy.push({ muc: "tb", tieu: "Nâng chất lượng khám ban đầu ở trạm y tế phường để giảm vượt tuyến",
+    canCu: "Lượt khám/1.000 dân/ngày: phường " + sv(phuong, 2) + " so với xã " + sv(xa, 2) + ".",
+    kiemChung: "Số liệu chỉ gợi ý; cần khảo sát người dân vì sao không đến trạm (giờ mở cửa, thuốc, niềm tin, bảo hiểm y tế).",
+    quyTac: "So sánh lượt khám trên 1.000 dân giữa trạm ở phường và ở xã." });
+  if (tuCB.length) gy.push({ muc: "cao", tieu: "Rà soát lô vắc-xin và thay pin cảm biến các tủ có sự cố",
+    canCu: tuCB.map(function (x) { return x.ten + (x.ngay ? ": " + x.ngay + " ngày ngoài 2–8 °C ≥ 60 phút" : "") + (x.pin < 20 ? "; pin " + x.pin + "%" : ""); }).join("; "),
+    kiemChung: "Đối chiếu hướng dẫn của nhà sản xuất về độ ổn định nhiệt trước khi huỷ hay dùng tiếp lô vắc-xin.",
+    quyTac: "Tủ có ngày ngoài ngưỡng ≥ 60 phút hoặc pin < 20%.", lienKet: [["quyet-dinh.html?cd=5", "So sánh phương án CĐ05"]] });
+  gy.push({ muc: "td", tieu: "Chảy máu chất xám – cần dữ liệu nhân lực, không có trong hệ thống IoT",
+    canCu: "Cảm biến chỉ ghi bác sĩ có mặt hay không, không ghi lý do nghỉ việc hay chuyển sang khu vực tư.",
+    kiemChung: "Thu thập số liệu biến động nhân lực 3 năm, thu nhập, khối lượng công việc trước khi đề xuất chính sách đãi ngộ của địa phương.",
+    quyTac: "Vấn đề thực trạng không có dữ liệu tương ứng." });
+  return khung("yt", "5. Y tế", [
+    "Quá tải bệnh viện tuyến trên: người dân dồn lên tuyến trên do năng lực, trang thiết bị y tế cơ sở còn hạn chế.",
+    "Thiếu thuốc, vật tư y tế cục bộ ở một số nơi do vướng cơ chế đấu thầu, mua sắm và tâm lý e ngại sai phạm.",
+    "Chảy máu chất xám: nhân viên y tế giỏi chuyển từ khu vực công sang tư do quá tải và đãi ngộ chưa hấp dẫn."],
+    ph, "", gy, "Lượt khám thấp có nhiều nguyên nhân; tủ thuốc thông minh chỉ biết tồn kho, không biết vì sao thiếu.");
+}
+
+/* =========================================================== 6. XÂY DỰNG */
+var NG_TON = 30;
+function lvXayDung() {
+  var vp = CONG_TRINH.filter(function (c) { return c.tinh_trang_phep !== "Có phép" || c.thay_doi_cong_nang !== "Không"; });
+  var ton = vp.filter(function (c) { return c.trang_thai_xu_ly !== "Đã xử lý" && c.so_ngay_ton_dong >= NG_TON; }).sort(function (a, b) { return b.so_ngay_ton_dong - a.so_ngay_ton_dong; });
+  var nguon = nhom(vp, "nguon_phat_hien");
+  var vuotTang = vp.filter(function (c) { return c.so_tang_cap_phep > 0 && c.so_tang_thuc_te > c.so_tang_cap_phep; });
+  var nt = nhom(NHA_TRO, "ma_nha"), nha = Object.keys(nt).map(function (k) { var a = nt[k];
+    return { ten: a[0].ten_nha, nguoi: a[0].so_nguoi_luu_tru, tang: a[0].so_tang, loi2: a[0].co_loi_thoat_hiem_thu_hai,
+      khoa: a.reduce(function (s, d) { return s + d.so_gio_cua_thoat_hiem_bi_khoa; }, 0),
+      nong: Math.max.apply(null, a.map(function (d) { return d.nhiet_do_tu_dien_max_c; })),
+      onl: tb(a.map(function (d) { return d.ty_le_dau_bao_khoi_online_pct; })) }; });
+  nha.forEach(function (x) { x.diem = (x.khoa > 0 ? 3 : 0) + (x.nong >= 65 ? 3 : 0) + (x.loi2 ? 0 : 2) + (x.onl < 85 ? 1 : 0); });
+  var nguy = nha.filter(function (x) { return x.diem >= 3; }).sort(function (a, b) { return b.diem - a.diem || b.nguoi - a.nguoi; });
+  var treo = QUY_HOACH.filter(function (q) { return q.so_nam_cho >= 10 && q.ty_le_trien_khai_pct < 30; });
+  var thieuNO = NHA_O_XH.map(function (d) { return { ten: d.ten_don_vi, thieu: d.nhu_cau_can_ho_uoc_tinh - d.can_ho_nos_hien_co - d.can_ho_nos_dang_xay,
+    nc: d.nhu_cau_can_ho_uoc_tinh, gia: d.gia_thue_phong_tro_tb_nghin_dong }; }).sort(function (a, b) { return b.thieu - a.thieu; });
+  var tongThieu = thieuNO.reduce(function (s, x) { return s + Math.max(0, x.thieu); }, 0), tongNC = thieuNO.reduce(function (s, x) { return s + x.nc; }, 0);
+  var ph = [
+    vp.length + "/" + CONG_TRINH.length + " công trình đang thi công có vi phạm (sai phép, không phép hoặc tự ý chuyển công năng); " +
+      vuotTang.length + " công trình xây vượt số tầng được phép.",
+    "Nguồn phát hiện vi phạm: " + Object.keys(nguon).map(function (k) { return k + " " + nguon[k].length; }).join(", ") + ".",
+    "Vi phạm chưa xử lý xong và tồn đọng ≥ " + NG_TON + " ngày: " + ton.length + " công trình.",
+    "Nhà trọ cao tầng, chung cư mini có nguy cơ cháy cao: " + ds_(nguy.map(function (x) { return x.ten + " (" + x.nguoi + " người" +
+      (x.khoa ? ", cửa thoát hiểm bị khoá " + x.khoa + " giờ" : "") + (x.nong >= 65 ? ", tủ điện tới " + sv(x.nong, 0) + " °C" : "") + (x.loi2 ? "" : ", không có lối thoát thứ hai") + ")"; })) + ".",
+    "Quy hoạch “treo” trên 10 năm, triển khai dưới 30%: " + ds_(treo.map(function (q) { return q.ten_khu + " (" + q.so_nam_cho + " năm, " + q.ty_le_trien_khai_pct + "%, " + q.so_ho_bi_anh_huong + " hộ ảnh hưởng)"; })) + ".",
+    "Nhà ở xã hội: nhu cầu ước tính " + sn(tongNC) + " căn, còn thiếu khoảng " + sn(tongThieu) + " căn; thiếu nhiều nhất ở " +
+      thieuNO.slice(0, 2).map(function (x) { return x.ten + " (" + sn(x.thieu) + " căn)"; }).join(", ") + "."
+  ];
+  var dk = '<div class="hang-dk"><div><label>Coi là tồn đọng khi chưa xử lý quá: <b>' + NG_TON + ' ngày</b></label>' +
+    '<input type="range" min="10" max="90" step="10" value="' + NG_TON + '" oninput="NG_TON=Number(this.value);veLai(\'xd\')" aria-label="Ngưỡng tồn đọng"></div></div>';
+  var gy = [];
+  if (nguy.length) gy.push({ muc: "cao", tieu: "Kiểm tra an toàn phòng cháy ngay tại " + nguy.length + " nhà trọ cao tầng, chung cư mini",
+    canCu: nguy.map(function (x) { return x.ten + ": " + x.nguoi + " người, " + x.tang + " tầng" + (x.khoa ? "; cửa thoát hiểm bị khoá " + x.khoa + " giờ/14 ngày" : "") +
+      (x.nong >= 65 ? "; tủ điện " + sv(x.nong, 0) + " °C" : "") + (x.loi2 ? "" : "; không có lối thoát thứ hai") + (x.onl < 85 ? "; đầu báo khói hoạt động " + sv(x.onl, 0) + "%" : ""); }).join("<br>"),
+    kiemChung: "Cảm biến cửa có thể báo khoá nhầm; kiểm tra trực tiếp vào ban đêm. Ưu tiên nhà đông người, không có lối thoát thứ hai.",
+    thamQuyen: "UBND xã, phường; lực lượng phòng cháy, chữa cháy.",
+    quyTac: "Điểm rủi ro = 3 (cửa thoát hiểm từng bị khoá) + 3 (tủ điện ≥ 65 °C) + 2 (không có lối thoát thứ hai) + 1 (đầu báo khói hoạt động < 85%); chọn nhà có điểm ≥ 3.",
+    lienKet: [["iot.html#xd", "Giám sát nhà trọ"]] });
+  if (ton.length) gy.push({ muc: "cao", tieu: "Xử lý dứt điểm " + ton.length + " công trình vi phạm tồn đọng, phân công người chịu trách nhiệm",
+    canCu: ton.slice(0, 6).map(function (c) { return c.ma_cong_trinh + " (" + c.ten_don_vi + ", " + c.loai_cong_trinh.toLowerCase() + ", " + c.tinh_trang_phep.toLowerCase() +
+      (c.so_tang_cap_phep ? ", " + c.so_tang_thuc_te + "/" + c.so_tang_cap_phep + " tầng" : "") + "): tồn đọng " + c.so_ngay_ton_dong + " ngày"; }).join("<br>") + (ton.length > 6 ? "<br>…" : ""),
+    kiemChung: "Đối chiếu hồ sơ cấp phép gốc; ảnh flycam phải có thời điểm chụp. Xem công trình chuyển công năng sang phòng trọ có đáp ứng điều kiện phòng cháy không.",
+    thamQuyen: "Chủ tịch UBND xã, phường.", quyTac: "Công trình vi phạm chưa “Đã xử lý” và tồn đọng ≥ ngưỡng đang chọn." });
+  gy.push({ muc: "tb", tieu: "Công khai bản đồ số giấy phép xây dựng để người dân cùng giám sát",
+    canCu: "Camera AI và flycam phát hiện " + ((nguon["Camera AI"] || []).length + (nguon["Flycam định kỳ"] || []).length) + " vi phạm, người dân phản ánh " + (nguon["Phản ánh của người dân"] || []).length + ".",
+    kiemChung: "Che thông tin cá nhân của chủ nhà trên bản đồ công khai.", lienKet: [["quyet-dinh.html?cd=6", "So sánh 4 phương án xây dựng"]],
+    quyTac: "Đếm vi phạm theo nguồn phát hiện." });
+  if (treo.length) gy.push({ muc: "tb", tieu: "Rà soát, điều chỉnh hoặc công bố huỷ bỏ quy hoạch treo",
+    canCu: treo.map(function (q) { return q.ten_khu + ": " + q.so_nam_cho + " năm, triển khai " + q.ty_le_trien_khai_pct + "%, " + q.so_ho_bi_anh_huong + " hộ, thoát nước đáp ứng " + q.thoat_nuoc_dap_ung_pct + "%, ngập " + q.so_lan_ngap_mua_2026 + " lần"; }).join("<br>"),
+    kiemChung: "Làm việc với chủ đầu tư, xác định nguồn vốn; lấy ý kiến người dân bị ảnh hưởng.",
+    thamQuyen: "Cơ quan có thẩm quyền phê duyệt quy hoạch.", quyTac: "Khu quy hoạch đã chờ ≥ 10 năm và triển khai < 30%." });
+  gy.push({ muc: "tb", tieu: "Bố trí quỹ đất nhà ở xã hội, ưu tiên nơi đông công nhân, người lao động",
+    canCu: thieuNO.slice(0, 3).map(function (x) { return x.ten + ": thiếu " + sn(x.thieu) + " căn, giá thuê trọ bình quân " + sn(x.gia) + " nghìn đồng/tháng"; }).join("; "),
+    kiemChung: "Nhu cầu là ước tính; khảo sát nhu cầu thực (thu nhập, khả năng chi trả, nơi làm việc) trước khi chọn vị trí.",
+    chinhSach: "Luật Nhà ở 2023: UBND cấp tỉnh bố trí đủ quỹ đất phát triển nhà ở xã hội; chủ đầu tư dự án nhà ở thương mại dành quỹ đất trong dự án, bố trí quỹ đất ở vị trí khác hoặc đóng tiền tương đương.",
+    quyTac: "Thiếu hụt = nhu cầu ước tính − căn hiện có − căn đang xây; ba đơn vị thiếu nhiều nhất." });
+  return khung("xd", "6. Xây dựng", [
+    "Quy hoạch treo, thiếu đồng bộ: nhiều dự án kéo dài nhiều năm không triển khai; hạ tầng thoát nước, điện không theo kịp nhà ở, gây ngập úng.",
+    "Thiếu nhà ở xã hội: nhà ở thương mại giá cao dư thừa, nhà ở cho công nhân, người thu nhập thấp thiếu trầm trọng.",
+    "Sai phạm trật tự xây dựng: xây không phép, sai phép, tự ý chuyển công năng (nhà ở thành phòng trọ cao tầng, chung cư mini không bảo đảm phòng cháy)."],
+    ph, dk, gy, "Camera AI, flycam chỉ phát hiện phần nhìn thấy được; vi phạm bên trong (chia phòng, chuyển công năng) phải kiểm tra trực tiếp. Số liệu nhà ở xã hội là ước tính giả định.");
+}
+
+/* ------------------------------------------------------------- hiển thị */
+var LV = [["hc", "Hành chính công", lvHanhChinh], ["gd", "Giáo dục", lvGiaoDuc], ["gt", "Giao thông", lvGiaoThong],
+          ["mt", "Môi trường", lvMoiTruong], ["yt", "Y tế", lvYTe], ["xd", "Xây dựng", lvXayDung]];
+var tab = document.getElementById("tabLV"), HIEN = "hc";
+LV.forEach(function (lv) {
+  var b = el("button", { type: "button", "class": "phu" }, lv[1]);
+  b.onclick = function () { veLai(lv[0]); try { history.replaceState(null, "", "#" + lv[0]); } catch (e) {} };
+  tab.appendChild(b);
+});
+function veLai(ma) {
+  HIEN = ma; TAT_CA = [];
+  Array.prototype.forEach.call(tab.children, function (b, i) { b.className = LV[i][0] === ma ? "" : "phu"; });
+  LV.forEach(function (lv) { if (lv[0] === ma) document.getElementById("oNoiDung").innerHTML = lv[2](); });
+}
+function taiGoiY() {
+  var hien = HIEN; TAT_CA = [];
+  LV.forEach(function (lv) { lv[2](); });
+  taiCSV("goi_y_quyet_dinh_gia_lap.csv", ["linh_vuc", "muc_uu_tien", "de_xuat", "can_cu_so_lieu", "kiem_chung", "tham_quyen", "can_cu_chinh_sach"], TAT_CA);
+  veLai(hien);
+}
+var dau = "hc";
+LV.forEach(function (lv) { if (location.hash === "#" + lv[0]) dau = lv[0]; });
+veLai(dau);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

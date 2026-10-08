@@ -1,0 +1,121 @@
+﻿chuyen_de,ma_phuong_an,ten_phuong_an,ma_tieu_chi,ten_tieu_chi,don_vi_do,huong_tot,gia_tri
+1,PA1,Giữ nguyên: cán bộ phân loại thủ công,TC1,Giảm thời gian xử lý bình quân,ngày,-1,9.4
+1,PA1,Giữ nguyên: cán bộ phân loại thủ công,TC2,Tỉ lệ phản ánh phân loại đúng,%,1,96.0
+1,PA1,Giữ nguyên: cán bộ phân loại thủ công,TC3,Chi phí năm đầu,triệu đồng,-1,180.0
+1,PA1,Giữ nguyên: cán bộ phân loại thủ công,TC4,Rủi ro lộ thông tin người phản ánh,điểm 1–5,-1,1.0
+1,PA1,Giữ nguyên: cán bộ phân loại thủ công,TC5,Thời gian triển khai,tháng,-1,0.0
+1,PA1,Giữ nguyên: cán bộ phân loại thủ công,TC6,Mức độ cán bộ làm chủ được,điểm 1–5,1,5.0
+1,PA2,"Trợ lý AI phân loại toàn bộ, không có người duyệt",TC1,Giảm thời gian xử lý bình quân,ngày,-1,2.1
+1,PA2,"Trợ lý AI phân loại toàn bộ, không có người duyệt",TC2,Tỉ lệ phản ánh phân loại đúng,%,1,86.5
+1,PA2,"Trợ lý AI phân loại toàn bộ, không có người duyệt",TC3,Chi phí năm đầu,triệu đồng,-1,640.0
+1,PA2,"Trợ lý AI phân loại toàn bộ, không có người duyệt",TC4,Rủi ro lộ thông tin người phản ánh,điểm 1–5,-1,4.0
+1,PA2,"Trợ lý AI phân loại toàn bộ, không có người duyệt",TC5,Thời gian triển khai,tháng,-1,3.0
+1,PA2,"Trợ lý AI phân loại toàn bộ, không có người duyệt",TC6,Mức độ cán bộ làm chủ được,điểm 1–5,1,2.0
+1,PA3,"Trợ lý AI phân loại, người duyệt khi độ tin cậy thấp",TC1,Giảm thời gian xử lý bình quân,ngày,-1,4.2
+1,PA3,"Trợ lý AI phân loại, người duyệt khi độ tin cậy thấp",TC2,Tỉ lệ phản ánh phân loại đúng,%,1,96.8
+1,PA3,"Trợ lý AI phân loại, người duyệt khi độ tin cậy thấp",TC3,Chi phí năm đầu,triệu đồng,-1,720.0
+1,PA3,"Trợ lý AI phân loại, người duyệt khi độ tin cậy thấp",TC4,Rủi ro lộ thông tin người phản ánh,điểm 1–5,-1,3.0
+1,PA3,"Trợ lý AI phân loại, người duyệt khi độ tin cậy thấp",TC5,Thời gian triển khai,tháng,-1,4.0
+1,PA3,"Trợ lý AI phân loại, người duyệt khi độ tin cậy thấp",TC6,Mức độ cán bộ làm chủ được,điểm 1–5,1,4.0
+1,PA4,Thuê dịch vụ tổng đài ngoài xử lý toàn bộ,TC1,Giảm thời gian xử lý bình quân,ngày,-1,5.0
+1,PA4,Thuê dịch vụ tổng đài ngoài xử lý toàn bộ,TC2,Tỉ lệ phản ánh phân loại đúng,%,1,92.0
+1,PA4,Thuê dịch vụ tổng đài ngoài xử lý toàn bộ,TC3,Chi phí năm đầu,triệu đồng,-1,1450.0
+1,PA4,Thuê dịch vụ tổng đài ngoài xử lý toàn bộ,TC4,Rủi ro lộ thông tin người phản ánh,điểm 1–5,-1,5.0
+1,PA4,Thuê dịch vụ tổng đài ngoài xử lý toàn bộ,TC5,Thời gian triển khai,tháng,-1,2.0
+1,PA4,Thuê dịch vụ tổng đài ngoài xử lý toàn bộ,TC6,Mức độ cán bộ làm chủ được,điểm 1–5,1,1.0
+2,PA1,"Giữ nguyên, tăng sĩ số các lớp hiện có",TC1,Số học sinh được giải quyết chỗ học,học sinh,1,0.0
+2,PA1,"Giữ nguyên, tăng sĩ số các lớp hiện có",TC2,Sĩ số bình quân sau phương án,học sinh/lớp,-1,47.5
+2,PA1,"Giữ nguyên, tăng sĩ số các lớp hiện có",TC3,Chi phí thực hiện,triệu đồng,-1,0.0
+2,PA1,"Giữ nguyên, tăng sĩ số các lớp hiện có",TC4,Quãng đường học sinh phải đi thêm,km,-1,0.0
+2,PA1,"Giữ nguyên, tăng sĩ số các lớp hiện có",TC5,Thời gian thực hiện,tháng,-1,0.0
+2,PA1,"Giữ nguyên, tăng sĩ số các lớp hiện có",TC6,Mức độ đồng thuận của phụ huynh,điểm 1–5,1,1.0
+2,PA2,Xây thêm 6 phòng học tại trường quá tải,TC1,Số học sinh được giải quyết chỗ học,học sinh,1,240.0
+2,PA2,Xây thêm 6 phòng học tại trường quá tải,TC2,Sĩ số bình quân sau phương án,học sinh/lớp,-1,36.2
+2,PA2,Xây thêm 6 phòng học tại trường quá tải,TC3,Chi phí thực hiện,triệu đồng,-1,7800.0
+2,PA2,Xây thêm 6 phòng học tại trường quá tải,TC4,Quãng đường học sinh phải đi thêm,km,-1,0.0
+2,PA2,Xây thêm 6 phòng học tại trường quá tải,TC5,Thời gian thực hiện,tháng,-1,18.0
+2,PA2,Xây thêm 6 phòng học tại trường quá tải,TC6,Mức độ đồng thuận của phụ huynh,điểm 1–5,1,5.0
+2,PA3,Phân tuyến lại sang trường còn chỗ trong bán kính 3 km,TC1,Số học sinh được giải quyết chỗ học,học sinh,1,186.0
+2,PA3,Phân tuyến lại sang trường còn chỗ trong bán kính 3 km,TC2,Sĩ số bình quân sau phương án,học sinh/lớp,-1,38.4
+2,PA3,Phân tuyến lại sang trường còn chỗ trong bán kính 3 km,TC3,Chi phí thực hiện,triệu đồng,-1,260.0
+2,PA3,Phân tuyến lại sang trường còn chỗ trong bán kính 3 km,TC4,Quãng đường học sinh phải đi thêm,km,-1,2.4
+2,PA3,Phân tuyến lại sang trường còn chỗ trong bán kính 3 km,TC5,Thời gian thực hiện,tháng,-1,3.0
+2,PA3,Phân tuyến lại sang trường còn chỗ trong bán kính 3 km,TC6,Mức độ đồng thuận của phụ huynh,điểm 1–5,1,2.0
+2,PA4,"Mượn phòng nhà văn hoá, mở lớp tạm 2 năm",TC1,Số học sinh được giải quyết chỗ học,học sinh,1,150.0
+2,PA4,"Mượn phòng nhà văn hoá, mở lớp tạm 2 năm",TC2,Sĩ số bình quân sau phương án,học sinh/lớp,-1,39.8
+2,PA4,"Mượn phòng nhà văn hoá, mở lớp tạm 2 năm",TC3,Chi phí thực hiện,triệu đồng,-1,1250.0
+2,PA4,"Mượn phòng nhà văn hoá, mở lớp tạm 2 năm",TC4,Quãng đường học sinh phải đi thêm,km,-1,0.8
+2,PA4,"Mượn phòng nhà văn hoá, mở lớp tạm 2 năm",TC5,Thời gian thực hiện,tháng,-1,5.0
+2,PA4,"Mượn phòng nhà văn hoá, mở lớp tạm 2 năm",TC6,Mức độ đồng thuận của phụ huynh,điểm 1–5,1,3.0
+3,PA1,Giữ nguyên chu kỳ đèn hiện tại,TC1,Giảm thời gian chờ giờ cao điểm,%,1,0.0
+3,PA1,Giữ nguyên chu kỳ đèn hiện tại,TC2,Số lượt phương tiện hưởng lợi mỗi ngày,lượt,1,0.0
+3,PA1,Giữ nguyên chu kỳ đèn hiện tại,TC3,Chi phí đầu tư,triệu đồng,-1,0.0
+3,PA1,Giữ nguyên chu kỳ đèn hiện tại,TC4,Rủi ro an toàn khi thi công,điểm 1–5,-1,1.0
+3,PA1,Giữ nguyên chu kỳ đèn hiện tại,TC5,Thời gian thi công,tuần,-1,0.0
+3,PA1,Giữ nguyên chu kỳ đèn hiện tại,TC6,Mức độ dùng lại được thiết bị hiện có,điểm 1–5,1,5.0
+3,PA2,"Chỉnh chu kỳ đèn theo số liệu cảm biến, 3 nút",TC1,Giảm thời gian chờ giờ cao điểm,%,1,18.0
+3,PA2,"Chỉnh chu kỳ đèn theo số liệu cảm biến, 3 nút",TC2,Số lượt phương tiện hưởng lợi mỗi ngày,lượt,1,41200.0
+3,PA2,"Chỉnh chu kỳ đèn theo số liệu cảm biến, 3 nút",TC3,Chi phí đầu tư,triệu đồng,-1,310.0
+3,PA2,"Chỉnh chu kỳ đèn theo số liệu cảm biến, 3 nút",TC4,Rủi ro an toàn khi thi công,điểm 1–5,-1,1.0
+3,PA2,"Chỉnh chu kỳ đèn theo số liệu cảm biến, 3 nút",TC5,Thời gian thi công,tuần,-1,2.0
+3,PA2,"Chỉnh chu kỳ đèn theo số liệu cảm biến, 3 nút",TC6,Mức độ dùng lại được thiết bị hiện có,điểm 1–5,1,5.0
+3,PA3,"Lắp đèn điều khiển thích ứng theo lưu lượng, 3 nút",TC1,Giảm thời gian chờ giờ cao điểm,%,1,31.0
+3,PA3,"Lắp đèn điều khiển thích ứng theo lưu lượng, 3 nút",TC2,Số lượt phương tiện hưởng lợi mỗi ngày,lượt,1,41200.0
+3,PA3,"Lắp đèn điều khiển thích ứng theo lưu lượng, 3 nút",TC3,Chi phí đầu tư,triệu đồng,-1,2950.0
+3,PA3,"Lắp đèn điều khiển thích ứng theo lưu lượng, 3 nút",TC4,Rủi ro an toàn khi thi công,điểm 1–5,-1,3.0
+3,PA3,"Lắp đèn điều khiển thích ứng theo lưu lượng, 3 nút",TC5,Thời gian thi công,tuần,-1,12.0
+3,PA3,"Lắp đèn điều khiển thích ứng theo lưu lượng, 3 nút",TC6,Mức độ dùng lại được thiết bị hiện có,điểm 1–5,1,3.0
+3,PA4,"Mở rộng mặt cắt và tổ chức lại giao thông, 2 nút",TC1,Giảm thời gian chờ giờ cao điểm,%,1,37.0
+3,PA4,"Mở rộng mặt cắt và tổ chức lại giao thông, 2 nút",TC2,Số lượt phương tiện hưởng lợi mỗi ngày,lượt,1,28600.0
+3,PA4,"Mở rộng mặt cắt và tổ chức lại giao thông, 2 nút",TC3,Chi phí đầu tư,triệu đồng,-1,8600.0
+3,PA4,"Mở rộng mặt cắt và tổ chức lại giao thông, 2 nút",TC4,Rủi ro an toàn khi thi công,điểm 1–5,-1,4.0
+3,PA4,"Mở rộng mặt cắt và tổ chức lại giao thông, 2 nút",TC5,Thời gian thi công,tuần,-1,26.0
+3,PA4,"Mở rộng mặt cắt và tổ chức lại giao thông, 2 nút",TC6,Mức độ dùng lại được thiết bị hiện có,điểm 1–5,1,2.0
+4,PA1,Giữ ngưỡng chung 100 cm cho cả 6 điểm,TC1,Tỉ lệ bắt được sự cố thật,%,1,81.0
+4,PA1,Giữ ngưỡng chung 100 cm cho cả 6 điểm,TC2,Tỉ lệ báo nhầm,%,-1,42.0
+4,PA1,Giữ ngưỡng chung 100 cm cho cả 6 điểm,TC3,Chi phí vận hành một năm,triệu đồng,-1,0.0
+4,PA1,Giữ ngưỡng chung 100 cm cho cả 6 điểm,TC4,Thời gian từ lúc đo tới lúc dân nhận tin,phút,-1,25.0
+4,PA1,Giữ ngưỡng chung 100 cm cho cả 6 điểm,TC5,Số điểm dân cư được phủ cảnh báo,điểm,1,6.0
+4,PA1,Giữ ngưỡng chung 100 cm cho cả 6 điểm,TC6,Mức độ phụ thuộc nhà cung cấp,điểm 1–5,-1,2.0
+4,PA2,Đặt ngưỡng riêng cho từng điểm theo số liệu,TC1,Tỉ lệ bắt được sự cố thật,%,1,86.0
+4,PA2,Đặt ngưỡng riêng cho từng điểm theo số liệu,TC2,Tỉ lệ báo nhầm,%,-1,19.0
+4,PA2,Đặt ngưỡng riêng cho từng điểm theo số liệu,TC3,Chi phí vận hành một năm,triệu đồng,-1,45.0
+4,PA2,Đặt ngưỡng riêng cho từng điểm theo số liệu,TC4,Thời gian từ lúc đo tới lúc dân nhận tin,phút,-1,25.0
+4,PA2,Đặt ngưỡng riêng cho từng điểm theo số liệu,TC5,Số điểm dân cư được phủ cảnh báo,điểm,1,6.0
+4,PA2,Đặt ngưỡng riêng cho từng điểm theo số liệu,TC6,Mức độ phụ thuộc nhà cung cấp,điểm 1–5,-1,2.0
+4,PA3,Ngưỡng riêng cộng thêm điều kiện lượng mưa 1 giờ,TC1,Tỉ lệ bắt được sự cố thật,%,1,90.0
+4,PA3,Ngưỡng riêng cộng thêm điều kiện lượng mưa 1 giờ,TC2,Tỉ lệ báo nhầm,%,-1,12.0
+4,PA3,Ngưỡng riêng cộng thêm điều kiện lượng mưa 1 giờ,TC3,Chi phí vận hành một năm,triệu đồng,-1,120.0
+4,PA3,Ngưỡng riêng cộng thêm điều kiện lượng mưa 1 giờ,TC4,Thời gian từ lúc đo tới lúc dân nhận tin,phút,-1,20.0
+4,PA3,Ngưỡng riêng cộng thêm điều kiện lượng mưa 1 giờ,TC5,Số điểm dân cư được phủ cảnh báo,điểm,1,6.0
+4,PA3,Ngưỡng riêng cộng thêm điều kiện lượng mưa 1 giờ,TC6,Mức độ phụ thuộc nhà cung cấp,điểm 1–5,-1,3.0
+4,PA4,Thuê nền tảng cảnh báo tự động của nhà cung cấp,TC1,Tỉ lệ bắt được sự cố thật,%,1,92.0
+4,PA4,Thuê nền tảng cảnh báo tự động của nhà cung cấp,TC2,Tỉ lệ báo nhầm,%,-1,15.0
+4,PA4,Thuê nền tảng cảnh báo tự động của nhà cung cấp,TC3,Chi phí vận hành một năm,triệu đồng,-1,980.0
+4,PA4,Thuê nền tảng cảnh báo tự động của nhà cung cấp,TC4,Thời gian từ lúc đo tới lúc dân nhận tin,phút,-1,6.0
+4,PA4,Thuê nền tảng cảnh báo tự động của nhà cung cấp,TC5,Số điểm dân cư được phủ cảnh báo,điểm,1,12.0
+4,PA4,Thuê nền tảng cảnh báo tự động của nhà cung cấp,TC6,Mức độ phụ thuộc nhà cung cấp,điểm 1–5,-1,5.0
+5,PA1,Giữ nguyên: ghi nhiệt độ bằng sổ hai lần mỗi ngày,TC1,Số lô vắc-xin được bảo vệ,lô,1,0.0
+5,PA1,Giữ nguyên: ghi nhiệt độ bằng sổ hai lần mỗi ngày,TC2,Thời gian phát hiện sự cố nhiệt độ,phút,-1,480.0
+5,PA1,Giữ nguyên: ghi nhiệt độ bằng sổ hai lần mỗi ngày,TC3,Chi phí đầu tư,triệu đồng,-1,0.0
+5,PA1,Giữ nguyên: ghi nhiệt độ bằng sổ hai lần mỗi ngày,TC4,Số hồ sơ trợ cấp rút ngắn được thời gian,hồ sơ,1,0.0
+5,PA1,Giữ nguyên: ghi nhiệt độ bằng sổ hai lần mỗi ngày,TC5,Rủi ro sai sót ảnh hưởng tới người dân,điểm 1–5,-1,4.0
+5,PA1,Giữ nguyên: ghi nhiệt độ bằng sổ hai lần mỗi ngày,TC6,Khả năng nhân rộng ra toàn tỉnh,điểm 1–5,1,1.0
+5,PA2,Lắp cảm biến nhiệt độ có cảnh báo cho 14 tủ,TC1,Số lô vắc-xin được bảo vệ,lô,1,14.0
+5,PA2,Lắp cảm biến nhiệt độ có cảnh báo cho 14 tủ,TC2,Thời gian phát hiện sự cố nhiệt độ,phút,-1,6.0
+5,PA2,Lắp cảm biến nhiệt độ có cảnh báo cho 14 tủ,TC3,Chi phí đầu tư,triệu đồng,-1,420.0
+5,PA2,Lắp cảm biến nhiệt độ có cảnh báo cho 14 tủ,TC4,Số hồ sơ trợ cấp rút ngắn được thời gian,hồ sơ,1,0.0
+5,PA2,Lắp cảm biến nhiệt độ có cảnh báo cho 14 tủ,TC5,Rủi ro sai sót ảnh hưởng tới người dân,điểm 1–5,-1,2.0
+5,PA2,Lắp cảm biến nhiệt độ có cảnh báo cho 14 tủ,TC6,Khả năng nhân rộng ra toàn tỉnh,điểm 1–5,1,5.0
+5,PA3,Cảm biến nhiệt độ cộng trợ lý AI sàng lọc hồ sơ trợ cấp,TC1,Số lô vắc-xin được bảo vệ,lô,1,14.0
+5,PA3,Cảm biến nhiệt độ cộng trợ lý AI sàng lọc hồ sơ trợ cấp,TC2,Thời gian phát hiện sự cố nhiệt độ,phút,-1,6.0
+5,PA3,Cảm biến nhiệt độ cộng trợ lý AI sàng lọc hồ sơ trợ cấp,TC3,Chi phí đầu tư,triệu đồng,-1,890.0
+5,PA3,Cảm biến nhiệt độ cộng trợ lý AI sàng lọc hồ sơ trợ cấp,TC4,Số hồ sơ trợ cấp rút ngắn được thời gian,hồ sơ,1,960.0
+5,PA3,Cảm biến nhiệt độ cộng trợ lý AI sàng lọc hồ sơ trợ cấp,TC5,Rủi ro sai sót ảnh hưởng tới người dân,điểm 1–5,-1,3.0
+5,PA3,Cảm biến nhiệt độ cộng trợ lý AI sàng lọc hồ sơ trợ cấp,TC6,Khả năng nhân rộng ra toàn tỉnh,điểm 1–5,1,4.0
+5,PA4,"Thay mới 4 tủ cũ nhất, chưa lắp cảm biến",TC1,Số lô vắc-xin được bảo vệ,lô,1,4.0
+5,PA4,"Thay mới 4 tủ cũ nhất, chưa lắp cảm biến",TC2,Thời gian phát hiện sự cố nhiệt độ,phút,-1,480.0
+5,PA4,"Thay mới 4 tủ cũ nhất, chưa lắp cảm biến",TC3,Chi phí đầu tư,triệu đồng,-1,1360.0
+5,PA4,"Thay mới 4 tủ cũ nhất, chưa lắp cảm biến",TC4,Số hồ sơ trợ cấp rút ngắn được thời gian,hồ sơ,1,0.0
+5,PA4,"Thay mới 4 tủ cũ nhất, chưa lắp cảm biến",TC5,Rủi ro sai sót ảnh hưởng tới người dân,điểm 1–5,-1,3.0
+5,PA4,"Thay mới 4 tủ cũ nhất, chưa lắp cảm biến",TC6,Khả năng nhân rộng ra toàn tỉnh,điểm 1–5,1,2.0

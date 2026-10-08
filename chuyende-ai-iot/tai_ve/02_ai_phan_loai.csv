@@ -1,0 +1,421 @@
+﻿ma_phan_anh,linh_vuc_nguoi_gan,linh_vuc_ai_gan,do_tin_cay,ai_dung,giay_ai_xu_ly,phut_nguoi_xu_ly
+PA00010,Cấp thoát nước,Cấp thoát nước,0.75,1,3.1,10.8
+PA00015,Hạ tầng giao thông,Hạ tầng giao thông,0.91,1,3.0,13.2
+PA00020,Thủ tục hành chính,Thủ tục hành chính,0.95,1,4.1,12.6
+PA00027,Thủ tục hành chính,Thủ tục hành chính,0.72,1,2.7,6.5
+PA00049,Hạ tầng giao thông,Trật tự đô thị,0.82,0,3.4,6.8
+PA00051,Vệ sinh môi trường,Cấp thoát nước,0.84,0,4.1,8.7
+PA00062,Thủ tục hành chính,Thủ tục hành chính,0.9,1,2.4,7.0
+PA00076,Vệ sinh môi trường,Vệ sinh môi trường,0.85,1,1.8,7.3
+PA00079,Chiếu sáng công cộng,Chiếu sáng công cộng,0.92,1,2.3,6.3
+PA00103,Hạ tầng giao thông,Hạ tầng giao thông,0.9,1,2.8,7.9
+PA00107,Trật tự đô thị,Trật tự đô thị,0.96,1,3.9,13.4
+PA00114,Trật tự đô thị,Trật tự đô thị,0.74,1,4.1,5.7
+PA00136,Cấp thoát nước,Cấp thoát nước,0.9,1,2.6,7.8
+PA00141,Trật tự đô thị,Trật tự đô thị,0.82,1,2.9,8.7
+PA00147,Vệ sinh môi trường,Vệ sinh môi trường,0.97,1,3.6,12.9
+PA00163,Cấp thoát nước,Cấp thoát nước,0.82,1,3.9,9.5
+PA00168,Vệ sinh môi trường,Cấp thoát nước,0.8,0,2.7,10.4
+PA00173,Cấp thoát nước,Cấp thoát nước,0.77,1,2.3,13.4
+PA00184,Trật tự đô thị,Trật tự đô thị,0.92,1,3.4,11.4
+PA00198,Vệ sinh môi trường,Vệ sinh môi trường,0.87,1,4.2,6.4
+PA00201,Vệ sinh môi trường,Vệ sinh môi trường,0.9,1,1.8,8.8
+PA00204,An sinh xã hội,An sinh xã hội,0.97,1,2.1,12.7
+PA00217,Cấp thoát nước,Vệ sinh môi trường,0.94,0,2.4,13.5
+PA00218,Hạ tầng giao thông,Hạ tầng giao thông,0.84,1,2.2,9.2
+PA00230,Thủ tục hành chính,Thủ tục hành chính,0.77,1,3.0,10.5
+PA00231,Vệ sinh môi trường,Vệ sinh môi trường,0.95,1,3.7,14.0
+PA00236,Cấp thoát nước,Cấp thoát nước,0.85,1,2.6,8.8
+PA00237,Hạ tầng giao thông,Hạ tầng giao thông,0.99,1,3.1,8.3
+PA00240,Chiếu sáng công cộng,Chiếu sáng công cộng,0.95,1,4.4,12.8
+PA00253,An sinh xã hội,An sinh xã hội,0.87,1,1.7,10.1
+PA00260,Vệ sinh môi trường,Vệ sinh môi trường,0.94,1,1.6,6.5
+PA00262,Vệ sinh môi trường,Vệ sinh môi trường,0.91,1,2.5,9.7
+PA00266,Khác,Khác,0.88,1,2.1,9.1
+PA00268,Thủ tục hành chính,Thủ tục hành chính,0.87,1,1.9,11.4
+PA00283,Trật tự đô thị,Trật tự đô thị,0.81,1,1.6,5.7
+PA00296,Cấp thoát nước,Cấp thoát nước,0.9,1,2.2,6.9
+PA00318,Khác,Khác,0.98,1,2.6,10.4
+PA00323,Cấp thoát nước,Cấp thoát nước,0.94,1,3.2,13.4
+PA00357,Hạ tầng giao thông,Hạ tầng giao thông,0.71,1,2.7,7.3
+PA00359,Khác,Khác,0.93,1,1.8,8.6
+PA00385,Khác,Khác,0.88,1,3.9,7.8
+PA00392,Cấp thoát nước,Vệ sinh môi trường,0.78,0,2.4,10.6
+PA00401,Cấp thoát nước,Vệ sinh môi trường,0.71,0,1.8,11.9
+PA00415,Cấp thoát nước,Cấp thoát nước,0.93,1,4.1,6.1
+PA00419,Vệ sinh môi trường,Vệ sinh môi trường,0.82,1,4.3,10.2
+PA00421,Chiếu sáng công cộng,Chiếu sáng công cộng,0.9,1,2.3,7.1
+PA00422,Trật tự đô thị,Trật tự đô thị,0.94,1,3.2,9.8
+PA00423,Chiếu sáng công cộng,Chiếu sáng công cộng,0.99,1,2.5,11.5
+PA00427,Thủ tục hành chính,Thủ tục hành chính,0.77,1,3.0,7.8
+PA00432,Thủ tục hành chính,Thủ tục hành chính,0.94,1,1.8,7.8
+PA00434,Vệ sinh môi trường,Vệ sinh môi trường,0.87,1,3.8,8.8
+PA00453,Hạ tầng giao thông,Trật tự đô thị,0.98,0,3.2,11.5
+PA00469,Trật tự đô thị,Trật tự đô thị,0.86,1,4.3,12.1
+PA00470,Hạ tầng giao thông,Hạ tầng giao thông,0.75,1,4.3,11.1
+PA00491,Chiếu sáng công cộng,Chiếu sáng công cộng,0.68,1,3.7,6.0
+PA00507,Trật tự đô thị,Trật tự đô thị,0.75,1,2.9,13.9
+PA00512,An sinh xã hội,Thủ tục hành chính,0.82,0,3.6,11.7
+PA00517,Vệ sinh môi trường,Vệ sinh môi trường,0.9,1,2.9,6.8
+PA00518,Trật tự đô thị,Trật tự đô thị,0.84,1,1.6,8.4
+PA00519,Thủ tục hành chính,Thủ tục hành chính,0.96,1,2.2,7.1
+PA00523,Vệ sinh môi trường,Vệ sinh môi trường,0.91,1,3.5,7.7
+PA00534,Vệ sinh môi trường,Vệ sinh môi trường,0.92,1,3.0,8.0
+PA00541,Trật tự đô thị,Trật tự đô thị,0.86,1,1.8,11.2
+PA00552,Cấp thoát nước,Cấp thoát nước,0.96,1,4.3,10.5
+PA00556,Cấp thoát nước,Cấp thoát nước,0.83,1,2.0,13.5
+PA00560,Trật tự đô thị,Trật tự đô thị,0.99,1,1.7,5.8
+PA00585,Hạ tầng giao thông,Hạ tầng giao thông,0.79,1,2.3,9.5
+PA00588,Trật tự đô thị,Trật tự đô thị,0.96,1,3.3,13.8
+PA00592,Trật tự đô thị,Trật tự đô thị,0.82,1,3.0,8.6
+PA00604,Cấp thoát nước,Cấp thoát nước,0.78,1,2.1,13.9
+PA00617,Thủ tục hành chính,Thủ tục hành chính,0.81,1,2.9,9.7
+PA00653,Hạ tầng giao thông,Hạ tầng giao thông,0.95,1,2.0,10.3
+PA00662,Vệ sinh môi trường,Vệ sinh môi trường,0.82,1,2.2,8.6
+PA00667,Hạ tầng giao thông,Hạ tầng giao thông,0.94,1,2.4,6.2
+PA00673,Hạ tầng giao thông,Hạ tầng giao thông,0.87,1,2.2,13.6
+PA00674,Hạ tầng giao thông,Hạ tầng giao thông,0.96,1,2.5,7.8
+PA00679,An sinh xã hội,An sinh xã hội,0.81,1,3.3,12.6
+PA00681,Chiếu sáng công cộng,Hạ tầng giao thông,0.6,0,1.6,7.6
+PA00682,Thủ tục hành chính,Thủ tục hành chính,0.8,1,2.5,7.5
+PA00691,An sinh xã hội,An sinh xã hội,0.89,1,4.3,9.8
+PA00695,Cấp thoát nước,Cấp thoát nước,0.97,1,3.5,13.6
+PA00700,Vệ sinh môi trường,Vệ sinh môi trường,0.93,1,3.9,6.7
+PA00702,Cấp thoát nước,Cấp thoát nước,0.9,1,2.3,7.2
+PA00712,Trật tự đô thị,Trật tự đô thị,0.96,1,3.1,11.1
+PA00728,Thủ tục hành chính,Thủ tục hành chính,0.99,1,2.9,13.5
+PA00738,Cấp thoát nước,Cấp thoát nước,0.98,1,2.9,9.3
+PA00755,Thủ tục hành chính,Khác,0.59,0,3.1,11.7
+PA00756,Thủ tục hành chính,Khác,0.74,0,3.4,8.2
+PA00760,An sinh xã hội,An sinh xã hội,0.97,1,2.0,10.6
+PA00784,Trật tự đô thị,Hạ tầng giao thông,0.89,0,3.5,12.5
+PA00791,Trật tự đô thị,Trật tự đô thị,0.88,1,2.7,14.0
+PA00824,Thủ tục hành chính,Thủ tục hành chính,0.91,1,3.1,12.9
+PA00830,Cấp thoát nước,Cấp thoát nước,0.93,1,3.1,9.3
+PA00838,Vệ sinh môi trường,Vệ sinh môi trường,0.93,1,3.8,9.5
+PA00840,Thủ tục hành chính,Thủ tục hành chính,0.9,1,3.5,11.7
+PA00844,An sinh xã hội,An sinh xã hội,0.83,1,2.5,7.9
+PA00854,Hạ tầng giao thông,Hạ tầng giao thông,0.82,1,2.5,11.9
+PA00857,Cấp thoát nước,Cấp thoát nước,0.89,1,2.5,14.0
+PA00867,Hạ tầng giao thông,Trật tự đô thị,0.91,0,2.4,12.3
+PA00873,Hạ tầng giao thông,Hạ tầng giao thông,0.75,1,3.0,5.9
+PA00879,Thủ tục hành chính,Thủ tục hành chính,0.85,1,2.1,9.9
+PA00883,Vệ sinh môi trường,Cấp thoát nước,0.71,0,2.4,8.5
+PA00902,Chiếu sáng công cộng,Chiếu sáng công cộng,0.77,1,3.9,12.3
+PA00915,Trật tự đô thị,Trật tự đô thị,0.83,1,3.5,11.1
+PA00916,Chiếu sáng công cộng,Hạ tầng giao thông,0.92,0,1.9,12.4
+PA00923,Trật tự đô thị,Trật tự đô thị,0.91,1,1.9,6.8
+PA00925,Thủ tục hành chính,Thủ tục hành chính,0.86,1,1.7,5.7
+PA00932,Hạ tầng giao thông,Hạ tầng giao thông,0.84,1,3.1,13.7
+PA00935,Cấp thoát nước,Vệ sinh môi trường,0.9,0,4.0,9.7
+PA00948,Hạ tầng giao thông,Hạ tầng giao thông,0.64,1,3.1,5.5
+PA00957,Thủ tục hành chính,Thủ tục hành chính,0.94,1,2.2,9.8
+PA00958,Hạ tầng giao thông,Hạ tầng giao thông,0.96,1,2.0,13.3
+PA01000,Khác,Khác,0.87,1,3.5,10.0
+PA01010,Hạ tầng giao thông,Hạ tầng giao thông,0.65,1,2.1,10.0
+PA01014,Trật tự đô thị,Trật tự đô thị,0.94,1,4.4,11.0
+PA01018,Thủ tục hành chính,Thủ tục hành chính,0.88,1,4.2,12.5
+PA01023,Chiếu sáng công cộng,Chiếu sáng công cộng,0.79,1,4.4,10.4
+PA01051,Hạ tầng giao thông,Hạ tầng giao thông,0.76,1,3.8,10.3
+PA01063,Hạ tầng giao thông,Hạ tầng giao thông,0.83,1,4.1,11.3
+PA01065,Thủ tục hành chính,Thủ tục hành chính,0.97,1,4.4,8.0
+PA01077,Hạ tầng giao thông,Hạ tầng giao thông,0.95,1,3.3,9.9
+PA01078,Trật tự đô thị,Trật tự đô thị,0.95,1,3.9,6.6
+PA01091,Cấp thoát nước,Cấp thoát nước,0.8,1,2.0,10.2
+PA01101,Hạ tầng giao thông,Hạ tầng giao thông,0.89,1,3.6,9.2
+PA01107,Hạ tầng giao thông,Trật tự đô thị,0.96,0,1.9,5.8
+PA01109,An sinh xã hội,An sinh xã hội,0.92,1,3.1,11.4
+PA01112,Cấp thoát nước,Cấp thoát nước,0.82,1,2.7,9.1
+PA01119,Vệ sinh môi trường,Vệ sinh môi trường,0.96,1,4.0,12.4
+PA01133,Hạ tầng giao thông,Hạ tầng giao thông,0.87,1,2.7,9.4
+PA01145,Chiếu sáng công cộng,Chiếu sáng công cộng,0.91,1,3.5,12.3
+PA01155,Khác,Khác,0.93,1,2.4,10.6
+PA01159,Chiếu sáng công cộng,Chiếu sáng công cộng,0.94,1,1.7,7.6
+PA01178,Hạ tầng giao thông,Hạ tầng giao thông,0.91,1,1.9,10.6
+PA01185,Hạ tầng giao thông,Trật tự đô thị,0.85,0,4.3,7.2
+PA01190,Vệ sinh môi trường,Vệ sinh môi trường,0.94,1,2.7,7.2
+PA01193,Chiếu sáng công cộng,Chiếu sáng công cộng,0.98,1,2.6,9.6
+PA01229,Vệ sinh môi trường,Vệ sinh môi trường,0.91,1,3.3,7.7
+PA01238,Chiếu sáng công cộng,Chiếu sáng công cộng,0.82,1,3.8,7.2
+PA01270,Thủ tục hành chính,Thủ tục hành chính,0.94,1,3.5,8.0
+PA01287,Chiếu sáng công cộng,Chiếu sáng công cộng,0.87,1,3.1,13.3
+PA01300,Trật tự đô thị,Hạ tầng giao thông,0.68,0,1.6,12.3
+PA01316,Khác,Thủ tục hành chính,0.75,0,2.4,6.5
+PA01338,Khác,Khác,0.96,1,2.1,8.9
+PA01351,Cấp thoát nước,Cấp thoát nước,0.72,1,3.9,13.4
+PA01353,Thủ tục hành chính,Thủ tục hành chính,0.79,1,2.5,5.9
+PA01361,Trật tự đô thị,Trật tự đô thị,0.77,1,4.3,7.8
+PA01389,Khác,Khác,0.75,1,2.0,7.4
+PA01396,Vệ sinh môi trường,Vệ sinh môi trường,0.95,1,2.8,12.9
+PA01409,Trật tự đô thị,Trật tự đô thị,0.98,1,4.4,8.9
+PA01421,Cấp thoát nước,Cấp thoát nước,0.92,1,2.9,9.2
+PA01441,Cấp thoát nước,Cấp thoát nước,0.72,1,2.1,8.2
+PA01447,Hạ tầng giao thông,Hạ tầng giao thông,0.77,1,2.9,8.1
+PA01448,Trật tự đô thị,Trật tự đô thị,0.88,1,3.0,13.7
+PA01456,Trật tự đô thị,Trật tự đô thị,0.94,1,2.6,9.0
+PA01463,Vệ sinh môi trường,Vệ sinh môi trường,0.95,1,3.7,12.8
+PA01466,Hạ tầng giao thông,Hạ tầng giao thông,0.88,1,3.4,11.6
+PA01478,Vệ sinh môi trường,Vệ sinh môi trường,0.79,1,2.7,10.4
+PA01500,Trật tự đô thị,Trật tự đô thị,0.86,1,2.5,11.8
+PA01533,An sinh xã hội,An sinh xã hội,0.89,1,2.2,9.7
+PA01549,Vệ sinh môi trường,Vệ sinh môi trường,0.76,1,3.9,12.6
+PA01552,An sinh xã hội,An sinh xã hội,0.96,1,2.9,6.4
+PA01565,Hạ tầng giao thông,Hạ tầng giao thông,0.96,1,2.7,8.0
+PA01602,Vệ sinh môi trường,Vệ sinh môi trường,0.85,1,2.3,11.3
+PA01617,Khác,Khác,0.81,1,1.7,13.2
+PA01627,Vệ sinh môi trường,Vệ sinh môi trường,0.89,1,3.3,7.7
+PA01644,Cấp thoát nước,Cấp thoát nước,0.91,1,3.2,7.9
+PA01648,Vệ sinh môi trường,Vệ sinh môi trường,0.94,1,2.7,7.4
+PA01653,Thủ tục hành chính,Thủ tục hành chính,0.97,1,2.9,5.6
+PA01660,Vệ sinh môi trường,Vệ sinh môi trường,0.73,1,1.9,6.4
+PA01674,Chiếu sáng công cộng,Hạ tầng giao thông,0.8,0,2.0,13.7
+PA01684,Trật tự đô thị,Trật tự đô thị,0.97,1,3.6,6.0
+PA01691,Vệ sinh môi trường,Vệ sinh môi trường,0.86,1,2.7,13.2
+PA01718,Khác,Khác,0.9,1,4.1,10.4
+PA01727,Thủ tục hành chính,Thủ tục hành chính,0.86,1,4.2,12.2
+PA01748,Khác,Thủ tục hành chính,0.71,0,1.8,13.7
+PA01751,Cấp thoát nước,Cấp thoát nước,0.83,1,2.8,9.1
+PA01762,Thủ tục hành chính,Thủ tục hành chính,0.86,1,4.4,12.8
+PA01764,Trật tự đô thị,Trật tự đô thị,0.9,1,3.3,11.7
+PA01786,Trật tự đô thị,Trật tự đô thị,0.65,1,2.0,8.1
+PA01789,Chiếu sáng công cộng,Chiếu sáng công cộng,0.97,1,4.1,10.3
+PA01810,Cấp thoát nước,Cấp thoát nước,0.94,1,1.8,6.9
+PA01823,Hạ tầng giao thông,Hạ tầng giao thông,0.93,1,3.2,10.1
+PA01836,Hạ tầng giao thông,Hạ tầng giao thông,0.86,1,4.0,5.9
+PA01838,Thủ tục hành chính,Thủ tục hành chính,0.77,1,2.4,6.2
+PA01844,Hạ tầng giao thông,Hạ tầng giao thông,0.84,1,3.1,12.9
+PA01847,Hạ tầng giao thông,Hạ tầng giao thông,0.82,1,2.7,6.3
+PA01851,Hạ tầng giao thông,Hạ tầng giao thông,0.95,1,4.1,12.3
+PA01852,Khác,Khác,0.97,1,2.3,12.0
+PA01862,Trật tự đô thị,Hạ tầng giao thông,0.92,0,3.9,5.9
+PA01896,Thủ tục hành chính,Thủ tục hành chính,0.72,1,4.3,10.7
+PA01897,Hạ tầng giao thông,Hạ tầng giao thông,0.91,1,4.3,13.0
+PA01908,Cấp thoát nước,Cấp thoát nước,0.83,1,3.6,14.0
+PA01918,Chiếu sáng công cộng,Chiếu sáng công cộng,0.67,1,3.5,13.2
+PA01931,Khác,Khác,0.91,1,3.4,7.9
+PA01943,Chiếu sáng công cộng,Chiếu sáng công cộng,0.85,1,3.2,6.7
+PA01944,Khác,Khác,0.93,1,3.3,8.8
+PA01958,Hạ tầng giao thông,Hạ tầng giao thông,0.59,1,3.9,10.8
+PA01959,Chiếu sáng công cộng,Hạ tầng giao thông,0.65,0,3.9,9.2
+PA01974,Vệ sinh môi trường,Vệ sinh môi trường,0.85,1,2.3,10.8
+PA01976,Trật tự đô thị,Trật tự đô thị,0.74,1,3.1,5.6
+PA01982,Thủ tục hành chính,Thủ tục hành chính,0.92,1,2.0,11.4
+PA01992,Trật tự đô thị,Trật tự đô thị,0.88,1,2.7,13.7
+PA01994,Hạ tầng giao thông,Hạ tầng giao thông,0.74,1,2.9,11.7
+PA02003,Hạ tầng giao thông,Hạ tầng giao thông,0.79,1,4.2,8.2
+PA02023,Cấp thoát nước,Cấp thoát nước,0.94,1,2.4,9.5
+PA02061,Cấp thoát nước,Cấp thoát nước,0.95,1,3.1,8.8
+PA02089,Thủ tục hành chính,Thủ tục hành chính,0.87,1,3.2,10.3
+PA02091,Hạ tầng giao thông,Hạ tầng giao thông,0.91,1,3.7,8.0
+PA02093,Hạ tầng giao thông,Hạ tầng giao thông,0.9,1,1.8,10.2
+PA02101,Cấp thoát nước,Cấp thoát nước,0.95,1,2.0,13.8
+PA02104,Vệ sinh môi trường,Vệ sinh môi trường,0.86,1,3.9,8.5
+PA02111,Trật tự đô thị,Trật tự đô thị,0.94,1,3.2,8.0
+PA02120,Trật tự đô thị,Trật tự đô thị,0.95,1,4.1,7.1
+PA02124,Vệ sinh môi trường,Vệ sinh môi trường,0.99,1,3.3,9.9
+PA02134,Vệ sinh môi trường,Vệ sinh môi trường,0.65,1,2.3,8.0
+PA02138,Thủ tục hành chính,Thủ tục hành chính,0.82,1,2.1,7.3
+PA02144,Vệ sinh môi trường,Vệ sinh môi trường,0.79,1,3.2,13.9
+PA02154,Trật tự đô thị,Trật tự đô thị,0.8,1,3.7,9.7
+PA02160,Chiếu sáng công cộng,Chiếu sáng công cộng,0.91,1,4.0,8.1
+PA02168,Trật tự đô thị,Trật tự đô thị,0.85,1,3.6,7.5
+PA02173,Hạ tầng giao thông,Hạ tầng giao thông,0.92,1,2.4,13.4
+PA02194,Vệ sinh môi trường,Vệ sinh môi trường,0.71,1,1.9,10.9
+PA02196,Vệ sinh môi trường,Vệ sinh môi trường,0.9,1,3.0,9.8
+PA02203,Vệ sinh môi trường,Vệ sinh môi trường,0.83,1,2.1,11.2
+PA02210,Trật tự đô thị,Trật tự đô thị,0.89,1,2.3,12.5
+PA02211,Trật tự đô thị,Trật tự đô thị,0.97,1,1.8,11.2
+PA02223,Trật tự đô thị,Trật tự đô thị,0.93,1,2.4,6.8
+PA02244,Chiếu sáng công cộng,Chiếu sáng công cộng,0.79,1,4.1,5.6
+PA02248,Hạ tầng giao thông,Hạ tầng giao thông,0.88,1,1.7,11.2
+PA02273,Cấp thoát nước,Cấp thoát nước,0.91,1,1.9,7.4
+PA02278,Chiếu sáng công cộng,Chiếu sáng công cộng,0.68,1,1.9,8.4
+PA02284,Thủ tục hành chính,Thủ tục hành chính,0.86,1,2.6,7.6
+PA02292,Hạ tầng giao thông,Trật tự đô thị,0.94,0,2.2,13.1
+PA02316,Chiếu sáng công cộng,Chiếu sáng công cộng,0.99,1,2.8,6.1
+PA02324,Trật tự đô thị,Trật tự đô thị,0.98,1,3.3,6.4
+PA02330,Thủ tục hành chính,Thủ tục hành chính,0.88,1,2.2,7.7
+PA02335,An sinh xã hội,An sinh xã hội,0.83,1,3.9,6.5
+PA02346,Khác,Khác,0.64,1,3.4,11.1
+PA02347,An sinh xã hội,An sinh xã hội,0.83,1,3.1,10.3
+PA02355,Cấp thoát nước,Cấp thoát nước,0.78,1,1.8,6.8
+PA02370,Chiếu sáng công cộng,Hạ tầng giao thông,0.77,0,2.9,10.5
+PA02382,Trật tự đô thị,Trật tự đô thị,0.99,1,3.2,13.5
+PA02396,Khác,Khác,0.94,1,2.2,10.4
+PA02400,Hạ tầng giao thông,Hạ tầng giao thông,0.84,1,3.1,7.5
+PA02403,Khác,Khác,0.92,1,2.4,6.6
+PA02423,An sinh xã hội,An sinh xã hội,0.92,1,2.2,7.8
+PA02460,Cấp thoát nước,Cấp thoát nước,0.93,1,3.4,6.8
+PA02463,Vệ sinh môi trường,Vệ sinh môi trường,0.96,1,4.1,11.7
+PA02470,Chiếu sáng công cộng,Chiếu sáng công cộng,0.79,1,3.9,8.9
+PA02471,Thủ tục hành chính,Thủ tục hành chính,0.93,1,3.3,13.3
+PA02476,Cấp thoát nước,Cấp thoát nước,0.91,1,2.3,7.1
+PA02490,Trật tự đô thị,Trật tự đô thị,0.97,1,3.0,6.9
+PA02501,An sinh xã hội,An sinh xã hội,0.85,1,3.5,6.4
+PA02518,Cấp thoát nước,Vệ sinh môi trường,0.65,0,2.9,11.3
+PA02523,Hạ tầng giao thông,Hạ tầng giao thông,0.96,1,2.4,11.8
+PA02539,An sinh xã hội,An sinh xã hội,0.78,1,1.9,13.5
+PA02543,Vệ sinh môi trường,Vệ sinh môi trường,0.96,1,3.3,12.3
+PA02548,Hạ tầng giao thông,Hạ tầng giao thông,0.91,1,2.1,13.1
+PA02567,Vệ sinh môi trường,Vệ sinh môi trường,0.9,1,2.3,12.3
+PA02568,Cấp thoát nước,Cấp thoát nước,0.78,1,3.5,10.3
+PA02569,Chiếu sáng công cộng,Chiếu sáng công cộng,0.79,1,3.1,7.9
+PA02570,Trật tự đô thị,Trật tự đô thị,0.91,1,3.0,5.6
+PA02574,Trật tự đô thị,Trật tự đô thị,0.65,1,1.6,9.1
+PA02576,Hạ tầng giao thông,Hạ tầng giao thông,0.87,1,3.9,11.3
+PA02579,Vệ sinh môi trường,Vệ sinh môi trường,0.95,1,3.7,7.4
+PA02593,Thủ tục hành chính,Thủ tục hành chính,0.91,1,3.1,7.0
+PA02603,Trật tự đô thị,Trật tự đô thị,0.94,1,2.0,13.2
+PA02615,Cấp thoát nước,Vệ sinh môi trường,0.75,0,2.8,8.1
+PA02641,Thủ tục hành chính,Thủ tục hành chính,0.63,1,1.7,5.5
+PA02654,Cấp thoát nước,Cấp thoát nước,0.89,1,2.8,13.8
+PA02660,Vệ sinh môi trường,Vệ sinh môi trường,0.87,1,4.0,13.0
+PA02662,An sinh xã hội,An sinh xã hội,0.78,1,3.7,12.7
+PA02670,Cấp thoát nước,Cấp thoát nước,0.97,1,2.6,13.3
+PA02685,An sinh xã hội,Thủ tục hành chính,0.91,0,2.1,7.7
+PA02689,Vệ sinh môi trường,Vệ sinh môi trường,0.92,1,3.3,11.2
+PA02706,Trật tự đô thị,Trật tự đô thị,0.82,1,4.0,13.4
+PA02716,Hạ tầng giao thông,Hạ tầng giao thông,0.95,1,2.0,9.4
+PA02719,Cấp thoát nước,Cấp thoát nước,0.85,1,2.5,8.1
+PA02722,Hạ tầng giao thông,Hạ tầng giao thông,0.9,1,2.4,9.4
+PA02734,Thủ tục hành chính,Thủ tục hành chính,0.82,1,2.5,12.3
+PA02742,Hạ tầng giao thông,Hạ tầng giao thông,0.85,1,1.6,9.9
+PA02747,Thủ tục hành chính,Thủ tục hành chính,0.98,1,2.3,7.3
+PA02748,Hạ tầng giao thông,Trật tự đô thị,0.78,0,3.4,13.8
+PA02753,Hạ tầng giao thông,Hạ tầng giao thông,0.94,1,3.1,9.7
+PA02761,Hạ tầng giao thông,Hạ tầng giao thông,0.78,1,2.0,13.5
+PA02775,Vệ sinh môi trường,Vệ sinh môi trường,0.87,1,3.8,11.2
+PA02782,Vệ sinh môi trường,Vệ sinh môi trường,0.77,1,2.0,10.5
+PA02786,Cấp thoát nước,Cấp thoát nước,0.94,1,2.3,9.0
+PA02820,Trật tự đô thị,Trật tự đô thị,0.93,1,2.3,13.7
+PA02824,Vệ sinh môi trường,Vệ sinh môi trường,0.83,1,4.1,9.3
+PA02829,Trật tự đô thị,Trật tự đô thị,0.84,1,3.9,9.8
+PA02835,Chiếu sáng công cộng,Hạ tầng giao thông,0.64,0,2.6,7.2
+PA02851,Cấp thoát nước,Cấp thoát nước,0.88,1,4.0,6.0
+PA02862,Thủ tục hành chính,Thủ tục hành chính,0.91,1,4.1,9.0
+PA02874,Hạ tầng giao thông,Hạ tầng giao thông,0.99,1,2.1,7.2
+PA02876,Trật tự đô thị,Trật tự đô thị,0.93,1,3.8,12.1
+PA02891,Hạ tầng giao thông,Hạ tầng giao thông,0.84,1,3.0,11.4
+PA02905,Hạ tầng giao thông,Hạ tầng giao thông,0.72,1,2.7,7.6
+PA02915,Hạ tầng giao thông,Hạ tầng giao thông,0.73,1,2.8,10.6
+PA02921,Hạ tầng giao thông,Trật tự đô thị,0.6,0,2.9,5.9
+PA02961,Hạ tầng giao thông,Hạ tầng giao thông,0.96,1,3.5,8.4
+PA02965,Vệ sinh môi trường,Vệ sinh môi trường,0.95,1,2.5,6.9
+PA02982,Khác,Khác,0.97,1,3.9,8.7
+PA02983,Trật tự đô thị,Trật tự đô thị,0.77,1,3.3,12.0
+PA02984,Vệ sinh môi trường,Vệ sinh môi trường,0.97,1,3.7,13.3
+PA02998,Hạ tầng giao thông,Hạ tầng giao thông,0.9,1,3.8,10.7
+PA03002,Cấp thoát nước,Vệ sinh môi trường,0.81,0,2.9,10.5
+PA03006,Trật tự đô thị,Trật tự đô thị,0.92,1,2.1,8.7
+PA03017,Hạ tầng giao thông,Hạ tầng giao thông,0.87,1,3.9,8.0
+PA03030,Cấp thoát nước,Cấp thoát nước,0.71,1,2.5,7.7
+PA03038,Cấp thoát nước,Cấp thoát nước,0.96,1,1.8,13.3
+PA03055,Chiếu sáng công cộng,Chiếu sáng công cộng,0.9,1,4.4,12.4
+PA03071,Thủ tục hành chính,Khác,0.88,0,3.8,8.2
+PA03093,Khác,Khác,0.87,1,2.4,9.6
+PA03104,Trật tự đô thị,Trật tự đô thị,0.82,1,2.4,6.4
+PA03108,Cấp thoát nước,Cấp thoát nước,0.97,1,4.0,10.0
+PA03146,Chiếu sáng công cộng,Hạ tầng giao thông,0.91,0,2.7,12.2
+PA03160,An sinh xã hội,Thủ tục hành chính,0.76,0,2.8,7.8
+PA03161,Thủ tục hành chính,Thủ tục hành chính,0.93,1,3.3,12.3
+PA03163,Hạ tầng giao thông,Hạ tầng giao thông,0.81,1,3.6,5.8
+PA03170,Hạ tầng giao thông,Hạ tầng giao thông,0.91,1,3.5,9.6
+PA03171,Trật tự đô thị,Trật tự đô thị,0.96,1,3.5,5.8
+PA03173,Cấp thoát nước,Cấp thoát nước,0.91,1,2.4,11.2
+PA03189,Chiếu sáng công cộng,Chiếu sáng công cộng,0.94,1,3.7,9.4
+PA03192,Vệ sinh môi trường,Vệ sinh môi trường,0.96,1,3.2,9.8
+PA03214,Vệ sinh môi trường,Vệ sinh môi trường,0.93,1,3.6,10.9
+PA03229,Vệ sinh môi trường,Vệ sinh môi trường,0.96,1,3.7,11.6
+PA03230,Vệ sinh môi trường,Vệ sinh môi trường,0.85,1,4.4,10.1
+PA03236,An sinh xã hội,An sinh xã hội,0.71,1,2.9,9.8
+PA03237,Vệ sinh môi trường,Vệ sinh môi trường,0.93,1,1.8,7.5
+PA03238,Vệ sinh môi trường,Vệ sinh môi trường,0.71,1,3.7,7.4
+PA03240,Hạ tầng giao thông,Hạ tầng giao thông,0.92,1,4.4,12.7
+PA03241,Hạ tầng giao thông,Hạ tầng giao thông,0.93,1,1.9,12.1
+PA03243,Hạ tầng giao thông,Hạ tầng giao thông,0.99,1,3.1,5.8
+PA03273,Hạ tầng giao thông,Hạ tầng giao thông,0.93,1,2.8,10.6
+PA03300,Trật tự đô thị,Trật tự đô thị,0.91,1,3.3,8.0
+PA03319,Thủ tục hành chính,Khác,0.88,0,2.6,10.9
+PA03333,Vệ sinh môi trường,Vệ sinh môi trường,0.92,1,3.1,5.5
+PA03347,Hạ tầng giao thông,Hạ tầng giao thông,0.85,1,2.2,7.6
+PA03349,Thủ tục hành chính,Thủ tục hành chính,0.88,1,3.5,13.0
+PA03351,Hạ tầng giao thông,Hạ tầng giao thông,0.85,1,3.9,10.1
+PA03354,Hạ tầng giao thông,Hạ tầng giao thông,0.87,1,2.0,13.3
+PA03359,Trật tự đô thị,Trật tự đô thị,0.92,1,4.4,13.5
+PA03388,Thủ tục hành chính,Thủ tục hành chính,0.8,1,3.6,8.1
+PA03397,Chiếu sáng công cộng,Chiếu sáng công cộng,0.9,1,2.3,8.4
+PA03409,Hạ tầng giao thông,Hạ tầng giao thông,0.88,1,2.4,9.0
+PA03415,Chiếu sáng công cộng,Chiếu sáng công cộng,0.84,1,3.0,11.9
+PA03417,Trật tự đô thị,Trật tự đô thị,0.91,1,2.3,6.8
+PA03447,An sinh xã hội,An sinh xã hội,0.9,1,4.4,11.1
+PA03448,Thủ tục hành chính,Thủ tục hành chính,0.94,1,3.7,7.4
+PA03453,Hạ tầng giao thông,Hạ tầng giao thông,0.76,1,1.6,13.0
+PA03456,An sinh xã hội,An sinh xã hội,0.86,1,2.8,13.9
+PA03461,Chiếu sáng công cộng,Hạ tầng giao thông,0.9,0,3.2,11.2
+PA03465,Vệ sinh môi trường,Vệ sinh môi trường,0.88,1,1.8,13.9
+PA03494,An sinh xã hội,An sinh xã hội,0.97,1,4.1,8.6
+PA03517,Hạ tầng giao thông,Hạ tầng giao thông,0.86,1,3.9,9.2
+PA03530,Khác,Khác,0.92,1,1.6,6.4
+PA03532,Trật tự đô thị,Hạ tầng giao thông,0.77,0,2.0,11.8
+PA03554,Hạ tầng giao thông,Hạ tầng giao thông,0.93,1,2.8,7.6
+PA03557,Khác,Khác,0.95,1,2.8,13.3
+PA03570,Hạ tầng giao thông,Hạ tầng giao thông,0.67,1,4.1,7.2
+PA03585,Vệ sinh môi trường,Vệ sinh môi trường,0.92,1,3.0,7.3
+PA03594,An sinh xã hội,Thủ tục hành chính,0.78,0,3.4,11.6
+PA03596,Thủ tục hành chính,Thủ tục hành chính,0.88,1,1.8,11.7
+PA03602,Hạ tầng giao thông,Hạ tầng giao thông,0.97,1,4.0,10.5
+PA03630,An sinh xã hội,Thủ tục hành chính,0.84,0,2.3,8.8
+PA03632,Khác,Khác,0.91,1,2.9,7.7
+PA03646,Cấp thoát nước,Vệ sinh môi trường,0.9,0,2.1,5.7
+PA03652,Trật tự đô thị,Trật tự đô thị,0.95,1,1.9,7.0
+PA03656,Thủ tục hành chính,Thủ tục hành chính,0.94,1,3.5,12.3
+PA03678,Khác,Khác,0.96,1,3.4,11.7
+PA03689,Thủ tục hành chính,Thủ tục hành chính,0.79,1,2.2,13.8
+PA03691,Trật tự đô thị,Trật tự đô thị,0.84,1,3.9,12.0
+PA03699,Vệ sinh môi trường,Vệ sinh môi trường,0.89,1,3.7,10.7
+PA03723,Hạ tầng giao thông,Hạ tầng giao thông,0.94,1,2.9,7.9
+PA03724,Chiếu sáng công cộng,Chiếu sáng công cộng,0.82,1,2.0,10.4
+PA03750,Trật tự đô thị,Trật tự đô thị,0.93,1,2.6,9.5
+PA03780,Vệ sinh môi trường,Vệ sinh môi trường,0.85,1,3.5,8.1
+PA03785,Vệ sinh môi trường,Vệ sinh môi trường,0.76,1,3.2,13.5
+PA03788,Thủ tục hành chính,Thủ tục hành chính,0.8,1,3.7,12.5
+PA03799,Vệ sinh môi trường,Vệ sinh môi trường,0.77,1,4.3,9.1
+PA03826,Vệ sinh môi trường,Vệ sinh môi trường,0.88,1,2.0,8.3
+PA03827,Thủ tục hành chính,Thủ tục hành chính,0.8,1,3.0,12.0
+PA03829,Trật tự đô thị,Trật tự đô thị,0.85,1,3.4,12.3
+PA03835,An sinh xã hội,An sinh xã hội,0.9,1,3.4,8.0
+PA03847,Hạ tầng giao thông,Hạ tầng giao thông,0.88,1,3.2,10.6
+PA03863,Vệ sinh môi trường,Vệ sinh môi trường,0.93,1,2.1,7.5
+PA03869,Hạ tầng giao thông,Hạ tầng giao thông,0.86,1,2.5,5.9
+PA03897,Trật tự đô thị,Trật tự đô thị,0.92,1,4.3,10.8
+PA03910,Hạ tầng giao thông,Hạ tầng giao thông,0.93,1,3.3,13.1
+PA03924,Khác,Khác,0.83,1,1.9,9.0
+PA03942,Thủ tục hành chính,Thủ tục hành chính,0.89,1,3.3,9.4
+PA03953,Chiếu sáng công cộng,Chiếu sáng công cộng,0.89,1,4.3,6.5
+PA03954,Hạ tầng giao thông,Hạ tầng giao thông,0.97,1,2.3,5.8
+PA03962,Hạ tầng giao thông,Hạ tầng giao thông,0.81,1,1.7,8.7
+PA03967,Hạ tầng giao thông,Hạ tầng giao thông,0.89,1,3.4,13.3
+PA03969,Hạ tầng giao thông,Hạ tầng giao thông,0.94,1,2.0,11.7
+PA03971,Trật tự đô thị,Trật tự đô thị,0.76,1,1.6,12.7
+PA03977,Vệ sinh môi trường,Vệ sinh môi trường,0.74,1,3.1,8.1
+PA03981,Hạ tầng giao thông,Hạ tầng giao thông,0.88,1,4.1,13.8
+PA03986,Hạ tầng giao thông,Hạ tầng giao thông,0.71,1,1.7,12.3
+PA04005,Thủ tục hành chính,Thủ tục hành chính,0.94,1,2.0,10.4
+PA04015,Trật tự đô thị,Trật tự đô thị,0.84,1,4.1,12.8
+PA04019,Khác,Khác,0.79,1,1.8,9.5
+PA04024,Hạ tầng giao thông,Trật tự đô thị,0.8,0,4.2,8.6
+PA04042,Cấp thoát nước,Vệ sinh môi trường,0.85,0,2.8,7.4
+PA04052,Hạ tầng giao thông,Trật tự đô thị,0.89,0,4.3,11.2
+PA04053,Trật tự đô thị,Hạ tầng giao thông,0.88,0,4.0,10.3
+PA04065,Vệ sinh môi trường,Vệ sinh môi trường,0.96,1,2.6,5.6
+PA04088,Vệ sinh môi trường,Vệ sinh môi trường,0.78,1,2.9,12.2
+PA04092,Trật tự đô thị,Trật tự đô thị,0.9,1,2.3,11.6
+PA04112,An sinh xã hội,An sinh xã hội,0.92,1,1.9,6.2
+PA04113,Vệ sinh môi trường,Vệ sinh môi trường,0.76,1,2.1,9.9
+PA04114,Hạ tầng giao thông,Trật tự đô thị,0.79,0,3.0,8.0
+PA04116,Trật tự đô thị,Hạ tầng giao thông,0.91,0,3.9,9.1
+PA04122,Hạ tầng giao thông,Hạ tầng giao thông,0.94,1,2.9,6.3
+PA04137,Hạ tầng giao thông,Hạ tầng giao thông,0.77,1,3.3,7.3
+PA04147,Thủ tục hành chính,Thủ tục hành chính,0.93,1,3.6,11.0
+PA04153,Cấp thoát nước,Cấp thoát nước,0.95,1,1.6,9.8
+PA04157,Thủ tục hành chính,Thủ tục hành chính,0.66,1,3.2,9.0

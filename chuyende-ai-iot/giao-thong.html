@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cảm biến giao thông — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Dữ liệu cảm biến giao thông">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("giao-thong.html");</script>
+
+<main class="bao">
+  <h1>Chuyên đề 03 — Dữ liệu cảm biến IoT tại nút giao</h1>
+
+  <div class="hop">
+    <b>Vai trò của bạn:</b> Trưởng phòng Quản lý đô thị.
+    <b>Quyết định phải đưa ra:</b> chọn 3 trong 8 nút giao để xử lý trong năm,
+    khi ngân sách chỉ đủ cho 3 nút.
+  </div>
+
+  <h2>Chất lượng dữ liệu cảm biến</h2>
+  <div class="luoi luoi-4" id="oTomTat"></div>
+
+  <h2 id="otrong">Ô trống hay số 0 — thử bật tắt để thấy hậu quả</h2>
+  <div class="hop hop-do">
+    <b>Sai lầm tốn kém nhất của dữ liệu cảm biến.</b> Khi cảm biến mất tín hiệu,
+    bảng để trống. Nếu phần mềm tổng hợp coi ô trống là 0 xe, lưu lượng trung
+    bình tụt xuống và báo cáo sẽ kết luận “đường đang vắng, không cần can thiệp”.
+    Bật công tắc dưới đây để thấy con số thay đổi thế nào.
+  </div>
+  <div class="hang-dk">
+    <div>
+      <label for="cbOTrong">Cách xử lý ô trống</label>
+      <select id="cbOTrong" onchange="veNut()">
+        <option value="bo">Đúng — loại khỏi phép tính</option>
+        <option value="khong">Sai — coi ô trống là 0 xe</option>
+      </select>
+    </div>
+    <div>
+      <label for="cbChiSo">Chỉ số xếp hạng</label>
+      <select id="cbChiSo" onchange="veNut()">
+        <option value="caodiem">Lưu lượng giờ cao điểm</option>
+        <option value="canGay">Lưu lượng trung bình cả ngày</option>
+        <option value="cho">Hàng chờ dài nhất</option>
+        <option value="vacham">Số vụ va chạm 12 tháng</option>
+        <option value="chiphi">Chi phí nâng cấp (thấp lên trước)</option>
+      </select>
+    </div>
+    <div><button onclick="taiNut()">Tải bảng xếp hạng (CSV)</button></div>
+  </div>
+  <div class="bd">
+    <p class="tieu" id="tieuBd"></p>
+    <div id="bdNut"></div>
+  </div>
+  <div id="oNut"></div>
+  <div id="oCanhBao"></div>
+
+  <h2>Một ngày ở nút đông nhất</h2>
+  <div class="hang-dk">
+    <div>
+      <label for="cbNut">Chọn nút giao</label>
+      <select id="cbNut" onchange="veGio()"></select>
+    </div>
+  </div>
+  <div class="bd">
+    <p class="tieu">Lưu lượng trung bình theo 24 giờ — cột đỏ là khung giờ cao điểm</p>
+    <div id="bdGio"></div>
+  </div>
+  <div id="oGio"></div>
+
+  <h2>Truy tìm cảm biến bị trôi hiệu chuẩn</h2>
+  <p>Ba đường dưới đây là lưu lượng trung bình mỗi ngày của ba nút.
+  <b>Cả ba đều đi xuống</b> vì bốn ngày sau có thứ bảy và chủ nhật — đó là bẫy.
+  Chỉ khi lấy mức giảm của nút nghi ngờ trừ mức giảm của nút đối chứng mới ra
+  được phần thật sự do cảm biến.</p>
+  <div class="bd">
+    <p class="tieu">Lưu lượng trung bình theo ngày — số tụt nhưng đường không vắng đi</p>
+    <div id="bdTroi"></div>
+  </div>
+  <div id="oTroi"></div>
+
+  <h2>Nhật ký sự cố thiết bị</h2>
+  <div id="oSuCo"></div>
+</main>
+
+<script src="du_lieu/thong_so.js"></script>
+<script src="du_lieu/nut.js"></script>
+<script src="du_lieu/luu_luong.js"></script>
+<script src="du_lieu/su_co.js"></script>
+<script>
+var CAO_DIEM = TS.GIO_CAO_DIEM;
+var NGAY = Array.from(new Set(LUU_LUONG.map(function (x) { return x.ngay; }))).sort();
+var TEN_NUT = {};
+NUT.forEach(function (n) { TEN_NUT[n.ma_nut] = n.ten_nut; });
+
+/* ---------------------------------------------------------------- tóm tắt */
+(function () {
+  var mat = LUU_LUONG.filter(function (x) {
+    return x.trang_thai_cam_bien === "Mất tín hiệu"; }).length;
+  var nghi = LUU_LUONG.filter(function (x) {
+    return x.trang_thai_cam_bien === "Nghi ngờ"; }).length;
+  var sach = LUU_LUONG.length - mat - nghi;
+  var cs = [
+    ["Dòng dữ liệu", sn(LUU_LUONG.length), "8 nút × 7 ngày × 24 giờ", ""],
+    ["Mất tín hiệu", sn(mat), pc(mat * 100 / LUU_LUONG.length) + " — ô trống",
+     mat ? "do" : "xanh"],
+    ["Giá trị nghi ngờ", sn(nghi), pc(nghi * 100 / LUU_LUONG.length),
+     nghi ? "vang" : "xanh"],
+    ["Dùng được", pc(sach * 100 / LUU_LUONG.length), "sau khi loại hai nhóm trên", "xanh"]
+  ];
+  var o = document.getElementById("oTomTat");
+  cs.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+})();
+
+/* ------------------------------------------------------------- xếp hạng nút */
+function soLL(x, coiTrongLaKhong) {
+  if (x.trang_thai_cam_bien === "Mất tín hiệu") {
+    return coiTrongLaKhong ? 0 : null;
+  }
+  return x.luu_luong_xe_quy_doi;
+}
+
+function bangNut() {
+  var sai = document.getElementById("cbOTrong").value === "khong";
+  var t = {};
+  LUU_LUONG.forEach(function (x) {
+    var v = soLL(x, sai);
+    var k = x.ma_nut;
+    t[k] = t[k] || { cd: [], ca: [], cho: [], td: [] };
+    if (v === null) return;
+    t[k].ca.push(v);
+    if (CAO_DIEM.indexOf(x.gio) >= 0) t[k].cd.push(v);
+    if (x.do_dai_hang_cho_m !== "") t[k].cho.push(x.do_dai_hang_cho_m);
+    if (x.toc_do_tb_kmh !== "") t[k].td.push(x.toc_do_tb_kmh);
+  });
+  function tb(a) { return a.length ? a.reduce(function (p, q) { return p + q; }, 0) / a.length : 0; }
+  return NUT.map(function (n) {
+    var g = t[n.ma_nut] || { cd: [], ca: [], cho: [], td: [] };
+    return {
+      ma: n.ma_nut, ten: n.ten_nut,
+      caodiem: tb(g.cd), canGay: tb(g.ca),
+      ngay: g.ca.reduce(function (p, q) { return p + q; }, 0) / NGAY.length,
+      td: tb(g.td), cho: g.cho.length ? Math.max.apply(null, g.cho) : 0,
+      vacham: n.so_vu_va_cham_12_thang,
+      chiphi: n.chi_phi_nang_cap_trieu_dong,
+      loai: n.loai_cam_bien, den: n.co_den_tin_hieu ? "Có" : "Không",
+      truong: n.gan_truong_hoc ? "Có" : "Không"
+    };
+  });
+}
+
+var NHAN_CS = {
+  caodiem: "Lưu lượng giờ cao điểm (xe/giờ)",
+  canGay: "Lưu lượng trung bình cả ngày (xe/giờ)",
+  cho: "Hàng chờ dài nhất (m)",
+  vacham: "Số vụ va chạm 12 tháng",
+  chiphi: "Chi phí nâng cấp (triệu đồng)"
+};
+
+function veNut() {
+  var cs = document.getElementById("cbChiSo").value;
+  var sai = document.getElementById("cbOTrong").value === "khong";
+  var b = bangNut().sort(function (a, c) {
+    return cs === "chiphi" ? a[cs] - c[cs] : c[cs] - a[cs]; });
+
+  document.getElementById("tieuBd").textContent =
+    "Xếp hạng theo: " + NHAN_CS[cs] + (sai ? "  ·  ĐANG COI Ô TRỐNG LÀ 0 XE" : "");
+  veCot("bdNut", b.map(function (d) {
+      return d.ten.replace("Nút ", ""); }),
+    b.map(function (d) { return Math.round(d[cs]); }),
+    { le: 0, mau: function (v, i) { return i < 3 ? "#B3261E" : "#0070C0"; } });
+
+  veBang("oNut",
+    [{ ten: "Nút", lay: function (d) { return d.ten; } },
+     { ten: "Giờ cao điểm", so: true, lay: function (d) { return sn(d.caodiem); } },
+     { ten: "Cả ngày", so: true, lay: function (d) { return sn(d.canGay); } },
+     { ten: "Tốc độ TB", so: true, lay: function (d) { return sv(d.td) + " km/h"; } },
+     { ten: "Hàng chờ dài nhất", so: true, lay: function (d) { return sn(d.cho) + " m"; } },
+     { ten: "Va chạm 12 tháng", so: true, lay: function (d) { return sn(d.vacham); } },
+     { ten: "Gần trường", lay: function (d) { return d.truong; } },
+     { ten: "Loại cảm biến", lay: function (d) { return d.loai; } },
+     { ten: "Chi phí nâng cấp", so: true, lay: function (d) {
+         return sn(d.chiphi) + " tr"; } }],
+    b,
+    { ghi: "Ba nút đứng đầu theo chỉ số đang chọn được tô đỏ trên biểu đồ. " +
+           "Đổi chỉ số ở trên để thấy thứ hạng đổi theo." });
+
+  var cb = document.getElementById("oCanhBao");
+  cb.innerHTML = "";
+  if (sai) {
+    var dung = bangNut.call(null);
+    cb.appendChild(el("div", { "class": "hop hop-do", html:
+      "<b>Đang tính sai một cách cố ý.</b> Ô trống đang bị coi là 0 xe. " +
+      "Nút N06 (" + TEN_NUT["N06"] + ") mất tín hiệu 14 giờ liên tục, nên " +
+      "lưu lượng trung bình của nút này đang bị kéo xuống thấp hơn thực tế. " +
+      "Nếu xếp hạng theo bảng này, N06 sẽ bị loại khỏi danh sách ưu tiên một " +
+      "cách oan uổng. Chuyển lại về “Đúng — loại khỏi phép tính” để so sánh." }));
+  } else {
+    cb.appendChild(el("div", { "class": "hop", html:
+      "<b>Đang tính đúng.</b> Các dòng mất tín hiệu đã được loại khỏi phép tính, " +
+      "không thay bằng 0. Báo cáo chính thức phải ghi rõ đã loại bao nhiêu dòng " +
+      "và vì lý do gì." }));
+  }
+}
+
+function taiNut() {
+  var b = bangNut();
+  taiCSV("xep_hang_nut_giao.csv",
+    ["ma_nut", "ten_nut", "luu_luong_gio_cao_diem", "luu_luong_ca_ngay",
+     "toc_do_tb_kmh", "hang_cho_dai_nhat_m", "va_cham_12_thang",
+     "gan_truong_hoc", "loai_cam_bien", "chi_phi_nang_cap_trieu_dong"],
+    b.map(function (d) {
+      return [d.ma, d.ten, Math.round(d.caodiem), Math.round(d.canGay),
+              sv(d.td), Math.round(d.cho), d.vacham, d.truong, d.loai, d.chiphi];
+    }));
+}
+
+/* ------------------------------------------------------------- theo giờ */
+(function () {
+  var s = document.getElementById("cbNut");
+  NUT.forEach(function (n) {
+    s.appendChild(el("option", { value: n.ma_nut }, n.ten_nut));
+  });
+})();
+
+function veGio() {
+  var ma = document.getElementById("cbNut").value;
+  var t = {};
+  LUU_LUONG.filter(function (x) {
+    return x.ma_nut === ma && x.trang_thai_cam_bien === "OK";
+  }).forEach(function (x) {
+    t[x.gio] = t[x.gio] || [];
+    t[x.gio].push(x.luu_luong_xe_quy_doi);
+  });
+  var gio = Object.keys(t).sort();
+  var gt = gio.map(function (g) {
+    return Math.round(t[g].reduce(function (a, b) { return a + b; }, 0) / t[g].length);
+  });
+  veCot("bdGio", gio.map(function (g) { return g.slice(0, 2); }), gt,
+    { le: 0, mau: function (v, i) {
+        return CAO_DIEM.indexOf(gio[i]) >= 0 ? "#B3261E" : "#0070C0"; } });
+
+  var hi = Math.max.apply(null, gt), lo = Math.min.apply(null, gt);
+  var o = document.getElementById("oGio");
+  o.innerHTML = "";
+  o.appendChild(el("div", { "class": "hop", html:
+    "Giờ cao nhất có <b>" + sn(hi) + "</b> xe, giờ thấp nhất chỉ <b>" + sn(lo) +
+    "</b> xe — chênh <b>" + sv(hi / lo) + " lần</b>. Trung bình cả ngày là <b>" +
+    sn(gt.reduce(function (a, b) { return a + b; }, 0) / gt.length) +
+    "</b> xe mỗi giờ — con số này không mô tả đúng bất kỳ giờ nào. " +
+    "Người dân chịu ùn tắc vào giờ cao điểm, không chịu vào lúc 2 giờ sáng." }));
+}
+
+/* --------------------------------------------------------- trôi hiệu chuẩn */
+(function () {
+  var ma = ["N03", "N02", "N08"];
+  var duong = ma.map(function (m) {
+    var gt = NGAY.map(function (ng) {
+      var v = LUU_LUONG.filter(function (x) {
+        return x.ma_nut === m && x.ngay === ng && x.trang_thai_cam_bien === "OK";
+      }).map(function (x) { return x.luu_luong_xe_quy_doi; });
+      return v.length ? v.reduce(function (a, b) { return a + b; }, 0) / v.length : null;
+    });
+    return { ten: m + " — " + TEN_NUT[m], gt: gt };
+  });
+  veDuongNhieu("bdTroi", NGAY.map(function (n) { return n.slice(-2) + "/9"; }),
+    duong, { tuKhong: false, vach: 3, nhanVach: "Mốc va chạm ở N03" });
+
+  var b = ma.map(function (m, i) {
+    var g = duong[i].gt;
+    var truoc = g.slice(0, 3).filter(function (v) { return v !== null; });
+    var sau = g.slice(3).filter(function (v) { return v !== null; });
+    function tb(a) { return a.reduce(function (p, q) { return p + q; }, 0) / a.length; }
+    var t = tb(truoc), s = tb(sau);
+    return [m, TEN_NUT[m], t, s, (t - s) * 100 / t];
+  });
+  var giamDC = (b[1][4] + b[2][4]) / 2;
+  b.push(["chênh", "Phần quy cho cảm biến N03 (sau khi trừ đối chứng)",
+          null, null, b[0][4] - giamDC]);
+  veBang("oTroi",
+    [{ ten: "Nút", lay: function (d) { return d[0]; } },
+     { ten: "Tên", lay: function (d) { return d[1]; } },
+     { ten: "3 ngày đầu", so: true, lay: function (d) {
+         return d[2] === null ? "—" : sn(d[2]); } },
+     { ten: "4 ngày sau", so: true, lay: function (d) {
+         return d[3] === null ? "—" : sn(d[3]); } },
+     { ten: "Mức thay đổi", so: true, lay: function (d) {
+         return nhanTT((d[4] > 0 ? "−" : "+") + pc(Math.abs(d[4])),
+                       Math.abs(d[4]) > 15 ? "do" : "xanh"); } }],
+    b,
+    { ghi: "Mức giảm của N03 trừ đi mức giảm bình quân của hai nút đối chứng " +
+           "chính là phần quy cho cảm biến. Không dùng N06 làm đối chứng vì nút " +
+           "này mất tín hiệu 14 giờ cao điểm trong kỳ trước. Đối chiếu ngày tụt " +
+           "với nhật ký sự cố ở dưới." });
+})();
+
+/* ---------------------------------------------------------------- sự cố */
+veBang("oSuCo",
+  [{ ten: "Nút", lay: function (d) { return d.ma_nut; } },
+   { ten: "Ngày", lay: function (d) { return d.ngay_bat_dau; } },
+   { ten: "Số giờ gián đoạn", so: true, lay: function (d) {
+       return sn(d.so_gio_gian_doan); } },
+   { ten: "Loại sự cố", lay: function (d) { return d.loai_su_co; } },
+   { ten: "Ảnh hưởng dữ liệu", lay: function (d) { return d.anh_huong_du_lieu; } },
+   { ten: "Khắc phục", lay: function (d) {
+       return nhanTT(d.da_khac_phuc,
+                     d.da_khac_phuc === "Chưa khắc phục" ? "do" : "xanh"); } }],
+  SU_CO,
+  { ghi: "Không có nhật ký này thì không ai biết vì sao số liệu lạ. Yêu cầu nhà " +
+         "thầu bàn giao nhật ký sự cố là việc của lãnh đạo." });
+
+veNut();
+veGio();
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

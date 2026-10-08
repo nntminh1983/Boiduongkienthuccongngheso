@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Sàn tập Tình huống AI và IoT">
+<meta property="og:description" content="Website giả lập phục vụ năm chuyên đề thực hành. Mọi địa danh và số liệu đều hư cấu.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("index.html");</script>
+
+<main class="bao">
+  <h1>Sàn tập Tình huống AI và IoT</h1>
+
+  <div class="hop hop-do">
+    <b>Đây là trang giả lập dùng để đào tạo.</b> Trang không phải hệ thống của
+    bất kỳ cơ quan nhà nước nào. Địa bàn “thị xã Mẫu Giang, Tỉnh Mẫu”, tên các
+    đơn vị, trường học, nút giao, trạm quan trắc và trạm y tế đều là hư cấu.
+    Mọi con số do chương trình sinh ra theo phân bố định trước. Không trích dẫn
+    số liệu trên trang vào bất kỳ văn bản chính thức nào và không so sánh với
+    bất kỳ địa phương thật nào.
+  </div>
+
+  <p>Trang này đi kèm năm chuyên đề thực hành dành cho lãnh đạo cơ quan nhà nước.
+  Mỗi chuyên đề là một tình huống ra quyết định có thật về mặt nghiệp vụ, dựng
+  trên một bộ dữ liệu giả lập. Giảng viên dùng trang để demo; học viên dùng trang
+  để đối chiếu kết quả mình tự tính trên bảng tính.</p>
+
+  <h2>Địa bàn giả định</h2>
+  <div class="luoi luoi-4" id="oTomTat"></div>
+
+  <div class="hop hop-luc"><b>Mới – mở rộng 6 lĩnh vực.</b> Trang <a href="iot.html">Giám sát IoT</a> phát lại dữ liệu cảm biến của hành chính công, giáo dục, giao thông, môi trường, y tế và <b>xây dựng</b> như một trung tâm điều hành; trang <a href="goi-y.html">Gợi ý quyết định</a> đối chiếu thực trạng thường gặp ở Việt Nam với số liệu của địa bàn và đề xuất phương án kèm căn cứ, điều cần kiểm chứng.</div>
+
+  <h2>Mở trang trên điện thoại</h2>
+  <div class="luoi luoi-2">
+    <div class="the" style="text-align:center"><img src="tai_ve/qr_trang_web.svg" alt="Mã QR mở trang" style="width:180px;height:180px"><p class="nho">Quét bằng camera điện thoại hoặc Zalo</p></div>
+    <div class="the"><b>Địa chỉ trang</b><p style="word-break:break-all"><a href="https://nntminh1983.github.io/Boiduongkienthuccongngheso/chuyende-ai-iot/">https://nntminh1983.github.io/Boiduongkienthuccongngheso/chuyende-ai-iot/</a></p><p class="nho">Gửi đường dẫn này cho học viên. Trang có lớp xác nhận “website giả lập” ở lần mở đầu, không cho công cụ tìm kiếm thu thập, không lưu thông tin người dùng nhập.</p></div>
+  </div>
+
+  <h2>Năm chuyên đề</h2>
+  <div id="oChuyenDe"></div>
+
+  <h2>Công cụ trên trang</h2>
+  <div id="oCongCu"></div>
+
+  <div class="hop hop-cam">
+    <b>Cách dùng trong buổi học.</b> Học viên tự làm trên Google Trang tính
+    trước, ra con số của mình, rồi mới mở trang này để đối chiếu. Mở trang trước
+    thì mất phần quan trọng nhất của bài thực hành.
+    <br>Trang không lưu gì. Muốn giữ kết quả thì bấm nút tải về ở từng công cụ.
+  </div>
+
+  <h2>Quy tắc ba không khi dùng trợ lý AI</h2>
+  <div id="oBaKhong"></div>
+</main>
+
+<script src="du_lieu/don_vi.js"></script>
+<script src="du_lieu/truong.js"></script>
+<script src="du_lieu/nut.js"></script>
+<script>
+(function () {
+  var dan = DON_VI.reduce(function (a, d) { return a + d.dan_so; }, 0);
+  var hs = TRUONG.reduce(function (a, d) { return a + d.so_hoc_sinh; }, 0);
+  var cs = [
+    ["Đơn vị hành chính", sn(DON_VI.length), "phường và xã", ""],
+    ["Dân số giả định", sn(dan), "người", ""],
+    ["Trường học", sn(TRUONG.length), sn(hs) + " học sinh", ""],
+    ["Nút giao có cảm biến", sn(NUT.length), "đếm xe theo giờ", ""]
+  ];
+  var o = document.getElementById("oTomTat");
+  cs.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+})();
+
+veBang("oChuyenDe",
+  [{ ten: "Chuyên đề", lay: function (d) { return d[0]; } },
+   { ten: "Lĩnh vực", lay: function (d) { return d[1]; } },
+   { ten: "Vai trò người học đóng", lay: function (d) { return d[2]; } },
+   { ten: "Quyết định phải đưa ra", lay: function (d) { return d[3]; } },
+   { ten: "Trang tương ứng", lay: function (d) {
+       return d[4] ? el("a", { href: d[4] }, d[5]) : "—"; } }],
+  [["01 — Hành chính", "Phản ánh, kiến nghị của người dân",
+    "Chủ tịch UBND thị xã",
+    "Có triển khai trợ lý AI phân loại không, và đặt ngưỡng ở đâu",
+    "phan-anh.html", "Phản ánh & AI"],
+   ["02 — Giáo dục", "Tuyển sinh đầu cấp",
+    "Phó Chủ tịch phụ trách văn xã",
+    "Bố trí chỗ học năm tới: xây mới, phân tuyến lại hay mở lớp tạm",
+    "truong-hoc.html", "Tuyển sinh"],
+   ["03 — Giao thông", "Cảm biến đếm xe tại nút giao",
+    "Trưởng phòng Quản lý đô thị",
+    "Chọn 3 nút giao để xử lý trước khi ngân sách chỉ đủ 3 nút",
+    "giao-thong.html", "Cảm biến giao thông"],
+   ["04 — Môi trường", "Quan trắc không khí và cảnh báo ngập",
+    "Trưởng ban chỉ huy phòng chống thiên tai",
+    "Đặt ngưỡng cảnh báo ở mức nào, chung hay riêng từng điểm",
+    "canh-bao.html", "Ngưỡng cảnh báo"],
+   ["05 — Y tế và an sinh", "Dây chuyền lạnh vắc-xin, hồ sơ trợ cấp",
+    "Phó Chủ tịch phụ trách văn xã",
+    "Đầu tư cảm biến nhiệt độ, trợ lý AI sàng lọc, hay thay tủ",
+    "quyet-dinh.html", "Công cụ quyết định"]]);
+
+veBang("oCongCu",
+  [{ ten: "Trang", lay: function (d) { return el("a", { href: d[0] }, d[1]); } },
+   { ten: "Làm được gì", lay: function (d) { return d[2]; } },
+   { ten: "Dùng ở chuyên đề", lay: function (d) { return d[3]; } }],
+  [["du-lieu.html", "Bộ dữ liệu",
+    "Xem trước 28 bộ dữ liệu, tải từng tệp về máy để làm trên bảng tính",
+    "cả năm"],
+   ["phan-anh.html", "Phản ánh & AI",
+    "Kéo thanh ngưỡng độ tin cậy, xem ngay khối lượng máy tự quyết và độ chính xác",
+    "01"],
+   ["truong-hoc.html", "Tuyển sinh",
+    "Dự báo trẻ vào lớp 1 theo nhóm tuổi; xem trường nào thiếu chỗ, trường nào dư",
+    "02"],
+   ["giao-thong.html", "Cảm biến giao thông",
+    "Bật tắt cách xử lý ô trống để thấy hậu quả; truy tìm nút bị trôi hiệu chuẩn",
+    "03"],
+   ["canh-bao.html", "Ngưỡng cảnh báo",
+    "Kéo ngưỡng, bảng bốn ô đổi ngay; xem đường đánh đổi giữa bắt đúng và báo nhầm",
+    "04"],
+   ["iot.html", "Giám sát IoT",
+    "Phát lại dữ liệu từ 10 luồng thiết bị IoT của 6 lĩnh vực, tô màu theo ngưỡng, nhật ký cảnh báo",
+    "6 lĩnh vực"],
+   ["goi-y.html", "Gợi ý quyết định",
+    "Thực trạng Việt Nam → số liệu địa bàn → gợi ý quyết định có căn cứ, điều cần kiểm chứng, thẩm quyền",
+    "6 lĩnh vực"],
+   ["quyet-dinh.html", "Công cụ quyết định",
+    "Chọn chuyên đề, chỉnh sáu trọng số, xem xếp hạng và phân tích độ nhạy",
+    "01–06"]]);
+
+veBang("oBaKhong",
+  [{ ten: "Không", lay: function (d) { return d[0]; } },
+   { ten: "Vì sao", lay: function (d) { return d[1]; } }],
+  [["Không đưa dữ liệu cá nhân của công dân lên công cụ AI công cộng",
+    "Họ tên, số định danh, số điện thoại, địa chỉ, nội dung hồ sơ đều là dữ liệu cá nhân"],
+   ["Không đưa tài liệu mật hoặc tài liệu chưa được phép công bố",
+    "Kể cả bản chụp một phần; nội dung đã gửi đi thì không rút lại được"],
+   ["Không dùng kết quả chưa kiểm chứng",
+    "Trợ lý AI trả lời trôi chảy cả khi sai; mọi con số phải tra ngược về nguồn"]]);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

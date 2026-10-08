@@ -1,0 +1,19 @@
+﻿ma_truong,ten_truong,cap_hoc,ma_don_vi,ten_don_vi,so_phong_hoc,so_lop,so_hoc_sinh,so_giao_vien,so_hoc_sinh_moi_lop,so_giao_vien_moi_lop,khoang_cach_trung_tam_km
+TH01,Tiểu học Hoà Thuận,Tiểu học,DV01,Phường Hoà Thuận,24,26,994,39,38.2,1.5,1.0
+TH02,Tiểu học Tân Hoà,Tiểu học,DV02,Phường Tân Hoà,26,32,1372,44,42.9,1.38,2.1
+TH03,Tiểu học Đông Giang,Tiểu học,DV03,Phường Đông Giang,20,20,671,30,33.5,1.5,3.2
+TH04,Tiểu học Nam Phong,Tiểu học,DV04,Phường Nam Phong,22,22,783,32,35.6,1.45,4.0
+TH05,Tiểu học Bình An,Tiểu học,DV05,Xã Bình An,14,12,350,17,29.2,1.42,8.3
+TH06,Tiểu học Long Thành,Tiểu học,DV06,Xã Long Thành,15,12,328,17,27.3,1.42,10.8
+TH07,Tiểu học Phú Điền,Tiểu học,DV07,Xã Phú Điền,10,8,191,11,23.9,1.38,14.0
+TH08,Tiểu học An Cư,Tiểu học,DV09,Xã An Cư,9,7,154,9,22.0,1.29,21.0
+TH09,Tiểu học Thanh Sơn,Tiểu học,DV10,Xã Thanh Sơn,8,6,115,7,19.2,1.17,24.5
+TH10,Tiểu học Mỹ Khánh,Tiểu học,DV11,Xã Mỹ Khánh,14,13,406,19,31.2,1.46,9.4
+TC01,THCS Hoà Thuận,THCS,DV01,Phường Hoà Thuận,20,21,1007,39,48.0,1.86,1.3
+TC02,THCS Tân Hoà,THCS,DV02,Phường Tân Hoà,22,24,1093,42,45.5,1.75,2.2
+TC03,THCS Đông Giang,THCS,DV03,Phường Đông Giang,18,18,770,35,42.8,1.94,3.5
+TC04,THCS Nam Phong,THCS,DV04,Phường Nam Phong,18,18,788,33,43.8,1.83,4.2
+TC05,THCS Bình An,THCS,DV05,Xã Bình An,12,11,424,20,38.5,1.82,8.6
+TC06,THCS Vĩnh Lộc,THCS,DV08,Xã Vĩnh Lộc,10,9,300,15,33.3,1.67,16.5
+TC07,THCS Thanh Sơn,THCS,DV10,Xã Thanh Sơn,8,6,155,10,25.8,1.67,24.9
+TC08,THCS Hương Trà,THCS,DV12,Xã Hương Trà,10,8,244,14,30.5,1.75,18.2

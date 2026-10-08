@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ngưỡng cảnh báo — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Ngưỡng cảnh báo ngập và quan trắc không khí">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("canh-bao.html");</script>
+
+<main class="bao">
+  <h1>Chuyên đề 04 — Ngưỡng cảnh báo</h1>
+
+  <div class="hop">
+    <b>Vai trò của bạn:</b> Trưởng ban chỉ huy phòng chống thiên tai thị xã.
+    <b>Quyết định phải đưa ra:</b> đặt ngưỡng cảnh báo ngập ở mức nào, dùng
+    ngưỡng chung hay ngưỡng riêng cho từng điểm đo.
+  </div>
+
+  <h2 id="bonô">Bảng bốn ô — kéo ngưỡng để xem đổi thế nào</h2>
+  <div class="hang-dk">
+    <div style="flex:1;min-width:300px">
+      <label for="thNguong">Ngưỡng phát cảnh báo: <b id="nhanNguong"></b></label>
+      <input type="range" id="thNguong" min="60" max="190" step="5" value="100"
+             oninput="tinh()" style="width:100%">
+    </div>
+    <div>
+      <label for="cbDiem">Chỉ xét điểm đo</label>
+      <select id="cbDiem" onchange="tinh()"></select>
+    </div>
+    <div><button onclick="tai()">Tải bảng quét ngưỡng (CSV)</button></div>
+  </div>
+
+  <div id="oBonO"></div>
+  <div class="luoi luoi-4" id="oChiSo"></div>
+  <div id="oNhanXet"></div>
+
+  <h2>Đường đánh đổi</h2>
+  <div class="hop hop-cam">
+    <b>Không có điểm nào tốt cả hai mặt.</b> Hạ ngưỡng thì bắt được nhiều sự cố
+    hơn nhưng báo nhầm nhiều hơn. Nâng ngưỡng thì ngược lại. Lãnh đạo không chọn
+    “ngưỡng đúng” — lãnh đạo chọn một điểm trên đường này và nói rõ vì sao chấp
+    nhận điểm đó.
+  </div>
+  <div class="bd">
+    <p class="tieu">Bắt được bao nhiêu sự cố thật, và bao nhiêu phần trăm số lần phát cảnh báo là báo nhầm</p>
+    <div id="bdQuet"></div>
+  </div>
+  <div id="oQuet"></div>
+
+  <h2>Mỗi điểm đo một địa hình — ngưỡng chung là chưa hợp lý</h2>
+  <div id="oTheoDiem"></div>
+
+  <h2>Quan trắc không khí — một trạm đặt sai chỗ kéo lệch bức tranh chung</h2>
+  <div class="hang-dk">
+    <div>
+      <label for="cbBoTram">Tính trung bình toàn mạng</label>
+      <select id="cbBoTram" onchange="veTram()">
+        <option value="">Gồm cả 6 trạm</option>
+        <option value="KK5">Bỏ trạm Cầu Mẫu (cạnh công trường)</option>
+      </select>
+    </div>
+  </div>
+  <div class="bd">
+    <p class="tieu">PM2.5 trung bình theo trạm trong 30 ngày (µg/m³)</p>
+    <div id="bdTram"></div>
+  </div>
+  <div id="oTram"></div>
+
+  <h2>Năm dòng bắt buộc của quy chế phát cảnh báo</h2>
+  <div id="oQuyChe"></div>
+</main>
+
+<script src="du_lieu/thong_so.js"></script>
+<script src="du_lieu/ngap.js"></script>
+<script src="du_lieu/kk_ngay.js"></script>
+<script>
+/* ------------------------------------------------------------ bộ lọc điểm */
+(function () {
+  var s = document.getElementById("cbDiem");
+  s.appendChild(el("option", { value: "" }, "Tất cả điểm đo"));
+  var g = gom(NGAP, function (x) { return x.ten_diem; });
+  Object.keys(g).sort().forEach(function (k) {
+    s.appendChild(el("option", { value: k }, k));
+  });
+})();
+
+function loc() {
+  var d = document.getElementById("cbDiem").value;
+  return d ? NGAP.filter(function (x) { return x.ten_diem === d; }) : NGAP;
+}
+
+function maTran(ds, ng) {
+  var tp = 0, fp = 0, fn = 0, tn = 0, hoBoSot = 0;
+  ds.forEach(function (x) {
+    var phat = x.muc_nuoc_do_cm >= ng, that = x.thuc_te_co_ngap === 1;
+    if (phat && that) tp++;
+    else if (phat && !that) fp++;
+    else if (!phat && that) { fn++; hoBoSot += x.so_ho_bi_anh_huong; }
+    else tn++;
+  });
+  return {
+    tp: tp, fp: fp, fn: fn, tn: tn, hoBoSot: hoBoSot,
+    bat: (tp + fn) ? tp * 100 / (tp + fn) : 0,
+    nham: (tp + fp) ? fp * 100 / (tp + fp) : 0
+  };
+}
+
+/* ------------------------------------------------------------------ tính */
+function tinh() {
+  var ng = Number(document.getElementById("thNguong").value);
+  document.getElementById("nhanNguong").textContent = sn(ng) + " cm";
+  var ds = loc(), r = maTran(ds, ng);
+
+  veBang("oBonO",
+    [{ ten: "", lay: function (d) { return d[0]; } },
+     { ten: "Thực tế CÓ ngập", lay: function (d) { return d[1]; } },
+     { ten: "Thực tế KHÔNG ngập", lay: function (d) { return d[2]; } }],
+    [["CÓ phát cảnh báo",
+      el("b", { style: "color:#00843D" }, "Bắt đúng: " + sn(r.tp)),
+      el("b", { style: "color:#C2610F" }, "Báo nhầm: " + sn(r.fp))],
+     ["KHÔNG phát cảnh báo",
+      el("b", { style: "color:#B3261E" }, "Bỏ sót: " + sn(r.fn)),
+      el("b", { style: "color:#5A5A5A" }, "Yên đúng: " + sn(r.tn))]]);
+
+  var o = document.getElementById("oChiSo");
+  o.innerHTML = "";
+  [["Bắt được sự cố thật", pc(r.bat), sn(r.tp) + "/" + sn(r.tp + r.fn) + " lần ngập",
+    r.bat >= 85 ? "xanh" : (r.bat >= 70 ? "vang" : "do")],
+   ["Báo nhầm", pc(r.nham), "trong số lần đã phát cảnh báo",
+    r.nham <= 20 ? "xanh" : (r.nham <= 40 ? "vang" : "do")],
+   ["Số lần bỏ sót", sn(r.fn), "có ngập mà không báo", r.fn ? "do" : "xanh"],
+   ["Hộ bị ảnh hưởng không được báo", sn(r.hoBoSot), "hộ trong hai tháng",
+    r.hoBoSot ? "do" : "xanh"]
+  ].forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+
+  var goc = maTran(ds, TS.NGUONG_NGAP_HIEN_TAI);
+  var nx = document.getElementById("oNhanXet");
+  nx.innerHTML = "";
+  var chu;
+  if (ng === TS.NGUONG_NGAP_HIEN_TAI) {
+    chu = "<b>Đây là ngưỡng đang áp dụng.</b> Bắt được " + pc(goc.bat) +
+      " sự cố thật, nhưng " + pc(goc.nham) + " số lần phát cảnh báo là báo nhầm.";
+  } else {
+    var dNham = goc.nham - r.nham, dBoSot = r.fn - goc.fn;
+    chu = "<b>So với ngưỡng đang áp dụng " + sn(TS.NGUONG_NGAP_HIEN_TAI) +
+      " cm:</b> tỉ lệ báo nhầm " +
+      (dNham >= 0 ? "giảm " + pc(Math.abs(dNham)) : "tăng " + pc(Math.abs(dNham))) +
+      ", số lần bỏ sót " +
+      (dBoSot > 0 ? "tăng thêm " + sn(dBoSot) + " lần"
+                  : (dBoSot < 0 ? "giảm " + sn(-dBoSot) + " lần" : "không đổi")) +
+      ". Đây chính là câu phải viết trong tờ trình: chấp nhận đánh đổi gì để " +
+      "được gì.";
+  }
+  nx.appendChild(el("div", { "class": "hop", html: chu }));
+}
+
+/* ------------------------------------------------------------ quét ngưỡng */
+function bangQuet() {
+  var ds = loc(), r = [];
+  for (var n = 70; n <= 190; n += 10) {
+    var x = maTran(ds, n);
+    r.push([n, x.bat, x.nham, x.fn, x.hoBoSot]);
+  }
+  return r;
+}
+
+function veQuet() {
+  var b = bangQuet();
+  var moc = b.map(function (d) { return d[0]; })
+             .indexOf(TS.NGUONG_NGAP_HIEN_TAI);
+  veDuongNhieu("bdQuet", b.map(function (d) { return String(d[0]); }),
+    [{ ten: "Bắt được sự cố thật (%)", gt: b.map(function (d) { return d[1]; }), mau: "#00843D" },
+     { ten: "Báo nhầm (%)", gt: b.map(function (d) { return d[2]; }), mau: "#B3261E" }],
+    { le: 0, vach: moc >= 0 ? moc : null, nhanVach: "Ngưỡng đang áp dụng" });
+
+  veBang("oQuet",
+    [{ ten: "Ngưỡng (cm)", so: true, lay: function (d) { return sn(d[0]); } },
+     { ten: "Bắt được", so: true, lay: function (d) { return pc(d[1]); } },
+     { ten: "Báo nhầm", so: true, lay: function (d) { return pc(d[2]); } },
+     { ten: "Số lần bỏ sót", so: true, lay: function (d) { return sn(d[3]); } },
+     { ten: "Hộ không được báo", so: true, lay: function (d) { return sn(d[4]); } }],
+    b,
+    { ghi: "Lãnh đạo chọn một dòng trong bảng này và nói rõ vì sao chấp nhận " +
+           "dòng đó. Không có dòng nào tốt cả hai cột giữa." });
+}
+
+function tai() {
+  taiCSV("quet_nguong_canh_bao.csv",
+    ["nguong_cm", "ty_le_bat_duoc", "ty_le_bao_nham", "so_lan_bo_sot",
+     "so_ho_khong_duoc_bao"],
+    bangQuet().map(function (d) {
+      return [d[0], sv(d[1]), sv(d[2]), d[3], d[4]];
+    }));
+}
+
+/* ---------------------------------------------------------- ngưỡng từng điểm */
+(function () {
+  var t = {};
+  NGAP.forEach(function (x) {
+    var k = x.ten_diem;
+    t[k] = t[k] || { n: 0, ngap: 0, min: null, maxKhong: 0 };
+    t[k].n++;
+    if (x.thuc_te_co_ngap === 1) {
+      t[k].ngap++;
+      if (t[k].min === null || x.muc_nuoc_do_cm < t[k].min) t[k].min = x.muc_nuoc_do_cm;
+    } else if (x.muc_nuoc_do_cm > t[k].maxKhong) {
+      t[k].maxKhong = x.muc_nuoc_do_cm;
+    }
+  });
+  var ds = Object.keys(t).sort().map(function (k) {
+    return [k, t[k].n, t[k].ngap, t[k].min, t[k].maxKhong];
+  });
+  veBang("oTheoDiem",
+    [{ ten: "Điểm đo", lay: function (d) { return d[0]; } },
+     { ten: "Số lần đo", so: true, lay: function (d) { return sn(d[1]); } },
+     { ten: "Số lần ngập thật", so: true, lay: function (d) { return sn(d[2]); } },
+     { ten: "Mực nước thấp nhất từng gây ngập", so: true, lay: function (d) {
+         return d[3] === null ? "chưa từng ngập" : sn(d[3]) + " cm"; } },
+     { ten: "Ngưỡng đề xuất (trừ 10 cm an toàn)", so: true, lay: function (d) {
+         return d[3] === null ? "—" : nhanTT(sn(d[3] - 10) + " cm",
+           (d[3] - 10) > TS.NGUONG_NGAP_HIEN_TAI ? "xanh" : "vang"); } }],
+    ds,
+    { ghi: "Cột áp chót chênh nhau hàng chục xăng-ti-mét giữa các điểm. Dùng một " +
+           "ngưỡng chung nghĩa là có điểm báo quá sớm, có điểm báo quá muộn. " +
+           "Cách trừ 10 cm chỉ là quy ước đơn giản cho bài tập — khi làm thật " +
+           "phải tính theo địa hình và thời gian cần để dân kịp ứng phó." });
+})();
+
+/* ------------------------------------------------------------ quan trắc */
+function veTram() {
+  var bo = document.getElementById("cbBoTram").value;
+  var t = {};
+  KK_NGAY.forEach(function (x) {
+    if (x.pm25_trung_binh === "") return;
+    var k = x.ma_tram;
+    t[k] = t[k] || { ten: x.ten_tram, tong: 0, n: 0, thieu: 0, tongGio: 0, max: 0 };
+    t[k].tong += x.pm25_trung_binh;
+    t[k].n++;
+    t[k].thieu += x.so_gio_thieu;
+    t[k].tongGio += x.so_gio_thieu + x.so_gio_do_duoc;
+    if (x.pm25_cao_nhat > t[k].max) t[k].max = x.pm25_cao_nhat;
+  });
+  var ds = Object.keys(t).map(function (k) {
+    return { ma: k, ten: t[k].ten, tb: t[k].tong / t[k].n, max: t[k].max,
+             thieu: t[k].thieu, tongGio: t[k].tongGio };
+  }).sort(function (a, b) { return b.tb - a.tb; });
+
+  var dung = ds.filter(function (d) { return d.ma !== bo; });
+  var tbChung = dung.reduce(function (a, d) { return a + d.tb; }, 0) / dung.length;
+
+  veCot("bdTram", ds.map(function (d) {
+      return d.ten.replace("Trạm ", ""); }),
+    ds.map(function (d) { return Math.round(d.tb * 10) / 10; }),
+    { mau: function (v, i) {
+        return ds[i].ma === "KK5" ? "#B3261E" : "#0070C0"; } });
+
+  veBang("oTram",
+    [{ ten: "Trạm", lay: function (d) { return d.ten; } },
+     { ten: "PM2.5 trung bình", so: true, lay: function (d) { return sv(d.tb); } },
+     { ten: "Cao nhất ghi được", so: true, lay: function (d) { return sv(d.max); } },
+     { ten: "Số giờ thiếu hoặc nghi ngờ", so: true, lay: function (d) {
+         return d.thieu ? nhanTT(sn(d.thieu) + " giờ (" +
+           pc(d.thieu * 100 / d.tongGio) + ")", "do") : "0"; } },
+     { ten: "Có tính vào trung bình chung", lay: function (d) {
+         return d.ma === bo ? nhanTT("Đã bỏ ra", "vang") : "Có"; } }],
+    ds,
+    { ghi: "Trung bình toàn mạng theo lựa chọn hiện tại: " + sv(tbChung) +
+           " µg/m³. Trạm Cầu Mẫu đặt cách công trường 40 m — thiết bị đo đúng, " +
+           "nhưng nó đo không khí của công trường chứ không đại diện cho khu " +
+           "dân cư. Bỏ trạm này ra rồi so lại hai con số." });
+}
+
+/* ---------------------------------------------------------------- quy chế */
+veBang("oQuyChe",
+  [{ ten: "Dòng", lay: function (d) { return d[0]; } },
+   { ten: "Phải ghi rõ", lay: function (d) { return d[1]; } },
+   { ten: "Lỗi hay gặp", lay: function (d) { return d[2]; } }],
+  [["1", "Ai được quyền bấm nút phát cảnh báo — ghi chức danh cụ thể",
+    "Ghi tên phòng, nghĩa là không ai chịu trách nhiệm"],
+   ["2", "Trong bao lâu kể từ khi hệ thống báo, ví dụ 15 phút",
+    "Không ghi thời hạn, nên ai cũng chờ người khác"],
+   ["3", "Ai thay khi người đó không liên lạc được",
+    "Bỏ trống, nên sự cố ban đêm không xử lý được"],
+   ["4", "Phát qua kênh nào, theo thứ tự nào",
+    "Chỉ ghi “thông báo rộng rãi”, không nói kênh nào trước"],
+   ["5", "Ai chịu trách nhiệm nếu không phát mà thực tế có sự cố",
+    "Bỏ hẳn — đây là dòng khó viết nhất và cũng là dòng quyết định "
+    + "hệ thống có được dùng thật hay không"]]);
+
+tinh();
+veQuet();
+veTram();
+document.getElementById("cbDiem").addEventListener("change", veQuet);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>

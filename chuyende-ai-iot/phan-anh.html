@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Phản ánh và trợ lý AI — Sàn tập Tình huống AI và IoT</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta property="og:title" content="[GIẢ LẬP – ĐÀO TẠO] Phản ánh của người dân và trợ lý AI">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script src="js/chung.js"></script>
+<script>khungTrang("phan-anh.html");</script>
+
+<main class="bao">
+  <h1>Chuyên đề 01 — Phản ánh của người dân và trợ lý AI</h1>
+
+  <div class="hop">
+    <b>Vai trò của bạn:</b> Chủ tịch UBND thị xã Mẫu Giang.
+    <b>Quyết định phải đưa ra:</b> có triển khai trợ lý AI phân loại phản ánh
+    hay không, và nếu có thì đặt ngưỡng độ tin cậy ở đâu.
+  </div>
+
+  <h2>Bức tranh một năm</h2>
+  <div class="luoi luoi-4" id="oTomTat"></div>
+
+  <h2>Phản ánh theo lĩnh vực</h2>
+  <div class="bd">
+    <p class="tieu">Số phản ánh theo lĩnh vực — đây chính là danh mục trợ lý AI phải gán nhãn</p>
+    <div id="bdLinhVuc"></div>
+  </div>
+
+  <h2 id="nguong">Công cụ đặt ngưỡng độ tin cậy</h2>
+  <div class="hop hop-cam">
+    <b>Đây là quyết định thật của buổi học.</b> Kéo thanh dưới đây để chọn ngưỡng.
+    Trên ngưỡng thì máy tự quyết, dưới ngưỡng thì chuyển cán bộ duyệt.
+    Mọi con số bên dưới tính lại ngay từ bộ 420 bản ghi đã được người kiểm chứng.
+  </div>
+
+  <div class="hang-dk">
+    <div style="flex:1;min-width:280px">
+      <label for="thNguong">Ngưỡng độ tin cậy: <b id="nhanNguong"></b></label>
+      <input type="range" id="thNguong" min="50" max="99" value="90"
+             oninput="tinh()" style="width:100%">
+    </div>
+    <div>
+      <label for="cbLinhVuc">Chỉ xét lĩnh vực</label>
+      <select id="cbLinhVuc" onchange="tinh()"></select>
+    </div>
+    <div><button onclick="tai()">Tải bảng quét ngưỡng (CSV)</button></div>
+  </div>
+
+  <div class="luoi luoi-4" id="oKetQua"></div>
+  <div id="oNhanXet"></div>
+
+  <h2>Quét toàn bộ ngưỡng</h2>
+  <div class="bd">
+    <p class="tieu">Ngưỡng càng cao thì nhãn máy càng đúng, nhưng máy càng làm ít việc</p>
+    <div id="bdQuet"></div>
+  </div>
+  <div id="oQuet"></div>
+
+  <h2>Độ chính xác theo từng lĩnh vực</h2>
+  <div id="oTheoLinhVuc"></div>
+
+  <h2>Những cặp lĩnh vực trợ lý AI hay nhầm</h2>
+  <div id="oNham"></div>
+
+  <h2>Xem thử nội dung phản ánh</h2>
+  <p>Bảng dưới đây là mẫu nội dung để bạn thử dán vào trợ lý AI và tự chấm lại.
+  Cột <code>linh_vuc</code> là đáp án — chỉ mở ra sau khi đã chấm xong.</p>
+  <div class="hang-nut">
+    <button onclick="doiDapAn()">Ẩn / hiện cột đáp án</button>
+    <button class="phu" onclick="taiMau()">Tải 30 phản ánh ngẫu nhiên (CSV)</button>
+  </div>
+  <div id="oMau"></div>
+</main>
+
+<script src="du_lieu/thong_so.js"></script>
+<script src="du_lieu/phan_anh.js"></script>
+<script src="du_lieu/ai_pl.js"></script>
+<script>
+/* ---------------------------------------------------------------- tóm tắt */
+(function () {
+  var n = PHAN_ANH.length;
+  var cx = AI_PL.filter(function (a) { return a.ai_dung === 1; }).length
+           * 100 / AI_PL.length;
+  var cs = [
+    ["Phản ánh cả năm", sn(TS.TONG_PA), "trang này hiện mẫu " + sn(n) + " dòng", ""],
+    ["Trả lời đúng hạn", pc(TS.TY_PA_DUNG_HAN), "so với hạn từng loại", TS.TY_PA_DUNG_HAN < 85 ? "do" : "xanh"],
+    ["Thời gian xử lý", sv(TS.PA_TG_TB) + " ngày", "bình quân", ""],
+    ["Độ chính xác chung của AI", pc(cx), "trên " + AI_PL.length + " bản ghi kiểm chứng", "do"]
+  ];
+  var o = document.getElementById("oTomTat");
+  cs.forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+
+  var g = gom(PHAN_ANH, function (p) { return p.linh_vuc; });
+  var heSo = TS.TONG_PA / PHAN_ANH.length;
+  var ds = Object.keys(g).map(function (k) { return [k, g[k]]; })
+                  .sort(function (a, b) { return b[1] - a[1]; });
+  veCot("bdLinhVuc", ds.map(function (d) { return d[0]; }),
+        ds.map(function (d) { return Math.round(d[1] * heSo); }),
+        { mau: "#0070C0", le: 0 });
+})();
+
+/* ------------------------------------------------------------ bộ lọc lĩnh vực */
+(function () {
+  var s = document.getElementById("cbLinhVuc");
+  s.appendChild(el("option", { value: "" }, "Tất cả lĩnh vực"));
+  var g = gom(AI_PL, function (a) { return a.linh_vuc_nguoi_gan; });
+  Object.keys(g).sort().forEach(function (k) {
+    s.appendChild(el("option", { value: k }, k));
+  });
+})();
+
+function loc() {
+  var lv = document.getElementById("cbLinhVuc").value;
+  return lv ? AI_PL.filter(function (a) { return a.linh_vuc_nguoi_gan === lv; })
+            : AI_PL;
+}
+
+function doNguong(ds, ng) {
+  var tren = ds.filter(function (a) { return a.do_tin_cay >= ng; });
+  var duoi = ds.length - tren.length;
+  var dungTren = tren.filter(function (a) { return a.ai_dung === 1; }).length;
+  return {
+    tong: ds.length,
+    tuDong: tren.length,
+    tyTuDong: ds.length ? tren.length * 100 / ds.length : 0,
+    cxTuDong: tren.length ? dungTren * 100 / tren.length : 0,
+    nguoiDuyet: duoi,
+    saiTuDong: tren.length - dungTren
+  };
+}
+
+/* ------------------------------------------------------------------ tính */
+function tinh() {
+  var ng = Number(document.getElementById("thNguong").value) / 100;
+  document.getElementById("nhanNguong").textContent = sv(ng, 2);
+  var ds = loc();
+  var r = doNguong(ds, ng);
+
+  var o = document.getElementById("oKetQua");
+  o.innerHTML = "";
+  [["Máy tự quyết", pc(r.tyTuDong), r.tuDong + " trong " + r.tong + " bản ghi",
+    r.tyTuDong >= 50 ? "xanh" : ""],
+   ["Độ chính xác phần máy làm", pc(r.cxTuDong), "trên phần máy tự quyết",
+    r.cxTuDong >= 95 ? "xanh" : (r.cxTuDong >= 90 ? "" : "do")],
+   ["Cán bộ phải duyệt", pc(100 - r.tyTuDong), r.nguoiDuyet + " bản ghi", ""],
+   ["Số nhầm trong phần máy làm", sn(r.saiTuDong), "trên mẫu kiểm chứng",
+    r.saiTuDong > 5 ? "do" : "xanh"]
+  ].forEach(function (x) {
+    o.appendChild(el("div", { "class": "chi-so " + x[3], html:
+      '<div class="nhan">' + x[0] + '</div><div class="so">' + x[1] +
+      '</div><div class="phu">' + x[2] + "</div>" }));
+  });
+
+  /* quy ra cả năm */
+  var caNam = TS.TONG_PA;
+  var nhamNam = Math.round(caNam * r.tyTuDong / 100 * (100 - r.cxTuDong) / 100);
+  var gioTietKiem = Math.round(caNam * r.tyTuDong / 100 * TS.NGUOI_PHUT_TB / 60);
+  var nx = document.getElementById("oNhanXet");
+  nx.innerHTML = "";
+  nx.appendChild(el("div", { "class": "hop", html:
+    "<b>Quy ra một năm.</b> Với ngưỡng " + sv(ng, 2) + ", máy tự quyết khoảng " +
+    "<b>" + pc(r.tyTuDong) + "</b> khối lượng. Trên quy mô " + sn(caNam) +
+    " phản ánh mỗi năm, phần máy làm sẽ có khoảng <b>" + sn(nhamNam) +
+    " phản ánh bị chuyển nhầm đơn vị</b>, đổi lại tiết kiệm khoảng <b>" +
+    sn(gioTietKiem) + " giờ công</b> ở khâu phân loại." +
+    (r.cxTuDong < 90
+      ? "<br><b style='color:#B3261E'>Cảnh báo:</b> độ chính xác phần máy làm " +
+        "đang dưới 90%. Ngưỡng này quá thấp để giao cho máy tự quyết."
+      : "") }));
+}
+
+/* ------------------------------------------------------------ quét ngưỡng */
+function bangQuet() {
+  var ds = loc(), r = [];
+  for (var n = 50; n <= 99; n += 5) {
+    var x = doNguong(ds, n / 100);
+    r.push([n / 100, x.tyTuDong, x.cxTuDong, x.saiTuDong]);
+  }
+  return r;
+}
+
+function veQuet() {
+  var b = bangQuet();
+  veDuongNhieu("bdQuet", b.map(function (d) { return sv(d[0], 2); }),
+    [{ ten: "Khối lượng máy tự quyết (%)", gt: b.map(function (d) { return d[1]; }) },
+     { ten: "Độ chính xác phần máy làm (%)", gt: b.map(function (d) { return d[2]; }) }],
+    { le: 0 });
+  veBang("oQuet",
+    [{ ten: "Ngưỡng", lay: function (d) { return sv(d[0], 2); } },
+     { ten: "Máy tự quyết", so: true, lay: function (d) { return pc(d[1]); } },
+     { ten: "Độ chính xác phần máy làm", so: true, lay: function (d) { return pc(d[2]); } },
+     { ten: "Số nhầm trên mẫu", so: true, lay: function (d) { return sn(d[3]); } }],
+    b);
+}
+
+function tai() {
+  taiCSV("quet_nguong_do_tin_cay.csv",
+    ["nguong", "ty_le_may_tu_quyet", "do_chinh_xac_phan_may_lam", "so_nham_tren_mau"],
+    bangQuet().map(function (d) {
+      return [sv(d[0], 2), sv(d[1]), sv(d[2]), d[3]];
+    }));
+}
+
+/* --------------------------------------------------- độ chính xác theo lĩnh vực */
+(function () {
+  var t = {};
+  AI_PL.forEach(function (a) {
+    var k = a.linh_vuc_nguoi_gan;
+    t[k] = t[k] || [0, 0];
+    t[k][0]++;
+    if (a.ai_dung === 1) t[k][1]++;
+  });
+  var ds = Object.keys(t).map(function (k) {
+    return [k, t[k][0], t[k][1] * 100 / t[k][0]];
+  }).sort(function (a, b) { return b[2] - a[2]; });
+  veBang("oTheoLinhVuc",
+    [{ ten: "Lĩnh vực", lay: function (d) { return d[0]; } },
+     { ten: "Số mẫu kiểm chứng", so: true, lay: function (d) { return sn(d[1]); } },
+     { ten: "Độ chính xác", so: true, lay: function (d) { return pc(d[2]); } },
+     { ten: "Mức", lay: function (d) {
+         return nhanTT(d[2] >= 90 ? "Giao máy được" :
+                       (d[2] >= 80 ? "Giao máy, người duyệt" : "Nên để người làm"),
+                       d[2] >= 90 ? "xanh" : (d[2] >= 80 ? "vang" : "do")); } }],
+    ds,
+    { ghi: "Lĩnh vực có độ chính xác thấp nên đặt ngưỡng cao hơn, hoặc để cán bộ " +
+           "làm hoàn toàn. Không bắt buộc dùng một ngưỡng chung cho mọi lĩnh vực." });
+})();
+
+/* ---------------------------------------------------------------- nhầm lẫn */
+(function () {
+  var c = {};
+  AI_PL.filter(function (a) { return a.ai_dung === 0; }).forEach(function (a) {
+    var k = a.linh_vuc_nguoi_gan + " ⇒ " + a.linh_vuc_ai_gan;
+    c[k] = (c[k] || 0) + 1;
+  });
+  var ds = Object.keys(c).map(function (k) { return [k, c[k]]; })
+                  .sort(function (a, b) { return b[1] - a[1]; }).slice(0, 8);
+  veBang("oNham",
+    [{ ten: "Người gán ⇒ AI gán thành", lay: function (d) { return d[0]; } },
+     { ten: "Số lần", so: true, lay: function (d) { return sn(d[1]); } }],
+    ds,
+    { ghi: "Cách sửa không phải đổi phần mềm, mà là viết lại định nghĩa từng " +
+           "lĩnh vực cho rõ và bổ sung ví dụ mẫu vào câu lệnh." });
+})();
+
+/* ------------------------------------------------------------- mẫu nội dung */
+var HIEN_DAP_AN = false;
+var MAU = PHAN_ANH.slice(0, 30);
+
+function veMau() {
+  var cot = [
+    { ten: "Mã", lay: function (d) { return d.ma_phan_anh; } },
+    { ten: "Kênh", lay: function (d) { return d.kenh; } },
+    { ten: "Nội dung phản ánh", lay: function (d) { return d.noi_dung; } }
+  ];
+  if (HIEN_DAP_AN) {
+    cot.push({ ten: "Lĩnh vực (đáp án)", lay: function (d) { return d.linh_vuc; } });
+    cot.push({ ten: "Mức độ", lay: function (d) { return d.muc_do; } });
+  }
+  veBang("oMau", cot, MAU,
+    { ghi: HIEN_DAP_AN ? "Đang hiện đáp án."
+                       : "Đang ẩn đáp án — hãy tự phân loại trước rồi mới mở." });
+}
+
+function doiDapAn() { HIEN_DAP_AN = !HIEN_DAP_AN; veMau(); }
+
+function taiMau() {
+  var cot = ["ma_phan_anh", "kenh", "noi_dung", "linh_vuc", "muc_do"];
+  taiCSV("mau_30_phan_anh.csv", cot,
+    MAU.map(function (d) { return cot.map(function (k) { return d[k]; }); }));
+}
+
+veMau();
+tinh();
+veQuet();
+document.getElementById("cbLinhVuc").addEventListener("change", veQuet);
+</script>
+<script>chanTrang();</script>
+</body>
+</html>
